@@ -30,11 +30,11 @@ func _physics_process(delta):
 	if direction == -1:
 		$AnimatedSprite2D.flip_h = true
 		#tween.tween_property($Camera2D, "offset",-200,1)
-		$Camera2D.offset.x = -100
+		#$Camera2D.offset.x = -100
 	elif direction == 1:
 		$AnimatedSprite2D.flip_h = false
 		#tween.tween_property($Camera2D, "offset",200,1)
-		$Camera2D.offset.x = 100
+		#$Camera2D.offset.x = 100
 		
 	
 	if direction:
@@ -50,4 +50,11 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		anim_plr.play("jump")
+		
+	if position.y >= 1000:
+		position.y = -155
+		position.x = 275
+	
 	move_and_slide()
+
+	
