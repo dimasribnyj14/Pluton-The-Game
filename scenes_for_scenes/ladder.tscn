@@ -18,3 +18,6 @@ stretch_mode = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(16, 83)
 shape = SubResource("RectangleShape2D_b47j4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
