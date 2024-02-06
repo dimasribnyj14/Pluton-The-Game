@@ -52,7 +52,7 @@ func _physics_process(delta):
 			velocity.y = JUMP_VELOCITY
 			anim_plr.play("jump")
 		
-	if position.y >= 1000:
+	if position.y >= 1100:
 		position.y = -155
 		position.x = 275
 	
