@@ -1,6 +1,6 @@
 [gd_scene load_steps=51 format=3 uid="uid://cueonbiinnvbe"]
 
-[ext_resource type="Texture2D" uid="uid://c0x0l68s3nvo" path="res://resources/backgrounds_flame/Fon.png" id="1_333jb"]
+[ext_resource type="Texture2D" uid="uid://cg5ebmsg4r6tu" path="res://resources/backgrounds_flame/Fon2.png" id="1_uu6dx"]
 [ext_resource type="Texture2D" uid="uid://boh55yautp1a1" path="res://resources/tilemaps/ship_blocks.png" id="2_gtm28"]
 [ext_resource type="Texture2D" uid="uid://bxupvtqfs3jd7" path="res://resources/decorations/flame_level/lava.png" id="2_sljr7"]
 [ext_resource type="PackedScene" uid="uid://bcypn17ixt517" path="res://scenes_for_scenes/player/character.tscn" id="3_fs2fx"]
@@ -1374,7 +1374,7 @@ offset_right = 4607.0
 offset_bottom = -452.0
 scale = Vector2(4, 4)
 theme = SubResource("Theme_qnc8c")
-texture = ExtResource("1_333jb")
+texture = ExtResource("1_uu6dx")
 stretch_mode = 1
 
 [node name="TextureRect2" type="TextureRect" parent="."]
