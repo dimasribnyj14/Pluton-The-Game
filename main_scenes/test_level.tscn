@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bee713pv7n000" path="res://resources/decorations/dragon_fly.png" id="4_46oty"]
 [ext_resource type="Texture2D" uid="uid://cqj6mslxbpi3l" path="res://resources/decorations/flame_level/1.png" id="5_kinag"]
 [ext_resource type="Texture2D" uid="uid://btam5i0ekv6xk" path="res://resources/interactive/defense_points/gate_full.png" id="5_njja2"]
-[ext_resource type="Script" path="res://main_scenes/dragon_fly.gd" id="5_udckl"]
+[ext_resource type="Script" path="res://scripts/dragon_fly.gd" id="5_udckl"]
 [ext_resource type="Texture2D" uid="uid://bbhdmcpn0tfrf" path="res://resources/tilemaps/pixil-Default_blocks-1.png" id="6_2l2g4"]
 [ext_resource type="Texture2D" uid="uid://bt4vcpqjekgxp" path="res://resources/decorations/flame_level/torch_anim/1.png" id="6_mfja5"]
 [ext_resource type="Texture2D" uid="uid://b7b4nc56mnjis" path="res://resources/decorations/flame_level/torch_anim/2.png" id="7_bsh1r"]
