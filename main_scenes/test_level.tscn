@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cueonbiinnvbe"]
+[gd_scene load_steps=52 format=3 uid="uid://cueonbiinnvbe"]
 
 [ext_resource type="Texture2D" uid="uid://cg5ebmsg4r6tu" path="res://resources/backgrounds_flame/Fon2.png" id="1_uu6dx"]
 [ext_resource type="Texture2D" uid="uid://boh55yautp1a1" path="res://resources/tilemaps/ship_blocks.png" id="2_gtm28"]
@@ -34,6 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://bh8s108ul67uj" path="res://resources/decorations/flame_level/coal/2.png" id="27_u3483"]
 [ext_resource type="Texture2D" uid="uid://cvuq5y20a32hx" path="res://resources/decorations/flame_level/flower_hell.png" id="28_1pgll"]
 [ext_resource type="Texture2D" uid="uid://bl87p1l8v3dig" path="res://resources/decorations/flame_level/fire-box.png" id="33_njiy8"]
+[ext_resource type="PackedScene" uid="uid://b3c16m8t57g11" path="res://scenes_for_scenes/parallax_background.tscn" id="35_2nyj4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_54qu8"]
 
@@ -1791,7 +1792,7 @@ scale = Vector2(0.506667, 0.506667)
 texture = ExtResource("21_4gerb")
 
 [node name="FlowerHell" type="Sprite2D" parent="."]
-position = Vector2(3765.5, 617.5)
+position = Vector2(2664, 798)
 scale = Vector2(1.49, 1.49)
 texture = ExtResource("28_1pgll")
 
@@ -1815,3 +1816,8 @@ position = Vector2(34, 9)
 scale = Vector2(0.913049, 0.845963)
 limit_smoothed = true
 position_smoothing_enabled = true
+
+[node name="ParallaxBackground" parent="CharacterBody2D" instance=ExtResource("35_2nyj4")]
+offset = Vector2(-2500, -2500)
+scale = Vector2(15, 15)
+transform = Transform2D(15, 0, 0, 15, -2500, -2500)
