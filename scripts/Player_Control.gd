@@ -4,12 +4,14 @@ extends CharacterBody2D
 const SPEED = 350.0
 const JUMP_VELOCITY = -550.0
 
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var anim_plr
 
 func _ready():
+	print(get_tree().current_scene.name)
 	anim_plr = get_node("AnimationPlayer")
 
 
@@ -51,10 +53,14 @@ func _physics_process(delta):
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
 			anim_plr.play("jump")
-		
+	
 	if position.y >= 1100:
-		position.y = -155
-		position.x = 275
+		if get_tree().current_scene.name == 'FirstLevel':
+			position.y = -155
+			position.x = 275
+		elif get_tree().current_scene.name == 'SecondLvl':
+			position.y = 170
+			position.x = 276
 	
 	move_and_slide()
 
