@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://cueonbiinnvbe"]
+[gd_scene load_steps=56 format=3 uid="uid://cueonbiinnvbe"]
 
 [ext_resource type="Texture2D" uid="uid://m1fh0cvq8dya" path="res://resources/backgrounds_flame/Fon1.png" id="1_cdohg"]
 [ext_resource type="Texture2D" uid="uid://bxupvtqfs3jd7" path="res://resources/decorations/flame_level/lava.png" id="2_2p507"]
@@ -37,6 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://bcypn17ixt517" path="res://scenes_for_scenes/player/character.tscn" id="34_ubauj"]
 [ext_resource type="Script" path="res://main_scenes/RotationPortal.gd" id="35_onugj"]
 [ext_resource type="PackedScene" uid="uid://b3c16m8t57g11" path="res://scenes_for_scenes/parallax_background.tscn" id="35_qbwl0"]
+[ext_resource type="PackedScene" uid="uid://dftjqycqrt3du" path="res://scenes_for_scenes/player/control_mobile.tscn" id="38_vw2eh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_54qu8"]
 
@@ -1564,7 +1565,7 @@ frame = 1
 frame_progress = 0.231532
 
 [node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D7"]
-position = Vector2(10.6667, 21.1613)
+position = Vector2(1.68425, 14.4306)
 scale = Vector2(17.3287, 4.03842)
 texture = ExtResource("2_2p507")
 
@@ -1842,6 +1843,12 @@ script = ExtResource("35_onugj")
 position = Vector2(1.28746e-05, 1.23978e-05)
 scale = Vector2(1.375, 1.375)
 texture = ExtResource("34_q3c43")
+
+[node name="Control" parent="." instance=ExtResource("38_vw2eh")]
+offset_left = -257.0
+offset_top = -1108.0
+offset_right = 894.0
+offset_bottom = -457.0
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("34_ubauj")]
 position = Vector2(284, -793)
