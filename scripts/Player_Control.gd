@@ -53,13 +53,15 @@ func _physics_process(delta):
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
 			anim_plr.play("jump")
-	
 	if position.y >= 1100:
 		if get_tree().current_scene.name == 'FirstLevel':
 			position.y = -155
 			position.x = 275
 		elif get_tree().current_scene.name == 'SecondLvl':
 			position.y = 170
+			position.x = 276
+		elif get_tree().current_scene.name == 'ThirdLvl':
+			position.y = 1000
 			position.x = 276
 	
 	move_and_slide()
