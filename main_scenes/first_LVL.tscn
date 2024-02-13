@@ -35,7 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://bl87p1l8v3dig" path="res://resources/decorations/flame_level/fire-box.png" id="33_bv4nj"]
 [ext_resource type="Texture2D" uid="uid://bl7yigmgguc4g" path="res://resources/portal/flame/yeppi1.png" id="34_q3c43"]
 [ext_resource type="PackedScene" uid="uid://bcypn17ixt517" path="res://scenes_for_scenes/player/character.tscn" id="34_ubauj"]
-[ext_resource type="Script" path="res://main_scenes/RotationPortal.gd" id="35_onugj"]
+[ext_resource type="Script" path="res://scripts/RotationPortal.gd" id="35_onugj"]
 [ext_resource type="PackedScene" uid="uid://b3c16m8t57g11" path="res://scenes_for_scenes/parallax_background.tscn" id="35_qbwl0"]
 [ext_resource type="PackedScene" uid="uid://dftjqycqrt3du" path="res://scenes_for_scenes/player/control_mobile.tscn" id="38_vw2eh"]
 
