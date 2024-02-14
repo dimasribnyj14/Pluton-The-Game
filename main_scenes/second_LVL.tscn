@@ -992,6 +992,7 @@ sources/4 = SubResource("TileSetAtlasSource_r4uvn")
 position = Vector2(-6, 1225)
 
 [node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 2
 offset_left = -1824.0
 offset_top = -930.0
 offset_right = 564.0
