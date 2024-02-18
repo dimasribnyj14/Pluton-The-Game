@@ -1,6 +1,7 @@
-[gd_scene load_steps=56 format=3 uid="uid://cueonbiinnvbe"]
+[gd_scene load_steps=57 format=3 uid="uid://cueonbiinnvbe"]
 
 [ext_resource type="Texture2D" uid="uid://m1fh0cvq8dya" path="res://resources/backgrounds_flame/Fon1.png" id="1_cdohg"]
+[ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_x6hvk"]
 [ext_resource type="Texture2D" uid="uid://bxupvtqfs3jd7" path="res://resources/decorations/flame_level/lava.png" id="2_2p507"]
 [ext_resource type="Script" path="res://scripts/lava.gd" id="3_xlucj"]
 [ext_resource type="Texture2D" uid="uid://bee713pv7n000" path="res://resources/decorations/dragon_fly.png" id="4_viahx"]
@@ -1370,6 +1371,7 @@ animations = [{
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m8vjk"]
 
 [node name="FirstLevel" type="Node2D"]
+script = ExtResource("1_x6hvk")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 6

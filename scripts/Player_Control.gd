@@ -49,7 +49,7 @@ func _physics_process(delta):
 			anim_plr.play("idle")
 
 
-	if Input.is_action_just_pressed("ui_accept") and Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
 			anim_plr.play("jump")

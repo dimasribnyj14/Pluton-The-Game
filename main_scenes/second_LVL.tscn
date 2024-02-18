@@ -1,7 +1,8 @@
-[gd_scene load_steps=43 format=3 uid="uid://dk1xgqbvjcej7"]
+[gd_scene load_steps=44 format=3 uid="uid://dk1xgqbvjcej7"]
 
 [ext_resource type="Texture2D" uid="uid://b2ikycmdiuhai" path="res://resources/backgrounds_ice/photo2pixel_download (1).png" id="1_ae603"]
 [ext_resource type="Texture2D" uid="uid://dhg5vuymtjxo1" path="res://resources/tilemaps/pixil-Default_blocks-0.png" id="1_k3syu"]
+[ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_k7ykd"]
 [ext_resource type="Texture2D" uid="uid://j1rehep1d87e" path="res://resources/portal/toxic/1.png" id="2_l4xfe"]
 [ext_resource type="Texture2D" uid="uid://boh55yautp1a1" path="res://resources/tilemaps/ship_blocks.png" id="2_vrruo"]
 [ext_resource type="Script" path="res://scripts/RotationPortal.gd" id="3_4trau"]
@@ -990,6 +991,7 @@ sources/4 = SubResource("TileSetAtlasSource_r4uvn")
 
 [node name="SecondLvl" type="Node2D"]
 position = Vector2(-6, 1225)
+script = ExtResource("1_k7ykd")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 2
