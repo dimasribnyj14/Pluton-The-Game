@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3c16m8t57g11"]
+[gd_scene load_steps=6 format=3 uid="uid://hxpgarul75d"]
 
 [ext_resource type="Shader" path="res://scripts/smoke.gdshader" id="1_ddakl"]
 
@@ -34,3 +34,4 @@ motion_mirroring = Vector2(1152, 648)
 material = SubResource("ShaderMaterial_setlp")
 offset_right = 1152.0
 offset_bottom = 648.0
+metadata/_edit_use_anchors_ = true

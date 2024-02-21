@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://cueonbiinnvbe"]
+[gd_scene load_steps=58 format=3 uid="uid://cueonbiinnvbe"]
 
 [ext_resource type="Texture2D" uid="uid://m1fh0cvq8dya" path="res://resources/backgrounds_flame/Fon1.png" id="1_cdohg"]
 [ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_x6hvk"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://basllbw1e4l3e" path="res://resources/decorations/flame_level/torch_anim/3.png" id="13_vfvo2"]
 [ext_resource type="Texture2D" uid="uid://bp06qekglg4x1" path="res://resources/decorations/flame_level/torch_anim/4.png" id="14_sgnuo"]
 [ext_resource type="Texture2D" uid="uid://cqj6mslxbpi3l" path="res://resources/decorations/flame_level/1.png" id="15_bu2vt"]
+[ext_resource type="Texture2D" uid="uid://b8viuv6uebh8k" path="res://resources/decorations/jungle_level/firelight/light.png" id="16_hqmyx"]
 [ext_resource type="Texture2D" uid="uid://lxso5wpjl3o0" path="res://resources/interactive/ore.png" id="16_hrtsh"]
 [ext_resource type="Texture2D" uid="uid://dhkvsnk8jse1t" path="res://resources/interactive/defense_points/defense_point_down.png" id="17_q7rsx"]
 [ext_resource type="Texture2D" uid="uid://bm58a8h4ylud" path="res://resources/interactive/defense_points/defense_point_gate.png" id="18_a8xal"]
@@ -37,7 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://bl7yigmgguc4g" path="res://resources/portal/flame/yeppi1.png" id="34_q3c43"]
 [ext_resource type="PackedScene" uid="uid://bcypn17ixt517" path="res://scenes_for_scenes/player/character.tscn" id="34_ubauj"]
 [ext_resource type="Script" path="res://scripts/RotationPortal.gd" id="35_onugj"]
-[ext_resource type="PackedScene" uid="uid://b3c16m8t57g11" path="res://scenes_for_scenes/parallax_background.tscn" id="35_qbwl0"]
+[ext_resource type="PackedScene" uid="uid://hxpgarul75d" path="res://scenes_for_scenes/parallax_background.tscn" id="35_qbwl0"]
 [ext_resource type="PackedScene" uid="uid://dftjqycqrt3du" path="res://scenes_for_scenes/player/control_mobile.tscn" id="38_vw2eh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_54qu8"]
@@ -1447,6 +1448,30 @@ sprite_frames = SubResource("SpriteFrames_i0y86")
 animation = &"torch"
 autoplay = "torch"
 
+[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D"]
+texture_filter = 4
+position = Vector2(0.517414, 10.1538)
+scale = Vector2(3.50191, 5.24358)
+color = Color(0.737255, 0.505882, 0, 1)
+energy = 0.57
+range_z_min = -904
+range_z_max = 2014
+range_layer_min = -512
+range_layer_max = 205
+texture = ExtResource("16_hqmyx")
+
+[node name="PointLight2D2" type="PointLight2D" parent="AnimatedSprite2D"]
+texture_filter = 4
+position = Vector2(137.373, 8.8846)
+scale = Vector2(3.50191, 5.24358)
+color = Color(0.737255, 0.505882, 0, 1)
+energy = 0.57
+range_z_min = -904
+range_z_max = 2014
+range_layer_min = -512
+range_layer_max = 205
+texture = ExtResource("16_hqmyx")
+
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 position = Vector2(581, 474)
 scale = Vector2(3.86538, 2.36364)
@@ -1836,7 +1861,7 @@ texture = ExtResource("33_bv4nj")
 
 [node name="Yeppi1" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_m8vjk")
-position = Vector2(329.036, -726)
+position = Vector2(325.964, -284)
 scale = Vector2(3.5672, 3.59184)
 texture = ExtResource("34_q3c43")
 script = ExtResource("35_onugj")
@@ -1853,7 +1878,7 @@ offset_right = 894.0
 offset_bottom = -457.0
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("34_ubauj")]
-position = Vector2(284, -793)
+position = Vector2(280.928, -351)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(34, 9)
@@ -1862,6 +1887,6 @@ limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="ParallaxBackground" parent="CharacterBody2D" instance=ExtResource("35_qbwl0")]
-offset = Vector2(-2500, -2500)
-scale = Vector2(15, 15)
-transform = Transform2D(15, 0, 0, 15, -2500, -2500)
+offset = Vector2(-2510.95, -2500)
+scale = Vector2(12.135, 4.66)
+transform = Transform2D(12.135, 0, 0, 4.66, -2510.95, -2500)

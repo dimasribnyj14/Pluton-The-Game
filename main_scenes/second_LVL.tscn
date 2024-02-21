@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dk1xgqbvjcej7"]
+[gd_scene load_steps=45 format=3 uid="uid://dk1xgqbvjcej7"]
 
 [ext_resource type="Texture2D" uid="uid://b2ikycmdiuhai" path="res://resources/backgrounds_ice/photo2pixel_download (1).png" id="1_ae603"]
 [ext_resource type="Texture2D" uid="uid://dhg5vuymtjxo1" path="res://resources/tilemaps/pixil-Default_blocks-0.png" id="1_k3syu"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://cgo6fhlfcvu6g" path="res://resources/decorations/ice_level/trees/tree4.png" id="30_b47s6"]
 [ext_resource type="Texture2D" uid="uid://c2wod38baubc6" path="res://resources/decorations/ice_level/GATE.png" id="31_dlp34"]
 [ext_resource type="Texture2D" uid="uid://dhcbo0nmnmw3k" path="res://resources/decorations/blue_ore.png" id="31_n4dus"]
+[ext_resource type="PackedScene" uid="uid://c6picwuw4s31m" path="res://scenes_for_scenes/snow.tscn" id="34_fbtk1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7peq7"]
 texture = ExtResource("1_k3syu")
@@ -1316,3 +1317,11 @@ position = Vector2(34, 9)
 scale = Vector2(0.913049, 0.845963)
 limit_smoothed = true
 position_smoothing_enabled = true
+
+[node name="CPUParticles2D" parent="." instance=ExtResource("34_fbtk1")]
+texture_filter = 2
+position = Vector2(9819, -1010)
+scale = Vector2(80, 10)
+emitting = false
+amount = 5000
+lifetime = 5.0
