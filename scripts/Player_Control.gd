@@ -18,14 +18,20 @@ func _ready():
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		if get_tree().current_scene.name == 'Cloudlvl':
+			velocity.y += gravity * delta-5
+		else:
+			velocity.y += gravity * delta
+		
+		
 	#FOURTH LVL
-	if lightOff == false:
-		if get_tree().current_scene.name == 'FourthLevel':
-			if position.x > 0 and $PointLight2D.energy > 0:
-				lightOff = true
-	elif lightOff == true and $PointLight2D.energy > 0:
-		$PointLight2D.energy -= 0.01
+	if get_node_or_null('PointLight2D'):
+		if lightOff == false:
+			if get_tree().current_scene.name == 'FourthLevel':
+				if position.x > 0 and $PointLight2D.energy > 0:
+					lightOff = true
+		elif lightOff == true and $PointLight2D.energy > 0:
+			$PointLight2D.energy -= 0.01
 	#OTHER
 	# Get the input direction and handle the movement/deceleration..;
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -34,18 +40,19 @@ func _physics_process(delta):
 	if direction == -1:
 		#$AnimatedSprite2D.scale = Vector2(1,1)
 		$AnimatedSprite2D.flip_h = true
-		if $PointLight2D:
+		if get_node_or_null('PointLight2D'):
 			$PointLight2D.scale.x = -5.321
 			$PointLight2D.offset.x = 50
+		$CollisionShape2D.position.x = 70
 		#tween.tween_property($Camera2D, "offset",-200,1)
 		#$Camera2D.offset.x = -100
 	elif direction == 1:
 		#$AnimatedSprite2D.scale = Vector2(-1,1)
 		$AnimatedSprite2D.flip_h = false
-		if $PointLight2D:
+		if get_node_or_null('PointLight2D'):
 			$PointLight2D.scale.x = 5.321
 			$PointLight2D.offset.x = -1
-		
+		$CollisionShape2D.position.x = 37
 		#tween.tween_property($Camera2D, "offset",200,1)
 		#$Camera2D.offset.x = 100
 		
@@ -77,7 +84,28 @@ func _physics_process(delta):
 		elif get_tree().current_scene.name == 'FourthLevel':
 			position.y = 667
 			position.x = -4436.04
+		elif get_tree().current_scene.name == 'Cloudlvl':
+			position.y = 966
+			position.x = 290
 	
 	move_and_slide()
-
 	
+	for i in get_slide_collision_count():
+		if get_slide_collision_count() > 0:
+			var collision = get_slide_collision(i)
+			if collision.get_collider().is_in_group("enemy"):
+				if get_tree().current_scene.name == 'FirstLevel':
+					position.y = -155
+					position.x = 275
+				elif get_tree().current_scene.name == 'SecondLvl':
+					position.y = 170
+					position.x = 276
+				elif get_tree().current_scene.name == 'ThirdLvl':
+					position.y = 1000
+					position.x = 276
+				elif get_tree().current_scene.name == 'FourthLevel':
+					position.y = 667
+					position.x = -4436.04
+				elif get_tree().current_scene.name == 'Cloudlvl':
+					position.y = 966
+					position.x = 290

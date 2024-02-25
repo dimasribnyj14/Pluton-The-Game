@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://c5b42d00n3l2w"]
+[gd_scene load_steps=55 format=3 uid="uid://c5b42d00n3l2w"]
 
 [ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_isw6d"]
 [ext_resource type="PackedScene" uid="uid://bcypn17ixt517" path="res://scenes_for_scenes/player/character.tscn" id="1_l3y2n"]
@@ -34,8 +34,14 @@
 [ext_resource type="Texture2D" uid="uid://dhcbo0nmnmw3k" path="res://resources/decorations/blue_ore.png" id="31_5yd40"]
 [ext_resource type="Texture2D" uid="uid://sh43sgrnteyh" path="res://resources/decorations/acid_level/barrel_opened.png" id="31_xvq5e"]
 [ext_resource type="Texture2D" uid="uid://glio1jn6c1sy" path="res://resources/decorations/acid_level/table.png" id="33_snoeq"]
+[ext_resource type="Texture2D" uid="uid://blct6h5awyq1i" path="res://resources/mobile_buttons/up.png" id="34_13rxp"]
+[ext_resource type="Texture2D" uid="uid://caij0yycfc3kt" path="res://resources/mobile_buttons/up_pressed.png" id="35_igb62"]
 [ext_resource type="PackedScene" uid="uid://docqisup1ghcw" path="res://scenes_for_scenes/rain.tscn" id="35_ny2ka"]
+[ext_resource type="Texture2D" uid="uid://c5q51cue0rbp6" path="res://resources/mobile_buttons/left.png" id="36_6vf81"]
 [ext_resource type="PackedScene" uid="uid://btgw70pc31sjr" path="res://scenes_for_scenes/cloud.tscn" id="36_j0p2m"]
+[ext_resource type="Texture2D" uid="uid://bo7hoolt4eko5" path="res://resources/mobile_buttons/left_pressed.png" id="37_x0tv2"]
+[ext_resource type="Texture2D" uid="uid://dscwbe8myg6t0" path="res://resources/mobile_buttons/right.png" id="38_3ewy4"]
+[ext_resource type="Texture2D" uid="uid://caiebfti7efol" path="res://resources/mobile_buttons/right_pressed.png" id="39_y0ehs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wklei"]
 
@@ -1219,6 +1225,7 @@ sources/4 = SubResource("TileSetAtlasSource_r4uvn")
 script = ExtResource("1_isw6d")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.65098, 0.65098, 0.65098, 1)
 texture_filter = 2
 offset_left = -1712.0
 offset_top = -2201.0
@@ -2040,6 +2047,30 @@ scale = Vector2(0.913049, 0.845963)
 limit_smoothed = true
 position_smoothing_enabled = true
 
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+light_mask = 2
+position = Vector2(467.866, 228.358)
+scale = Vector2(5.74512, 6.69245)
+texture_normal = ExtResource("34_13rxp")
+texture_pressed = ExtResource("35_igb62")
+action = "jump"
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+light_mask = 2
+position = Vector2(-592.52, 226.96)
+scale = Vector2(5.74512, 6.69245)
+texture_normal = ExtResource("36_6vf81")
+texture_pressed = ExtResource("37_x0tv2")
+action = "move_a"
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+light_mask = 2
+position = Vector2(-454.574, 226.96)
+scale = Vector2(5.74512, 6.69245)
+texture_normal = ExtResource("38_3ewy4")
+texture_pressed = ExtResource("39_y0ehs")
+action = "move_d"
+
 [node name="Table" type="Sprite2D" parent="."]
 position = Vector2(2889, 650)
 scale = Vector2(3.62, 3.62)
@@ -2052,7 +2083,7 @@ scale = Vector2(60, 1)
 amount = 500
 lifetime = 3.0
 speed_scale = 1.5
-scale_amount_max = 1.0
+scale_amount_max = 1.5
 
 [node name="Fog" parent="." instance=ExtResource("36_j0p2m")]
 position = Vector2(1938.36, -1658)

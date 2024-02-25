@@ -1,4 +1,24 @@
-[gd_scene format=3 uid="uid://b6ffn27mr23ck"]
+[gd_scene load_steps=11 format=3 uid="uid://b6ffn27mr23ck"]
+
+[ext_resource type="Texture2D" uid="uid://dsuwc20243fqf" path="res://resources/backgrounds/main_menu.png" id="1_x7fgi"]
+[ext_resource type="Texture2D" uid="uid://bh4e37017k4a8" path="res://resources/buttons/button.png" id="2_1sjb4"]
+[ext_resource type="FontFile" uid="uid://t7q6awyns2m7" path="res://resources/fonts/papyrus-pixel_1.ttf" id="2_bj75h"]
+[ext_resource type="Texture2D" uid="uid://bkiwlfnpeggk4" path="res://resources/buttons/hovered.png" id="3_fb5dv"]
+[ext_resource type="Texture2D" uid="uid://de44wqbahpcjf" path="res://resources/buttons/pressed.png" id="4_33mhk"]
+[ext_resource type="Texture2D" uid="uid://dwteqfofofa7w" path="res://resources/decorations/pluton.png" id="5_a3umd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yu8fb"]
+texture = ExtResource("2_1sjb4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mml2h"]
+texture = ExtResource("3_fb5dv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a1ipu"]
+texture = ExtResource("4_33mhk")
+
+[sub_resource type="LabelSettings" id="LabelSettings_f5pbb"]
+font = ExtResource("2_bj75h")
+font_size = 200
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -7,8 +27,76 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(-0.95, 0)
 
 [node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 1163.0
-offset_bottom = 652.0
+texture_filter = 5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_x7fgi")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -291.0
+offset_right = 312.0
+grow_vertical = 0
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bj75h")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_yu8fb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mml2h")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_a1ipu")
+action_mode = 0
+text = "Play"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bj75h")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_yu8fb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mml2h")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_a1ipu")
+action_mode = 0
+text = "Options"
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bj75h")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_yu8fb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mml2h")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_a1ipu")
+action_mode = 0
+text = "Quit"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 3823.0
+offset_bottom = 1082.0
+scale = Vector2(0.3, 0.3)
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_a3umd")
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 200
+text = "Retribution Of Pluto: 
+The galactic rogue"
+label_settings = SubResource("LabelSettings_f5pbb")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://cueonbiinnvbe"]
+[gd_scene load_steps=64 format=3 uid="uid://cueonbiinnvbe"]
 
 [ext_resource type="Texture2D" uid="uid://m1fh0cvq8dya" path="res://resources/backgrounds_flame/Fon1.png" id="1_cdohg"]
 [ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_x6hvk"]
@@ -39,7 +39,13 @@
 [ext_resource type="PackedScene" uid="uid://bcypn17ixt517" path="res://scenes_for_scenes/player/character.tscn" id="34_ubauj"]
 [ext_resource type="Script" path="res://scripts/RotationPortal.gd" id="35_onugj"]
 [ext_resource type="PackedScene" uid="uid://hxpgarul75d" path="res://scenes_for_scenes/parallax_background.tscn" id="35_qbwl0"]
-[ext_resource type="PackedScene" uid="uid://dftjqycqrt3du" path="res://scenes_for_scenes/player/control_mobile.tscn" id="38_vw2eh"]
+[ext_resource type="Texture2D" uid="uid://blct6h5awyq1i" path="res://resources/mobile_buttons/up.png" id="41_kct4s"]
+[ext_resource type="PackedScene" uid="uid://cxr21u3q8d5bx" path="res://scenes_for_scenes/enemy/base.tscn" id="41_txybb"]
+[ext_resource type="Texture2D" uid="uid://c5q51cue0rbp6" path="res://resources/mobile_buttons/left.png" id="41_uuqig"]
+[ext_resource type="Texture2D" uid="uid://bo7hoolt4eko5" path="res://resources/mobile_buttons/left_pressed.png" id="42_8b06w"]
+[ext_resource type="Texture2D" uid="uid://caij0yycfc3kt" path="res://resources/mobile_buttons/up_pressed.png" id="42_d5knx"]
+[ext_resource type="Texture2D" uid="uid://dscwbe8myg6t0" path="res://resources/mobile_buttons/right.png" id="43_au4km"]
+[ext_resource type="Texture2D" uid="uid://caiebfti7efol" path="res://resources/mobile_buttons/right_pressed.png" id="44_nkn83"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_54qu8"]
 
@@ -1375,6 +1381,7 @@ animations = [{
 script = ExtResource("1_x6hvk")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.619608, 0.65098, 0.6, 1)
 texture_filter = 6
 material = SubResource("ShaderMaterial_54qu8")
 offset_left = -2207.0
@@ -1592,7 +1599,7 @@ frame = 1
 frame_progress = 0.231532
 
 [node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D7"]
-position = Vector2(1.68425, 14.4306)
+position = Vector2(5.05267, 24.3803)
 scale = Vector2(17.3287, 4.03842)
 texture = ExtResource("2_2p507")
 
@@ -1871,12 +1878,6 @@ position = Vector2(1.28746e-05, 1.23978e-05)
 scale = Vector2(1.375, 1.375)
 texture = ExtResource("34_q3c43")
 
-[node name="Control" parent="." instance=ExtResource("38_vw2eh")]
-offset_left = -257.0
-offset_top = -1108.0
-offset_right = 894.0
-offset_bottom = -457.0
-
 [node name="CharacterBody2D" parent="." instance=ExtResource("34_ubauj")]
 position = Vector2(280.928, -351)
 
@@ -1886,7 +1887,34 @@ scale = Vector2(0.913049, 0.845963)
 limit_smoothed = true
 position_smoothing_enabled = true
 
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+light_mask = 2
+position = Vector2(443.648, 209.229)
+scale = Vector2(5.24558, 5.66156)
+texture_normal = ExtResource("41_kct4s")
+texture_pressed = ExtResource("42_d5knx")
+action = "jump"
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+light_mask = 2
+position = Vector2(-524.537, 208.047)
+scale = Vector2(5.24558, 5.66156)
+texture_normal = ExtResource("41_uuqig")
+texture_pressed = ExtResource("42_8b06w")
+action = "move_a"
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+light_mask = 2
+position = Vector2(-398.585, 208.047)
+scale = Vector2(5.24558, 5.66156)
+texture_normal = ExtResource("43_au4km")
+texture_pressed = ExtResource("44_nkn83")
+action = "move_d"
+
 [node name="ParallaxBackground" parent="CharacterBody2D" instance=ExtResource("35_qbwl0")]
 offset = Vector2(-2510.95, -2500)
 scale = Vector2(12.135, 4.66)
 transform = Transform2D(12.135, 0, 0, 4.66, -2510.95, -2500)
+
+[node name="RigidBody2D" parent="." instance=ExtResource("41_txybb")]
+position = Vector2(1134, 805)

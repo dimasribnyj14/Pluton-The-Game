@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://b5vymv8nu0kbf"]
+
+[ext_resource type="Texture2D" uid="uid://cu50y7dk5txq0" path="res://resources/backgrounds/settings_menu.png" id="1_8yu82"]
+[ext_resource type="FontFile" uid="uid://t7q6awyns2m7" path="res://resources/fonts/papyrus-pixel_1.ttf" id="2_k7gyf"]
+[ext_resource type="Texture2D" uid="uid://bh4e37017k4a8" path="res://resources/buttons/button.png" id="3_makoq"]
+[ext_resource type="Texture2D" uid="uid://bkiwlfnpeggk4" path="res://resources/buttons/hovered.png" id="4_0fgrr"]
+[ext_resource type="Texture2D" uid="uid://de44wqbahpcjf" path="res://resources/buttons/pressed.png" id="5_upsub"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_f4fj0"]
+font = ExtResource("2_k7gyf")
+font_size = 60
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.321569)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ta8do"]
+texture = ExtResource("3_makoq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b4uqr"]
+texture = ExtResource("4_0fgrr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qmth7"]
+texture = ExtResource("5_upsub")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8yu82")
+expand_mode = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0677083
+anchor_top = 0.0540123
+anchor_right = 0.938368
+anchor_bottom = 0.935185
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(400, 570)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+label_settings = SubResource("LabelSettings_f4fj0")
+
+[node name="Button" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k7gyf")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_ta8do")
+theme_override_styles/hover = SubResource("StyleBoxTexture_b4uqr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qmth7")
+action_mode = 0
+text = "Play"
