@@ -66,6 +66,20 @@ func _physics_process(delta):
 		if is_on_floor():
 			anim_plr.play("idle")
 
+	if Input.is_action_just_pressed("fire"):
+		var bullet = preload("res://scenes_for_scenes/bullet.tscn").instantiate()
+		get_tree().get_root().add_child(bullet)
+		
+		bullet.position = position
+		bullet.position.y += 60
+		#print('plr', position)
+		#print('bullet', bullet.position)
+		if $AnimatedSprite2D.flip_h == false:
+			bullet.speed = 50
+			bullet.position.x += 10
+		else:
+			bullet.speed = -50
+			bullet.position.x += -10
 
 	if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("jump"):
 		if is_on_floor():
@@ -88,11 +102,13 @@ func _physics_process(delta):
 			position.y = 966
 			position.x = 290
 	
-	move_and_slide()
 	
 	for i in get_slide_collision_count():
 		if get_slide_collision_count() > 0:
 			var collision = get_slide_collision(i)
+			
+			#print(collision.get_collider())
+			
 			if collision.get_collider().is_in_group("enemy"):
 				if get_tree().current_scene.name == 'FirstLevel':
 					position.y = -155
@@ -109,3 +125,9 @@ func _physics_process(delta):
 				elif get_tree().current_scene.name == 'Cloudlvl':
 					position.y = 966
 					position.x = 290
+			#elif collision.get_collider().is_in_group("interact_break"):
+				#$"../Ishere/imag".texture = load('res://resources/interactive/hammer/taken.png')
+	
+	move_and_slide()
+	
+
