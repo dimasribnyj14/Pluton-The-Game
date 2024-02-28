@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cbjmu8wg6myu"]
+[gd_scene load_steps=37 format=3 uid="uid://cbjmu8wg6myu"]
 
 [ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_4rvec"]
 [ext_resource type="Texture2D" uid="uid://dcnr54p4h8ff5" path="res://resources/backgrounds_cloud/3.png" id="1_hufxe"]
@@ -22,6 +22,8 @@
 [ext_resource type="Script" path="res://scripts/fly.gd" id="14_cw240"]
 [ext_resource type="Texture2D" uid="uid://dscwbe8myg6t0" path="res://resources/mobile_buttons/right.png" id="15_b0xmo"]
 [ext_resource type="Texture2D" uid="uid://caiebfti7efol" path="res://resources/mobile_buttons/right_pressed.png" id="16_csi64"]
+[ext_resource type="Texture2D" uid="uid://b7rig1hxq1dpc" path="res://resources/mobile_buttons/use.png" id="19_3uwdx"]
+[ext_resource type="Texture2D" uid="uid://biqm0s54peckt" path="res://resources/mobile_buttons/use_pressed.png" id="20_1g38l"]
 [ext_resource type="Texture2D" uid="uid://coufbg57gdsap" path="res://resources/decorations/cloud_level/building/5.png" id="23_wlmib"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p2aww"]
@@ -990,6 +992,14 @@ scale = Vector2(5.74512, 6.69245)
 texture_normal = ExtResource("15_b0xmo")
 texture_pressed = ExtResource("16_csi64")
 action = "move_d"
+
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+light_mask = 2
+position = Vector2(274.982, 61.4684)
+scale = Vector2(5.24558, 5.66156)
+texture_normal = ExtResource("19_3uwdx")
+texture_pressed = ExtResource("20_1g38l")
+action = "fire"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2465, 371)

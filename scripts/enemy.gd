@@ -6,7 +6,8 @@ var start_x #Свойства start_x (начало пути)
 var player = null
 var go_to_plr = false
 var can_jump = true
-@export var start_y: int = 0 #Свойства start_y (НЕИСПОЛЬЗОВАТЬ)
+@export var timePerJump: int = 3
+var start_y: int = 0 #Свойства start_y (НЕИСПОЛЬЗОВАТЬ)
 @export var end_x: int = 0 #Свойства end_x (конец пути)
 var SPEED: float = 3 #Свойства SPEED (скорость бота
 #Направление
@@ -68,7 +69,7 @@ func _physics_process(delta):
 	if ($RayCast2D.is_colliding() or $RayCast2D1.is_colliding() or $RayCast2D2.is_colliding()) and can_jump and linear_velocity.length() < 5 : #linear_velocity.length() < 1 
 		can_jump = false
 		set_axis_velocity(Vector2(0, -4))
-		timerJ.start(3)
+		timerJ.start(timePerJump)
 		
 		#SPEED = 1.0
 	# Если передвигается
@@ -107,7 +108,5 @@ func _on_timer_move_timeout():
 	can_move = true
 
 
-func _on_body_entered(body):
-	if body.name = 'bullet':
-		$CollisionShape2D.disabled = true
-		$
+
+

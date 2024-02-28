@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
-
+var can_shoot = true
 const SPEED = 350.0
 const JUMP_VELOCITY = -550.0
 var lightOff = false
-
+@onready var cooldown = $Cooldown
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -67,19 +67,21 @@ func _physics_process(delta):
 			anim_plr.play("idle")
 
 	if Input.is_action_just_pressed("fire"):
-		var bullet = preload("res://scenes_for_scenes/bullet.tscn").instantiate()
-		get_tree().get_root().add_child(bullet)
-		
-		bullet.position = position
-		bullet.position.y += 60
-		#print('plr', position)
-		#print('bullet', bullet.position)
-		if $AnimatedSprite2D.flip_h == false:
-			bullet.speed = 50
-			bullet.position.x += 10
-		else:
-			bullet.speed = -50
-			bullet.position.x += -10
+		if can_shoot == true:
+			var bullet = preload("res://scenes_for_scenes/bullet.tscn").instantiate()
+			get_tree().get_root().add_child(bullet)
+			can_shoot = false
+			bullet.position = position
+			bullet.position.y += 60
+			#print('plr', position)
+			#print('bullet', bullet.position)
+			if $AnimatedSprite2D.flip_h == false:
+				bullet.speed = 50
+				bullet.position.x += 10
+			else:
+				bullet.speed = -50
+				bullet.position.x += -10
+			cooldown.start(1)
 
 	if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("jump"):
 		if is_on_floor():
@@ -131,3 +133,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 
+
+
+func _on_cooldown_timeout():
+	can_shoot = true

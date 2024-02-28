@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://bklk82xk4qaii"]
+[gd_scene load_steps=69 format=3 uid="uid://bklk82xk4qaii"]
 
 [ext_resource type="PackedScene" uid="uid://bcypn17ixt517" path="res://scenes_for_scenes/player/character.tscn" id="1_ika7c"]
 [ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_l3ss5"]
@@ -42,8 +42,10 @@
 [ext_resource type="Texture2D" uid="uid://dscwbe8myg6t0" path="res://resources/mobile_buttons/right.png" id="35_sep85"]
 [ext_resource type="Texture2D" uid="uid://caiebfti7efol" path="res://resources/mobile_buttons/right_pressed.png" id="36_3rc02"]
 [ext_resource type="Texture2D" uid="uid://dradcpajkwnvt" path="res://resources/decorations/jungle_level/tree.png" id="36_ya82l"]
+[ext_resource type="Texture2D" uid="uid://b7rig1hxq1dpc" path="res://resources/mobile_buttons/use.png" id="37_e36i1"]
 [ext_resource type="Texture2D" uid="uid://b3457gw1bwyiv" path="res://resources/decorations/jungle_level/barrel3.png" id="37_yoh1a"]
 [ext_resource type="Texture2D" uid="uid://cg0g4m8ndcmfx" path="res://resources/decorations/jungle_level/barrel.png" id="38_5kwjw"]
+[ext_resource type="Texture2D" uid="uid://biqm0s54peckt" path="res://resources/mobile_buttons/use_pressed.png" id="38_81b5t"]
 [ext_resource type="Texture2D" uid="uid://lxso5wpjl3o0" path="res://resources/interactive/ore.png" id="39_cxrr2"]
 [ext_resource type="Script" path="res://main_scenes/Label.gd" id="39_xfmil"]
 [ext_resource type="Script" path="res://main_scenes/text_fun.gd" id="40_0b755"]
@@ -1625,6 +1627,14 @@ scale = Vector2(5.74512, 6.69245)
 texture_normal = ExtResource("35_sep85")
 texture_pressed = ExtResource("36_3rc02")
 action = "move_d"
+
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+light_mask = 2
+position = Vector2(274.982, 61.4684)
+scale = Vector2(5.24558, 5.66156)
+texture_normal = ExtResource("37_e36i1")
+texture_pressed = ExtResource("38_81b5t")
+action = "fire"
 
 [node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D"]
 position = Vector2(193.04, 57)

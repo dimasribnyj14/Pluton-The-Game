@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://dk1xgqbvjcej7"]
+[gd_scene load_steps=53 format=3 uid="uid://dk1xgqbvjcej7"]
 
 [ext_resource type="Texture2D" uid="uid://b2ikycmdiuhai" path="res://resources/backgrounds_ice/photo2pixel_download (1).png" id="1_ae603"]
 [ext_resource type="Texture2D" uid="uid://dhg5vuymtjxo1" path="res://resources/tilemaps/pixil-Default_blocks-0.png" id="1_k3syu"]
@@ -40,6 +40,8 @@
 [ext_resource type="Texture2D" uid="uid://bo7hoolt4eko5" path="res://resources/mobile_buttons/left_pressed.png" id="37_51kv3"]
 [ext_resource type="Texture2D" uid="uid://dscwbe8myg6t0" path="res://resources/mobile_buttons/right.png" id="38_0un3h"]
 [ext_resource type="Texture2D" uid="uid://caiebfti7efol" path="res://resources/mobile_buttons/right_pressed.png" id="39_h3p0v"]
+[ext_resource type="Texture2D" uid="uid://b7rig1hxq1dpc" path="res://resources/mobile_buttons/use.png" id="40_3bi17"]
+[ext_resource type="Texture2D" uid="uid://biqm0s54peckt" path="res://resources/mobile_buttons/use_pressed.png" id="41_1431y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7peq7"]
 texture = ExtResource("1_k3syu")
@@ -1348,6 +1350,14 @@ scale = Vector2(5.74512, 6.69245)
 texture_normal = ExtResource("38_0un3h")
 texture_pressed = ExtResource("39_h3p0v")
 action = "move_d"
+
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+light_mask = 2
+position = Vector2(274.982, 61.4684)
+scale = Vector2(5.24558, 5.66156)
+texture_normal = ExtResource("40_3bi17")
+texture_pressed = ExtResource("41_1431y")
+action = "fire"
 
 [node name="CPUParticles2D" parent="." instance=ExtResource("34_fbtk1")]
 texture_filter = 2
