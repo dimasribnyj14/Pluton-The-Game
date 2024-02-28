@@ -12,11 +12,11 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	if body.name.contains('RigidBody2D'):
-		body.queue_free()
+	#if body.name.contains('RigidBody2D'):
+		#body.queue_free()
 		#body.find_node('')
-		queue_free()
-	elif body.name == 'CharacterBody2D':
+		#queue_free()
+	if body.name == 'CharacterBody2D':
 		pass
 	else:
 		queue_free()

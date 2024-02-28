@@ -24,7 +24,7 @@ energy = 0.5
 texture = ExtResource("3_3t1v5")
 texture_scale = 1.6
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="bullet" type="CollisionShape2D" parent="."]
 position = Vector2(41, 6)
 shape = SubResource("RectangleShape2D_2yn1h")
 
