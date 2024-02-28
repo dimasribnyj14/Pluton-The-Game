@@ -1890,35 +1890,39 @@ position_smoothing_enabled = true
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
 light_mask = 2
-position = Vector2(443.648, 209.229)
+position = Vector2(514.838, 262.423)
 scale = Vector2(5.24558, 5.66156)
 texture_normal = ExtResource("41_kct4s")
 texture_pressed = ExtResource("42_d5knx")
 action = "jump"
+visibility_mode = 1
 
 [node name="TouchScreenButton2" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
 light_mask = 2
-position = Vector2(-524.537, 208.047)
+position = Vector2(-527.744, 208.047)
 scale = Vector2(5.24558, 5.66156)
 texture_normal = ExtResource("41_uuqig")
 texture_pressed = ExtResource("42_8b06w")
 action = "move_a"
+visibility_mode = 1
 
 [node name="TouchScreenButton4" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
 light_mask = 2
-position = Vector2(274.982, 61.4684)
+position = Vector2(271.775, 61.4683)
 scale = Vector2(5.24558, 5.66156)
 texture_normal = ExtResource("42_6liha")
 texture_pressed = ExtResource("43_qhquq")
 action = "fire"
+visibility_mode = 1
 
 [node name="TouchScreenButton3" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
 light_mask = 2
-position = Vector2(-398.585, 208.047)
+position = Vector2(-401.792, 208.047)
 scale = Vector2(5.24558, 5.66156)
 texture_normal = ExtResource("43_au4km")
 texture_pressed = ExtResource("44_nkn83")
 action = "move_d"
+visibility_mode = 1
 
 [node name="ParallaxBackground" parent="CharacterBody2D" instance=ExtResource("35_qbwl0")]
 offset = Vector2(-2510.95, -2500)

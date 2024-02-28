@@ -11,8 +11,19 @@ config_version=5
 [application]
 
 config/name="Pluton"
+config/version="0.28"
 config/features=PackedStringArray("4.2", "Mobile")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://resources/backgrounds/main_menu.png"
 config/icon="res://resources/game/oleg.png"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/initial_position_type=0
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [input]
 
