@@ -971,35 +971,39 @@ position_smoothing_enabled = true
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
 light_mask = 2
-position = Vector2(467.866, 228.358)
-scale = Vector2(5.74512, 6.69245)
+position = Vector2(508.188, 237.599)
+scale = Vector2(6.802, 7.341)
 texture_normal = ExtResource("11_ml14u")
 texture_pressed = ExtResource("12_jvdma")
 action = "jump"
+visibility_mode = 1
 
 [node name="TouchScreenButton2" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
 light_mask = 2
-position = Vector2(-592.52, 226.96)
-scale = Vector2(5.74512, 6.69245)
+position = Vector2(-642.822, 249.42)
+scale = Vector2(6.80196, 7.34136)
 texture_normal = ExtResource("13_jjsci")
 texture_pressed = ExtResource("14_3rovi")
 action = "move_a"
-
-[node name="TouchScreenButton3" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
-light_mask = 2
-position = Vector2(-454.574, 226.96)
-scale = Vector2(5.74512, 6.69245)
-texture_normal = ExtResource("15_b0xmo")
-texture_pressed = ExtResource("16_csi64")
-action = "move_d"
+visibility_mode = 1
 
 [node name="TouchScreenButton4" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
 light_mask = 2
-position = Vector2(274.982, 61.4684)
-scale = Vector2(5.24558, 5.66156)
+position = Vector2(265.125, 36.6446)
+scale = Vector2(6.802, 7.341)
 texture_normal = ExtResource("19_3uwdx")
 texture_pressed = ExtResource("20_1g38l")
 action = "fire"
+visibility_mode = 1
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+light_mask = 2
+position = Vector2(-488.394, 249.42)
+scale = Vector2(6.802, 7.341)
+texture_normal = ExtResource("15_b0xmo")
+texture_pressed = ExtResource("16_csi64")
+action = "move_d"
+visibility_mode = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2465, 371)

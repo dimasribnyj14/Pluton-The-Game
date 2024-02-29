@@ -1,5 +1,15 @@
 extends CharacterBody2D
 
+#signal healthChanged
+#
+#
+#
+#
+#var maxHealth = 100
+#var currentHealth: int = maxHealth
+#var isHurt = false
+
+var knockbackDirection
 var can_shoot = true
 const SPEED = 350.0
 const JUMP_VELOCITY = -550.0
@@ -7,13 +17,34 @@ var lightOff = false
 @onready var cooldown = $Cooldown
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
+##
 var anim_plr
 
 func _ready():
 	print(get_tree().current_scene.name)
 	anim_plr = get_node("AnimationPlayer")
 
+
+#func hurtByEnemy(area):
+	#currentHealth -= 10
+	#if currentHealth < 0:
+		#currentHealth = maxHealth
+		#
+	##isHurt = true
+	#healthChanged.emit()
+
+	#knockback(area.get_parent().velocity)
+	#effects.play("hurtBlink")
+	#hurtTimer.start()
+	#await hurtTimer.timeout
+	#effects.play("RESET")
+	#isHurt = false
+
+
+#func knockback(enemyVelocity: Vector2):
+	#knockbackDirection = (enemyVelocity - velocity).normalized() * 3
+	#velocity = knockbackDirection
+	#move_and_slide()
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -112,6 +143,7 @@ func _physics_process(delta):
 			#print(collision.get_collider())
 			
 			if collision.get_collider().is_in_group("enemy"):
+				#hurtByEnemy(collision)
 				if get_tree().current_scene.name == 'FirstLevel':
 					position.y = -155
 					position.x = 275
@@ -131,6 +163,11 @@ func _physics_process(delta):
 				#$"../Ishere/imag".texture = load('res://resources/interactive/hammer/taken.png')
 	
 	move_and_slide()
+
+
+	
+
+
 	
 
 

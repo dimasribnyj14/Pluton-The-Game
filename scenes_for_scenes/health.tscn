@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://clxjuw1syl3eu"]
+
+[ext_resource type="Script" path="res://scripts/health.gd" id="1_dw10e"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = -1
+anchor_right = 0.266406
+anchor_bottom = 0.0375
+fill_mode = 3
+script = ExtResource("1_dw10e")
+metadata/_edit_use_anchors_ = true

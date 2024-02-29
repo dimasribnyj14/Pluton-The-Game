@@ -15,3 +15,5 @@ func _process(delta):
 		else:
 			fullscreen = false
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	if Input.is_action_just_pressed("escape"):
+		get_tree().change_scene_to_file("res://main_scenes/main_menu.tscn")

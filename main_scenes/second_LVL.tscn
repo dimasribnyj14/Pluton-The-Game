@@ -1327,37 +1327,41 @@ scale = Vector2(0.913049, 0.845963)
 limit_smoothed = true
 position_smoothing_enabled = true
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+[node name="TouchScreenButton5" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
 light_mask = 2
-position = Vector2(467.866, 228.358)
-scale = Vector2(5.74512, 6.69245)
+position = Vector2(508.188, 237.599)
+scale = Vector2(6.802, 7.341)
 texture_normal = ExtResource("34_vtsrd")
 texture_pressed = ExtResource("35_idbms")
 action = "jump"
+visibility_mode = 1
 
-[node name="TouchScreenButton2" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+[node name="TouchScreenButton6" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
 light_mask = 2
-position = Vector2(-592.52, 226.96)
-scale = Vector2(5.74512, 6.69245)
+position = Vector2(-642.822, 249.42)
+scale = Vector2(6.80196, 7.34136)
 texture_normal = ExtResource("36_wq0nf")
 texture_pressed = ExtResource("37_51kv3")
 action = "move_a"
+visibility_mode = 1
 
-[node name="TouchScreenButton3" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+[node name="TouchScreenButton7" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
 light_mask = 2
-position = Vector2(-454.574, 226.96)
-scale = Vector2(5.74512, 6.69245)
-texture_normal = ExtResource("38_0un3h")
-texture_pressed = ExtResource("39_h3p0v")
-action = "move_d"
-
-[node name="TouchScreenButton4" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
-light_mask = 2
-position = Vector2(274.982, 61.4684)
-scale = Vector2(5.24558, 5.66156)
+position = Vector2(265.125, 36.6446)
+scale = Vector2(6.802, 7.341)
 texture_normal = ExtResource("40_3bi17")
 texture_pressed = ExtResource("41_1431y")
 action = "fire"
+visibility_mode = 1
+
+[node name="TouchScreenButton8" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+light_mask = 2
+position = Vector2(-488.394, 249.42)
+scale = Vector2(6.802, 7.341)
+texture_normal = ExtResource("38_0un3h")
+texture_pressed = ExtResource("39_h3p0v")
+action = "move_d"
+visibility_mode = 1
 
 [node name="CPUParticles2D" parent="." instance=ExtResource("34_fbtk1")]
 texture_filter = 2

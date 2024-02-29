@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b6ffn27mr23ck"]
+[gd_scene load_steps=14 format=3 uid="uid://b6ffn27mr23ck"]
 
 [ext_resource type="Texture2D" uid="uid://dsuwc20243fqf" path="res://resources/backgrounds/main_menu.png" id="1_x7fgi"]
 [ext_resource type="Texture2D" uid="uid://bh4e37017k4a8" path="res://resources/buttons/button.png" id="2_1sjb4"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://bkiwlfnpeggk4" path="res://resources/buttons/hovered.png" id="3_fb5dv"]
 [ext_resource type="Texture2D" uid="uid://de44wqbahpcjf" path="res://resources/buttons/pressed.png" id="4_33mhk"]
 [ext_resource type="Texture2D" uid="uid://dwteqfofofa7w" path="res://resources/decorations/pluton.png" id="5_a3umd"]
+[ext_resource type="Script" path="res://scripts/quit.gd" id="6_jwooe"]
+[ext_resource type="Script" path="res://scripts/playButton.gd" id="6_kb1j2"]
+[ext_resource type="Script" path="res://scripts/optionsOpen.gd" id="7_q4aod"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yu8fb"]
 texture = ExtResource("2_1sjb4")
@@ -61,6 +64,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_mml2h")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_a1ipu")
 action_mode = 0
 text = "Play"
+script = ExtResource("6_kb1j2")
 
 [node name="Button2" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
@@ -72,6 +76,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_mml2h")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_a1ipu")
 action_mode = 0
 text = "Options"
+script = ExtResource("7_q4aod")
 
 [node name="Button3" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
@@ -83,6 +88,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_mml2h")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_a1ipu")
 action_mode = 0
 text = "Quit"
+script = ExtResource("6_jwooe")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -100,3 +106,22 @@ theme_override_font_sizes/font_size = 200
 text = "Retribution Of Pluto: 
 The galactic rogue"
 label_settings = SubResource("LabelSettings_f5pbb")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -338.0
+offset_top = -41.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Game Version:"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="VBoxContainer/Button2" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="VBoxContainer/Button3" method="_on_pressed"]
