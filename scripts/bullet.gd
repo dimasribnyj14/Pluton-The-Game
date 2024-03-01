@@ -1,5 +1,6 @@
 extends Area2D
 @export var speed: float
+@export var enemyBullet = false
 @onready var timer = $EnemyDed
 # Called when the node enters the scene tree for the first time.
 func _ready():

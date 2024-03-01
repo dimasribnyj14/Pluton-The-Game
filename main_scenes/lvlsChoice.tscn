@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://csiouinca00uw"]
+[gd_scene load_steps=19 format=3 uid="uid://csiouinca00uw"]
 
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ak3nj"]
 [ext_resource type="Shader" path="res://scripts/blur.gdshader" id="1_hmjde"]
 [ext_resource type="Texture2D" uid="uid://dsuwc20243fqf" path="res://resources/backgrounds/main_menu.png" id="1_vcesy"]
 [ext_resource type="Texture2D" uid="uid://bpniy1a78e3hc" path="res://resources/levels/fire.png" id="2_qyyrt"]
@@ -7,10 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://bsawkiq01n774" path="res://resources/levels/ice.png" id="4_vdxp6"]
 [ext_resource type="Texture2D" uid="uid://b6kdbhfnm3xdh" path="res://resources/levels/acid.png" id="5_ffn1x"]
 [ext_resource type="Texture2D" uid="uid://lxop800tjp6l" path="res://resources/levels/jungle.png" id="6_6yutv"]
+[ext_resource type="Texture2D" uid="uid://c5q51cue0rbp6" path="res://resources/mobile_buttons/left.png" id="6_euk5g"]
 [ext_resource type="Script" path="res://scripts/Ice.gd" id="6_tldrn"]
+[ext_resource type="Texture2D" uid="uid://bo7hoolt4eko5" path="res://resources/mobile_buttons/left_pressed.png" id="7_i58ic"]
 [ext_resource type="Texture2D" uid="uid://cc4qv8n10xobn" path="res://resources/levels/wind(ubogiy cusok nechta).png" id="7_yycph"]
 [ext_resource type="Texture2D" uid="uid://bigfay472n3rf" path="res://resources/levels/earth.png" id="8_0cgom"]
 [ext_resource type="Script" path="res://scripts/Acid.gd" id="8_ulisf"]
+[ext_resource type="Script" path="res://scripts/move_to_menu.gd" id="8_w4y13"]
 [ext_resource type="Script" path="res://scripts/Jungle.gd" id="10_kllci"]
 [ext_resource type="Script" path="res://scripts/Wind.gd" id="12_bd8jn"]
 
@@ -24,6 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ak3nj")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 2
@@ -48,6 +53,17 @@ texture_normal = ExtResource("2_qyyrt")
 texture_pressed = ExtResource("2_qyyrt")
 texture_hover = ExtResource("2_qyyrt")
 script = ExtResource("4_g2akj")
+
+[node name="Main_menu" type="TextureButton" parent="."]
+layout_mode = 0
+offset_top = 628.0
+offset_right = 19.0
+offset_bottom = 647.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("6_euk5g")
+texture_pressed = ExtResource("7_i58ic")
+texture_hover = ExtResource("7_i58ic")
+script = ExtResource("8_w4y13")
 
 [node name="Ice" type="TextureButton" parent="."]
 layout_mode = 0
@@ -109,6 +125,7 @@ texture_pressed = ExtResource("8_0cgom")
 texture_hover = ExtResource("8_0cgom")
 
 [connection signal="pressed" from="Fire" to="Fire" method="_on_pressed"]
+[connection signal="pressed" from="Main_menu" to="Main_menu" method="_on_pressed"]
 [connection signal="pressed" from="Ice" to="Ice" method="_on_pressed"]
 [connection signal="pressed" from="Acid" to="Acid" method="_on_pressed"]
 [connection signal="pressed" from="Jungle" to="Jungle" method="_on_pressed"]

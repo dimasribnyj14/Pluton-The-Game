@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://dk1xgqbvjcej7"]
+[gd_scene load_steps=54 format=3 uid="uid://dk1xgqbvjcej7"]
 
 [ext_resource type="Texture2D" uid="uid://b2ikycmdiuhai" path="res://resources/backgrounds_ice/photo2pixel_download (1).png" id="1_ae603"]
 [ext_resource type="Texture2D" uid="uid://dhg5vuymtjxo1" path="res://resources/tilemaps/pixil-Default_blocks-0.png" id="1_k3syu"]
@@ -42,10 +42,7 @@
 [ext_resource type="Texture2D" uid="uid://caiebfti7efol" path="res://resources/mobile_buttons/right_pressed.png" id="39_h3p0v"]
 [ext_resource type="Texture2D" uid="uid://b7rig1hxq1dpc" path="res://resources/mobile_buttons/use.png" id="40_3bi17"]
 [ext_resource type="Texture2D" uid="uid://biqm0s54peckt" path="res://resources/mobile_buttons/use_pressed.png" id="41_1431y"]
-[ext_resource type="Texture2D" uid="uid://iapqi7j42w1r" path="res://resources/mobile_buttons/pause.png" id="42_oi1mw"]
 [ext_resource type="PackedScene" uid="uid://cxr21u3q8d5bx" path="res://scenes_for_scenes/enemy/base.tscn" id="43_jharv"]
-[ext_resource type="Texture2D" uid="uid://j1rehep1d87e" path="res://resources/portal/ice/1.png" id="45_csfas"]
-[ext_resource type="Script" path="res://scripts/MoveTo.gd" id="46_fenpv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7peq7"]
 texture = ExtResource("1_k3syu")
@@ -1002,11 +999,6 @@ sources/4 = SubResource("TileSetAtlasSource_r4uvn")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aces2"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_12sjr"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_78jye"]
-radius = 10.9428
-
 [node name="SecondLvl" type="Node2D"]
 position = Vector2(-6, 1225)
 script = ExtResource("1_k7ykd")
@@ -1373,15 +1365,6 @@ texture_pressed = ExtResource("39_h3p0v")
 action = "move_d"
 visibility_mode = 1
 
-[node name="TouchScreenButton9" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
-light_mask = 2
-position = Vector2(570.694, -423.186)
-scale = Vector2(6.802, 7.341)
-texture_normal = ExtResource("42_oi1mw")
-texture_pressed = ExtResource("42_oi1mw")
-action = "escape"
-visibility_mode = 1
-
 [node name="CPUParticles2D" parent="." instance=ExtResource("34_fbtk1")]
 texture_filter = 2
 position = Vector2(9819, -1010)
@@ -1395,22 +1378,3 @@ scale_amount_max = 1.0
 position = Vector2(2479, 35)
 timePerJump = 1
 end_x = 2142
-
-[node name="MoveTo" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_12sjr")
-position = Vector2(19438, -213)
-scale = Vector2(3.02102, 3.0629)
-texture = ExtResource("45_csfas")
-script = ExtResource("46_fenpv")
-
-[node name="FourthLevel" type="PointLight2D" parent="MoveTo"]
-position = Vector2(1.28746e-05, 1.23978e-05)
-scale = Vector2(1.375, 1.375)
-texture = ExtResource("45_csfas")
-
-[node name="Area2D" type="Area2D" parent="MoveTo"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MoveTo/Area2D"]
-shape = SubResource("CircleShape2D_78jye")
-
-[connection signal="body_entered" from="MoveTo/Area2D" to="MoveTo" method="_on_area_2d_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://c5b42d00n3l2w"]
+[gd_scene load_steps=61 format=3 uid="uid://c5b42d00n3l2w"]
 
 [ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_isw6d"]
 [ext_resource type="PackedScene" uid="uid://bcypn17ixt517" path="res://scenes_for_scenes/player/character.tscn" id="1_l3y2n"]
@@ -44,6 +44,8 @@
 [ext_resource type="Texture2D" uid="uid://caiebfti7efol" path="res://resources/mobile_buttons/right_pressed.png" id="39_y0ehs"]
 [ext_resource type="Texture2D" uid="uid://b7rig1hxq1dpc" path="res://resources/mobile_buttons/use.png" id="40_65m1r"]
 [ext_resource type="Texture2D" uid="uid://biqm0s54peckt" path="res://resources/mobile_buttons/use_pressed.png" id="41_2yd8j"]
+[ext_resource type="Texture2D" uid="uid://iapqi7j42w1r" path="res://resources/mobile_buttons/pause.png" id="42_7dowo"]
+[ext_resource type="Script" path="res://scripts/MoveTo.gd" id="46_kyp6d"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wklei"]
 
@@ -1223,6 +1225,11 @@ sources/1 = SubResource("TileSetAtlasSource_hurib")
 sources/2 = SubResource("TileSetAtlasSource_jf74i")
 sources/4 = SubResource("TileSetAtlasSource_r4uvn")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vkb10"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6ahk3"]
+radius = 10.9428
+
 [node name="ThirdLvl" type="Node2D"]
 script = ExtResource("1_isw6d")
 
@@ -1755,6 +1762,7 @@ texture_filter = 2
 position = Vector2(14787, 1151)
 
 [node name="TileMap3 (no collision" type="TileMap" parent="."]
+modulate = Color(0.509804, 0.509804, 0.509804, 1)
 position = Vector2(2290, 837)
 scale = Vector2(3, 3)
 tile_set = SubResource("TileSet_ff5nk")
@@ -2085,6 +2093,15 @@ texture_pressed = ExtResource("39_y0ehs")
 action = "move_d"
 visibility_mode = 1
 
+[node name="TouchScreenButton5" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+light_mask = 2
+position = Vector2(570.694, -423.186)
+scale = Vector2(6.802, 7.341)
+texture_normal = ExtResource("42_7dowo")
+texture_pressed = ExtResource("42_7dowo")
+action = "escape"
+visibility_mode = 1
+
 [node name="Table" type="Sprite2D" parent="."]
 position = Vector2(2889, 650)
 scale = Vector2(3.62, 3.62)
@@ -2153,3 +2170,22 @@ position = Vector2(8536.74, -1712.99)
 rotation = 0.0172895
 scale = Vector2(5.00952, 4.3852)
 flip_h = true
+
+[node name="MoveTo" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_vkb10")
+position = Vector2(11774, 696)
+scale = Vector2(3.02102, 3.0629)
+texture = ExtResource("2_ujp3m")
+script = ExtResource("46_kyp6d")
+
+[node name="FourthLevel" type="PointLight2D" parent="MoveTo"]
+position = Vector2(1.28746e-05, 1.23978e-05)
+scale = Vector2(1.375, 1.375)
+texture = ExtResource("2_ujp3m")
+
+[node name="Area2D" type="Area2D" parent="MoveTo"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MoveTo/Area2D"]
+shape = SubResource("CircleShape2D_6ahk3")
+
+[connection signal="body_entered" from="MoveTo/Area2D" to="MoveTo" method="_on_area_2d_body_entered"]

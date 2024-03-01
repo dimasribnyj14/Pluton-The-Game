@@ -1,10 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://b5vymv8nu0kbf"]
+[gd_scene load_steps=14 format=3 uid="uid://b5vymv8nu0kbf"]
 
 [ext_resource type="Texture2D" uid="uid://cu50y7dk5txq0" path="res://resources/backgrounds/settings_menu.png" id="1_8yu82"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ah3u8"]
 [ext_resource type="FontFile" uid="uid://t7q6awyns2m7" path="res://resources/fonts/papyrus-pixel_1.ttf" id="2_k7gyf"]
 [ext_resource type="Texture2D" uid="uid://bh4e37017k4a8" path="res://resources/buttons/button.png" id="3_makoq"]
 [ext_resource type="Texture2D" uid="uid://bkiwlfnpeggk4" path="res://resources/buttons/hovered.png" id="4_0fgrr"]
 [ext_resource type="Texture2D" uid="uid://de44wqbahpcjf" path="res://resources/buttons/pressed.png" id="5_upsub"]
+[ext_resource type="Texture2D" uid="uid://c5q51cue0rbp6" path="res://resources/mobile_buttons/left.png" id="7_12yyw"]
+[ext_resource type="Texture2D" uid="uid://bo7hoolt4eko5" path="res://resources/mobile_buttons/left_pressed.png" id="8_38fo4"]
+[ext_resource type="Script" path="res://scripts/move_to_menu.gd" id="9_50l63"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_f4fj0"]
 font = ExtResource("2_k7gyf")
@@ -28,6 +32,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ah3u8")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -72,3 +77,16 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_b4uqr")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_qmth7")
 action_mode = 0
 text = "Play"
+
+[node name="Main_menu" type="TextureButton" parent="."]
+offset_left = 94.0
+offset_top = 576.0
+offset_right = 113.0
+offset_bottom = 595.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("7_12yyw")
+texture_pressed = ExtResource("8_38fo4")
+texture_hover = ExtResource("8_38fo4")
+script = ExtResource("9_50l63")
+
+[connection signal="pressed" from="Main_menu" to="Main_menu" method="_on_pressed"]

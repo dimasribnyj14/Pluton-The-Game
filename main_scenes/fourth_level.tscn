@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://bklk82xk4qaii"]
+[gd_scene load_steps=73 format=3 uid="uid://bklk82xk4qaii"]
 
 [ext_resource type="PackedScene" uid="uid://bcypn17ixt517" path="res://scenes_for_scenes/player/character.tscn" id="1_ika7c"]
 [ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_l3ss5"]
@@ -46,9 +46,11 @@
 [ext_resource type="Texture2D" uid="uid://b3457gw1bwyiv" path="res://resources/decorations/jungle_level/barrel3.png" id="37_yoh1a"]
 [ext_resource type="Texture2D" uid="uid://cg0g4m8ndcmfx" path="res://resources/decorations/jungle_level/barrel.png" id="38_5kwjw"]
 [ext_resource type="Texture2D" uid="uid://biqm0s54peckt" path="res://resources/mobile_buttons/use_pressed.png" id="38_81b5t"]
+[ext_resource type="Texture2D" uid="uid://iapqi7j42w1r" path="res://resources/mobile_buttons/pause.png" id="39_226gv"]
 [ext_resource type="Texture2D" uid="uid://lxso5wpjl3o0" path="res://resources/interactive/ore.png" id="39_cxrr2"]
 [ext_resource type="Script" path="res://main_scenes/Label.gd" id="39_xfmil"]
 [ext_resource type="Script" path="res://main_scenes/text_fun.gd" id="40_0b755"]
+[ext_resource type="Script" path="res://scripts/MoveTo.gd" id="51_q3loe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_inl2s"]
 texture = ExtResource("2_87ked")
@@ -904,53 +906,18 @@ texture = ExtResource("2_87ked")
 [sub_resource type="TileSet" id="TileSet_3h574"]
 sources/0 = SubResource("TileSetAtlasSource_33jii")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5lnwt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sihob"]
+radius = 10.9428
+
 [node name="FourthLevel" type="Node2D"]
 script = ExtResource("1_l3ss5")
 
 [node name="PointLight2D2" type="PointLight2D" parent="."]
 position = Vector2(-3016, 172.5)
-scale = Vector2(1.89938, 0.707188)
-energy = 3.5
-blend_mode = 1
-shadow_color = Color(0, 0, 0, 1)
-shadow_filter = 2
-texture = ExtResource("7_ydggm")
-texture_scale = 50.0
-
-[node name="PointLight2D5" type="PointLight2D" parent="."]
-position = Vector2(35.5, 668.5)
-scale = Vector2(0.0078125, 0.357812)
-energy = 3.5
-blend_mode = 1
-shadow_color = Color(0, 0, 0, 1)
-shadow_filter = 2
-texture = ExtResource("7_ydggm")
-texture_scale = 50.0
-
-[node name="PointLight2D7" type="PointLight2D" parent="."]
-position = Vector2(59.5, -814.5)
-scale = Vector2(0.0228125, 0.333438)
-energy = 3.5
-blend_mode = 1
-shadow_color = Color(0, 0, 0, 1)
-shadow_filter = 2
-texture = ExtResource("7_ydggm")
-texture_scale = 50.0
-
-[node name="PointLight2D3" type="PointLight2D" parent="."]
-position = Vector2(-3064, 141)
-scale = Vector2(1.8775, 0.6875)
-energy = 0.57
-blend_mode = 1
-shadow_color = Color(0, 0, 0, 1)
-shadow_filter = 2
-texture = ExtResource("7_ydggm")
-texture_scale = 50.0
-
-[node name="PointLight2D4" type="PointLight2D" parent="."]
-position = Vector2(-3105.5, 141)
-scale = Vector2(1.85156, 0.6875)
-energy = 0.1
+scale = Vector2(1.90845, 0.707188)
+energy = 4.5
 blend_mode = 1
 shadow_color = Color(0, 0, 0, 1)
 shadow_filter = 2
@@ -979,6 +946,7 @@ visible = false
 position = Vector2(-2792, 422)
 
 [node name="TileMap (NO COL)" type="TileMap" parent="."]
+modulate = Color(0.690196, 0.690196, 0.690196, 1)
 scale = Vector2(3, 3)
 tile_set = SubResource("TileSet_eekoe")
 format = 2
@@ -1638,6 +1606,15 @@ scale = Vector2(6.802, 7.341)
 texture_normal = ExtResource("35_sep85")
 texture_pressed = ExtResource("36_3rc02")
 action = "move_d"
+visibility_mode = 1
+
+[node name="TouchScreenButton5" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+light_mask = 2
+position = Vector2(570.694, -423.186)
+scale = Vector2(6.802, 7.341)
+texture_normal = ExtResource("39_226gv")
+texture_pressed = ExtResource("39_226gv")
+action = "escape"
 visibility_mode = 1
 
 [node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D"]
@@ -2414,4 +2391,22 @@ tile_set = SubResource("TileSet_3h574")
 format = 2
 layer_0/tile_data = PackedInt32Array(589765, 393216, 0, 655301, 393216, 0, 720837, 393216, 0, 589766, 393216, 0, 655302, 393216, 0, 720838, 393216, 0, 589767, 393216, 0, 655303, 393216, 0, 720839, 393216, 0, 589768, 393216, 0, 655304, 393216, 0, 720840, 393216, 0, 589769, 393216, 0, 655305, 393216, 0, 720841, 393216, 0, 589770, 393216, 0, 655306, 393216, 0, 720842, 393216, 0, 786373, 131072, 1, 786374, 131072, 1)
 
+[node name="MoveTo" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_5lnwt")
+position = Vector2(14889, 61)
+scale = Vector2(3.02102, 3.0629)
+texture = ExtResource("2_8e8ey")
+script = ExtResource("51_q3loe")
+
+[node name="FourthLevel" type="PointLight2D" parent="MoveTo"]
+position = Vector2(1.28746e-05, 1.23978e-05)
+scale = Vector2(1.375, 1.375)
+texture = ExtResource("2_8e8ey")
+
+[node name="Area2D" type="Area2D" parent="MoveTo"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MoveTo/Area2D"]
+shape = SubResource("CircleShape2D_sihob")
+
 [connection signal="body_entered" from="Area2D5" to="Area2D5" method="_on_body_entered"]
+[connection signal="body_entered" from="MoveTo/Area2D" to="MoveTo" method="_on_area_2d_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://cueonbiinnvbe"]
+[gd_scene load_steps=69 format=3 uid="uid://cueonbiinnvbe"]
 
 [ext_resource type="Texture2D" uid="uid://m1fh0cvq8dya" path="res://resources/backgrounds_flame/Fon1.png" id="1_cdohg"]
 [ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_x6hvk"]
@@ -50,7 +50,6 @@
 [ext_resource type="Texture2D" uid="uid://biqm0s54peckt" path="res://resources/mobile_buttons/use_pressed.png" id="43_qhquq"]
 [ext_resource type="Texture2D" uid="uid://caiebfti7efol" path="res://resources/mobile_buttons/right_pressed.png" id="44_nkn83"]
 [ext_resource type="Script" path="res://scripts/hammer.gd" id="46_qnw51"]
-[ext_resource type="Script" path="res://scripts/MoveTo.gd" id="51_0ik31"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_54qu8"]
 
@@ -1385,9 +1384,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m4txn"]
 size = Vector2(22.9268, 34.0521)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dwiau"]
-radius = 10.9428
-
 [node name="FirstLevel" type="Node2D"]
 script = ExtResource("1_x6hvk")
 
@@ -1909,7 +1905,7 @@ position = Vector2(570.694, -423.186)
 scale = Vector2(6.802, 7.341)
 texture_normal = ExtResource("40_jyxvs")
 texture_pressed = ExtResource("40_jyxvs")
-action = "escape"
+action = "jump"
 visibility_mode = 1
 
 [node name="TouchScreenButton2" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
@@ -1968,22 +1964,4 @@ position = Vector2(-19575.4, -1951.75)
 scale = Vector2(2.04999, 2.11)
 texture = ExtResource("10_fjevo")
 
-[node name="MoveTo" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_m8vjk")
-position = Vector2(23455, -397)
-scale = Vector2(3.02102, 3.0629)
-texture = ExtResource("34_q3c43")
-script = ExtResource("51_0ik31")
-
-[node name="PointLight2D" type="PointLight2D" parent="MoveTo"]
-position = Vector2(1.28746e-05, 1.23978e-05)
-scale = Vector2(1.375, 1.375)
-texture = ExtResource("34_q3c43")
-
-[node name="Area2D" type="Area2D" parent="MoveTo"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MoveTo/Area2D"]
-shape = SubResource("CircleShape2D_dwiau")
-
 [connection signal="body_entered" from="Ishere" to="Ishere" method="_on_body_entered"]
-[connection signal="body_entered" from="MoveTo/Area2D" to="MoveTo" method="_on_area_2d_body_entered"]

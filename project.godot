@@ -11,7 +11,8 @@ config_version=5
 [application]
 
 config/name="Pluton"
-config/version="0.28"
+config/version="0.29.5"
+run/main_scene="res://main_scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://resources/backgrounds/main_menu.png"
@@ -21,7 +22,6 @@ config/icon="res://resources/game/oleg.png"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/initial_position_type=0
 window/stretch/mode="canvas_items"
 
 [input]
@@ -66,7 +66,7 @@ fire={
 escape={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"echo":false,"script":null)
-, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":5,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":6,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
 
@@ -84,3 +84,4 @@ locale/language_filter=["en", "uk"]
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

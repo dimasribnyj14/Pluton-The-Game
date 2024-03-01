@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://b6ffn27mr23ck"]
+[gd_scene load_steps=15 format=3 uid="uid://b6ffn27mr23ck"]
 
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_qnp6r"]
 [ext_resource type="Texture2D" uid="uid://dsuwc20243fqf" path="res://resources/backgrounds/main_menu.png" id="1_x7fgi"]
 [ext_resource type="Texture2D" uid="uid://bh4e37017k4a8" path="res://resources/buttons/button.png" id="2_1sjb4"]
 [ext_resource type="FontFile" uid="uid://t7q6awyns2m7" path="res://resources/fonts/papyrus-pixel_1.ttf" id="2_bj75h"]
@@ -31,6 +32,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(-0.95, 0)
+script = ExtResource("1_qnp6r")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 5

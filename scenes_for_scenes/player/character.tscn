@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bcypn17ixt517"]
+[gd_scene load_steps=20 format=3 uid="uid://bcypn17ixt517"]
 
 [ext_resource type="Script" path="res://scripts/Player_Control.gd" id="1_34d2g"]
 [ext_resource type="Texture2D" uid="uid://cxi7a7uyvpj55" path="res://resources/player/idle/1.png" id="2_k6ljq"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b8xb8jtboo1bu" path="res://resources/player/move/3.png" id="9_qhemc"]
 [ext_resource type="Texture2D" uid="uid://du0ksnebqiwg8" path="res://resources/player/move/4.png" id="10_j00ih"]
 [ext_resource type="PackedScene" uid="uid://clxjuw1syl3eu" path="res://scenes_for_scenes/health.tscn" id="11_in6mh"]
+[ext_resource type="AudioStream" uid="uid://yn81g52ffp0v" path="res://resources/sounds/meme.mp3" id="12_6ai8h"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iq71w"]
 animations = [{
@@ -202,5 +203,8 @@ libraries = {
 [node name="Cooldown" type="Timer" parent="."]
 
 [node name="CanvasLayer" parent="." instance=ExtResource("11_in6mh")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_6ai8h")
 
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

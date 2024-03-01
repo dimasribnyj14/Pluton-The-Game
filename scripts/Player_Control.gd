@@ -8,7 +8,7 @@ extends CharacterBody2D
 #var maxHealth = 100
 #var currentHealth: int = maxHealth
 #var isHurt = false
-
+@export var takenHammer = false
 var knockbackDirection
 var can_shoot = true
 const SPEED = 350.0
@@ -17,9 +17,9 @@ var lightOff = false
 @onready var cooldown = $Cooldown
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-##
+var sfx
 var anim_plr
-
+@onready var bullet = preload("res://scenes_for_scenes/bullet.tscn")
 func _ready():
 	print(get_tree().current_scene.name)
 	anim_plr = get_node("AnimationPlayer")
@@ -99,19 +99,25 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("fire"):
 		if can_shoot == true:
-			var bullet = preload("res://scenes_for_scenes/bullet.tscn").instantiate()
-			get_tree().get_root().add_child(bullet)
+			var bullet_instance = bullet.instantiate()
+			#if get_tree().current_scene.name == 'SecondLvl':
+				#get_node('/root/SecondLvl').add_child(bullet_instance)
+			#else:
+				#get_tree().get_root().add_child(bullet_instance)
+			get_tree().current_scene.add_child(bullet_instance)
 			can_shoot = false
-			bullet.position = position
-			bullet.position.y += 60
+			bullet_instance.position = position
+			#$Camera2D.position = bullet.position
+			bullet_instance.position.y += 60
+			
 			#print('plr', position)
 			#print('bullet', bullet.position)
 			if $AnimatedSprite2D.flip_h == false:
-				bullet.speed = 50
-				bullet.position.x += 10
+				bullet_instance.speed = 50
+				bullet_instance.position.x += 10
 			else:
-				bullet.speed = -50
-				bullet.position.x += -10
+				bullet_instance.speed = -50
+				bullet_instance.position.x += -10
 			cooldown.start(1)
 
 	if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("jump"):
@@ -119,6 +125,8 @@ func _physics_process(delta):
 			velocity.y = JUMP_VELOCITY
 			anim_plr.play("jump")
 	if position.y >= 1100:
+		sfx.get_node('AudioStreamPlayer2D')
+		sfx.play()
 		if get_tree().current_scene.name == 'FirstLevel':
 			position.y = -155
 			position.x = 275
@@ -141,24 +149,24 @@ func _physics_process(delta):
 			var collision = get_slide_collision(i)
 			
 			#print(collision.get_collider())
-			
-			if collision.get_collider().is_in_group("enemy"):
+			if collision.get_collider() != null:
+				if collision.get_collider().is_in_group("enemy"):
 				#hurtByEnemy(collision)
-				if get_tree().current_scene.name == 'FirstLevel':
-					position.y = -155
-					position.x = 275
-				elif get_tree().current_scene.name == 'SecondLvl':
-					position.y = 170
-					position.x = 276
-				elif get_tree().current_scene.name == 'ThirdLvl':
-					position.y = 1000
-					position.x = 276
-				elif get_tree().current_scene.name == 'FourthLevel':
-					position.y = 667
-					position.x = -4436.04
-				elif get_tree().current_scene.name == 'Cloudlvl':
-					position.y = 966
-					position.x = 290
+					if get_tree().current_scene.name == 'FirstLevel':
+						position.y = -155
+						position.x = 275
+					elif get_tree().current_scene.name == 'SecondLvl':
+						position.y = 170
+						position.x = 276
+					elif get_tree().current_scene.name == 'ThirdLvl':
+						position.y = 1000
+						position.x = 276
+					elif get_tree().current_scene.name == 'FourthLevel':
+						position.y = 667
+						position.x = -4436.04
+					elif get_tree().current_scene.name == 'Cloudlvl':
+						position.y = 966
+						position.x = 290
 			#elif collision.get_collider().is_in_group("interact_break"):
 				#$"../Ishere/imag".texture = load('res://resources/interactive/hammer/taken.png')
 	
