@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://bklk82xk4qaii"]
+[gd_scene load_steps=76 format=3 uid="uid://bklk82xk4qaii"]
 
 [ext_resource type="PackedScene" uid="uid://bcypn17ixt517" path="res://scenes_for_scenes/player/character.tscn" id="1_ika7c"]
 [ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_l3ss5"]
@@ -53,6 +53,7 @@
 [ext_resource type="Script" path="res://main_scenes/text_fun.gd" id="40_0b755"]
 [ext_resource type="PackedScene" uid="uid://bu8tbi4v1h6ue" path="res://scenes_for_scenes/pause.tscn" id="41_8m3mj"]
 [ext_resource type="Script" path="res://scripts/MoveTo.gd" id="51_q3loe"]
+[ext_resource type="AudioStream" uid="uid://yn81g52ffp0v" path="res://resources/sounds/meme.mp3" id="53_ewbo5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_inl2s"]
 texture = ExtResource("2_87ked")
@@ -2397,6 +2398,9 @@ script = ExtResource("40_0b755")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D5"]
 position = Vector2(55, 0)
 shape = SubResource("RectangleShape2D_04n8w")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Area2D5"]
+stream = ExtResource("53_ewbo5")
 
 [node name="TileMapFun" type="TileMap" parent="."]
 scale = Vector2(3, 3)

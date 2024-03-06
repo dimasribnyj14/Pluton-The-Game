@@ -1,0 +1,81 @@
+[gd_scene load_steps=13 format=3 uid="uid://u6e1iyo0xmkx"]
+
+[ext_resource type="PackedScene" uid="uid://bcypn17ixt517" path="res://scenes_for_scenes/player/character.tscn" id="1_io4s3"]
+[ext_resource type="Script" path="res://scripts/options/Camera2D.gd" id="2_onato"]
+[ext_resource type="Texture2D" uid="uid://blct6h5awyq1i" path="res://resources/mobile_buttons/up.png" id="3_ee1dc"]
+[ext_resource type="Texture2D" uid="uid://caij0yycfc3kt" path="res://resources/mobile_buttons/up_pressed.png" id="4_axxer"]
+[ext_resource type="Texture2D" uid="uid://c5q51cue0rbp6" path="res://resources/mobile_buttons/left.png" id="5_6r6vq"]
+[ext_resource type="Texture2D" uid="uid://bo7hoolt4eko5" path="res://resources/mobile_buttons/left_pressed.png" id="6_rnvsr"]
+[ext_resource type="Texture2D" uid="uid://b7rig1hxq1dpc" path="res://resources/mobile_buttons/use.png" id="7_l5b12"]
+[ext_resource type="Texture2D" uid="uid://biqm0s54peckt" path="res://resources/mobile_buttons/use_pressed.png" id="8_vjx13"]
+[ext_resource type="Texture2D" uid="uid://dscwbe8myg6t0" path="res://resources/mobile_buttons/right.png" id="9_ebg01"]
+[ext_resource type="Texture2D" uid="uid://caiebfti7efol" path="res://resources/mobile_buttons/right_pressed.png" id="10_2yhvv"]
+[ext_resource type="Texture2D" uid="uid://iapqi7j42w1r" path="res://resources/mobile_buttons/pause.png" id="11_46hbj"]
+[ext_resource type="PackedScene" uid="uid://bu8tbi4v1h6ue" path="res://scenes_for_scenes/pause.tscn" id="12_oplfk"]
+
+[node name="last_lvl" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_io4s3")]
+position = Vector2(276, 1000)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(34, 9)
+scale = Vector2(0.913049, 0.845963)
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+script = ExtResource("2_onato")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+light_mask = 2
+position = Vector2(508.188, 237.599)
+scale = Vector2(6.802, 7.341)
+texture_normal = ExtResource("3_ee1dc")
+texture_pressed = ExtResource("4_axxer")
+action = "jump"
+visibility_mode = 1
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+light_mask = 2
+position = Vector2(-642.822, 249.42)
+scale = Vector2(6.80196, 7.34136)
+texture_normal = ExtResource("5_6r6vq")
+texture_pressed = ExtResource("6_rnvsr")
+action = "move_a"
+visibility_mode = 1
+
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+light_mask = 2
+position = Vector2(265.125, 36.6446)
+scale = Vector2(6.802, 7.341)
+texture_normal = ExtResource("7_l5b12")
+texture_pressed = ExtResource("8_vjx13")
+action = "fire"
+visibility_mode = 1
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+light_mask = 2
+position = Vector2(-488.394, 249.42)
+scale = Vector2(6.802, 7.341)
+texture_normal = ExtResource("9_ebg01")
+texture_pressed = ExtResource("10_2yhvv")
+action = "move_d"
+visibility_mode = 1
+
+[node name="TouchScreenButton5" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+light_mask = 2
+position = Vector2(570.694, -423.186)
+scale = Vector2(6.802, 7.341)
+texture_normal = ExtResource("11_46hbj")
+texture_pressed = ExtResource("11_46hbj")
+action = "escape"
+visibility_mode = 1
+
+[node name="Pause" parent="CharacterBody2D/Camera2D" instance=ExtResource("12_oplfk")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+metadata/_edit_use_anchors_ = true

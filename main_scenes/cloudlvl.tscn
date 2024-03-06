@@ -1111,6 +1111,153 @@ frame_progress = 0.0901262
 flip_h = true
 script = ExtResource("14_cw240")
 
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="."]
+position = Vector2(-9846, 186)
+sprite_frames = SubResource("SpriteFrames_b2kok")
+autoplay = "default"
+frame = 1
+frame_progress = 0.0901262
+flip_h = true
+script = ExtResource("14_cw240")
+
+[node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="."]
+position = Vector2(-9628, 180)
+sprite_frames = SubResource("SpriteFrames_b2kok")
+autoplay = "default"
+frame = 1
+frame_progress = 0.0901262
+flip_h = true
+script = ExtResource("14_cw240")
+
+[node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="."]
+position = Vector2(-10125, 303)
+sprite_frames = SubResource("SpriteFrames_b2kok")
+autoplay = "default"
+frame = 1
+frame_progress = 0.0901262
+flip_h = true
+script = ExtResource("14_cw240")
+
+[node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="."]
+position = Vector2(-13109, 96)
+sprite_frames = SubResource("SpriteFrames_b2kok")
+autoplay = "default"
+frame = 1
+frame_progress = 0.0901262
+flip_h = true
+script = ExtResource("14_cw240")
+
+[node name="AnimatedSprite2D14" type="AnimatedSprite2D" parent="."]
+position = Vector2(-12905, 464)
+sprite_frames = SubResource("SpriteFrames_b2kok")
+autoplay = "default"
+frame = 1
+frame_progress = 0.0901262
+flip_h = true
+script = ExtResource("14_cw240")
+
+[node name="AnimatedSprite2D15" type="AnimatedSprite2D" parent="."]
+position = Vector2(-12788, 223)
+sprite_frames = SubResource("SpriteFrames_b2kok")
+autoplay = "default"
+frame = 1
+frame_progress = 0.0901262
+flip_h = true
+script = ExtResource("14_cw240")
+
+[node name="AnimatedSprite2D16" type="AnimatedSprite2D" parent="."]
+position = Vector2(-16499, 403)
+sprite_frames = SubResource("SpriteFrames_b2kok")
+autoplay = "default"
+frame = 1
+frame_progress = 0.0901262
+flip_h = true
+script = ExtResource("14_cw240")
+
+[node name="AnimatedSprite2D17" type="AnimatedSprite2D" parent="."]
+position = Vector2(-16067, 477)
+sprite_frames = SubResource("SpriteFrames_b2kok")
+autoplay = "default"
+frame = 1
+frame_progress = 0.0901262
+flip_h = true
+script = ExtResource("14_cw240")
+
+[node name="AnimatedSprite2D18" type="AnimatedSprite2D" parent="."]
+position = Vector2(-16456, 110)
+sprite_frames = SubResource("SpriteFrames_b2kok")
+autoplay = "default"
+frame = 1
+frame_progress = 0.0901262
+flip_h = true
+script = ExtResource("14_cw240")
+
+[node name="AnimatedSprite2D19" type="AnimatedSprite2D" parent="."]
+position = Vector2(-19574, 412)
+sprite_frames = SubResource("SpriteFrames_b2kok")
+autoplay = "default"
+frame = 1
+frame_progress = 0.0901262
+flip_h = true
+script = ExtResource("14_cw240")
+
+[node name="AnimatedSprite2D20" type="AnimatedSprite2D" parent="."]
+position = Vector2(-19484, 236)
+sprite_frames = SubResource("SpriteFrames_b2kok")
+autoplay = "default"
+frame = 1
+frame_progress = 0.0901262
+flip_h = true
+script = ExtResource("14_cw240")
+
+[node name="AnimatedSprite2D21" type="AnimatedSprite2D" parent="."]
+position = Vector2(-21505, 251)
+sprite_frames = SubResource("SpriteFrames_b2kok")
+autoplay = "default"
+frame = 1
+frame_progress = 0.0901262
+flip_h = true
+script = ExtResource("14_cw240")
+
+[node name="AnimatedSprite2D22" type="AnimatedSprite2D" parent="."]
+position = Vector2(-21715, 179)
+sprite_frames = SubResource("SpriteFrames_b2kok")
+autoplay = "default"
+frame = 1
+frame_progress = 0.0901262
+flip_h = true
+script = ExtResource("14_cw240")
+
+[node name="AnimatedSprite2D23" type="AnimatedSprite2D" parent="."]
+position = Vector2(-24205, 261)
+rotation = -0.088543
+sprite_frames = SubResource("SpriteFrames_b2kok")
+autoplay = "default"
+frame = 1
+frame_progress = 0.0901262
+flip_h = true
+script = ExtResource("14_cw240")
+
+[node name="AnimatedSprite2D25" type="AnimatedSprite2D" parent="."]
+position = Vector2(-27214, 97)
+rotation = -0.088543
+sprite_frames = SubResource("SpriteFrames_b2kok")
+autoplay = "default"
+frame = 1
+frame_progress = 0.0901262
+flip_h = true
+script = ExtResource("14_cw240")
+
+[node name="AnimatedSprite2D24" type="AnimatedSprite2D" parent="."]
+position = Vector2(-24435.8, 189.225)
+rotation = -0.088543
+sprite_frames = SubResource("SpriteFrames_b2kok")
+autoplay = "default"
+frame = 1
+frame_progress = 0.0901262
+flip_h = true
+script = ExtResource("14_cw240")
+
 [node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="."]
 position = Vector2(-6026, 304)
 rotation = 0.037666

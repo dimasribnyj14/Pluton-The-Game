@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b6ffn27mr23ck"]
+[gd_scene load_steps=16 format=3 uid="uid://b6ffn27mr23ck"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_qnp6r"]
 [ext_resource type="Texture2D" uid="uid://dsuwc20243fqf" path="res://resources/backgrounds/main_menu.png" id="1_x7fgi"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scripts/quit.gd" id="6_jwooe"]
 [ext_resource type="Script" path="res://scripts/playButton.gd" id="6_kb1j2"]
 [ext_resource type="Script" path="res://scripts/optionsOpen.gd" id="7_q4aod"]
+[ext_resource type="Script" path="res://scripts/Button4.gd" id="9_p46du"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yu8fb"]
 texture = ExtResource("2_1sjb4")
@@ -80,6 +81,18 @@ action_mode = 0
 text = "Options"
 script = ExtResource("7_q4aod")
 
+[node name="Button4" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bj75h")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_yu8fb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mml2h")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_a1ipu")
+action_mode = 0
+text = "Credits"
+script = ExtResource("9_p46du")
+
 [node name="Button3" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
@@ -126,4 +139,5 @@ vertical_alignment = 2
 
 [connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="VBoxContainer/Button2" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button4" to="VBoxContainer/Button4" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button3" to="VBoxContainer/Button3" method="_on_pressed"]

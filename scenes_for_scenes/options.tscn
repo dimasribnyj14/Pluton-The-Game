@@ -265,6 +265,48 @@ texture_pressed = ExtResource("5_l8omh")
 texture_hover = ExtResource("5_l8omh")
 stretch_mode = 0
 
+[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer"]
+texture_filter = 3
+layout_mode = 2
+text = "Audio"
+label_settings = SubResource("LabelSettings_6sjpc")
+horizontal_alignment = 2
+
+[node name="Music" type="BoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("10_joptr")
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/Music"]
+custom_minimum_size = Vector2(500, 90)
+layout_mode = 2
+texture = ExtResource("3_makoq")
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Music/TextureRect"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.5
+offset_top = -11.5
+offset_right = 29.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Music"
+label_settings = SubResource("LabelSettings_8etd1")
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/Music"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("5_l8omh")
+texture_pressed = ExtResource("5_l8omh")
+texture_hover = ExtResource("5_l8omh")
+stretch_mode = 0
+
 [node name="Main_menu" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 91.0
@@ -368,4 +410,5 @@ label_settings = SubResource("LabelSettings_8etd1")
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/Fullscreen/TextureButton" to="ScrollContainer/VBoxContainer/Fullscreen" method="_on_texture_button_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/30FPS/TextureButton" to="ScrollContainer/VBoxContainer/30FPS" method="_on_texture_button_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/Camera Smooth/TextureButton" to="ScrollContainer/VBoxContainer/Camera Smooth" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Music/TextureButton" to="ScrollContainer/VBoxContainer/Music" method="_on_texture_button_pressed"]
 [connection signal="pressed" from="Main_menu" to="Main_menu" method="_on_pressed"]

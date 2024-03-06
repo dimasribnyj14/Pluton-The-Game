@@ -12,7 +12,7 @@ func _ready():
 		config.set_value("options", "smoothcamera", true)
 		config.set_value("options", "30fps", false)
 		config.set_value("options", "strechscreen", false)
-
+		config.set_value("options", "music", true)
 		config.save("user://config.cfg")
 	
 	fullscreen = config.get_value('options', 'fullscreen')

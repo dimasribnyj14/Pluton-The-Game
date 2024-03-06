@@ -1,0 +1,200 @@
+[gd_scene load_steps=14 format=3 uid="uid://sb65ec5gut6u"]
+
+[ext_resource type="Shader" path="res://scripts/blur.gdshader" id="1_iomtl"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ny2yd"]
+[ext_resource type="Texture2D" uid="uid://dsuwc20243fqf" path="res://resources/backgrounds/main_menu.png" id="2_rd5ja"]
+[ext_resource type="Script" path="res://scripts/titr.gd" id="3_t3n8a"]
+[ext_resource type="Texture2D" uid="uid://dwteqfofofa7w" path="res://resources/decorations/pluton.png" id="3_wff6k"]
+[ext_resource type="FontFile" uid="uid://t7q6awyns2m7" path="res://resources/fonts/papyrus-pixel_1.ttf" id="4_37k7q"]
+[ext_resource type="Texture2D" uid="uid://c5q51cue0rbp6" path="res://resources/mobile_buttons/left.png" id="6_3a8r3"]
+[ext_resource type="Texture2D" uid="uid://bo7hoolt4eko5" path="res://resources/mobile_buttons/left_pressed.png" id="7_vwmug"]
+[ext_resource type="Script" path="res://scripts/move_to_menu.gd" id="8_qg3o4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h7yt4"]
+shader = ExtResource("1_iomtl")
+
+[sub_resource type="LabelSettings" id="LabelSettings_yufgj"]
+font = ExtResource("4_37k7q")
+font_size = 200
+
+[sub_resource type="LabelSettings" id="LabelSettings_h61v1"]
+font = ExtResource("4_37k7q")
+font_size = 400
+outline_size = 50
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lwabx"]
+font = ExtResource("4_37k7q")
+font_size = 200
+outline_size = 50
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 50
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.00195, 1)
+script = ExtResource("1_ny2yd")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 2
+material = SubResource("ShaderMaterial_h7yt4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rd5ja")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -322.5
+offset_top = 340.0
+offset_right = 2506.5
+offset_bottom = 7522.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.191819, 0.200276)
+script = ExtResource("3_t3n8a")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_wff6k")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 200
+text = "Retribution Of Pluto: 
+The galactic rogue"
+label_settings = SubResource("LabelSettings_yufgj")
+
+[node name="BigLabel2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Team Leader"
+label_settings = SubResource("LabelSettings_h61v1")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Dmitry Sribnyj"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="BigLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Coders"
+label_settings = SubResource("LabelSettings_h61v1")
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Dmitry Sribnyj"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Yaroslav Repan"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="BigLabel3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Designers"
+label_settings = SubResource("LabelSettings_h61v1")
+horizontal_alignment = 1
+
+[node name="Label14" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Dmitry Sribnyj"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Mikhnenko Daniel"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Yaroslav Repan"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label8" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Safonova Anya"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label9" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Pasha Ustich"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label10" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Artem"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="BigLabel4" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Scripters"
+label_settings = SubResource("LabelSettings_h61v1")
+horizontal_alignment = 1
+
+[node name="Label11" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Pasha Ustich"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="BigLabel5" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Special Thanks To"
+label_settings = SubResource("LabelSettings_h61v1")
+horizontal_alignment = 1
+
+[node name="Label12" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Sergey Roman"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label13" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Nikolai Skripnik"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Main_menu" type="TextureButton" parent="."]
+offset_left = 1.52588e-05
+offset_top = 626.0
+offset_right = 19.0
+offset_bottom = 645.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("6_3a8r3")
+texture_pressed = ExtResource("7_vwmug")
+texture_hover = ExtResource("7_vwmug")
+script = ExtResource("8_qg3o4")
+
+[connection signal="pressed" from="Main_menu" to="Main_menu" method="_on_pressed"]
