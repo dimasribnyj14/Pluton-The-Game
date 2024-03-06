@@ -46,6 +46,7 @@ func _physics_process(delta):
 			$CollisionShape2D.position.x = 15
 			$RayCast2D.position.x = 15
 			$RayCast2D1.position.x = 17
+			$hitBox/CollisionShape2D.position.x = 15
 			$RayCast2D2.position.x = 17
 			$AnimatedSprite2D.flip_h = true #Отзеркаливаем горизонтально
 		else: #Если позиция x меньше конца пути, то
@@ -55,6 +56,7 @@ func _physics_process(delta):
 			$RayCast2D2.position.x = 37
 			$CollisionShape2D.position.x = 35
 			$AnimatedSprite2D.flip_h = false #Отзеркаливаем горизонтально обратно
+			$hitBox/CollisionShape2D.position.x = 35
 			
 	# Если бот дошел до конца, то возращается обратно
 	if go_to_plr == false:

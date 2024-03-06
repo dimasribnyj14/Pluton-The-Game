@@ -17,6 +17,9 @@ func _on_body_entered(body):
 	if body.name.contains('RigidBody2D'):
 		queue_free()
 		body.remove_from_group("enemy")
+		body.get_node('CollisionShape2D').disabled = true
+		body.get_node('hitBox').get_node("CollisionShape2D").disabled = true
+		
 		body.dead = true
 		body.modulate = Color('00ffff')
 		body.get_node('PointLight2D').energy = 1

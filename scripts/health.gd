@@ -1,15 +1,26 @@
-extends ProgressBar
-#
-#@export var player = preload("res://scripts/Player_Control.gd")
-#
+extends HBoxContainer
+
+@export var HeartGuiClass = preload('res://scenes_for_scenes/heartGui.tscn')
+
+# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
-	#player.healthChanged.connect(update)
-	#update()
-#
-#
-#
-#func update():
-	#value = player.currentHealth * 100 / player.maxHealth
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func setMaxHearts(max: int):
+	for i in range(max):
+		var heart = HeartGuiClass.instantiate()
+		add_child(heart)
+
+func updateHearts(currentHealth: int):
+	var hearts = get_children()
+
+
+	for i in range(currentHealth):
+		hearts[i].update(true)
+
+	for i in range(currentHealth, hearts.size()):
+		hearts[i].update(false)

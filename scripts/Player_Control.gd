@@ -1,13 +1,17 @@
 extends CharacterBody2D
 
-#signal healthChanged
-#
-#
-#
-#
-#var maxHealth = 100
-#var currentHealth: int = maxHealth
-#var isHurt = false
+signal healthChanged
+
+@onready var effects = $Effects
+@onready var HurtCD = $HurtCD
+
+@export var knockbackPower: int = 500
+
+@export var maxHealth = 5
+var currentHealth: int = maxHealth
+
+#var canDmg = true
+
 @export var takenHammer = false
 var knockbackDirection
 var can_shoot = true
@@ -15,38 +19,37 @@ const SPEED = 350.0
 const JUMP_VELOCITY = -550.0
 var lightOff = false
 @onready var cooldown = $Cooldown
+@onready var anim_plr = get_node("AnimationPlayer")
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var sfx
-var anim_plr
-@onready var bullet = preload("res://scenes_for_scenes/bullet.tscn")
+
 func _ready():
-	print(get_tree().current_scene.name)
-	anim_plr = get_node("AnimationPlayer")
+	effects.play("RESET")
+	
 
 
-#func hurtByEnemy(area):
-	#currentHealth -= 10
-	#if currentHealth < 0:
-		#currentHealth = maxHealth
-		#
-	##isHurt = true
-	#healthChanged.emit()
-
-	#knockback(area.get_parent().velocity)
-	#effects.play("hurtBlink")
-	#hurtTimer.start()
-	#await hurtTimer.timeout
-	#effects.play("RESET")
-	#isHurt = false
 
 
-#func knockback(enemyVelocity: Vector2):
-	#knockbackDirection = (enemyVelocity - velocity).normalized() * 3
-	#velocity = knockbackDirection
-	#move_and_slide()
+
+#Sounds
+@onready var sfxDeath = get_node('Death')
+@onready var sfxFootstep = get_node('Footstep')
+@onready var sfxJump = get_node('Jump')
+@onready var sfxLaser = get_node('Laser')
+
+
+
+@onready var bullet = preload("res://scenes_for_scenes/bullet.tscn")
+	
+
+#func removeWall(col):
+	#col.get_node('Hammer').visible = false
+	
 
 func _physics_process(delta):
+	#sfxFootstep.connect("finished", Callable(self,"_on_loop_sound").bind(sfxFootstep))
+	
 	# Add the gravity.
 	if not is_on_floor():
 		if get_tree().current_scene.name == 'Cloudlvl':
@@ -89,16 +92,23 @@ func _physics_process(delta):
 		
 	
 	if direction:
+		if not is_on_floor():
+			sfxFootstep.stop()
 		velocity.x = direction * SPEED
 		if is_on_floor():
+			if sfxFootstep.playing == false:
+				sfxFootstep.play()
 			anim_plr.play("run")
 	else:
+		sfxFootstep.stop()
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if is_on_floor():
+			
 			anim_plr.play("idle")
 
 	if Input.is_action_just_pressed("fire"):
 		if can_shoot == true:
+			sfxLaser.play()
 			var bullet_instance = bullet.instantiate()
 			#if get_tree().current_scene.name == 'SecondLvl':
 				#get_node('/root/SecondLvl').add_child(bullet_instance)
@@ -123,10 +133,12 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
+			sfxJump.play()
 			anim_plr.play("jump")
 	if position.y >= 1100:
-		sfx.get_node('AudioStreamPlayer2D')
-		sfx.play()
+		currentHealth = maxHealth
+		healthChanged.emit(currentHealth)
+		sfxDeath.play()
 		if get_tree().current_scene.name == 'FirstLevel':
 			position.y = -155
 			position.x = 275
@@ -149,26 +161,40 @@ func _physics_process(delta):
 			var collision = get_slide_collision(i)
 			
 			#print(collision.get_collider())
+			
 			if collision.get_collider() != null:
-				if collision.get_collider().is_in_group("enemy"):
-				#hurtByEnemy(collision)
-					if get_tree().current_scene.name == 'FirstLevel':
-						position.y = -155
-						position.x = 275
-					elif get_tree().current_scene.name == 'SecondLvl':
-						position.y = 170
-						position.x = 276
-					elif get_tree().current_scene.name == 'ThirdLvl':
-						position.y = 1000
-						position.x = 276
-					elif get_tree().current_scene.name == 'FourthLevel':
-						position.y = 667
-						position.x = -4436.04
-					elif get_tree().current_scene.name == 'Cloudlvl':
-						position.y = 966
-						position.x = 290
+				if collision.get_collider().is_in_group("wall_break_hammer"):
+					if takenHammer == true:
+						takenHammer = false
+						$"../WallBreak/Hammer".visible = true
+						get_node("BreakHammer").start(1)
+						await get_node("BreakHammer").timeout
+						var tween = get_tree().create_tween()
+						tween.tween_property($"../WallBreak/Hammer", "rotation", 1, 0.5)
+						tween.tween_callback($"../WallBreak".queue_free)
+				#if collision.get_collider().is_in_group("enemy"):
+				##hurtByEnemy(collision)
+					#if get_tree().current_scene.name == 'FirstLevel':
+						#position.y = -155
+						#position.x = 275
+					#elif get_tree().current_scene.name == 'SecondLvl':
+						#position.y = 170
+						#position.x = 276
+					#elif get_tree().current_scene.name == 'ThirdLvl':
+						#position.y = 1000
+						#position.x = 276
+					#elif get_tree().current_scene.name == 'FourthLevel':
+						#position.y = 667
+						#position.x = -4436.04
+					#elif get_tree().current_scene.name == 'Cloudlvl':
+						#position.y = 966
+						#position.x = 290
 			#elif collision.get_collider().is_in_group("interact_break"):
 				#$"../Ishere/imag".texture = load('res://resources/interactive/hammer/taken.png')
+	
+
+	
+	
 	
 	move_and_slide()
 
@@ -178,7 +204,61 @@ func _physics_process(delta):
 
 	
 
-
+func _on_loop_sound(sound):
+	sound.stream_paused = false
 
 func _on_cooldown_timeout():
 	can_shoot = true
+
+
+func _on_hurt_box_area_entered(area):
+	print(area.name)
+	if area.name == "hitBox":
+		#canDmg = false
+		print(currentHealth)
+		currentHealth -= 1
+		if currentHealth < 0:
+			sfxDeath.play()
+			if get_tree().current_scene.name == 'FirstLevel':
+				position.y = -155
+				position.x = 275
+			elif get_tree().current_scene.name == 'SecondLvl':
+				position.y = 170
+				position.x = 276
+			elif get_tree().current_scene.name == 'ThirdLvl':
+				position.y = 1000
+				position.x = 276
+			elif get_tree().current_scene.name == 'FourthLevel':
+				position.y = 667
+				position.x = -4436.04
+			elif get_tree().current_scene.name == 'Cloudlvl':
+				position.y = 966
+				position.x = 290
+			currentHealth = maxHealth
+		healthChanged.emit(currentHealth)
+		knockback(area.get_parent().position)
+		effects.play("hurtbit")
+		HurtCD.start()
+		await HurtCD.timeout
+		effects.play("RESET")
+		#dmgCD.start(3)
+
+
+#func _on_damage_time_timeout():
+	#canDmg = true
+
+func knockback(enemyVelocity: Vector2):
+	var knockbackDirection = (enemyVelocity - velocity).normalized() * knockbackPower
+	velocity = knockbackDirection
+	print_debug(velocity)
+	print_debug(position)
+	move_and_slide()
+	print_debug(position)
+	print_debug(" ")
+
+
+
+
+
+#func _on_break_hammer_timeout(collision):
+	

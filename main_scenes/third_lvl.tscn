@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://c5b42d00n3l2w"]
+[gd_scene load_steps=63 format=3 uid="uid://c5b42d00n3l2w"]
 
 [ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_isw6d"]
 [ext_resource type="PackedScene" uid="uid://bcypn17ixt517" path="res://scenes_for_scenes/player/character.tscn" id="1_l3y2n"]
@@ -35,6 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://sh43sgrnteyh" path="res://resources/decorations/acid_level/barrel_opened.png" id="31_xvq5e"]
 [ext_resource type="Texture2D" uid="uid://glio1jn6c1sy" path="res://resources/decorations/acid_level/table.png" id="33_snoeq"]
 [ext_resource type="Texture2D" uid="uid://blct6h5awyq1i" path="res://resources/mobile_buttons/up.png" id="34_13rxp"]
+[ext_resource type="Script" path="res://scripts/options/Camera2D.gd" id="34_ymb1u"]
 [ext_resource type="Texture2D" uid="uid://caij0yycfc3kt" path="res://resources/mobile_buttons/up_pressed.png" id="35_igb62"]
 [ext_resource type="PackedScene" uid="uid://docqisup1ghcw" path="res://scenes_for_scenes/rain.tscn" id="35_ny2ka"]
 [ext_resource type="Texture2D" uid="uid://c5q51cue0rbp6" path="res://resources/mobile_buttons/left.png" id="36_6vf81"]
@@ -45,6 +46,7 @@
 [ext_resource type="Texture2D" uid="uid://b7rig1hxq1dpc" path="res://resources/mobile_buttons/use.png" id="40_65m1r"]
 [ext_resource type="Texture2D" uid="uid://biqm0s54peckt" path="res://resources/mobile_buttons/use_pressed.png" id="41_2yd8j"]
 [ext_resource type="Texture2D" uid="uid://iapqi7j42w1r" path="res://resources/mobile_buttons/pause.png" id="42_7dowo"]
+[ext_resource type="PackedScene" uid="uid://bu8tbi4v1h6ue" path="res://scenes_for_scenes/pause.tscn" id="44_om1my"]
 [ext_resource type="Script" path="res://scripts/MoveTo.gd" id="46_kyp6d"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wklei"]
@@ -2056,6 +2058,8 @@ position = Vector2(34, 9)
 scale = Vector2(0.913049, 0.845963)
 limit_smoothed = true
 position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+script = ExtResource("34_ymb1u")
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
 light_mask = 2
@@ -2101,6 +2105,15 @@ texture_normal = ExtResource("42_7dowo")
 texture_pressed = ExtResource("42_7dowo")
 action = "escape"
 visibility_mode = 1
+
+[node name="Pause" parent="CharacterBody2D/Camera2D" instance=ExtResource("44_om1my")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Table" type="Sprite2D" parent="."]
 position = Vector2(2889, 650)

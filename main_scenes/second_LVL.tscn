@@ -1,9 +1,8 @@
-[gd_scene load_steps=59 format=3 uid="uid://dk1xgqbvjcej7"]
+[gd_scene load_steps=60 format=3 uid="uid://dk1xgqbvjcej7"]
 
 [ext_resource type="Texture2D" uid="uid://b2ikycmdiuhai" path="res://resources/backgrounds_ice/photo2pixel_download (1).png" id="1_ae603"]
 [ext_resource type="Texture2D" uid="uid://dhg5vuymtjxo1" path="res://resources/tilemaps/pixil-Default_blocks-0.png" id="1_k3syu"]
 [ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_k7ykd"]
-[ext_resource type="Texture2D" uid="uid://j1rehep1d87e" path="res://resources/portal/toxic/1.png" id="2_l4xfe"]
 [ext_resource type="Texture2D" uid="uid://boh55yautp1a1" path="res://resources/tilemaps/ship_blocks.png" id="2_vrruo"]
 [ext_resource type="Script" path="res://scripts/RotationPortal.gd" id="3_4trau"]
 [ext_resource type="Texture2D" uid="uid://bbhdmcpn0tfrf" path="res://resources/tilemaps/pixil-Default_blocks-1.png" id="3_otep5"]
@@ -34,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://c2wod38baubc6" path="res://resources/decorations/ice_level/GATE.png" id="31_dlp34"]
 [ext_resource type="Texture2D" uid="uid://dhcbo0nmnmw3k" path="res://resources/decorations/blue_ore.png" id="31_n4dus"]
 [ext_resource type="PackedScene" uid="uid://c6picwuw4s31m" path="res://scenes_for_scenes/snow.tscn" id="34_fbtk1"]
+[ext_resource type="Script" path="res://scripts/options/Camera2D.gd" id="34_gtwag"]
 [ext_resource type="Texture2D" uid="uid://blct6h5awyq1i" path="res://resources/mobile_buttons/up.png" id="34_vtsrd"]
 [ext_resource type="Texture2D" uid="uid://caij0yycfc3kt" path="res://resources/mobile_buttons/up_pressed.png" id="35_idbms"]
 [ext_resource type="Texture2D" uid="uid://c5q51cue0rbp6" path="res://resources/mobile_buttons/left.png" id="36_wq0nf"]
@@ -44,7 +44,8 @@
 [ext_resource type="Texture2D" uid="uid://biqm0s54peckt" path="res://resources/mobile_buttons/use_pressed.png" id="41_1431y"]
 [ext_resource type="Texture2D" uid="uid://iapqi7j42w1r" path="res://resources/mobile_buttons/pause.png" id="42_oi1mw"]
 [ext_resource type="PackedScene" uid="uid://cxr21u3q8d5bx" path="res://scenes_for_scenes/enemy/base.tscn" id="43_jharv"]
-[ext_resource type="Texture2D" uid="uid://j1rehep1d87e" path="res://resources/portal/ice/1.png" id="45_csfas"]
+[ext_resource type="PackedScene" uid="uid://bu8tbi4v1h6ue" path="res://scenes_for_scenes/pause.tscn" id="44_mrvou"]
+[ext_resource type="Texture2D" uid="uid://j1rehep1d87e" path="res://resources/portal/toxic/1.png" id="45_csfas"]
 [ext_resource type="Script" path="res://scripts/MoveTo.gd" id="46_fenpv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7peq7"]
@@ -1041,13 +1042,13 @@ layer_0/tile_data = PackedInt32Array(458708, 65536, 2, 458709, 65536, 2, 458710,
 material = SubResource("ShaderMaterial_aces2")
 position = Vector2(304, 180)
 scale = Vector2(3.5672, 3.59184)
-texture = ExtResource("2_l4xfe")
+texture = ExtResource("45_csfas")
 script = ExtResource("3_4trau")
 
 [node name="PointLight2D" type="PointLight2D" parent="Yeppi1"]
 position = Vector2(1.28746e-05, 1.23978e-05)
 scale = Vector2(1.375, 1.375)
-texture = ExtResource("2_l4xfe")
+texture = ExtResource("45_csfas")
 
 [node name="Area2D" parent="." instance=ExtResource("8_ygfup")]
 position = Vector2(5737, 531)
@@ -1336,6 +1337,8 @@ position = Vector2(34, 9)
 scale = Vector2(0.913049, 0.845963)
 limit_smoothed = true
 position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+script = ExtResource("34_gtwag")
 
 [node name="TouchScreenButton5" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
 light_mask = 2
@@ -1381,6 +1384,15 @@ texture_normal = ExtResource("42_oi1mw")
 texture_pressed = ExtResource("42_oi1mw")
 action = "escape"
 visibility_mode = 1
+
+[node name="Pause" parent="CharacterBody2D/Camera2D" instance=ExtResource("44_mrvou")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="CPUParticles2D" parent="." instance=ExtResource("34_fbtk1")]
 texture_filter = 2

@@ -8,10 +8,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	rotation += 1
 
 
 func _on_area_2d_body_entered(body):
+	print(get_tree().current_scene.name)
 	if get_tree().current_scene.name == 'first_LVL':
 		get_tree().change_scene_to_file("res://main_scenes/second_LVL.tscn")
 	elif get_tree().current_scene.name == 'second_LVL':

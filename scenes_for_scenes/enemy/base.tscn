@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxr21u3q8d5bx"]
+[gd_scene load_steps=9 format=3 uid="uid://cxr21u3q8d5bx"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_0qofw"]
 [ext_resource type="Texture2D" uid="uid://pnk1b0xkqb2u" path="res://resources/enemies/Джунгли/Криса Враг 3/1.png" id="1_4iaax"]
@@ -20,11 +20,14 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_14h38"]
-radius = 30.0
-height = 110.0
+radius = 26.0
+height = 96.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jl6kc"]
-size = Vector2(878.5, 530)
+size = Vector2(879.25, 531)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sywb"]
+size = Vector2(70, 99)
 
 [node name="RigidBody2D" type="RigidBody2D" groups=["enemy"]]
 gravity_scale = 0.005
@@ -66,7 +69,7 @@ hit_from_inside = true
 [node name="FindPlr" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FindPlr"]
-position = Vector2(38, 36)
+position = Vector2(37.625, 35.5)
 shape = SubResource("RectangleShape2D_jl6kc")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
@@ -75,6 +78,12 @@ rotation = 1.5708
 scale = Vector2(0.852712, 2.512)
 energy = 0.0
 texture = ExtResource("4_kcvnt")
+
+[node name="hitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
+position = Vector2(35, 51.5)
+shape = SubResource("RectangleShape2D_1sywb")
 
 [connection signal="timeout" from="TimerJump" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="TimerMove" to="." method="_on_timer_move_timeout"]

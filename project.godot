@@ -10,7 +10,11 @@ config_version=5
 
 [application]
 
-config/name="Pluton"
+config/name="Retribution Of Pluto The galactic rogue"
+config/name_localized={
+"ru_RU": "Возмездие Плутона галактического изгоя",
+"uk_UA": "Відплата Плутона галактичного ізгоя"
+}
 config/version="0.29.5"
 run/main_scene="res://main_scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
@@ -23,6 +27,12 @@ config/icon="res://resources/game/oleg.png"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="res://resources/ui/mouse.png"
+window/name_localized={
+"ru_RU": "Возмездие Плутона галактического изгоя",
+"uk_UA": "Відплата Плутона галактичного ізгоя"
+}
+window/name="Retribution Of Pluto The galactic rogue"
 
 [input]
 
@@ -85,3 +95,7 @@ locale/language_filter=["en", "uk"]
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
+textures/light_projectors/filter=0
+lightmapping/probe_capture/update_speed=15.0
+limits/opengl/max_renderable_lights=2
+limits/opengl/max_lights_per_object=2

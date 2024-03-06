@@ -12,4 +12,5 @@ func _process(delta):
 
 
 func _on_pressed():
+	Engine.time_scale = 1
 	get_tree().quit()

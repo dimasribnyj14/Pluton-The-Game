@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://bklk82xk4qaii"]
+[gd_scene load_steps=75 format=3 uid="uid://bklk82xk4qaii"]
 
 [ext_resource type="PackedScene" uid="uid://bcypn17ixt517" path="res://scenes_for_scenes/player/character.tscn" id="1_ika7c"]
 [ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_l3ss5"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://bgk11jtwtbytb" path="res://resources/decorations/jungle_level/diesign.png" id="30_uiu43"]
 [ext_resource type="Texture2D" uid="uid://blct6h5awyq1i" path="res://resources/mobile_buttons/up.png" id="31_3e7qh"]
 [ext_resource type="Texture2D" uid="uid://ddf2jviyujc8g" path="res://resources/decorations/jungle_level/flower.png" id="31_pgsbh"]
+[ext_resource type="Script" path="res://scripts/options/Camera2D.gd" id="31_q86e0"]
 [ext_resource type="Texture2D" uid="uid://bnx0lg4igyai2" path="res://resources/decorations/jungle_level/grass.png" id="32_6q7em"]
 [ext_resource type="Texture2D" uid="uid://caij0yycfc3kt" path="res://resources/mobile_buttons/up_pressed.png" id="32_qei5k"]
 [ext_resource type="Texture2D" uid="uid://c5q51cue0rbp6" path="res://resources/mobile_buttons/left.png" id="33_ekj8v"]
@@ -50,6 +51,7 @@
 [ext_resource type="Texture2D" uid="uid://lxso5wpjl3o0" path="res://resources/interactive/ore.png" id="39_cxrr2"]
 [ext_resource type="Script" path="res://main_scenes/Label.gd" id="39_xfmil"]
 [ext_resource type="Script" path="res://main_scenes/text_fun.gd" id="40_0b755"]
+[ext_resource type="PackedScene" uid="uid://bu8tbi4v1h6ue" path="res://scenes_for_scenes/pause.tscn" id="41_8m3mj"]
 [ext_resource type="Script" path="res://scripts/MoveTo.gd" id="51_q3loe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_inl2s"]
@@ -1571,6 +1573,8 @@ position = Vector2(34, 9)
 scale = Vector2(0.913049, 0.845963)
 limit_smoothed = true
 position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+script = ExtResource("31_q86e0")
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
 light_mask = 2
@@ -1616,6 +1620,15 @@ texture_normal = ExtResource("39_226gv")
 texture_pressed = ExtResource("39_226gv")
 action = "escape"
 visibility_mode = 1
+
+[node name="Pause" parent="CharacterBody2D/Camera2D" instance=ExtResource("41_8m3mj")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D"]
 position = Vector2(193.04, 57)

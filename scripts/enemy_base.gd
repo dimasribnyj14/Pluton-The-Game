@@ -11,7 +11,7 @@ var direction: int = 0
 func _ready():
 	#var bullet = preload("res://scenes_for_scenes/lightfire.tscn").instantiate()
 	#bullet.position = end_x
-	get_tree().get_root().add_child(bullet)
+	#get_tree().get_root().add_child(bullet)
 	start_x = position.x #Ставим начальный путь
 	if start_y != 0: #Если start_y не равняется нулю, то
 		position.y = start_y #
