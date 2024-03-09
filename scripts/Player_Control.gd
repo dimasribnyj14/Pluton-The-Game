@@ -5,6 +5,7 @@ signal healthChanged
 @onready var effects = $Effects
 @onready var HurtCD = $HurtCD
 
+
 @export var knockbackPower: int = 500
 
 @export var maxHealth = 5
@@ -65,6 +66,11 @@ func _physics_process(delta):
 				if position.x > 0 and $PointLight2D.energy > 0:
 					lightOff = true
 		elif lightOff == true and $PointLight2D.energy > 0:
+			#$Camera2D/TouchScreenButton.modulate = Color('f9002f')
+			#$Camera2D/TouchScreenButton5.modulate = Color('f9002f')
+			#$Camera2D/TouchScreenButton2.modulate = Color('f9002f')
+			#$Camera2D/TouchScreenButton3.modulate = Color('f9002f')
+			#$Camera2D/TouchScreenButton4.modulate = Color('f9002f')
 			$PointLight2D.energy -= 0.01
 	#OTHER
 	# Get the input direction and handle the movement/deceleration..;
@@ -154,6 +160,9 @@ func _physics_process(delta):
 		elif get_tree().current_scene.name == 'Cloudlvl':
 			position.y = 966
 			position.x = 290
+		elif get_tree().current_scene.name == 'last_lvl':
+			position.x = -144
+			position.y = 721
 	
 	
 	for i in get_slide_collision_count():
@@ -242,7 +251,30 @@ func _on_hurt_box_area_entered(area):
 		await HurtCD.timeout
 		effects.play("RESET")
 		#dmgCD.start(3)
-
+	elif area.name == "Mine":
+		#canDmg = false
+		print(currentHealth)
+		currentHealth -= 6
+		if currentHealth < 0:
+			if get_tree().current_scene.name == 'FirstLevel':
+				position.y = -155
+				position.x = 275
+			elif get_tree().current_scene.name == 'SecondLvl':
+				position.y = 170
+				position.x = 276
+			elif get_tree().current_scene.name == 'ThirdLvl':
+				position.y = 1000
+				position.x = 276
+			elif get_tree().current_scene.name == 'FourthLevel':
+				position.y = 667
+				position.x = -4436.04
+			elif get_tree().current_scene.name == 'Cloudlvl':
+				position.y = 966
+				position.x = 290
+			sfxDeath.play()
+			currentHealth = maxHealth
+		healthChanged.emit(currentHealth)
+		#area.get_parent().queue_free()
 
 #func _on_damage_time_timeout():
 	#canDmg = true

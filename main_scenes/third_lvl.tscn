@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://c5b42d00n3l2w"]
+[gd_scene load_steps=62 format=3 uid="uid://c5b42d00n3l2w"]
 
 [ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_isw6d"]
 [ext_resource type="PackedScene" uid="uid://bcypn17ixt517" path="res://scenes_for_scenes/player/character.tscn" id="1_l3y2n"]
@@ -34,20 +34,19 @@
 [ext_resource type="Texture2D" uid="uid://dhcbo0nmnmw3k" path="res://resources/decorations/blue_ore.png" id="31_5yd40"]
 [ext_resource type="Texture2D" uid="uid://sh43sgrnteyh" path="res://resources/decorations/acid_level/barrel_opened.png" id="31_xvq5e"]
 [ext_resource type="Texture2D" uid="uid://glio1jn6c1sy" path="res://resources/decorations/acid_level/table.png" id="33_snoeq"]
-[ext_resource type="Texture2D" uid="uid://blct6h5awyq1i" path="res://resources/mobile_buttons/up.png" id="34_13rxp"]
 [ext_resource type="Script" path="res://scripts/options/Camera2D.gd" id="34_ymb1u"]
-[ext_resource type="Texture2D" uid="uid://caij0yycfc3kt" path="res://resources/mobile_buttons/up_pressed.png" id="35_igb62"]
 [ext_resource type="PackedScene" uid="uid://docqisup1ghcw" path="res://scenes_for_scenes/rain.tscn" id="35_ny2ka"]
-[ext_resource type="Texture2D" uid="uid://c5q51cue0rbp6" path="res://resources/mobile_buttons/left.png" id="36_6vf81"]
 [ext_resource type="PackedScene" uid="uid://btgw70pc31sjr" path="res://scenes_for_scenes/cloud.tscn" id="36_j0p2m"]
-[ext_resource type="Texture2D" uid="uid://bo7hoolt4eko5" path="res://resources/mobile_buttons/left_pressed.png" id="37_x0tv2"]
-[ext_resource type="Texture2D" uid="uid://dscwbe8myg6t0" path="res://resources/mobile_buttons/right.png" id="38_3ewy4"]
-[ext_resource type="Texture2D" uid="uid://caiebfti7efol" path="res://resources/mobile_buttons/right_pressed.png" id="39_y0ehs"]
-[ext_resource type="Texture2D" uid="uid://b7rig1hxq1dpc" path="res://resources/mobile_buttons/use.png" id="40_65m1r"]
-[ext_resource type="Texture2D" uid="uid://biqm0s54peckt" path="res://resources/mobile_buttons/use_pressed.png" id="41_2yd8j"]
-[ext_resource type="Texture2D" uid="uid://iapqi7j42w1r" path="res://resources/mobile_buttons/pause.png" id="42_7dowo"]
+[ext_resource type="Texture2D" uid="uid://cgfamc20v8dl8" path="res://resources/mobile_buttons/arrow.png" id="36_losuh"]
+[ext_resource type="Texture2D" uid="uid://cpg71yxb5vsy5" path="res://resources/mobile_buttons/arrow_pressed.png" id="37_vsgy3"]
+[ext_resource type="Texture2D" uid="uid://vsmhwejk2svk" path="res://resources/mobile_buttons/shoot.png" id="38_rrwqb"]
+[ext_resource type="Texture2D" uid="uid://ccyoue0lc0ihc" path="res://resources/mobile_buttons/shoot_pressed.png" id="39_0j20m"]
+[ext_resource type="Texture2D" uid="uid://cui25odv124in" path="res://resources/mobile_buttons/pausebutton.png" id="40_otdql"]
+[ext_resource type="Texture2D" uid="uid://dxpstegnp24h4" path="res://resources/mobile_buttons/pausepressed.png" id="41_2qefp"]
 [ext_resource type="PackedScene" uid="uid://bu8tbi4v1h6ue" path="res://scenes_for_scenes/pause.tscn" id="44_om1my"]
 [ext_resource type="Script" path="res://scripts/MoveTo.gd" id="46_kyp6d"]
+[ext_resource type="AudioStream" uid="uid://btqipno5b035c" path="res://resources/sounds/ambience/acid.mp3" id="49_1ld5i"]
+[ext_resource type="Script" path="res://scripts/LevelAmbience.gd" id="50_pt6a8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wklei"]
 
@@ -2061,51 +2060,6 @@ position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("34_ymb1u")
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
-light_mask = 2
-position = Vector2(508.188, 237.599)
-scale = Vector2(6.802, 7.341)
-texture_normal = ExtResource("34_13rxp")
-texture_pressed = ExtResource("35_igb62")
-action = "jump"
-visibility_mode = 1
-
-[node name="TouchScreenButton2" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
-light_mask = 2
-position = Vector2(-642.822, 249.42)
-scale = Vector2(6.80196, 7.34136)
-texture_normal = ExtResource("36_6vf81")
-texture_pressed = ExtResource("37_x0tv2")
-action = "move_a"
-visibility_mode = 1
-
-[node name="TouchScreenButton4" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
-light_mask = 2
-position = Vector2(265.125, 36.6446)
-scale = Vector2(6.802, 7.341)
-texture_normal = ExtResource("40_65m1r")
-texture_pressed = ExtResource("41_2yd8j")
-action = "fire"
-visibility_mode = 1
-
-[node name="TouchScreenButton3" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
-light_mask = 2
-position = Vector2(-488.394, 249.42)
-scale = Vector2(6.802, 7.341)
-texture_normal = ExtResource("38_3ewy4")
-texture_pressed = ExtResource("39_y0ehs")
-action = "move_d"
-visibility_mode = 1
-
-[node name="TouchScreenButton5" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
-light_mask = 2
-position = Vector2(570.694, -423.186)
-scale = Vector2(6.802, 7.341)
-texture_normal = ExtResource("42_7dowo")
-texture_pressed = ExtResource("42_7dowo")
-action = "escape"
-visibility_mode = 1
-
 [node name="Pause" parent="CharacterBody2D/Camera2D" instance=ExtResource("44_om1my")]
 visible = false
 anchors_preset = 0
@@ -2114,6 +2068,58 @@ anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+self_modulate = Color(1, 1, 0, 1)
+light_mask = 2
+position = Vector2(531.187, 296.703)
+scale = Vector2(1.5, 1.619)
+texture_normal = ExtResource("36_losuh")
+texture_pressed = ExtResource("37_vsgy3")
+action = "jump"
+visibility_mode = 1
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+self_modulate = Color(1, 1, 0, 1)
+light_mask = 2
+position = Vector2(-654.948, 382.995)
+rotation = -1.5708
+scale = Vector2(1.5, 1.619)
+texture_normal = ExtResource("36_losuh")
+texture_pressed = ExtResource("37_vsgy3")
+action = "move_a"
+visibility_mode = 1
+
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+self_modulate = Color(1, 1, 0, 1)
+light_mask = 2
+position = Vector2(281.474, 185.587)
+scale = Vector2(1.5, 1.619)
+texture_normal = ExtResource("38_rrwqb")
+texture_pressed = ExtResource("39_0j20m")
+action = "fire"
+visibility_mode = 1
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+self_modulate = Color(1, 1, 0, 1)
+light_mask = 2
+position = Vector2(-420.569, 286.064)
+rotation = 1.5708
+scale = Vector2(1.5, 1.619)
+texture_normal = ExtResource("36_losuh")
+texture_pressed = ExtResource("37_vsgy3")
+action = "move_d"
+visibility_mode = 1
+
+[node name="TouchScreenButton5" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+self_modulate = Color(1, 1, 0, 1)
+light_mask = 2
+position = Vector2(637.425, -424.368)
+scale = Vector2(1, 1.079)
+texture_normal = ExtResource("40_otdql")
+texture_pressed = ExtResource("41_2qefp")
+action = "escape"
+visibility_mode = 1
 
 [node name="Table" type="Sprite2D" parent="."]
 position = Vector2(2889, 650)
@@ -2200,5 +2206,10 @@ texture = ExtResource("2_ujp3m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MoveTo/Area2D"]
 shape = SubResource("CircleShape2D_6ahk3")
+
+[node name="LevelAmbience" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("49_1ld5i")
+autoplay = true
+script = ExtResource("50_pt6a8")
 
 [connection signal="body_entered" from="MoveTo/Area2D" to="MoveTo" method="_on_area_2d_body_entered"]

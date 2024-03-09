@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b47j4"]
 size = Vector2(32, 166)
 
-[node name="Area2D" type="Area2D"]
+[node name="Ladder" type="Area2D"]
 script = ExtResource("1_ytwk6")
 
 [node name="TextureRect" type="TextureRect" parent="."]

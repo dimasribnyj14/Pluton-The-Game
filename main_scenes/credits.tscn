@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://sb65ec5gut6u"]
+[gd_scene load_steps=17 format=3 uid="uid://sb65ec5gut6u"]
 
 [ext_resource type="Shader" path="res://scripts/blur.gdshader" id="1_iomtl"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ny2yd"]
@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://dwteqfofofa7w" path="res://resources/decorations/pluton.png" id="3_wff6k"]
 [ext_resource type="FontFile" uid="uid://t7q6awyns2m7" path="res://resources/fonts/papyrus-pixel_1.ttf" id="4_37k7q"]
 [ext_resource type="Texture2D" uid="uid://c5q51cue0rbp6" path="res://resources/mobile_buttons/left.png" id="6_3a8r3"]
+[ext_resource type="FontFile" uid="uid://cp1vooogm2tjc" path="res://resources/fonts/upheavtt.ttf" id="7_nsrrt"]
 [ext_resource type="Texture2D" uid="uid://bo7hoolt4eko5" path="res://resources/mobile_buttons/left_pressed.png" id="7_vwmug"]
+[ext_resource type="FontFile" uid="uid://dvy48ngls58io" path="res://resources/fonts/PixelOperatorSC.ttf" id="8_ao7op"]
 [ext_resource type="Script" path="res://scripts/move_to_menu.gd" id="8_qg3o4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h7yt4"]
@@ -18,18 +20,24 @@ font = ExtResource("4_37k7q")
 font_size = 200
 
 [sub_resource type="LabelSettings" id="LabelSettings_h61v1"]
-font = ExtResource("4_37k7q")
+font = ExtResource("7_nsrrt")
 font_size = 400
 outline_size = 50
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_lwabx"]
+font = ExtResource("8_ao7op")
+font_size = 200
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 30
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1hau2"]
 font = ExtResource("4_37k7q")
 font_size = 200
 outline_size = 50
 outline_color = Color(0, 0, 0, 1)
-shadow_size = 50
-shadow_color = Color(0, 0, 0, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -60,10 +68,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -322.5
-offset_top = 340.0
-offset_right = 2506.5
-offset_bottom = 7522.0
+offset_left = -358.549
+offset_top = 354.0
+offset_right = 3481.45
+offset_bottom = 7536.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.191819, 0.200276)
@@ -72,6 +80,7 @@ script = ExtResource("3_t3n8a")
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
+alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -128,7 +137,7 @@ horizontal_alignment = 1
 
 [node name="Label6" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Mikhnenko Daniel"
+text = "Mykhnenko Danylo"
 label_settings = SubResource("LabelSettings_lwabx")
 horizontal_alignment = 1
 
@@ -181,12 +190,14 @@ label_settings = SubResource("LabelSettings_lwabx")
 horizontal_alignment = 1
 
 [node name="Label13" type="Label" parent="VBoxContainer"]
+clip_children = 2
 layout_mode = 2
 text = "Nikolai Skripnik"
-label_settings = SubResource("LabelSettings_lwabx")
+label_settings = SubResource("LabelSettings_1hau2")
 horizontal_alignment = 1
 
 [node name="Main_menu" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 1.52588e-05
 offset_top = 626.0
 offset_right = 19.0

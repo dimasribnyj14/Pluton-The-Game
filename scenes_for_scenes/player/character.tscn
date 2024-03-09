@@ -220,7 +220,7 @@ clip_children = 2
 position = Vector2(53, 64)
 scale = Vector2(0.358333, 0.363333)
 sprite_frames = SubResource("SpriteFrames_iq71w")
-animation = &"move"
+animation = &"idle"
 frame = 1
 
 [node name="ColorRect" type="ColorRect" parent="AnimatedSprite2D"]
@@ -246,6 +246,8 @@ libraries = {
 }
 
 [node name="Cooldown" type="Timer" parent="."]
+
+[node name="Respawn" type="Timer" parent="."]
 
 [node name="DamageTime" type="Timer" parent="."]
 
@@ -280,5 +282,6 @@ scale = Vector2(5, 5)
 one_shot = true
 
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="timeout" from="Respawn" to="." method="_on_respawn_timeout"]
 [connection signal="timeout" from="DamageTime" to="." method="_on_damage_time_timeout"]
 [connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]

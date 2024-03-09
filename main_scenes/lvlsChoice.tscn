@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://csiouinca00uw"]
+[gd_scene load_steps=20 format=3 uid="uid://csiouinca00uw"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ak3nj"]
 [ext_resource type="Shader" path="res://scripts/blur.gdshader" id="1_hmjde"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://scripts/move_to_menu.gd" id="8_w4y13"]
 [ext_resource type="Script" path="res://scripts/Jungle.gd" id="10_kllci"]
 [ext_resource type="Script" path="res://scripts/Wind.gd" id="12_bd8jn"]
+[ext_resource type="Script" path="res://scripts/Earth.gd" id="18_73trb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d1xy6"]
 shader = ExtResource("1_hmjde")
@@ -123,6 +124,7 @@ scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("8_0cgom")
 texture_pressed = ExtResource("8_0cgom")
 texture_hover = ExtResource("8_0cgom")
+script = ExtResource("18_73trb")
 
 [connection signal="pressed" from="Fire" to="Fire" method="_on_pressed"]
 [connection signal="pressed" from="Main_menu" to="Main_menu" method="_on_pressed"]
@@ -130,3 +132,4 @@ texture_hover = ExtResource("8_0cgom")
 [connection signal="pressed" from="Acid" to="Acid" method="_on_pressed"]
 [connection signal="pressed" from="Jungle" to="Jungle" method="_on_pressed"]
 [connection signal="pressed" from="Wind" to="Wind" method="_on_pressed"]
+[connection signal="pressed" from="Earth" to="Earth" method="_on_pressed"]
