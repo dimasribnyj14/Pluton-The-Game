@@ -2073,7 +2073,7 @@ metadata/_edit_use_anchors_ = true
 self_modulate = Color(1, 1, 0, 1)
 light_mask = 2
 position = Vector2(531.187, 296.703)
-scale = Vector2(1.5, 1.619)
+scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("36_losuh")
 texture_pressed = ExtResource("37_vsgy3")
 action = "jump"
@@ -2084,7 +2084,7 @@ self_modulate = Color(1, 1, 0, 1)
 light_mask = 2
 position = Vector2(-654.948, 382.995)
 rotation = -1.5708
-scale = Vector2(1.5, 1.619)
+scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("36_losuh")
 texture_pressed = ExtResource("37_vsgy3")
 action = "move_a"
@@ -2094,7 +2094,7 @@ visibility_mode = 1
 self_modulate = Color(1, 1, 0, 1)
 light_mask = 2
 position = Vector2(281.474, 185.587)
-scale = Vector2(1.5, 1.619)
+scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("38_rrwqb")
 texture_pressed = ExtResource("39_0j20m")
 action = "fire"
@@ -2105,7 +2105,7 @@ self_modulate = Color(1, 1, 0, 1)
 light_mask = 2
 position = Vector2(-420.569, 286.064)
 rotation = 1.5708
-scale = Vector2(1.5, 1.619)
+scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("36_losuh")
 texture_pressed = ExtResource("37_vsgy3")
 action = "move_d"
@@ -2115,11 +2115,17 @@ visibility_mode = 1
 self_modulate = Color(1, 1, 0, 1)
 light_mask = 2
 position = Vector2(637.425, -424.368)
-scale = Vector2(1, 1.079)
 texture_normal = ExtResource("40_otdql")
 texture_pressed = ExtResource("41_2qefp")
 action = "escape"
 visibility_mode = 1
+
+[node name="LevelAmbience" type="AudioStreamPlayer2D" parent="CharacterBody2D/Camera2D"]
+position = Vector2(-339.522, -1192.72)
+scale = Vector2(1.09523, 1.18208)
+stream = ExtResource("49_1ld5i")
+autoplay = true
+script = ExtResource("50_pt6a8")
 
 [node name="Table" type="Sprite2D" parent="."]
 position = Vector2(2889, 650)
@@ -2206,10 +2212,5 @@ texture = ExtResource("2_ujp3m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MoveTo/Area2D"]
 shape = SubResource("CircleShape2D_6ahk3")
-
-[node name="LevelAmbience" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("49_1ld5i")
-autoplay = true
-script = ExtResource("50_pt6a8")
 
 [connection signal="body_entered" from="MoveTo/Area2D" to="MoveTo" method="_on_area_2d_body_entered"]

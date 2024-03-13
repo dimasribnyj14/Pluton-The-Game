@@ -34,19 +34,19 @@
 [ext_resource type="Texture2D" uid="uid://ddf2jviyujc8g" path="res://resources/decorations/jungle_level/flower.png" id="31_pgsbh"]
 [ext_resource type="Script" path="res://scripts/options/Camera2D.gd" id="31_q86e0"]
 [ext_resource type="Texture2D" uid="uid://bnx0lg4igyai2" path="res://resources/decorations/jungle_level/grass.png" id="32_6q7em"]
-[ext_resource type="Texture2D" uid="uid://cgfamc20v8dl8" path="res://resources/mobile_buttons/arrow.png" id="33_iqhyh"]
 [ext_resource type="Texture2D" uid="uid://cj6ysfggvk6xg" path="res://resources/decorations/jungle_level/line_tree1.png" id="33_kc6vb"]
-[ext_resource type="Texture2D" uid="uid://cpg71yxb5vsy5" path="res://resources/mobile_buttons/arrow_pressed.png" id="34_8prg2"]
+[ext_resource type="Texture2D" uid="uid://cgfamc20v8dl8" path="res://resources/mobile_buttons/arrow.png" id="34_0v3qs"]
 [ext_resource type="Texture2D" uid="uid://fih4t6vfgfq8" path="res://resources/decorations/jungle_level/line_tree2.png" id="34_iicj2"]
-[ext_resource type="Texture2D" uid="uid://vsmhwejk2svk" path="res://resources/mobile_buttons/shoot.png" id="35_f7vxt"]
+[ext_resource type="Texture2D" uid="uid://cpg71yxb5vsy5" path="res://resources/mobile_buttons/arrow_pressed.png" id="35_bpgyg"]
 [ext_resource type="Texture2D" uid="uid://bepkcl116l8om" path="res://resources/decorations/jungle_level/sign.png" id="35_j4jwg"]
-[ext_resource type="Texture2D" uid="uid://ccyoue0lc0ihc" path="res://resources/mobile_buttons/shoot_pressed.png" id="36_v54av"]
+[ext_resource type="Texture2D" uid="uid://vsmhwejk2svk" path="res://resources/mobile_buttons/shoot.png" id="36_ol88k"]
 [ext_resource type="Texture2D" uid="uid://dradcpajkwnvt" path="res://resources/decorations/jungle_level/tree.png" id="36_ya82l"]
-[ext_resource type="Texture2D" uid="uid://cui25odv124in" path="res://resources/mobile_buttons/pausebutton.png" id="37_3b2yr"]
+[ext_resource type="Texture2D" uid="uid://ccyoue0lc0ihc" path="res://resources/mobile_buttons/shoot_pressed.png" id="37_gg77r"]
 [ext_resource type="Texture2D" uid="uid://b3457gw1bwyiv" path="res://resources/decorations/jungle_level/barrel3.png" id="37_yoh1a"]
 [ext_resource type="Texture2D" uid="uid://cg0g4m8ndcmfx" path="res://resources/decorations/jungle_level/barrel.png" id="38_5kwjw"]
-[ext_resource type="Texture2D" uid="uid://dxpstegnp24h4" path="res://resources/mobile_buttons/pausepressed.png" id="38_l7pi3"]
+[ext_resource type="Texture2D" uid="uid://cui25odv124in" path="res://resources/mobile_buttons/pausebutton.png" id="38_8h5gf"]
 [ext_resource type="Texture2D" uid="uid://lxso5wpjl3o0" path="res://resources/interactive/ore.png" id="39_cxrr2"]
+[ext_resource type="Texture2D" uid="uid://dxpstegnp24h4" path="res://resources/mobile_buttons/pausepressed.png" id="39_g06av"]
 [ext_resource type="Script" path="res://main_scenes/Label.gd" id="39_xfmil"]
 [ext_resource type="Script" path="res://main_scenes/text_fun.gd" id="40_0b755"]
 [ext_resource type="PackedScene" uid="uid://bu8tbi4v1h6ue" path="res://scenes_for_scenes/pause.tscn" id="41_8m3mj"]
@@ -999,8 +999,8 @@ radius = 10.9428
 script = ExtResource("1_l3ss5")
 
 [node name="PointLight2D2" type="PointLight2D" parent="."]
-position = Vector2(-3019, 359)
-scale = Vector2(1.8875, 0.590625)
+position = Vector2(-2995.5, 359)
+scale = Vector2(1.90219, 0.590625)
 energy = 4.0
 blend_mode = 1
 range_z_min = 0
@@ -1671,54 +1671,53 @@ grow_vertical = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
-self_modulate = Color(0, 1, 0.92549, 1)
+self_modulate = Color(0, 1, 1, 1)
 light_mask = 2
 position = Vector2(531.187, 296.703)
-scale = Vector2(1.5, 1.619)
-texture_normal = ExtResource("33_iqhyh")
-texture_pressed = ExtResource("34_8prg2")
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("34_0v3qs")
+texture_pressed = ExtResource("35_bpgyg")
 action = "jump"
 visibility_mode = 1
 
 [node name="TouchScreenButton2" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
-self_modulate = Color(0, 1, 0.92549, 1)
+self_modulate = Color(0, 1, 1, 1)
 light_mask = 2
 position = Vector2(-654.948, 382.995)
 rotation = -1.5708
-scale = Vector2(1.5, 1.619)
-texture_normal = ExtResource("33_iqhyh")
-texture_pressed = ExtResource("34_8prg2")
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("34_0v3qs")
+texture_pressed = ExtResource("35_bpgyg")
 action = "move_a"
 visibility_mode = 1
 
 [node name="TouchScreenButton4" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
-self_modulate = Color(0, 1, 0.92549, 1)
+self_modulate = Color(0, 1, 1, 1)
 light_mask = 2
 position = Vector2(281.474, 185.587)
-scale = Vector2(1.5, 1.619)
-texture_normal = ExtResource("35_f7vxt")
-texture_pressed = ExtResource("36_v54av")
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("36_ol88k")
+texture_pressed = ExtResource("37_gg77r")
 action = "fire"
 visibility_mode = 1
 
 [node name="TouchScreenButton3" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
-self_modulate = Color(0, 1, 0.92549, 1)
+self_modulate = Color(0, 1, 1, 1)
 light_mask = 2
 position = Vector2(-420.569, 286.064)
 rotation = 1.5708
-scale = Vector2(1.5, 1.619)
-texture_normal = ExtResource("33_iqhyh")
-texture_pressed = ExtResource("34_8prg2")
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("34_0v3qs")
+texture_pressed = ExtResource("35_bpgyg")
 action = "move_d"
 visibility_mode = 1
 
 [node name="TouchScreenButton5" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
-self_modulate = Color(0, 1, 0.92549, 1)
+self_modulate = Color(0, 1, 1, 1)
 light_mask = 2
 position = Vector2(637.425, -424.368)
-scale = Vector2(1, 1.079)
-texture_normal = ExtResource("37_3b2yr")
-texture_pressed = ExtResource("38_l7pi3")
+texture_normal = ExtResource("38_8h5gf")
+texture_pressed = ExtResource("39_g06av")
 action = "escape"
 visibility_mode = 1
 

@@ -994,52 +994,46 @@ grow_vertical = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
-self_modulate = Color(0.984314, 0.509804, 1, 1)
 light_mask = 2
 position = Vector2(531.187, 296.703)
-scale = Vector2(1.5, 1.619)
+scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("15_x4wjx")
 texture_pressed = ExtResource("16_kc06o")
 action = "jump"
 visibility_mode = 1
 
 [node name="TouchScreenButton2" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
-self_modulate = Color(0.984314, 0.509804, 1, 1)
 light_mask = 2
 position = Vector2(-654.948, 382.995)
 rotation = -1.5708
-scale = Vector2(1.5, 1.619)
+scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("15_x4wjx")
 texture_pressed = ExtResource("16_kc06o")
 action = "move_a"
 visibility_mode = 1
 
 [node name="TouchScreenButton4" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
-self_modulate = Color(0.984314, 0.509804, 1, 1)
 light_mask = 2
 position = Vector2(281.474, 185.587)
-scale = Vector2(1.5, 1.619)
+scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("17_3fpbt")
 texture_pressed = ExtResource("18_aicu6")
 action = "fire"
 visibility_mode = 1
 
 [node name="TouchScreenButton3" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
-self_modulate = Color(0.984314, 0.509804, 1, 1)
 light_mask = 2
 position = Vector2(-420.569, 286.064)
 rotation = 1.5708
-scale = Vector2(1.5, 1.619)
+scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("15_x4wjx")
 texture_pressed = ExtResource("16_kc06o")
 action = "move_d"
 visibility_mode = 1
 
 [node name="TouchScreenButton5" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
-self_modulate = Color(0.984314, 0.509804, 1, 1)
 light_mask = 2
 position = Vector2(637.425, -424.368)
-scale = Vector2(1, 1.079)
 texture_normal = ExtResource("19_qx55g")
 texture_pressed = ExtResource("20_4du0l")
 action = "escape"

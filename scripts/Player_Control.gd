@@ -161,8 +161,8 @@ func _physics_process(delta):
 			position.y = 966
 			position.x = 290
 		elif get_tree().current_scene.name == 'last_lvl':
-			position.x = -144
-			position.y = 721
+			position.x = -157.036
+			position.y = 153
 	
 	
 	for i in get_slide_collision_count():
@@ -243,6 +243,9 @@ func _on_hurt_box_area_entered(area):
 			elif get_tree().current_scene.name == 'Cloudlvl':
 				position.y = 966
 				position.x = 290
+			elif get_tree().current_scene.name == 'last_lvl':
+				position.x = -157.036
+				position.y = 153
 			currentHealth = maxHealth
 		healthChanged.emit(currentHealth)
 		knockback(area.get_parent().position)
@@ -271,6 +274,9 @@ func _on_hurt_box_area_entered(area):
 			elif get_tree().current_scene.name == 'Cloudlvl':
 				position.y = 966
 				position.x = 290
+			elif get_tree().current_scene.name == 'last_lvl':
+				position.x = -157.036
+				position.y = 153
 			sfxDeath.play()
 			currentHealth = maxHealth
 		healthChanged.emit(currentHealth)

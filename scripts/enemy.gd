@@ -6,6 +6,7 @@ var start_x #Свойства start_x (начало пути)
 var player = null
 var go_to_plr = false
 var can_jump = true
+@export var cant_search_player = false
 @export var timePerJump: int = 3
 var start_y: int = 0 #Свойства start_y (НЕИСПОЛЬЗОВАТЬ)
 @export var end_x: int = 0 #Свойства end_x (конец пути)
@@ -21,7 +22,6 @@ func _ready():
 	start_x = position.x #Ставим начальный путь
 	if start_y != 0: #Если start_y не равняется нулю, то
 		position.y = start_y #
-
 # Функция для процесса работы бота
 func _physics_process(delta):
 	#Смены направления
@@ -57,7 +57,6 @@ func _physics_process(delta):
 			$CollisionShape2D.position.x = 35
 			$AnimatedSprite2D.flip_h = false #Отзеркаливаем горизонтально обратно
 			$hitBox/CollisionShape2D.position.x = 35
-			
 	# Если бот дошел до конца, то возращается обратно
 	if go_to_plr == false:
 		if position.x <= end_x + 10 and position.x >= end_x - 10:
@@ -72,7 +71,6 @@ func _physics_process(delta):
 		can_jump = false
 		set_axis_velocity(Vector2(0, -4))
 		timerJ.start(timePerJump)
-		
 		#SPEED = 1.0
 	# Если передвигается
 	if direction:
@@ -81,34 +79,18 @@ func _physics_process(delta):
 	# Без этого, бот был бы пьян.
 	if not dead:
 		move_and_collide(linear_velocity)
-
 	if position.y >= 2000:
 		queue_free()
-
-
-
 #func _on_body_exited(body):
 	#on_ground -= 1
-
-
 func _on_timer_timeout():
 	can_jump = true
-
 func _on_find_plr_body_entered(body):
-	if body.name == 'CharacterBody2D':
-		print('Plr found')
+	if body.name == 'CharacterBody2D' and cant_search_player == false:
 		player = body
 		go_to_plr = true
-
 func _on_find_plr_body_exited(body):
-	if body.name == 'CharacterBody2D':
-		print('Plr lost')
+	if body.name == 'CharacterBody2D' and cant_search_player == false:
 		go_to_plr = false
-
-
 func _on_timer_move_timeout():
 	can_move = true
-
-
-
-

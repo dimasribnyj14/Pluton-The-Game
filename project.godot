@@ -20,7 +20,7 @@ run/main_scene="res://main_scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://resources/backgrounds/main_menu.png"
-config/icon="res://resources/game/oleg.png"
+config/icon="res://resources/decorations/pluton.png"
 
 [display]
 

@@ -161,7 +161,7 @@ horizontal_alignment = 1
 
 [node name="Label10" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Artem"
+text = "Artem Matiashov"
 label_settings = SubResource("LabelSettings_lwabx")
 horizontal_alignment = 1
 
