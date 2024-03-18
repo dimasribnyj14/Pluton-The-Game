@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bcypn17ixt517"]
+[gd_scene load_steps=25 format=3 uid="uid://bcypn17ixt517"]
 
 [ext_resource type="Script" path="res://scripts/Player_Control.gd" id="1_34d2g"]
 [ext_resource type="Texture2D" uid="uid://cxi7a7uyvpj55" path="res://resources/player/idle/1.png" id="2_k6ljq"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://5xxs4j30pquu" path="res://resources/sounds/laser.mp3" id="12_iiqxk"]
 [ext_resource type="AudioStream" uid="uid://mvk5exgy0qu2" path="res://resources/sounds/footstep.mp3" id="13_hstm6"]
 [ext_resource type="AudioStream" uid="uid://cwml2xksjmiki" path="res://resources/sounds/jump7.mp3" id="14_vx5wx"]
+[ext_resource type="PackedScene" uid="uid://cn67pl1qeoet" path="res://scenes_for_scenes/death_screen.tscn" id="16_es7ls"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iq71w"]
 animations = [{
@@ -277,6 +278,8 @@ one_way_collision_margin = 0.0
 
 [node name="heartsContainer" parent="CanvasLayer" instance=ExtResource("11_in6mh")]
 scale = Vector2(5, 5)
+
+[node name="GameOverScreen" parent="CanvasLayer" instance=ExtResource("16_es7ls")]
 
 [node name="HurtCD" type="Timer" parent="."]
 one_shot = true

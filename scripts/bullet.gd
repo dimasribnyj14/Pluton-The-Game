@@ -19,7 +19,10 @@ func _on_body_entered(body):
 		body.remove_from_group("enemy")
 		body.get_node('CollisionShape2D').disabled = true
 		body.get_node('hitBox').get_node("CollisionShape2D").disabled = true
-		
+		body.get_node('hitBox').monitoring = false
+		body.get_node('hitBox').monitorable = false
+		body.get_node('hitBox').set_collision_layer_value(1, false)
+		body.get_node('hitBox').set_collision_mask_value(1, false)
 		body.dead = true
 		body.modulate = Color('00ffff')
 		body.get_node('PointLight2D').energy = 1

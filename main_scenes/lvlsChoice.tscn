@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://csiouinca00uw"]
+[gd_scene load_steps=22 format=3 uid="uid://csiouinca00uw"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ak3nj"]
 [ext_resource type="Shader" path="res://scripts/blur.gdshader" id="1_hmjde"]
@@ -17,6 +17,8 @@
 [ext_resource type="Script" path="res://scripts/move_to_menu.gd" id="8_w4y13"]
 [ext_resource type="Script" path="res://scripts/Jungle.gd" id="10_kllci"]
 [ext_resource type="Script" path="res://scripts/Wind.gd" id="12_bd8jn"]
+[ext_resource type="Texture2D" uid="uid://bfn00qdekjdp3" path="res://resources/levels/ship.png" id="13_c628e"]
+[ext_resource type="Script" path="res://scripts/move_to_ship.gd" id="14_xt1ew"]
 [ext_resource type="Script" path="res://scripts/Earth.gd" id="18_73trb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d1xy6"]
@@ -46,9 +48,9 @@ expand_mode = 1
 [node name="Fire" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 82.0
-offset_top = 249.0
+offset_top = 216.0
 offset_right = 182.0
-offset_bottom = 349.0
+offset_bottom = 316.0
 scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("2_qyyrt")
 texture_pressed = ExtResource("2_qyyrt")
@@ -69,9 +71,9 @@ script = ExtResource("8_w4y13")
 [node name="Ice" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 258.0
-offset_top = 79.0
+offset_top = 46.0
 offset_right = 358.0
-offset_bottom = 179.0
+offset_bottom = 146.0
 scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("4_vdxp6")
 texture_pressed = ExtResource("4_vdxp6")
@@ -81,21 +83,33 @@ script = ExtResource("6_tldrn")
 [node name="Acid" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 425.0
-offset_top = 258.0
+offset_top = 225.0
 offset_right = 525.0
-offset_bottom = 358.0
+offset_bottom = 325.0
 scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("5_ffn1x")
 texture_pressed = ExtResource("5_ffn1x")
 texture_hover = ExtResource("5_ffn1x")
 script = ExtResource("8_ulisf")
 
+[node name="Ship" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 437.0
+offset_top = 383.0
+offset_right = 1429.0
+offset_bottom = 1375.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("13_c628e")
+texture_pressed = ExtResource("13_c628e")
+texture_hover = ExtResource("13_c628e")
+script = ExtResource("14_xt1ew")
+
 [node name="Jungle" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 629.0
-offset_top = 77.0
+offset_top = 44.0
 offset_right = 729.0
-offset_bottom = 177.0
+offset_bottom = 144.0
 scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("6_6yutv")
 texture_pressed = ExtResource("6_6yutv")
@@ -105,9 +119,9 @@ script = ExtResource("10_kllci")
 [node name="Wind" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 816.0
-offset_top = 251.0
+offset_top = 218.0
 offset_right = 916.0
-offset_bottom = 351.0
+offset_bottom = 318.0
 scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("7_yycph")
 texture_pressed = ExtResource("7_yycph")
@@ -117,9 +131,9 @@ script = ExtResource("12_bd8jn")
 [node name="Earth" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 1021.0
-offset_top = 86.0
+offset_top = 53.0
 offset_right = 1121.0
-offset_bottom = 186.0
+offset_bottom = 153.0
 scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("8_0cgom")
 texture_pressed = ExtResource("8_0cgom")
@@ -130,6 +144,7 @@ script = ExtResource("18_73trb")
 [connection signal="pressed" from="Main_menu" to="Main_menu" method="_on_pressed"]
 [connection signal="pressed" from="Ice" to="Ice" method="_on_pressed"]
 [connection signal="pressed" from="Acid" to="Acid" method="_on_pressed"]
+[connection signal="pressed" from="Ship" to="Ship" method="_on_pressed"]
 [connection signal="pressed" from="Jungle" to="Jungle" method="_on_pressed"]
 [connection signal="pressed" from="Wind" to="Wind" method="_on_pressed"]
 [connection signal="pressed" from="Earth" to="Earth" method="_on_pressed"]

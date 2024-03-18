@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://c5b42d00n3l2w"]
+[gd_scene load_steps=63 format=3 uid="uid://c5b42d00n3l2w"]
 
 [ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_isw6d"]
 [ext_resource type="PackedScene" uid="uid://bcypn17ixt517" path="res://scenes_for_scenes/player/character.tscn" id="1_l3y2n"]
@@ -45,6 +45,7 @@
 [ext_resource type="Texture2D" uid="uid://dxpstegnp24h4" path="res://resources/mobile_buttons/pausepressed.png" id="41_2qefp"]
 [ext_resource type="PackedScene" uid="uid://bu8tbi4v1h6ue" path="res://scenes_for_scenes/pause.tscn" id="44_om1my"]
 [ext_resource type="Script" path="res://scripts/MoveTo.gd" id="46_kyp6d"]
+[ext_resource type="PackedScene" uid="uid://dq1cj8kk60s1b" path="res://scenes_for_scenes/moving_platforms.tscn" id="48_umpop"]
 [ext_resource type="AudioStream" uid="uid://btqipno5b035c" path="res://resources/sounds/ambience/acid.mp3" id="49_1ld5i"]
 [ext_resource type="Script" path="res://scripts/LevelAmbience.gd" id="50_pt6a8"]
 
@@ -2202,6 +2203,7 @@ position = Vector2(11774, 696)
 scale = Vector2(3.02102, 3.0629)
 texture = ExtResource("2_ujp3m")
 script = ExtResource("46_kyp6d")
+levelTeleport = "fourth_level"
 
 [node name="FourthLevel" type="PointLight2D" parent="MoveTo"]
 position = Vector2(1.28746e-05, 1.23978e-05)
@@ -2212,5 +2214,10 @@ texture = ExtResource("2_ujp3m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MoveTo/Area2D"]
 shape = SubResource("CircleShape2D_6ahk3")
+
+[node name="MovingPlatform" parent="." instance=ExtResource("48_umpop")]
+position = Vector2(4089, -681)
+scale = Vector2(3, 3)
+imageName = "acid"
 
 [connection signal="body_entered" from="MoveTo/Area2D" to="MoveTo" method="_on_area_2d_body_entered"]

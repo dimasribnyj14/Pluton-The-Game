@@ -1,6 +1,6 @@
 extends Sprite2D
 
-
+@export var levelTeleport = 'second_LVL'
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -8,18 +8,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	rotation += 1
+	rotation += 0.1
 
 
 func _on_area_2d_body_entered(body):
-	print(get_tree().current_scene.name)
-	if get_tree().current_scene.name == 'first_LVL':
-		get_tree().change_scene_to_file("res://main_scenes/second_LVL.tscn")
-	elif get_tree().current_scene.name == 'second_LVL':
-		get_tree().change_scene_to_file("res://main_scenes/third_lvl.tscn")
-	elif get_tree().current_scene.name == 'third_lvl':
-		get_tree().change_scene_to_file("res://main_scenes/fourth_level.tscn")
-	elif get_tree().current_scene.name == 'fourth_level':
-		get_tree().change_scene_to_file("res://main_scenes/cloudlvl.tscn")
-	else:
-		get_tree().change_scene_to_file("res://main_scenes/lvlsChoice.tscn")
+	get_tree().change_scene_to_file("res://main_scenes/" % levelTeleport % ".tscn")
+	#get_tree().change_scene_to_file("res://main_scenes/third_lvl.tscn")
+	#get_tree().change_scene_to_file("res://main_scenes/fourth_level.tscn")
+	#get_tree().change_scene_to_file("res://main_scenes/cloudlvl.tscn")
+	#get_tree().change_scene_to_file("res://main_scenes/lvlsChoice.tscn")

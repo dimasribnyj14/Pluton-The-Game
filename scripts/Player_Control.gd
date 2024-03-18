@@ -1,10 +1,14 @@
 extends CharacterBody2D
 
 signal healthChanged
+signal killed
+
+@onready var gos = $CanvasLayer/GameOverScreen
 
 @onready var effects = $Effects
-@onready var HurtCD = $HurtCD
+@onready var hurtCD = $HurtCD
 
+@onready var diescreen = $CanvasLayer/GameOverScreen
 
 @export var knockbackPower: int = 500
 
@@ -27,6 +31,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	effects.play("RESET")
+	#killed.connect(await _on_character_killed)
 	
 
 
@@ -84,6 +89,7 @@ func _physics_process(delta):
 			$PointLight2D.scale.x = -5.321
 			$PointLight2D.offset.x = 50
 		$CollisionShape2D.position.x = 70
+		$hurtBox/CollisionShape2D2.position.x = 70
 		#tween.tween_property($Camera2D, "offset",-200,1)
 		#$Camera2D.offset.x = -100
 	elif direction == 1:
@@ -93,6 +99,7 @@ func _physics_process(delta):
 			$PointLight2D.scale.x = 5.321
 			$PointLight2D.offset.x = -1
 		$CollisionShape2D.position.x = 37
+		$hurtBox/CollisionShape2D2.position.x = 37
 		#tween.tween_property($Camera2D, "offset",200,1)
 		#$Camera2D.offset.x = 100
 		
@@ -144,7 +151,10 @@ func _physics_process(delta):
 	if position.y >= 1100:
 		currentHealth = maxHealth
 		healthChanged.emit(currentHealth)
-		sfxDeath.play()
+		#sfxDeath.play()
+		#await get_tree().create_timer(1.5).timeout
+		#gos.visible = true
+		#Engine.time_scale = 0
 		if get_tree().current_scene.name == 'FirstLevel':
 			position.y = -155
 			position.x = 275
@@ -222,12 +232,16 @@ func _on_cooldown_timeout():
 
 func _on_hurt_box_area_entered(area):
 	print(area.name)
-	if area.name == "hitBox":
+	if area.name == "hitBox" and area.monitoring == true:
 		#canDmg = false
 		print(currentHealth)
 		currentHealth -= 1
-		if currentHealth < 0:
+		if currentHealth < 1:
+			#await get_tree().create_timer(1.5).timeout
+			gos.visible = true
 			sfxDeath.play()
+			Engine.time_scale = 0
+			#sfxDeath.play()
 			if get_tree().current_scene.name == 'FirstLevel':
 				position.y = -155
 				position.x = 275
@@ -250,15 +264,19 @@ func _on_hurt_box_area_entered(area):
 		healthChanged.emit(currentHealth)
 		knockback(area.get_parent().position)
 		effects.play("hurtbit")
-		HurtCD.start()
-		await HurtCD.timeout
+		hurtCD.start()
+		await hurtCD.timeout
 		effects.play("RESET")
 		#dmgCD.start(3)
-	elif area.name == "Mine":
+	elif area.name == "Mine" and area.monitoring == true:
 		#canDmg = false
 		print(currentHealth)
-		currentHealth -= 6
+		currentHealth -= 3
 		if currentHealth < 0:
+			#await get_tree().create_timer(1.5).timeout
+			gos.visible = true
+			sfxDeath.play()
+			Engine.time_scale = 0
 			if get_tree().current_scene.name == 'FirstLevel':
 				position.y = -155
 				position.x = 275
@@ -280,6 +298,11 @@ func _on_hurt_box_area_entered(area):
 			sfxDeath.play()
 			currentHealth = maxHealth
 		healthChanged.emit(currentHealth)
+		knockback(area.get_parent().position)
+		effects.play("hurtbit")
+		hurtCD.start()
+		await hurtCD.timeout
+		effects.play("RESET")
 		#area.get_parent().queue_free()
 
 #func _on_damage_time_timeout():
@@ -288,15 +311,16 @@ func _on_hurt_box_area_entered(area):
 func knockback(enemyVelocity: Vector2):
 	var knockbackDirection = (enemyVelocity - velocity).normalized() * knockbackPower
 	velocity = knockbackDirection
-	print_debug(velocity)
-	print_debug(position)
 	move_and_slide()
-	print_debug(position)
-	print_debug(" ")
 
 
+func die():
+	killed.emit()
+	queue_free()
 
 
-
+#func _on_character_killed():
+	#await get_tree().create_timer(1.5).timeout
+	#gos.visible = true
 #func _on_break_hammer_timeout(collision):
 	
