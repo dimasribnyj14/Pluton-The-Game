@@ -5,6 +5,10 @@ var can_move = true
 var start_x #Свойства start_x (начало пути)
 var player = null
 var go_to_plr = false
+
+
+
+
 @export var cant_search_player = false
 var start_y: int = 0 #Свойства start_y (НЕИСПОЛЬЗОВАТЬ)
 @export var end_x: int = 0 #Свойства end_x (конец пути)
@@ -25,14 +29,21 @@ func _physics_process(delta):
 	# Если позиция x больше или равна конца пути, то
 	if go_to_plr:
 		can_move = true
-		SPEED = 5
+		SPEED = 4
+		linear_velocity = Vector2.ZERO
+		linear_velocity = position.direction_to(player.position) * SPEED
+		#position += (player.position - position)/50
+		#look_at(player.position)
 		if position.x >= player.position.x:
 			direction = -1 #Меняем направление назад
 			$CollisionShape2D.position.x = 15
+			$hitBox/CollisionShape2D.position.x = 15
 			$AnimatedSprite2D.flip_h = true #Отзеркаливаем горизонтально
 		else: #Если позиция x меньше конца пути, то
 			direction = 1 #Меняем направление назад
 			$CollisionShape2D.position.x = 35
+			
+			$hitBox/CollisionShape2D.position.x = 35
 			$AnimatedSprite2D.flip_h = false #Отзеркаливаем горизонтально обратно
 	else:
 		SPEED = 3
@@ -60,6 +71,7 @@ func _physics_process(delta):
 	#print(linear_velocity.length())
 	# Без этого, бот был бы пьян.
 	if not dead:
+
 		move_and_collide(linear_velocity)
 	if position.y >= 2000:
 		queue_free()

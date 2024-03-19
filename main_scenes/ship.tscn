@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bjr1pxco7cle4"]
+[gd_scene load_steps=38 format=3 uid="uid://bjr1pxco7cle4"]
 
 [ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_1r7k7"]
 [ext_resource type="Texture2D" uid="uid://boh55yautp1a1" path="res://resources/tilemaps/ship_blocks.png" id="1_maqti"]
@@ -10,9 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://dgchx6uvtrj45" path="res://resources/decorations/ship/1.png" id="6_d4p7w"]
 [ext_resource type="Texture2D" uid="uid://cpg71yxb5vsy5" path="res://resources/mobile_buttons/arrow_pressed.png" id="6_gvm5g"]
 [ext_resource type="Texture2D" uid="uid://drh3b331ec5vn" path="res://resources/decorations/ship/2.png" id="7_2wtgc"]
+[ext_resource type="Texture2D" uid="uid://bgq7esv3vlwvw" path="res://resources/decorations/ship/432.png" id="7_cmshf"]
 [ext_resource type="Texture2D" uid="uid://vsmhwejk2svk" path="res://resources/mobile_buttons/shoot.png" id="7_p0t5r"]
 [ext_resource type="Texture2D" uid="uid://b2g63ieiy6dgn" path="res://resources/decorations/ship/3.png" id="8_1lc1t"]
 [ext_resource type="Texture2D" uid="uid://ccyoue0lc0ihc" path="res://resources/mobile_buttons/shoot_pressed.png" id="8_e630w"]
+[ext_resource type="Script" path="res://scripts/skav.gd" id="8_ejqnw"]
 [ext_resource type="Texture2D" uid="uid://cmjslivyfoli3" path="res://resources/decorations/ship/pixil-frame-0 (67).png" id="8_gwa5k"]
 [ext_resource type="Texture2D" uid="uid://cui25odv124in" path="res://resources/mobile_buttons/pausebutton.png" id="9_5b27w"]
 [ext_resource type="Texture2D" uid="uid://crvg02dk3sjls" path="res://resources/decorations/ship/pixil-frame-0 (68).png" id="9_jrhhw"]
@@ -26,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://ds41jvin3jmce" path="res://resources/decorations/ship/pixil-frame-0 (66).png" id="21_hhwyf"]
 [ext_resource type="Texture2D" uid="uid://ba775hg40il6t" path="res://resources/decorations/lightlamp.png" id="22_fi867"]
 [ext_resource type="Texture2D" uid="uid://d31oaeiiwc1j1" path="res://resources/decorations/ship/pixil-ва0 (69).png" id="26_slf3c"]
+[ext_resource type="Texture2D" uid="uid://14801m8dllw8" path="res://resources/decorations/ship/pixil-frame-0 (12).png" id="28_ccb7k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fnaug"]
 texture = ExtResource("2_jej7p")
@@ -114,6 +117,9 @@ texture = ExtResource("4_os3nl")
 sources/1 = SubResource("TileSetAtlasSource_fnaug")
 sources/2 = SubResource("TileSetAtlasSource_s2m4s")
 sources/3 = SubResource("TileSetAtlasSource_ku0og")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tshgr"]
+size = Vector2(79.5104, 178.397)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hv647"]
 texture = ExtResource("1_maqti")
@@ -353,13 +359,18 @@ position = Vector2(851, 127)
 scale = Vector2(0.375, 0.375)
 texture = ExtResource("13_kmu75")
 
+[node name="Shkav" type="Sprite2D" parent="."]
+position = Vector2(617, -1100)
+scale = Vector2(1.49666, 1.49666)
+texture = ExtResource("7_cmshf")
+
 [node name="Pixil-frame-0(66)" type="Sprite2D" parent="."]
 position = Vector2(672, -1171)
 scale = Vector2(3.62, 3.62)
 texture = ExtResource("21_hhwyf")
 
 [node name="PointLight2D" type="PointLight2D" parent="Pixil-frame-0(66)"]
-position = Vector2(-4.14364, 9.66852)
+position = Vector2(-2.20994, 9.39228)
 scale = Vector2(1.98895, 0.574105)
 color = Color(0, 1, 1, 1)
 texture = ExtResource("22_fi867")
@@ -445,8 +456,8 @@ texture = ExtResource("10_ehats")
 flip_v = true
 
 [node name="Pixil-frame-0(6укку)" type="Sprite2D" parent="."]
-position = Vector2(878, -1135)
-scale = Vector2(0.39697, 0.39697)
+position = Vector2(882.273, -1130.13)
+scale = Vector2(0.443182, 0.443182)
 texture = ExtResource("11_vgkmv")
 
 [node name="1" type="Sprite2D" parent="."]
@@ -463,10 +474,35 @@ texture = ExtResource("7_2wtgc")
 position = Vector2(271, -1054)
 texture = ExtResource("26_slf3c")
 
+[node name="Pixil-frame-0(12)" type="Sprite2D" parent="."]
+position = Vector2(821, -1047)
+scale = Vector2(4.37, 4.37)
+texture = ExtResource("28_ccb7k")
+
 [node name="Pixil-ва0(69)2" type="Sprite2D" parent="."]
 position = Vector2(232, -1043)
 rotation = 1.5708
 texture = ExtResource("26_slf3c")
+
+[node name="432" type="Sprite2D" parent="."]
+position = Vector2(526, -1149)
+scale = Vector2(2.28409, 2.28409)
+texture = ExtResource("7_cmshf")
+
+[node name="Area2D" type="Area2D" parent="432"]
+position = Vector2(70.0582, 7.26212)
+scale = Vector2(0.63935, 0.63935)
+script = ExtResource("8_ejqnw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="432/Area2D"]
+position = Vector2(-108.241, -1.33633)
+shape = SubResource("RectangleShape2D_tshgr")
+
+[node name="Sprite2D" type="Sprite2D" parent="432/Area2D"]
+light_mask = 2
+position = Vector2(-108.909, -60.8021)
+scale = Vector2(0.595075, 0.595075)
+texture = ExtResource("7_p0t5r")
 
 [node name="3" type="Sprite2D" parent="."]
 position = Vector2(135, -58)
@@ -547,3 +583,6 @@ anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
 metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="432/Area2D" to="432/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="432/Area2D" to="432/Area2D" method="_on_body_exited"]

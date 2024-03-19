@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b6ffn27mr23ck"]
+[gd_scene load_steps=17 format=3 uid="uid://b6ffn27mr23ck"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_qnp6r"]
 [ext_resource type="Texture2D" uid="uid://dsuwc20243fqf" path="res://resources/backgrounds/main_menu.png" id="1_x7fgi"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://scripts/playButton.gd" id="6_kb1j2"]
 [ext_resource type="Script" path="res://scripts/optionsOpen.gd" id="7_q4aod"]
 [ext_resource type="Script" path="res://scripts/Button4.gd" id="9_p46du"]
+[ext_resource type="Script" path="res://scripts/versionGame.gd" id="12_4rg3j"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yu8fb"]
 texture = ExtResource("2_1sjb4")
@@ -136,6 +137,7 @@ grow_vertical = 0
 text = "Game Version:"
 horizontal_alignment = 2
 vertical_alignment = 2
+script = ExtResource("12_4rg3j")
 
 [connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="VBoxContainer/Button2" method="_on_pressed"]

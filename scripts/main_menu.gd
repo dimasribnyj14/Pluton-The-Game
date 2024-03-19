@@ -14,6 +14,9 @@ func _ready():
 		config.set_value("options", "strechscreen", false)
 		config.set_value("options", "music", true)
 		config.set_value("options", "light", true)
+		
+		config.set_value("saves","skin","default")
+		
 		config.save("user://config.cfg")
 	
 	fullscreen = config.get_value('options', 'fullscreen')

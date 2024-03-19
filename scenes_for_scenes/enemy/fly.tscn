@@ -24,7 +24,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c4lrr"]
-size = Vector2(129, 65)
+size = Vector2(112, 51)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jl6kc"]
 size = Vector2(1128.5, 1278.5)
@@ -33,11 +33,9 @@ size = Vector2(1128.5, 1278.5)
 size = Vector2(135, 70)
 
 [node name="RigidBody2D" type="RigidBody2D" groups=["enemy"]]
-gravity_scale = 0.005
+gravity_scale = 0.0
 inertia = 3.0
 lock_rotation = true
-linear_velocity = Vector2(0, -5)
-constant_force = Vector2(0, -3)
 script = ExtResource("1_0u83c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -49,7 +47,7 @@ frame = 2
 frame_progress = 0.237352
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(39.5, 36.5)
+position = Vector2(40, 37.5)
 shape = SubResource("RectangleShape2D_c4lrr")
 
 [node name="TimerMove" type="Timer" parent="."]

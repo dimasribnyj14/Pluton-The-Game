@@ -1,0 +1,134 @@
+[gd_scene load_steps=13 format=3 uid="uid://c4gwg7wj7pwft"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_idjqc"]
+[ext_resource type="Texture2D" uid="uid://cu50y7dk5txq0" path="res://resources/backgrounds/settings_menu.png" id="2_54auv"]
+[ext_resource type="Texture2D" uid="uid://bjwdy0g0b5f44" path="res://resources/player/Папка герой/Герой Джунли уровень/Run/1.png" id="3_4ai8f"]
+[ext_resource type="FontFile" uid="uid://t7q6awyns2m7" path="res://resources/fonts/papyrus-pixel_1.ttf" id="3_tw3h1"]
+[ext_resource type="Script" path="res://scripts/options/Stretch.gd" id="4_kbvma"]
+[ext_resource type="Texture2D" uid="uid://bh4e37017k4a8" path="res://resources/buttons/button.png" id="5_yvtia"]
+[ext_resource type="Texture2D" uid="uid://bcdbr2haalccx" path="res://resources/buttons/galochka_ne_pressed.png" id="7_2oj0g"]
+[ext_resource type="Texture2D" uid="uid://c5q51cue0rbp6" path="res://resources/mobile_buttons/left.png" id="11_kkpn5"]
+[ext_resource type="Texture2D" uid="uid://bo7hoolt4eko5" path="res://resources/mobile_buttons/left_pressed.png" id="12_78yr4"]
+[ext_resource type="Script" path="res://scripts/move_to_menu.gd" id="13_pv0nk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_chi5d"]
+font = ExtResource("3_tw3h1")
+font_size = 55
+shadow_color = Color(0, 0, 0, 0.792157)
+
+[sub_resource type="LabelSettings" id="LabelSettings_f4fj0"]
+font = ExtResource("3_tw3h1")
+font_size = 60
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.321569)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_idjqc")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_54auv")
+expand_mode = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0677083
+anchor_top = 0.0540123
+anchor_right = 0.938368
+anchor_bottom = 0.935185
+grow_horizontal = 2
+horizontal_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_4ai8f")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Stretch" type="BoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+script = ExtResource("4_kbvma")
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer/HBoxContainer/Stretch"]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+texture = ExtResource("5_yvtia")
+
+[node name="Label2" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer/HBoxContainer/Stretch/TextureRect"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.5
+offset_top = -11.5
+offset_right = 29.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Jungle"
+label_settings = SubResource("LabelSettings_chi5d")
+horizontal_alignment = 3
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/HBoxContainer/VBoxContainer/HBoxContainer/Stretch"]
+custom_minimum_size = Vector2(80, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("7_2oj0g")
+texture_pressed = ExtResource("7_2oj0g")
+texture_hover = ExtResource("7_2oj0g")
+stretch_mode = 0
+
+[node name="Main_menu" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 578.0
+offset_right = 110.0
+offset_bottom = 597.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("11_kkpn5")
+texture_pressed = ExtResource("12_78yr4")
+texture_hover = ExtResource("12_78yr4")
+script = ExtResource("13_pv0nk")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 2
+anchor_left = 0.0291667
+anchor_top = 0.0277778
+anchor_right = 0.0291667
+anchor_bottom = 0.0277778
+offset_left = 87.0
+offset_top = 37.0
+offset_right = 487.0
+offset_bottom = 109.0
+text = "Skins"
+label_settings = SubResource("LabelSettings_f4fj0")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/VBoxContainer/HBoxContainer/Stretch/TextureButton" to="ScrollContainer/HBoxContainer/VBoxContainer/HBoxContainer/Stretch" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Main_menu" to="Main_menu" method="_on_pressed"]

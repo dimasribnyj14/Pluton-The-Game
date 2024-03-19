@@ -1,10 +1,12 @@
 extends CharacterBody2D
+var config = ConfigFile.new()
+var configFile = config.load('user://config.cfg')
 
 signal healthChanged
 signal killed
 
 @onready var gos = $CanvasLayer/GameOverScreen
-
+@onready var heroSkin = config.get_value('saves', 'skin')
 @onready var effects = $Effects
 @onready var hurtCD = $HurtCD
 
@@ -111,13 +113,18 @@ func _physics_process(delta):
 		if is_on_floor():
 			if sfxFootstep.playing == false:
 				sfxFootstep.play()
-			anim_plr.play("run")
+			if heroSkin == "default":
+				anim_plr.play("run")
+			else:
+				anim_plr.play("move-%s"%heroSkin)
 	else:
 		sfxFootstep.stop()
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if is_on_floor():
-			
-			anim_plr.play("idle")
+			if heroSkin == "default":
+				anim_plr.play("idle")
+			else:
+				anim_plr.play("idle-%s"%heroSkin)
 
 	if Input.is_action_just_pressed("fire"):
 		if can_shoot == true:
@@ -147,10 +154,13 @@ func _physics_process(delta):
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
 			sfxJump.play()
-			anim_plr.play("jump")
+			if heroSkin == "default":
+				anim_plr.play("jump")
+			else:
+				anim_plr.play("jump-%s"%heroSkin)
 	if position.y >= 1100:
-		currentHealth = maxHealth
-		healthChanged.emit(currentHealth)
+		#currentHealth = maxHealth
+		#healthChanged.emit(currentHealth)
 		#sfxDeath.play()
 		#await get_tree().create_timer(1.5).timeout
 		#gos.visible = true
@@ -231,10 +241,9 @@ func _on_cooldown_timeout():
 
 
 func _on_hurt_box_area_entered(area):
-	print(area.name)
 	if area.name == "hitBox" and area.monitoring == true:
 		#canDmg = false
-		print(currentHealth)
+
 		currentHealth -= 1
 		if currentHealth < 1:
 			#await get_tree().create_timer(1.5).timeout
@@ -270,8 +279,7 @@ func _on_hurt_box_area_entered(area):
 		#dmgCD.start(3)
 	elif area.name == "Mine" and area.monitoring == true:
 		#canDmg = false
-		print(currentHealth)
-		currentHealth -= 3
+		currentHealth -= 2
 		if currentHealth < 0:
 			#await get_tree().create_timer(1.5).timeout
 			gos.visible = true

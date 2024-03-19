@@ -33,11 +33,13 @@ func _physics_process(delta):
 			direction = -1 #Меняем направление назад
 			$CollisionShape2D.position.x = 15
 			$RayCast2D.position.x = 15
+			$hitBox/CollisionShape2D.position.x = 15
 			$AnimatedSprite2D.flip_h = true #Отзеркаливаем горизонтально
 		else: #Если позиция x меньше конца пути, то
 			direction = 1 #Меняем направление назад
 			$RayCast2D.position.x = 35
 			$CollisionShape2D.position.x = 35
+			$hitBox/CollisionShape2D.position.x = 35
 			$AnimatedSprite2D.flip_h = false #Отзеркаливаем горизонтально обратно
 	else:
 		SPEED = 3

@@ -614,10 +614,17 @@ scale = Vector2(3, 3)
 imageName = "grass"
 
 [node name="RigidBody2D" parent="." instance=ExtResource("38_pmfpc")]
-position = Vector2(1868, 77)
+position = Vector2(3293, 535)
+end_x = 2525
 
-[node name="RigidBody2D2" parent="." instance=ExtResource("38_pmfpc")]
-position = Vector2(1756, 244)
+[node name="RigidBody2D6" parent="." instance=ExtResource("38_pmfpc")]
+position = Vector2(1678, 432)
+end_x = 806
 
-[node name="RigidBody2D3" parent="." instance=ExtResource("38_pmfpc")]
-position = Vector2(1629, -27)
+[node name="RigidBody2D7" parent="." instance=ExtResource("38_pmfpc")]
+position = Vector2(3262, 270)
+end_x = 624
+
+[node name="RigidBody2D8" parent="." instance=ExtResource("38_pmfpc")]
+position = Vector2(7561, 635)
+end_x = 5202

@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://bklk82xk4qaii"]
+[gd_scene load_steps=80 format=3 uid="uid://bklk82xk4qaii"]
 
 [ext_resource type="PackedScene" uid="uid://bcypn17ixt517" path="res://scenes_for_scenes/player/character.tscn" id="1_ika7c"]
 [ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_l3ss5"]
@@ -53,6 +53,7 @@
 [ext_resource type="Script" path="res://scripts/MoveTo.gd" id="51_q3loe"]
 [ext_resource type="AudioStream" uid="uid://yn81g52ffp0v" path="res://resources/sounds/meme.mp3" id="53_ewbo5"]
 [ext_resource type="AudioStream" uid="uid://d2to8on0jm375" path="res://resources/sounds/ambience/jungle.mp3" id="55_qot3l"]
+[ext_resource type="PackedScene" uid="uid://dq1cj8kk60s1b" path="res://scenes_for_scenes/moving_platforms.tscn" id="56_5ld7j"]
 [ext_resource type="Script" path="res://scripts/LevelAmbience.gd" id="56_wnjk6"]
 [ext_resource type="PackedScene" uid="uid://gdsljeg3iubl" path="res://scenes_for_scenes/mine_boom.tscn" id="57_4qvuy"]
 
@@ -2579,6 +2580,16 @@ scale = Vector2(2, 2)
 [node name="Node2D7" parent="." instance=ExtResource("57_4qvuy")]
 position = Vector2(-2235, 779)
 scale = Vector2(2, 2)
+
+[node name="MovingPlatform" parent="." instance=ExtResource("56_5ld7j")]
+position = Vector2(3682, 774)
+scale = Vector2(3, 3)
+imageName = "grass"
+
+[node name="MovingPlatform2" parent="." instance=ExtResource("56_5ld7j")]
+position = Vector2(4170, 768)
+scale = Vector2(3, 3)
+imageName = "grass"
 
 [connection signal="body_entered" from="Area2D5" to="Area2D5" method="_on_body_entered"]
 [connection signal="body_entered" from="MoveTo/Area2D" to="MoveTo" method="_on_area_2d_body_entered"]
