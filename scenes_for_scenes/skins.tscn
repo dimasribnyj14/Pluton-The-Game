@@ -1,17 +1,21 @@
-[gd_scene load_steps=13 format=3 uid="uid://c4gwg7wj7pwft"]
+[gd_scene load_steps=18 format=3 uid="uid://c4gwg7wj7pwft"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_idjqc"]
 [ext_resource type="Texture2D" uid="uid://cu50y7dk5txq0" path="res://resources/backgrounds/settings_menu.png" id="2_54auv"]
-[ext_resource type="Texture2D" uid="uid://bjwdy0g0b5f44" path="res://resources/player/Папка герой/Герой Джунли уровень/Run/1.png" id="3_4ai8f"]
+[ext_resource type="Texture2D" uid="uid://cxi7a7uyvpj55" path="res://resources/player/idle/1.png" id="3_c5em7"]
 [ext_resource type="FontFile" uid="uid://t7q6awyns2m7" path="res://resources/fonts/papyrus-pixel_1.ttf" id="3_tw3h1"]
-[ext_resource type="Script" path="res://scripts/options/Stretch.gd" id="4_kbvma"]
+[ext_resource type="Script" path="res://scripts/Skin.gd" id="4_4eroj"]
+[ext_resource type="Script" path="res://scripts/chooseSkin.gd" id="5_km4nl"]
 [ext_resource type="Texture2D" uid="uid://bh4e37017k4a8" path="res://resources/buttons/button.png" id="5_yvtia"]
-[ext_resource type="Texture2D" uid="uid://bcdbr2haalccx" path="res://resources/buttons/galochka_ne_pressed.png" id="7_2oj0g"]
+[ext_resource type="Texture2D" uid="uid://de44wqbahpcjf" path="res://resources/buttons/pressed.png" id="7_r1st7"]
+[ext_resource type="Texture2D" uid="uid://bkiwlfnpeggk4" path="res://resources/buttons/hovered.png" id="8_kj0og"]
+[ext_resource type="FontFile" uid="uid://dvy48ngls58io" path="res://resources/fonts/PixelOperatorSC.ttf" id="11_71tg3"]
 [ext_resource type="Texture2D" uid="uid://c5q51cue0rbp6" path="res://resources/mobile_buttons/left.png" id="11_kkpn5"]
+[ext_resource type="Script" path="res://scripts/FPSCounter.gd" id="12_7jc7r"]
 [ext_resource type="Texture2D" uid="uid://bo7hoolt4eko5" path="res://resources/mobile_buttons/left_pressed.png" id="12_78yr4"]
 [ext_resource type="Script" path="res://scripts/move_to_menu.gd" id="13_pv0nk"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_chi5d"]
+[sub_resource type="LabelSettings" id="LabelSettings_7075f"]
 font = ExtResource("3_tw3h1")
 font_size = 55
 shadow_color = Color(0, 0, 0, 0.792157)
@@ -21,6 +25,10 @@ font = ExtResource("3_tw3h1")
 font_size = 60
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.321569)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wmxnt"]
+font = ExtResource("11_71tg3")
+font_size = 50
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -41,42 +49,41 @@ grow_vertical = 2
 texture = ExtResource("2_54auv")
 expand_mode = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="Container" type="BoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0677083
 anchor_top = 0.0540123
 anchor_right = 0.938368
 anchor_bottom = 0.935185
+offset_left = 157.333
+offset_top = 32.1111
+offset_right = -103.111
+offset_bottom = -42.3332
 grow_horizontal = 2
-horizontal_scroll_mode = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+[node name="Skin" type="TextureRect" parent="Container"]
+custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 6
+texture = ExtResource("3_c5em7")
+script = ExtResource("4_4eroj")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Container"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="Stretch" type="BoxContainer" parent="Container/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("3_4ai8f")
+script = ExtResource("5_km4nl")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureButton" parent="Container/VBoxContainer/Stretch"]
+custom_minimum_size = Vector2(400, 90)
 layout_mode = 2
-size_flags_vertical = 3
+texture_normal = ExtResource("5_yvtia")
+texture_pressed = ExtResource("7_r1st7")
+texture_hover = ExtResource("8_kj0og")
+stretch_mode = 0
 
-[node name="Stretch" type="BoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-script = ExtResource("4_kbvma")
-
-[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer/HBoxContainer/Stretch"]
-custom_minimum_size = Vector2(200, 80)
-layout_mode = 2
-texture = ExtResource("5_yvtia")
-
-[node name="Label2" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer/HBoxContainer/Stretch/TextureRect"]
+[node name="Label2" type="Label" parent="Container/VBoxContainer/Stretch/TextureRect"]
 texture_filter = 3
 layout_mode = 1
 anchors_preset = 8
@@ -84,25 +91,171 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -29.5
-offset_top = -11.5
-offset_right = 29.5
-offset_bottom = 11.5
+offset_left = -165.0
+offset_top = -33.0
+offset_right = 168.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Default"
+label_settings = SubResource("LabelSettings_7075f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Stretch4" type="BoxContainer" parent="Container/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("5_km4nl")
+
+[node name="TextureRect" type="TextureButton" parent="Container/VBoxContainer/Stretch4"]
+custom_minimum_size = Vector2(400, 90)
+layout_mode = 2
+texture_normal = ExtResource("5_yvtia")
+texture_pressed = ExtResource("7_r1st7")
+texture_hover = ExtResource("8_kj0og")
+stretch_mode = 0
+
+[node name="Label2" type="Label" parent="Container/VBoxContainer/Stretch4/TextureRect"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = -33.0
+offset_right = 168.0
+offset_bottom = 34.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Jungle"
-label_settings = SubResource("LabelSettings_chi5d")
-horizontal_alignment = 3
+label_settings = SubResource("LabelSettings_7075f")
+horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureButton" type="TextureButton" parent="ScrollContainer/HBoxContainer/VBoxContainer/HBoxContainer/Stretch"]
-custom_minimum_size = Vector2(80, 50)
+[node name="Stretch2" type="BoxContainer" parent="Container/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
-texture_normal = ExtResource("7_2oj0g")
-texture_pressed = ExtResource("7_2oj0g")
-texture_hover = ExtResource("7_2oj0g")
+script = ExtResource("5_km4nl")
+
+[node name="TextureRect" type="TextureButton" parent="Container/VBoxContainer/Stretch2"]
+custom_minimum_size = Vector2(400, 90)
+layout_mode = 2
+texture_normal = ExtResource("5_yvtia")
+texture_pressed = ExtResource("7_r1st7")
+texture_hover = ExtResource("8_kj0og")
 stretch_mode = 0
+
+[node name="Label2" type="Label" parent="Container/VBoxContainer/Stretch2/TextureRect"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = -33.0
+offset_right = 168.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Fire"
+label_settings = SubResource("LabelSettings_7075f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Stretch3" type="BoxContainer" parent="Container/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("5_km4nl")
+
+[node name="TextureRect" type="TextureButton" parent="Container/VBoxContainer/Stretch3"]
+custom_minimum_size = Vector2(400, 90)
+layout_mode = 2
+texture_normal = ExtResource("5_yvtia")
+texture_pressed = ExtResource("7_r1st7")
+texture_hover = ExtResource("8_kj0og")
+stretch_mode = 0
+
+[node name="Label2" type="Label" parent="Container/VBoxContainer/Stretch3/TextureRect"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = -33.0
+offset_right = 168.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Wind"
+label_settings = SubResource("LabelSettings_7075f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Stretch5" type="BoxContainer" parent="Container/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("5_km4nl")
+
+[node name="TextureRect" type="TextureButton" parent="Container/VBoxContainer/Stretch5"]
+custom_minimum_size = Vector2(400, 90)
+layout_mode = 2
+texture_normal = ExtResource("5_yvtia")
+texture_pressed = ExtResource("7_r1st7")
+texture_hover = ExtResource("8_kj0og")
+stretch_mode = 0
+
+[node name="Label2" type="Label" parent="Container/VBoxContainer/Stretch5/TextureRect"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = -33.0
+offset_right = 168.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Cold"
+label_settings = SubResource("LabelSettings_7075f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Stretch6" type="BoxContainer" parent="Container/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("5_km4nl")
+
+[node name="TextureRect" type="TextureButton" parent="Container/VBoxContainer/Stretch6"]
+custom_minimum_size = Vector2(400, 90)
+layout_mode = 2
+texture_normal = ExtResource("5_yvtia")
+texture_pressed = ExtResource("7_r1st7")
+texture_hover = ExtResource("8_kj0og")
+stretch_mode = 0
+
+[node name="Label2" type="Label" parent="Container/VBoxContainer/Stretch6/TextureRect"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = -33.0
+offset_right = 168.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Acid"
+label_settings = SubResource("LabelSettings_7075f")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Main_menu" type="TextureButton" parent="."]
 layout_mode = 0
@@ -130,5 +283,18 @@ text = "Skins"
 label_settings = SubResource("LabelSettings_f4fj0")
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="ScrollContainer/HBoxContainer/VBoxContainer/HBoxContainer/Stretch/TextureButton" to="ScrollContainer/HBoxContainer/VBoxContainer/HBoxContainer/Stretch" method="_on_texture_button_pressed"]
+[node name="FPSCounter" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "60 FPS"
+label_settings = SubResource("LabelSettings_wmxnt")
+script = ExtResource("12_7jc7r")
+
+[connection signal="pressed" from="Container/VBoxContainer/Stretch/TextureRect" to="Container/VBoxContainer/Stretch" method="_on_texture_rect_pressed"]
+[connection signal="pressed" from="Container/VBoxContainer/Stretch4/TextureRect" to="Container/VBoxContainer/Stretch4" method="_on_texture_rect_pressed"]
+[connection signal="pressed" from="Container/VBoxContainer/Stretch2/TextureRect" to="Container/VBoxContainer/Stretch2" method="_on_texture_rect_pressed"]
+[connection signal="pressed" from="Container/VBoxContainer/Stretch3/TextureRect" to="Container/VBoxContainer/Stretch3" method="_on_texture_rect_pressed"]
+[connection signal="pressed" from="Container/VBoxContainer/Stretch5/TextureRect" to="Container/VBoxContainer/Stretch5" method="_on_texture_rect_pressed"]
+[connection signal="pressed" from="Container/VBoxContainer/Stretch6/TextureRect" to="Container/VBoxContainer/Stretch6" method="_on_texture_rect_pressed"]
 [connection signal="pressed" from="Main_menu" to="Main_menu" method="_on_pressed"]

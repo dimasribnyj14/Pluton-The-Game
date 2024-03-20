@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b6ffn27mr23ck"]
+[gd_scene load_steps=20 format=3 uid="uid://b6ffn27mr23ck"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_qnp6r"]
 [ext_resource type="Texture2D" uid="uid://dsuwc20243fqf" path="res://resources/backgrounds/main_menu.png" id="1_x7fgi"]
@@ -12,6 +12,8 @@
 [ext_resource type="Script" path="res://scripts/optionsOpen.gd" id="7_q4aod"]
 [ext_resource type="Script" path="res://scripts/Button4.gd" id="9_p46du"]
 [ext_resource type="Script" path="res://scripts/versionGame.gd" id="12_4rg3j"]
+[ext_resource type="FontFile" uid="uid://dvy48ngls58io" path="res://resources/fonts/PixelOperatorSC.ttf" id="13_x1mu1"]
+[ext_resource type="Script" path="res://scripts/FPSCounter.gd" id="14_y4b2k"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yu8fb"]
 texture = ExtResource("2_1sjb4")
@@ -25,6 +27,10 @@ texture = ExtResource("4_33mhk")
 [sub_resource type="LabelSettings" id="LabelSettings_f5pbb"]
 font = ExtResource("2_bj75h")
 font_size = 200
+
+[sub_resource type="LabelSettings" id="LabelSettings_n4gvv"]
+font = ExtResource("13_x1mu1")
+font_size = 50
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -138,6 +144,14 @@ text = "Game Version:"
 horizontal_alignment = 2
 vertical_alignment = 2
 script = ExtResource("12_4rg3j")
+
+[node name="FPSCounter" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "60 FPS"
+label_settings = SubResource("LabelSettings_n4gvv")
+script = ExtResource("14_y4b2k")
 
 [connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="VBoxContainer/Button2" method="_on_pressed"]

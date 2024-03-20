@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://c5b42d00n3l2w"]
+[gd_scene load_steps=72 format=3 uid="uid://c5b42d00n3l2w"]
 
 [ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_isw6d"]
 [ext_resource type="PackedScene" uid="uid://bcypn17ixt517" path="res://scenes_for_scenes/player/character.tscn" id="1_l3y2n"]
@@ -34,7 +34,10 @@
 [ext_resource type="Texture2D" uid="uid://dhcbo0nmnmw3k" path="res://resources/decorations/blue_ore.png" id="31_5yd40"]
 [ext_resource type="Texture2D" uid="uid://sh43sgrnteyh" path="res://resources/decorations/acid_level/barrel_opened.png" id="31_xvq5e"]
 [ext_resource type="Texture2D" uid="uid://glio1jn6c1sy" path="res://resources/decorations/acid_level/table.png" id="33_snoeq"]
+[ext_resource type="Texture2D" uid="uid://b26giwtcru14h" path="res://resources/decorations/acid_level/image_2024-03-20_17-36-09.png" id="33_wam0x"]
+[ext_resource type="Texture2D" uid="uid://bsueb5rmxs7de" path="res://resources/decorations/acid_level/image_2024-03-20_17-47-13.png" id="34_a4llc"]
 [ext_resource type="Script" path="res://scripts/options/Camera2D.gd" id="34_ymb1u"]
+[ext_resource type="Texture2D" uid="uid://mp2n4iro2aw1" path="res://resources/decorations/acid_level/image_2024-03-20_17-46-19.png" id="35_ixmcx"]
 [ext_resource type="PackedScene" uid="uid://docqisup1ghcw" path="res://scenes_for_scenes/rain.tscn" id="35_ny2ka"]
 [ext_resource type="PackedScene" uid="uid://btgw70pc31sjr" path="res://scenes_for_scenes/cloud.tscn" id="36_j0p2m"]
 [ext_resource type="Texture2D" uid="uid://cgfamc20v8dl8" path="res://resources/mobile_buttons/arrow.png" id="36_losuh"]
@@ -43,11 +46,16 @@
 [ext_resource type="Texture2D" uid="uid://ccyoue0lc0ihc" path="res://resources/mobile_buttons/shoot_pressed.png" id="39_0j20m"]
 [ext_resource type="Texture2D" uid="uid://cui25odv124in" path="res://resources/mobile_buttons/pausebutton.png" id="40_otdql"]
 [ext_resource type="Texture2D" uid="uid://dxpstegnp24h4" path="res://resources/mobile_buttons/pausepressed.png" id="41_2qefp"]
+[ext_resource type="FontFile" uid="uid://dvy48ngls58io" path="res://resources/fonts/PixelOperatorSC.ttf" id="44_5q728"]
 [ext_resource type="PackedScene" uid="uid://bu8tbi4v1h6ue" path="res://scenes_for_scenes/pause.tscn" id="44_om1my"]
+[ext_resource type="Script" path="res://scripts/FPSCounter.gd" id="45_nic6e"]
 [ext_resource type="Script" path="res://scripts/MoveTo.gd" id="46_kyp6d"]
 [ext_resource type="PackedScene" uid="uid://dq1cj8kk60s1b" path="res://scenes_for_scenes/moving_platforms.tscn" id="48_umpop"]
 [ext_resource type="AudioStream" uid="uid://btqipno5b035c" path="res://resources/sounds/ambience/acid.mp3" id="49_1ld5i"]
 [ext_resource type="Script" path="res://scripts/LevelAmbience.gd" id="50_pt6a8"]
+[ext_resource type="Texture2D" uid="uid://b2by2tl6c7odl" path="res://resources/decorations/acid_level/image_2024-03-20_17-54-19.png" id="54_ojxhp"]
+[ext_resource type="Texture2D" uid="uid://wod5s56uuhk0" path="res://resources/decorations/acid_level/image_2024-03-20_17-54-27.png" id="55_nssmn"]
+[ext_resource type="Texture2D" uid="uid://8hpam6a385y4" path="res://resources/decorations/acid_level/image_2024-03-20_17-54-36.png" id="56_7u5vc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wklei"]
 
@@ -1227,6 +1235,10 @@ sources/1 = SubResource("TileSetAtlasSource_hurib")
 sources/2 = SubResource("TileSetAtlasSource_jf74i")
 sources/4 = SubResource("TileSetAtlasSource_r4uvn")
 
+[sub_resource type="LabelSettings" id="LabelSettings_30asl"]
+font = ExtResource("44_5q728")
+font_size = 50
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vkb10"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6ahk3"]
@@ -2050,6 +2062,77 @@ position = Vector2(7288, -8)
 scale = Vector2(3.02, 3.02)
 texture = ExtResource("31_xvq5e")
 
+[node name="Image2024-03-2017-36-09" type="Sprite2D" parent="."]
+position = Vector2(1280, 204)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("33_wam0x")
+
+[node name="Image2024-03-2017-36-10" type="Sprite2D" parent="."]
+position = Vector2(213, 161)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("33_wam0x")
+
+[node name="Image2024-03-2017-36-11" type="Sprite2D" parent="."]
+position = Vector2(794, 227)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("33_wam0x")
+
+[node name="Image2024-03-2017-36-12" type="Sprite2D" parent="."]
+position = Vector2(1042, -409)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("33_wam0x")
+
+[node name="Image2024-03-2017-36-14" type="Sprite2D" parent="."]
+position = Vector2(2401, -27)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("33_wam0x")
+
+[node name="Image2024-03-2017-36-15" type="Sprite2D" parent="."]
+position = Vector2(4959, 1105)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("33_wam0x")
+
+[node name="Image2024-03-2017-36-16" type="Sprite2D" parent="."]
+position = Vector2(8558, 476)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("33_wam0x")
+
+[node name="Image2024-03-2017-36-13" type="Sprite2D" parent="."]
+position = Vector2(4984, -1064)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("33_wam0x")
+
+[node name="Image2024-03-2017-47-13" type="Sprite2D" parent="."]
+position = Vector2(2571, -129)
+rotation = 1.5708
+scale = Vector2(0.324627, 0.324627)
+texture = ExtResource("34_a4llc")
+
+[node name="Image2024-03-2017-47-14" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0, 1, 1)
+position = Vector2(2603, -140)
+scale = Vector2(0.324627, 0.324627)
+texture = ExtResource("34_a4llc")
+
+[node name="Image2024-03-2017-47-15" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 1, 1)
+position = Vector2(2627, -141)
+rotation = -0.483456
+scale = Vector2(0.324627, 0.324627)
+texture = ExtResource("34_a4llc")
+
+[node name="Image2024-03-2017-47-16" type="Sprite2D" parent="."]
+self_modulate = Color(0, 1, 1, 1)
+position = Vector2(2562, -150)
+rotation = -1.5708
+scale = Vector2(0.324627, 0.324627)
+texture = ExtResource("34_a4llc")
+
+[node name="Image2024-03-2017-46-19" type="Sprite2D" parent="."]
+position = Vector2(2481, -150)
+scale = Vector2(0.581967, 0.581967)
+texture = ExtResource("35_ixmcx")
+
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_l3y2n")]
 position = Vector2(276, 1000)
 
@@ -2128,6 +2211,15 @@ stream = ExtResource("49_1ld5i")
 autoplay = true
 script = ExtResource("50_pt6a8")
 
+[node name="FPSCounter" type="Label" parent="CharacterBody2D/Camera2D"]
+offset_left = -698.758
+offset_top = -315.617
+offset_right = -575.758
+offset_bottom = -264.617
+text = "60 FPS"
+label_settings = SubResource("LabelSettings_30asl")
+script = ExtResource("45_nic6e")
+
 [node name="Table" type="Sprite2D" parent="."]
 position = Vector2(2889, 650)
 scale = Vector2(3.62, 3.62)
@@ -2143,56 +2235,56 @@ speed_scale = 1.5
 scale_amount_max = 1.5
 
 [node name="Fog" parent="." instance=ExtResource("36_j0p2m")]
-position = Vector2(1938.36, -1658)
+position = Vector2(1932.36, -1435.99)
 rotation = 0.0172895
 scale = Vector2(8.53934, 7.47511)
 
 [node name="Fog2" parent="." instance=ExtResource("36_j0p2m")]
-position = Vector2(2483.36, -1588)
+position = Vector2(2477.36, -1365.99)
 rotation = 0.0172895
 scale = Vector2(6.749, 5.9079)
 
 [node name="Fog3" parent="." instance=ExtResource("36_j0p2m")]
-position = Vector2(3177.36, -1664)
+position = Vector2(3171.36, -1441.99)
 rotation = 0.0172895
 scale = Vector2(11.8542, 10.3768)
 
 [node name="Fog4" parent="." instance=ExtResource("36_j0p2m")]
-position = Vector2(3901.36, -1581)
+position = Vector2(3895.36, -1358.99)
 rotation = 0.0172895
 scale = Vector2(8.37495, 7.33121)
 
 [node name="Fog5" parent="." instance=ExtResource("36_j0p2m")]
-position = Vector2(4531.36, -1580)
+position = Vector2(4525.36, -1357.99)
 rotation = 0.0172895
 scale = Vector2(5.00952, 4.3852)
 
 [node name="Fog6" parent="." instance=ExtResource("36_j0p2m")]
-position = Vector2(5943.73, -1790.99)
+position = Vector2(5967.36, -1586.99)
 rotation = 0.0172895
 scale = Vector2(8.53934, 7.47511)
 flip_h = true
 
 [node name="Fog7" parent="." instance=ExtResource("36_j0p2m")]
-position = Vector2(6488.73, -1720.99)
+position = Vector2(6512.36, -1516.99)
 rotation = 0.0172895
 scale = Vector2(6.749, 5.9079)
 flip_h = true
 
 [node name="Fog8" parent="." instance=ExtResource("36_j0p2m")]
-position = Vector2(7182.73, -1796.99)
+position = Vector2(7206.36, -1592.99)
 rotation = 0.0172895
 scale = Vector2(11.8542, 10.3768)
 flip_h = true
 
 [node name="Fog9" parent="." instance=ExtResource("36_j0p2m")]
-position = Vector2(7906.73, -1713.99)
+position = Vector2(7930.36, -1509.99)
 rotation = 0.0172895
 scale = Vector2(8.37495, 7.33121)
 flip_h = true
 
 [node name="Fog10" parent="." instance=ExtResource("36_j0p2m")]
-position = Vector2(8536.74, -1712.99)
+position = Vector2(8560.38, -1508.99)
 rotation = 0.0172895
 scale = Vector2(5.00952, 4.3852)
 flip_h = true
@@ -2219,5 +2311,35 @@ shape = SubResource("CircleShape2D_6ahk3")
 position = Vector2(4089, -681)
 scale = Vector2(3, 3)
 imageName = "acid"
+
+[node name="Image2024-03-2017-54-19" type="Sprite2D" parent="."]
+position = Vector2(1624, 1125)
+rotation = 2.34572
+scale = Vector2(0.478723, 0.478723)
+texture = ExtResource("54_ojxhp")
+
+[node name="Image2024-03-2017-54-20" type="Sprite2D" parent="."]
+position = Vector2(1648, 1126)
+rotation = 2.34572
+scale = Vector2(0.478723, 0.478723)
+skew = -0.870919
+texture = ExtResource("54_ojxhp")
+
+[node name="Image2024-03-2017-54-27" type="Sprite2D" parent="."]
+position = Vector2(1668, 1125)
+scale = Vector2(0.576923, 0.576923)
+texture = ExtResource("55_nssmn")
+
+[node name="Image2024-03-2017-54-28" type="Sprite2D" parent="."]
+position = Vector2(1700, 1126)
+scale = Vector2(0.697762, 0.697762)
+skew = 0.5044
+texture = ExtResource("55_nssmn")
+flip_h = true
+
+[node name="Image2024-03-2017-54-36" type="Sprite2D" parent="."]
+position = Vector2(1727.34, 1125.75)
+scale = Vector2(0.911765, 0.911765)
+texture = ExtResource("56_7u5vc")
 
 [connection signal="body_entered" from="MoveTo/Area2D" to="MoveTo" method="_on_area_2d_body_entered"]

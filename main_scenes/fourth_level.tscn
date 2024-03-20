@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://bklk82xk4qaii"]
+[gd_scene load_steps=83 format=3 uid="uid://bklk82xk4qaii"]
 
 [ext_resource type="PackedScene" uid="uid://bcypn17ixt517" path="res://scenes_for_scenes/player/character.tscn" id="1_ika7c"]
 [ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_l3ss5"]
@@ -50,6 +50,8 @@
 [ext_resource type="Script" path="res://main_scenes/Label.gd" id="39_xfmil"]
 [ext_resource type="Script" path="res://main_scenes/text_fun.gd" id="40_0b755"]
 [ext_resource type="PackedScene" uid="uid://bu8tbi4v1h6ue" path="res://scenes_for_scenes/pause.tscn" id="41_8m3mj"]
+[ext_resource type="FontFile" uid="uid://dvy48ngls58io" path="res://resources/fonts/PixelOperatorSC.ttf" id="41_se5jf"]
+[ext_resource type="Script" path="res://scripts/FPSCounter.gd" id="42_0286m"]
 [ext_resource type="Script" path="res://scripts/MoveTo.gd" id="51_q3loe"]
 [ext_resource type="AudioStream" uid="uid://yn81g52ffp0v" path="res://resources/sounds/meme.mp3" id="53_ewbo5"]
 [ext_resource type="AudioStream" uid="uid://d2to8on0jm375" path="res://resources/sounds/ambience/jungle.mp3" id="55_qot3l"]
@@ -964,6 +966,10 @@ texture_region_size = Vector2i(100, 100)
 sources/0 = SubResource("TileSetAtlasSource_tlk3u")
 sources/1 = SubResource("TileSetAtlasSource_ico3y")
 
+[sub_resource type="LabelSettings" id="LabelSettings_07crx"]
+font = ExtResource("41_se5jf")
+font_size = 50
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_04n8w"]
 size = Vector2(130, 20)
 
@@ -1000,8 +1006,8 @@ radius = 10.9428
 script = ExtResource("1_l3ss5")
 
 [node name="PointLight2D2" type="PointLight2D" parent="."]
-position = Vector2(-2995.5, 359)
-scale = Vector2(1.90219, 0.590625)
+position = Vector2(-2970, 393)
+scale = Vector2(1.91813, 0.569375)
 energy = 4.0
 blend_mode = 1
 range_z_min = 0
@@ -1014,6 +1020,7 @@ texture_scale = 50.0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0.635294, 0.635294, 0.635294, 1)
+light_mask = 2
 texture_filter = 2
 offset_left = -4170.0
 offset_top = -1370.0
@@ -1749,6 +1756,16 @@ texture_normal = ExtResource("38_8h5gf")
 texture_pressed = ExtResource("39_g06av")
 action = "escape"
 visibility_mode = 1
+
+[node name="FPSCounter" type="Label" parent="CharacterBody2D/Camera2D"]
+light_mask = 2
+offset_left = -696.596
+offset_top = -321.919
+offset_right = -573.596
+offset_bottom = -270.919
+text = "60 FPS"
+label_settings = SubResource("LabelSettings_07crx")
+script = ExtResource("42_0286m")
 
 [node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D"]
 position = Vector2(193.04, 57)

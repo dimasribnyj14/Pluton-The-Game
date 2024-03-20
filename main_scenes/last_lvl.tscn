@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://u6e1iyo0xmkx"]
+[gd_scene load_steps=51 format=3 uid="uid://u6e1iyo0xmkx"]
 
 [ext_resource type="Texture2D" uid="uid://c430cymr5xtlp" path="res://resources/backgrounds_last/1.png" id="1_fj8w3"]
 [ext_resource type="PackedScene" uid="uid://bcypn17ixt517" path="res://scenes_for_scenes/player/character.tscn" id="1_io4s3"]
@@ -39,6 +39,8 @@
 [ext_resource type="Texture2D" uid="uid://d1fqh8b4dkbdc" path="res://resources/decorations/last_level/statue.png" id="34_i1jcl"]
 [ext_resource type="PackedScene" uid="uid://dq1cj8kk60s1b" path="res://scenes_for_scenes/moving_platforms.tscn" id="36_um01w"]
 [ext_resource type="PackedScene" uid="uid://pfeuicw2emut" path="res://scenes_for_scenes/enemy/fly.tscn" id="38_pmfpc"]
+[ext_resource type="FontFile" uid="uid://dvy48ngls58io" path="res://resources/fonts/PixelOperatorSC.ttf" id="38_x8abk"]
+[ext_resource type="Script" path="res://scripts/FPSCounter.gd" id="39_vn6ua"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q2hfr"]
 texture = ExtResource("14_s6who")
@@ -371,6 +373,10 @@ sources/2 = SubResource("TileSetAtlasSource_2rufo")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3bm85"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_y0ugi"]
+font = ExtResource("38_x8abk")
+font_size = 50
+
 [node name="last_lvl" type="Node2D"]
 script = ExtResource("1_y8imd")
 
@@ -607,6 +613,15 @@ anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="FPSCounter" type="Label" parent="CharacterBody2D/Camera2D"]
+offset_left = -696.567
+offset_top = -291.975
+offset_right = -573.567
+offset_bottom = -240.975
+text = "60 FPS"
+label_settings = SubResource("LabelSettings_y0ugi")
+script = ExtResource("39_vn6ua")
 
 [node name="MovingPlatform" parent="." instance=ExtResource("36_um01w")]
 position = Vector2(2598, 785)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://dk1xgqbvjcej7"]
+[gd_scene load_steps=64 format=3 uid="uid://dk1xgqbvjcej7"]
 
 [ext_resource type="Texture2D" uid="uid://b2ikycmdiuhai" path="res://resources/backgrounds_ice/photo2pixel_download (1).png" id="1_ae603"]
 [ext_resource type="Texture2D" uid="uid://dhg5vuymtjxo1" path="res://resources/tilemaps/pixil-Default_blocks-0.png" id="1_k3syu"]
@@ -41,12 +41,15 @@
 [ext_resource type="Texture2D" uid="uid://cui25odv124in" path="res://resources/mobile_buttons/pausebutton.png" id="40_66crp"]
 [ext_resource type="Texture2D" uid="uid://dxpstegnp24h4" path="res://resources/mobile_buttons/pausepressed.png" id="41_0uu14"]
 [ext_resource type="PackedScene" uid="uid://cxr21u3q8d5bx" path="res://scenes_for_scenes/enemy/base.tscn" id="43_jharv"]
+[ext_resource type="FontFile" uid="uid://dvy48ngls58io" path="res://resources/fonts/PixelOperatorSC.ttf" id="44_irn3l"]
 [ext_resource type="PackedScene" uid="uid://bu8tbi4v1h6ue" path="res://scenes_for_scenes/pause.tscn" id="44_mrvou"]
+[ext_resource type="Script" path="res://scripts/FPSCounter.gd" id="45_35v5m"]
 [ext_resource type="Texture2D" uid="uid://j1rehep1d87e" path="res://resources/portal/toxic/1.png" id="45_csfas"]
 [ext_resource type="Script" path="res://scripts/MoveTo.gd" id="46_fenpv"]
 [ext_resource type="PackedScene" uid="uid://dq1cj8kk60s1b" path="res://scenes_for_scenes/moving_platforms.tscn" id="47_0ujb4"]
 [ext_resource type="AudioStream" uid="uid://c7xtsh5f8b8s7" path="res://resources/sounds/ambience/ice.mp3" id="48_bo4d6"]
 [ext_resource type="Script" path="res://scripts/LevelAmbience.gd" id="49_l4rrr"]
+[ext_resource type="PackedScene" uid="uid://311kv738y36v" path="res://scenes_for_scenes/enemy/flyCold.tscn" id="50_mkiet"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7peq7"]
 texture = ExtResource("1_k3syu")
@@ -1003,6 +1006,10 @@ sources/4 = SubResource("TileSetAtlasSource_r4uvn")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aces2"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_aqhy5"]
+font = ExtResource("44_irn3l")
+font_size = 50
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_12sjr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_78jye"]
@@ -1407,6 +1414,15 @@ stream = ExtResource("48_bo4d6")
 volume_db = -5.0
 script = ExtResource("49_l4rrr")
 
+[node name="FPSCounter" type="Label" parent="CharacterBody2D/Camera2D"]
+offset_left = -699.853
+offset_top = -312.07
+offset_right = -576.853
+offset_bottom = -261.07
+text = "60 FPS"
+label_settings = SubResource("LabelSettings_aqhy5")
+script = ExtResource("45_35v5m")
+
 [node name="CPUParticles2D" parent="." instance=ExtResource("34_fbtk1")]
 texture_filter = 2
 position = Vector2(9819, -1010)
@@ -1420,6 +1436,41 @@ scale_amount_max = 1.0
 position = Vector2(2479, 35)
 timePerJump = 1
 end_x = 2142
+
+[node name="RigidBody2D5" parent="." instance=ExtResource("43_jharv")]
+position = Vector2(5618, 732)
+timePerJump = 1
+end_x = 4916
+
+[node name="RigidBody2D6" parent="." instance=ExtResource("43_jharv")]
+position = Vector2(5624, 30)
+timePerJump = 1
+end_x = 5202
+
+[node name="RigidBody2D7" parent="." instance=ExtResource("43_jharv")]
+position = Vector2(7049, -162)
+timePerJump = 1
+end_x = 6073
+
+[node name="RigidBody2D8" parent="." instance=ExtResource("43_jharv")]
+position = Vector2(8500, 427)
+timePerJump = 1
+end_x = 8500
+
+[node name="RigidBody2D9" parent="." instance=ExtResource("43_jharv")]
+position = Vector2(9187, 171)
+timePerJump = 1
+end_x = 9187
+
+[node name="RigidBody2D10" parent="." instance=ExtResource("43_jharv")]
+position = Vector2(14776, 426)
+timePerJump = 1
+end_x = 13854
+
+[node name="RigidBody2D11" parent="." instance=ExtResource("43_jharv")]
+position = Vector2(18436, -117)
+timePerJump = 1
+end_x = 18179
 
 [node name="MoveTo" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_12sjr")
@@ -1463,5 +1514,29 @@ imageName = "ice"
 position = Vector2(17242, 39)
 scale = Vector2(3, 3)
 imageName = "ice"
+
+[node name="RigidBody2D" parent="." instance=ExtResource("50_mkiet")]
+position = Vector2(17600, -208)
+end_x = 15136
+
+[node name="RigidBody2D2" parent="." instance=ExtResource("50_mkiet")]
+position = Vector2(14622, 246)
+end_x = 12216
+
+[node name="RigidBody2D3" parent="." instance=ExtResource("50_mkiet")]
+position = Vector2(9909, 136)
+end_x = 9312
+
+[node name="RigidBody2D12" parent="." instance=ExtResource("50_mkiet")]
+position = Vector2(8036, 632)
+end_x = 7209
+
+[node name="RigidBody2D13" parent="." instance=ExtResource("50_mkiet")]
+position = Vector2(4610, -25)
+end_x = 3362
+
+[node name="RigidBody2D14" parent="." instance=ExtResource("50_mkiet")]
+position = Vector2(2366, -197)
+end_x = 1464
 
 [connection signal="body_entered" from="MoveTo/Area2D" to="MoveTo" method="_on_area_2d_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://cbjmu8wg6myu"]
+[gd_scene load_steps=51 format=3 uid="uid://cbjmu8wg6myu"]
 
 [ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_4rvec"]
 [ext_resource type="Texture2D" uid="uid://dcnr54p4h8ff5" path="res://resources/backgrounds_cloud/3.png" id="1_hufxe"]
@@ -14,8 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://dop44q6ne30ox" path="res://resources/tilemaps/desk.png" id="11_77yn8"]
 [ext_resource type="Texture2D" uid="uid://ceruvekynltig" path="res://resources/decorations/cloud_level/bird/1.png" id="11_lo3y2"]
 [ext_resource type="Texture2D" uid="uid://cc8x1t3738loc" path="res://resources/decorations/cloud_level/bird/2.png" id="12_11onn"]
+[ext_resource type="Texture2D" uid="uid://dnfrgxi08ojxc" path="res://resources/decorations/cloud_level/pixil-frame-0 (87).png" id="12_kqdkf"]
 [ext_resource type="Texture2D" uid="uid://cj6x2cm73o232" path="res://resources/decorations/cloud_level/bird/3.png" id="13_6p3fv"]
 [ext_resource type="Script" path="res://scripts/options/Camera2D.gd" id="13_vsl0r"]
+[ext_resource type="Texture2D" uid="uid://cuiaqf41rl2qy" path="res://resources/decorations/cloud_level/pixil-frame-0 (89).png" id="13_wjbr3"]
 [ext_resource type="Script" path="res://scripts/fly.gd" id="14_cw240"]
 [ext_resource type="Texture2D" uid="uid://cgfamc20v8dl8" path="res://resources/mobile_buttons/arrow.png" id="15_x4wjx"]
 [ext_resource type="Texture2D" uid="uid://cpg71yxb5vsy5" path="res://resources/mobile_buttons/arrow_pressed.png" id="16_kc06o"]
@@ -23,6 +25,8 @@
 [ext_resource type="Texture2D" uid="uid://ccyoue0lc0ihc" path="res://resources/mobile_buttons/shoot_pressed.png" id="18_aicu6"]
 [ext_resource type="Texture2D" uid="uid://cui25odv124in" path="res://resources/mobile_buttons/pausebutton.png" id="19_qx55g"]
 [ext_resource type="Texture2D" uid="uid://dxpstegnp24h4" path="res://resources/mobile_buttons/pausepressed.png" id="20_4du0l"]
+[ext_resource type="FontFile" uid="uid://dvy48ngls58io" path="res://resources/fonts/PixelOperatorSC.ttf" id="21_evhgd"]
+[ext_resource type="Script" path="res://scripts/FPSCounter.gd" id="22_j0vtp"]
 [ext_resource type="PackedScene" uid="uid://bu8tbi4v1h6ue" path="res://scenes_for_scenes/pause.tscn" id="23_54j82"]
 [ext_resource type="Texture2D" uid="uid://coufbg57gdsap" path="res://resources/decorations/cloud_level/building/5.png" id="23_wlmib"]
 [ext_resource type="Texture2D" uid="uid://bdav1iot6581d" path="res://resources/decorations/cloud_level/building/1.png" id="26_1wh2l"]
@@ -30,7 +34,6 @@
 [ext_resource type="Texture2D" uid="uid://goyifkcj6oby" path="res://resources/decorations/cloud_level/building/3.png" id="28_h0kv8"]
 [ext_resource type="Texture2D" uid="uid://cb43tpxlvxghc" path="res://resources/decorations/cloud_level/building/4.png" id="29_ub88i"]
 [ext_resource type="Script" path="res://scripts/MoveTo.gd" id="32_8rl3g"]
-[ext_resource type="PackedScene" uid="uid://drydfqdxx422l" path="res://scenes_for_scenes/enemy/shoot.tscn" id="32_pempw"]
 [ext_resource type="AudioStream" uid="uid://m0ou4cs8ei4r" path="res://resources/sounds/ambience/wind.mp3" id="35_qfnem"]
 [ext_resource type="Script" path="res://scripts/LevelAmbience.gd" id="36_qn0vk"]
 
@@ -862,6 +865,10 @@ sources/1 = SubResource("TileSetAtlasSource_yqcix")
 sources/2 = SubResource("TileSetAtlasSource_702sj")
 sources/3 = SubResource("TileSetAtlasSource_rih2b")
 
+[sub_resource type="LabelSettings" id="LabelSettings_0qs1q"]
+font = ExtResource("21_evhgd")
+font_size = 50
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_b2kok"]
 animations = [{
 "frames": [{
@@ -973,6 +980,35 @@ scale = Vector2(2.50728, 2.50728)
 texture = ExtResource("9_4elvo")
 flip_h = true
 
+[node name="Pixil-frame-0(87)" type="Sprite2D" parent="."]
+position = Vector2(8994, 851)
+scale = Vector2(1.88, 1.88)
+texture = ExtResource("12_kqdkf")
+
+[node name="Pixil-frame-0(87)2" type="Sprite2D" parent="."]
+position = Vector2(8628, 851)
+scale = Vector2(1.88, 1.88)
+texture = ExtResource("12_kqdkf")
+
+[node name="Pixil-frame-0(87)3" type="Sprite2D" parent="."]
+position = Vector2(11111, 820)
+scale = Vector2(1.88, 1.88)
+texture = ExtResource("12_kqdkf")
+
+[node name="Pixil-frame-0(87)4" type="Sprite2D" parent="."]
+position = Vector2(11467, 820)
+scale = Vector2(1.88, 1.88)
+texture = ExtResource("12_kqdkf")
+
+[node name="Pixil-frame-0(87)5" type="Sprite2D" parent="."]
+position = Vector2(6316, 651)
+scale = Vector2(1.88, 1.88)
+texture = ExtResource("12_kqdkf")
+
+[node name="Pixil-frame-0(89)" type="Sprite2D" parent="."]
+position = Vector2(6094, 521)
+texture = ExtResource("13_wjbr3")
+
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_4wgym")]
 position = Vector2(290, 966)
 
@@ -1038,6 +1074,15 @@ texture_normal = ExtResource("19_qx55g")
 texture_pressed = ExtResource("20_4du0l")
 action = "escape"
 visibility_mode = 1
+
+[node name="FPSCounter" type="Label" parent="CharacterBody2D/Camera2D"]
+offset_left = -699.853
+offset_top = -326.255
+offset_right = -576.853
+offset_bottom = -275.255
+text = "60 FPS"
+label_settings = SubResource("LabelSettings_0qs1q")
+script = ExtResource("22_j0vtp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2465, 371)
@@ -1315,10 +1360,6 @@ texture = ExtResource("2_mrhmd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MoveTo/Area2D"]
 shape = SubResource("CircleShape2D_23tf4")
-
-[node name="RigidBody2D" parent="." instance=ExtResource("32_pempw")]
-position = Vector2(5655, 417)
-end_x = 5244
 
 [node name="7" type="Sprite2D" parent="."]
 position = Vector2(10176, 652)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://cueonbiinnvbe"]
+[gd_scene load_steps=80 format=3 uid="uid://cueonbiinnvbe"]
 
 [ext_resource type="Texture2D" uid="uid://m1fh0cvq8dya" path="res://resources/backgrounds_flame/Fon1.png" id="1_cdohg"]
 [ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_x6hvk"]
@@ -51,11 +51,14 @@
 [ext_resource type="Script" path="res://scripts/hammer.gd" id="46_qnw51"]
 [ext_resource type="Texture2D" uid="uid://dxpstegnp24h4" path="res://resources/mobile_buttons/pausepressed.png" id="47_7ro57"]
 [ext_resource type="PackedScene" uid="uid://bu8tbi4v1h6ue" path="res://scenes_for_scenes/pause.tscn" id="50_28iug"]
+[ext_resource type="FontFile" uid="uid://dvy48ngls58io" path="res://resources/fonts/PixelOperatorSC.ttf" id="50_v0f2s"]
 [ext_resource type="Script" path="res://scripts/MoveTo.gd" id="51_0ik31"]
+[ext_resource type="Script" path="res://scripts/FPSCounter.gd" id="51_efh1o"]
 [ext_resource type="PackedScene" uid="uid://dq1cj8kk60s1b" path="res://scenes_for_scenes/moving_platforms.tscn" id="55_3egu5"]
 [ext_resource type="AudioStream" uid="uid://ei2tns460y57" path="res://resources/sounds/ambience/hell.mp3" id="56_2btyb"]
 [ext_resource type="PackedScene" uid="uid://pfeuicw2emut" path="res://scenes_for_scenes/enemy/fly.tscn" id="56_dmwt6"]
 [ext_resource type="Script" path="res://scripts/LevelAmbience.gd" id="57_ubebe"]
+[ext_resource type="Texture2D" uid="uid://nac6h65in2my" path="res://resources/decorations/flame_level/pixil-frame-0 (13).png" id="59_n82ec"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_54qu8"]
 
@@ -1387,6 +1390,10 @@ animations = [{
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m8vjk"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_lv07s"]
+font = ExtResource("50_v0f2s")
+font_size = 50
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m4txn"]
 size = Vector2(22.9268, 34.0521)
 
@@ -1965,6 +1972,15 @@ volume_db = -5.0
 autoplay = true
 script = ExtResource("57_ubebe")
 
+[node name="FPSCounter" type="Label" parent="CharacterBody2D/Camera2D"]
+offset_left = -698.679
+offset_top = -334.53
+offset_right = -575.679
+offset_bottom = -283.53
+text = "60 FPS"
+label_settings = SubResource("LabelSettings_lv07s")
+script = ExtResource("51_efh1o")
+
 [node name="ParallaxBackground" parent="CharacterBody2D" instance=ExtResource("35_qbwl0")]
 offset = Vector2(-2510.95, -2500)
 scale = Vector2(12.135, 4.66)
@@ -2011,7 +2027,12 @@ timePerJump = 0
 end_x = 19604
 
 [node name="RigidBody2D12" parent="." instance=ExtResource("41_txybb")]
-position = Vector2(5665, 625)
+position = Vector2(6269, 187)
+timePerJump = 0
+end_x = 6075
+
+[node name="RigidBody2D14" parent="." instance=ExtResource("41_txybb")]
+position = Vector2(5679, 619)
 timePerJump = 0
 end_x = 4794
 
@@ -2063,7 +2084,7 @@ position = Vector2(3801, 231)
 end_x = 1786
 
 [node name="RigidBody2D15" parent="." instance=ExtResource("56_dmwt6")]
-position = Vector2(5651, 503)
+position = Vector2(5704, 537)
 end_x = 4605
 
 [node name="RigidBody2D16" parent="." instance=ExtResource("56_dmwt6")]
@@ -2081,6 +2102,11 @@ end_x = 19983
 [node name="MovingPlatform4" parent="." instance=ExtResource("55_3egu5")]
 position = Vector2(19624, 194)
 scale = Vector2(3, 3)
+
+[node name="Pixil-frame-0(13)" type="Sprite2D" parent="."]
+position = Vector2(21343, -226)
+scale = Vector2(4.26, 4.26)
+texture = ExtResource("59_n82ec")
 
 [connection signal="body_entered" from="Ishere" to="Ishere" method="_on_body_entered"]
 [connection signal="body_entered" from="MoveTo/Area2D" to="MoveTo" method="_on_area_2d_body_entered"]

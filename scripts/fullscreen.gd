@@ -1,6 +1,7 @@
 extends Node2D
 var fullscreen = false
-
+var config = ConfigFile.new()
+var configFile = config.load('user://config.cfg')
 @onready var heartsContainer = $CharacterBody2D/CanvasLayer/heartsContainer
 
 
@@ -13,6 +14,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if config.get_value('options', 'light') == false:
+		$CharacterBody2D/Camera2D/FPSCounter.visible = false
+	else:
+		$CharacterBody2D/Camera2D/FPSCounter.visible = true
+	
 	if Input.is_action_just_pressed("fullscreen"):
 		if fullscreen == false:
 			fullscreen = true

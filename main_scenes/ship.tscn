@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bjr1pxco7cle4"]
+[gd_scene load_steps=41 format=3 uid="uid://bjr1pxco7cle4"]
 
 [ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_1r7k7"]
 [ext_resource type="Texture2D" uid="uid://boh55yautp1a1" path="res://resources/tilemaps/ship_blocks.png" id="1_maqti"]
@@ -29,6 +29,8 @@
 [ext_resource type="Texture2D" uid="uid://ba775hg40il6t" path="res://resources/decorations/lightlamp.png" id="22_fi867"]
 [ext_resource type="Texture2D" uid="uid://d31oaeiiwc1j1" path="res://resources/decorations/ship/pixil-ва0 (69).png" id="26_slf3c"]
 [ext_resource type="Texture2D" uid="uid://14801m8dllw8" path="res://resources/decorations/ship/pixil-frame-0 (12).png" id="28_ccb7k"]
+[ext_resource type="FontFile" uid="uid://dvy48ngls58io" path="res://resources/fonts/PixelOperatorSC.ttf" id="30_gm2ko"]
+[ext_resource type="Script" path="res://scripts/FPSCounter.gd" id="31_hhfjp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fnaug"]
 texture = ExtResource("2_jej7p")
@@ -339,6 +341,10 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_hv647")
 sources/1 = SubResource("TileSetAtlasSource_y1tp0")
 
+[sub_resource type="LabelSettings" id="LabelSettings_j674s"]
+font = ExtResource("30_gm2ko")
+font_size = 50
+
 [node name="Ship" type="Node2D"]
 script = ExtResource("1_1r7k7")
 
@@ -499,6 +505,7 @@ position = Vector2(-108.241, -1.33633)
 shape = SubResource("RectangleShape2D_tshgr")
 
 [node name="Sprite2D" type="Sprite2D" parent="432/Area2D"]
+visible = false
 light_mask = 2
 position = Vector2(-108.909, -60.8021)
 scale = Vector2(0.595075, 0.595075)
@@ -583,6 +590,15 @@ anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="FPSCounter" type="Label" parent="CharacterBody2D/Camera2D"]
+offset_left = -700.948
+offset_top = -329.802
+offset_right = -577.948
+offset_bottom = -278.802
+text = "60 FPS"
+label_settings = SubResource("LabelSettings_j674s")
+script = ExtResource("31_hhfjp")
 
 [connection signal="body_entered" from="432/Area2D" to="432/Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="432/Area2D" to="432/Area2D" method="_on_body_exited"]

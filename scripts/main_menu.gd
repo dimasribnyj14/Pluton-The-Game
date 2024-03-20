@@ -35,6 +35,11 @@ func _ready():
 		Engine.max_fps = 0
 	else:
 		Engine.max_fps = 30
+	
+	if config.get_value('options', 'light') == false:
+		$FPSCounter.visible = false
+	else:
+		$FPSCounter.visible = true
 		
 	if config.get_value("options", "strechscreen") == false:
 		get_window().content_scale_aspect = Window.CONTENT_SCALE_ASPECT_KEEP

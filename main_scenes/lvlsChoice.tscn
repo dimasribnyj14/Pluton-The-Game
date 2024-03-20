@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://csiouinca00uw"]
+[gd_scene load_steps=25 format=3 uid="uid://csiouinca00uw"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ak3nj"]
 [ext_resource type="Shader" path="res://scripts/blur.gdshader" id="1_hmjde"]
@@ -20,9 +20,15 @@
 [ext_resource type="Texture2D" uid="uid://bfn00qdekjdp3" path="res://resources/levels/ship.png" id="13_c628e"]
 [ext_resource type="Script" path="res://scripts/move_to_ship.gd" id="14_xt1ew"]
 [ext_resource type="Script" path="res://scripts/Earth.gd" id="18_73trb"]
+[ext_resource type="FontFile" uid="uid://dvy48ngls58io" path="res://resources/fonts/PixelOperatorSC.ttf" id="21_eyan6"]
+[ext_resource type="Script" path="res://scripts/FPSCounter.gd" id="22_j2bwf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d1xy6"]
 shader = ExtResource("1_hmjde")
+
+[sub_resource type="LabelSettings" id="LabelSettings_0g4lo"]
+font = ExtResource("21_eyan6")
+font_size = 50
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -139,6 +145,16 @@ texture_normal = ExtResource("8_0cgom")
 texture_pressed = ExtResource("8_0cgom")
 texture_hover = ExtResource("8_0cgom")
 script = ExtResource("18_73trb")
+
+[node name="FPSCounter" type="Label" parent="."]
+visible = false
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 131.0
+offset_bottom = 53.0
+text = "60 FPS"
+label_settings = SubResource("LabelSettings_0g4lo")
+script = ExtResource("22_j2bwf")
 
 [connection signal="pressed" from="Fire" to="Fire" method="_on_pressed"]
 [connection signal="pressed" from="Main_menu" to="Main_menu" method="_on_pressed"]

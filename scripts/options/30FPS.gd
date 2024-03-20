@@ -28,12 +28,15 @@ func _on_texture_button_pressed():
 		$TextureButton.texture_pressed = on
 		$TextureButton.texture_hover = on
 
+		$"../../../FPSCounter".visible = true
+
 		config.set_value('options', 'light',true)
 	else:
 		$TextureButton.texture_normal = off
 		$TextureButton.texture_pressed = off
 		$TextureButton.texture_hover = off
 
+		$"../../../FPSCounter".visible = false
 		
 		config.set_value('options', 'light',false)
 	
