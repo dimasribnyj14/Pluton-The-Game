@@ -15,12 +15,13 @@ config/name_localized={
 "ru_RU": "Возмездие Плутона галактического изгоя",
 "uk_UA": "Відплата Плутона галактичного ізгоя"
 }
-config/version="1.19"
+config/version="1.23"
 run/main_scene="res://main_scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://resources/backgrounds/main_menu.png"
 config/icon="res://resources/decorations/pluton.png"
+config/windows_native_icon="res://resources/pluton.ico"
 
 [display]
 
@@ -80,10 +81,6 @@ escape={
 ]
 }
 
-[input_devices]
-
-pointing/emulate_touch_from_mouse=true
-
 [internationalization]
 
 locale/locale_filter_mode=0
@@ -94,7 +91,9 @@ locale/language_filter=["en", "uk"]
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
+textures/default_filters/anisotropic_filtering_level=0
 textures/light_projectors/filter=0
 lightmapping/probe_capture/update_speed=15.0
 limits/opengl/max_renderable_lights=2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://csiouinca00uw"]
+[gd_scene load_steps=28 format=3 uid="uid://csiouinca00uw"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ak3nj"]
 [ext_resource type="Shader" path="res://scripts/blur.gdshader" id="1_hmjde"]
@@ -22,6 +22,9 @@
 [ext_resource type="Script" path="res://scripts/Earth.gd" id="18_73trb"]
 [ext_resource type="FontFile" uid="uid://dvy48ngls58io" path="res://resources/fonts/PixelOperatorSC.ttf" id="21_eyan6"]
 [ext_resource type="Script" path="res://scripts/FPSCounter.gd" id="22_j2bwf"]
+[ext_resource type="AudioStream" uid="uid://bd5g1cux872bw" path="res://main_scenes/main.mp3" id="23_pfh1u"]
+[ext_resource type="Script" path="res://scripts/music/main.gd" id="24_vi06o"]
+[ext_resource type="Texture2D" uid="uid://b0i6qntndy17n" path="res://resources/arrowYellow.png" id="25_k03ut"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d1xy6"]
 shader = ExtResource("1_hmjde")
@@ -53,10 +56,10 @@ expand_mode = 1
 
 [node name="Fire" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 82.0
-offset_top = 216.0
-offset_right = 182.0
-offset_bottom = 316.0
+offset_left = 103.0
+offset_top = 108.0
+offset_right = 203.0
+offset_bottom = 208.0
 scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("2_qyyrt")
 texture_pressed = ExtResource("2_qyyrt")
@@ -76,10 +79,10 @@ script = ExtResource("8_w4y13")
 
 [node name="Ice" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 258.0
-offset_top = 46.0
-offset_right = 358.0
-offset_bottom = 146.0
+offset_left = 220.0
+offset_top = 323.0
+offset_right = 320.0
+offset_bottom = 423.0
 scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("4_vdxp6")
 texture_pressed = ExtResource("4_vdxp6")
@@ -88,10 +91,10 @@ script = ExtResource("6_tldrn")
 
 [node name="Acid" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 425.0
-offset_top = 225.0
-offset_right = 525.0
-offset_bottom = 325.0
+offset_left = 422.0
+offset_top = 116.0
+offset_right = 522.0
+offset_bottom = 216.0
 scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("5_ffn1x")
 texture_pressed = ExtResource("5_ffn1x")
@@ -100,11 +103,11 @@ script = ExtResource("8_ulisf")
 
 [node name="Ship" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 437.0
-offset_top = 383.0
-offset_right = 1429.0
-offset_bottom = 1375.0
-scale = Vector2(0.4, 0.4)
+offset_left = 1047.0
+offset_top = 478.0
+offset_right = 2039.0
+offset_bottom = 1470.0
+scale = Vector2(0.3, 0.3)
 texture_normal = ExtResource("13_c628e")
 texture_pressed = ExtResource("13_c628e")
 texture_hover = ExtResource("13_c628e")
@@ -112,10 +115,10 @@ script = ExtResource("14_xt1ew")
 
 [node name="Jungle" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 629.0
-offset_top = 44.0
-offset_right = 729.0
-offset_bottom = 144.0
+offset_left = 612.0
+offset_top = 313.0
+offset_right = 712.0
+offset_bottom = 413.0
 scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("6_6yutv")
 texture_pressed = ExtResource("6_6yutv")
@@ -124,10 +127,10 @@ script = ExtResource("10_kllci")
 
 [node name="Wind" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 816.0
-offset_top = 218.0
-offset_right = 916.0
-offset_bottom = 318.0
+offset_left = 795.0
+offset_top = 114.0
+offset_right = 895.0
+offset_bottom = 214.0
 scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("7_yycph")
 texture_pressed = ExtResource("7_yycph")
@@ -136,10 +139,10 @@ script = ExtResource("12_bd8jn")
 
 [node name="Earth" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 1021.0
-offset_top = 53.0
-offset_right = 1121.0
-offset_bottom = 153.0
+offset_left = 964.0
+offset_top = 304.0
+offset_right = 1064.0
+offset_bottom = 404.0
 scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("8_0cgom")
 texture_pressed = ExtResource("8_0cgom")
@@ -148,6 +151,7 @@ script = ExtResource("18_73trb")
 
 [node name="FPSCounter" type="Label" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 8.0
 offset_top = 2.0
 offset_right = 131.0
@@ -155,6 +159,46 @@ offset_bottom = 53.0
 text = "60 FPS"
 label_settings = SubResource("LabelSettings_0g4lo")
 script = ExtResource("22_j2bwf")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_pfh1u")
+script = ExtResource("24_vi06o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(245, 283)
+rotation = 1.15192
+scale = Vector2(2.16821, 2.16821)
+texture = ExtResource("25_k03ut")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(401, 295)
+rotation = -0.802851
+scale = Vector2(2.16821, 2.16821)
+texture = ExtResource("25_k03ut")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(589, 291)
+rotation = 0.715585
+scale = Vector2(2.16821, 2.16821)
+texture = ExtResource("25_k03ut")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(767, 283)
+rotation = -0.794125
+scale = Vector2(2.16821, 2.16821)
+texture = ExtResource("25_k03ut")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(962, 277)
+rotation = 0.829031
+scale = Vector2(2.16821, 2.16821)
+texture = ExtResource("25_k03ut")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(1131.55, 493.784)
+rotation = 1.03847
+scale = Vector2(3.42148, 2.16821)
+texture = ExtResource("25_k03ut")
 
 [connection signal="pressed" from="Fire" to="Fire" method="_on_pressed"]
 [connection signal="pressed" from="Main_menu" to="Main_menu" method="_on_pressed"]

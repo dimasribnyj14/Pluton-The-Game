@@ -14,6 +14,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if config.get_value("options", "strechscreen") == false:
+		get_window().content_scale_aspect = Window.CONTENT_SCALE_ASPECT_KEEP
+	else:
+		get_window().content_scale_aspect = Window.CONTENT_SCALE_ASPECT_IGNORE
+	
 	if config.get_value('options', 'light') == false:
 		$CharacterBody2D/Camera2D/FPSCounter.visible = false
 	else:
@@ -29,6 +34,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("escape"):
 		if Engine.time_scale == 0:
 			Engine.time_scale = 1
+			#$CharacterBody2D/Music.playing = true
 			$CharacterBody2D/Camera2D/Pause.hide()
 			$CharacterBody2D/Camera2D/TouchScreenButton2.show()
 			$CharacterBody2D/Camera2D/TouchScreenButton3.show()
@@ -37,6 +43,7 @@ func _process(delta):
 			$CharacterBody2D/Camera2D/TouchScreenButton.show()
 		else:
 			Engine.time_scale = 0
+			#$CharacterBody2D/Music.playing = false
 			$CharacterBody2D/Camera2D/Pause.show()
 			$CharacterBody2D/Camera2D/TouchScreenButton2.hide()
 			$CharacterBody2D/Camera2D/TouchScreenButton3.hide()

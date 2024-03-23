@@ -5,6 +5,8 @@ var configFile = config.load('user://config.cfg')
 signal healthChanged
 signal killed
 
+@export var checkpointCold = false
+@export var checkpointLast = false
 @onready var gos = $CanvasLayer/GameOverScreen
 @onready var heroSkin = config.get_value('saves', 'skin')
 @onready var effects = $Effects
@@ -37,7 +39,7 @@ func _ready():
 	
 
 
-
+#11215
 
 
 #Sounds
@@ -62,6 +64,8 @@ func _physics_process(delta):
 	if not is_on_floor():
 		if get_tree().current_scene.name == 'Cloudlvl':
 			velocity.y += gravity * delta-5
+		elif get_tree().current_scene.name == 'last_lvl' and checkpointLast:
+			velocity.y += gravity * delta-8
 		else:
 			velocity.y += gravity * delta
 		
@@ -169,8 +173,16 @@ func _physics_process(delta):
 			position.y = -155
 			position.x = 275
 		elif get_tree().current_scene.name == 'SecondLvl':
-			position.y = 170
-			position.x = 276
+			if checkpointCold == false:
+				position.y = 170
+				position.x = 276
+			else:
+				if get_parent().get_node_or_null("Boss"):
+					$"../Boss".hp = 5
+					$"../Boss".position.x = 11670
+					$"../Boss".position.y = -85
+				position.y = -475
+				position.x = 11459
 		elif get_tree().current_scene.name == 'ThirdLvl':
 			position.y = 1000
 			position.x = 276
@@ -181,8 +193,16 @@ func _physics_process(delta):
 			position.y = 966
 			position.x = 290
 		elif get_tree().current_scene.name == 'last_lvl':
-			position.x = -157.036
-			position.y = 153
+			if checkpointLast == false:
+				position.x = -157.036
+				position.y = 153
+			else:
+				if get_parent().get_node_or_null("Pluton"):
+					$"../Pluton".hp = 10
+					$"../Pluton".position.x = 7209
+					$"../Pluton".position.y = 689
+				position.x = 6217
+				position.y = 420
 	
 	
 	for i in get_slide_collision_count():
@@ -255,8 +275,16 @@ func _on_hurt_box_area_entered(area):
 				position.y = -155
 				position.x = 275
 			elif get_tree().current_scene.name == 'SecondLvl':
-				position.y = 170
-				position.x = 276
+				if checkpointCold == false:
+					position.y = 170
+					position.x = 276
+				else:
+					if get_parent().get_node_or_null("Boss"):
+						$"../Boss".hp = 5
+						$"../Boss".position.x = 11670
+						$"../Boss".position.y = -85
+					position.y = -475
+					position.x = 11459
 			elif get_tree().current_scene.name == 'ThirdLvl':
 				position.y = 1000
 				position.x = 276
@@ -267,8 +295,16 @@ func _on_hurt_box_area_entered(area):
 				position.y = 966
 				position.x = 290
 			elif get_tree().current_scene.name == 'last_lvl':
-				position.x = -157.036
-				position.y = 153
+				if checkpointLast == false:
+					position.x = -157.036
+					position.y = 153
+				else:
+					if get_parent().get_node_or_null("Pluton"):
+						$"../Pluton".hp = 10
+						$"../Pluton".position.x = 7209
+						$"../Pluton".position.y = 689
+					position.x = 6217
+					position.y = 420
 			currentHealth = maxHealth
 		healthChanged.emit(currentHealth)
 		knockback(area.get_parent().position)
@@ -289,8 +325,16 @@ func _on_hurt_box_area_entered(area):
 				position.y = -155
 				position.x = 275
 			elif get_tree().current_scene.name == 'SecondLvl':
-				position.y = 170
-				position.x = 276
+				if checkpointCold == false:
+					position.y = 170
+					position.x = 276
+				else:
+					if get_parent().get_node_or_null("Boss"):
+						$"../Boss".hp = 5
+						$"../Boss".position.x = 11670
+						$"../Boss".position.y = -85
+					position.y = -475
+					position.x = 11459
 			elif get_tree().current_scene.name == 'ThirdLvl':
 				position.y = 1000
 				position.x = 276
@@ -301,8 +345,16 @@ func _on_hurt_box_area_entered(area):
 				position.y = 966
 				position.x = 290
 			elif get_tree().current_scene.name == 'last_lvl':
-				position.x = -157.036
-				position.y = 153
+				if checkpointLast == false:
+					position.x = -157.036
+					position.y = 153
+				else:
+					if get_parent().get_node_or_null("Pluton"):
+						$"../Pluton".hp = 10
+						$"../Pluton".position.x = 7209
+						$"../Pluton".position.y = 689
+					position.x = 6217
+					position.y = 420
 			sfxDeath.play()
 			currentHealth = maxHealth
 		healthChanged.emit(currentHealth)
@@ -312,7 +364,111 @@ func _on_hurt_box_area_entered(area):
 		await hurtCD.timeout
 		effects.play("RESET")
 		#area.get_parent().queue_free()
+	elif area.name == "bossHit" and area.monitoring == true:
+		#canDmg = false
+		currentHealth -= 2
+		if currentHealth < 0:
+			#await get_tree().create_timer(1.5).timeout
+			gos.visible = true
+			sfxDeath.play()
+			Engine.time_scale = 0
+			if get_tree().current_scene.name == 'FirstLevel':
+				position.y = -155
+				position.x = 275
+			elif get_tree().current_scene.name == 'SecondLvl':
+				if checkpointCold == false:
+					position.y = 170
+					position.x = 276
+				else:
+					if get_parent().get_node_or_null("Boss"):
+						$"../Boss".hp = 5
+						$"../Boss".position.x = 11670
+						$"../Boss".position.y = -85
+					position.y = -475
+					position.x = 11459
+			elif get_tree().current_scene.name == 'ThirdLvl':
+				position.y = 1000
+				position.x = 276
+			elif get_tree().current_scene.name == 'FourthLevel':
+				position.y = 667
+				position.x = -4436.04
+			elif get_tree().current_scene.name == 'Cloudlvl':
+				position.y = 966
+				position.x = 290
+			elif get_tree().current_scene.name == 'last_lvl':
+				if checkpointLast == false:
+					position.x = -157.036
+					position.y = 153
+				else:
+					if get_parent().get_node_or_null("Pluton"):
+						$"../Pluton".hp = 10
+						$"../Pluton".position.x = 7209
+						$"../Pluton".position.y = 689
+					position.x = 6217
+					position.y = 420
+			sfxDeath.play()
+			currentHealth = maxHealth
+		healthChanged.emit(currentHealth)
+		knockback(area.get_parent().position)
+		effects.play("hurtbit")
+		hurtCD.start()
+		await hurtCD.timeout
+		effects.play("RESET")
+		#area.get_parent().queue_free()
+	elif area.name == 'bossEnter' and area.monitoring == true:
+		checkpointCold = true
+	if area.name == "bulletEnemy" and area.monitoring == true:
+		#canDmg = false
 
+		currentHealth -= 1
+		if currentHealth < 1:
+			#await get_tree().create_timer(1.5).timeout
+			gos.visible = true
+			sfxDeath.play()
+			Engine.time_scale = 0
+			#sfxDeath.play()
+			if get_tree().current_scene.name == 'FirstLevel':
+				position.y = -155
+				position.x = 275
+			elif get_tree().current_scene.name == 'SecondLvl':
+				if checkpointCold == false:
+					position.y = 170
+					position.x = 276
+				else:
+					if get_parent().get_node_or_null("Boss"):
+						$"../Boss".hp = 5
+						$"../Boss".position.x = 11670
+						$"../Boss".position.y = -85
+					position.y = -475
+					position.x = 11459
+			elif get_tree().current_scene.name == 'ThirdLvl':
+				position.y = 1000
+				position.x = 276
+			elif get_tree().current_scene.name == 'FourthLevel':
+				position.y = 667
+				position.x = -4436.04
+			elif get_tree().current_scene.name == 'Cloudlvl':
+				position.y = 966
+				position.x = 290
+			elif get_tree().current_scene.name == 'last_lvl':
+				if checkpointLast == false:
+					position.x = -157.036
+					position.y = 153
+				else:
+					if get_parent().get_node_or_null("Pluton"):
+						$"../Pluton".hp = 10
+						$"../Pluton".position.x = 7209
+						$"../Pluton".position.y = 689
+					position.x = 6217
+					position.y = 420
+			currentHealth = maxHealth
+		healthChanged.emit(currentHealth)
+		knockback(area.get_parent().position)
+		effects.play("hurtbit")
+		hurtCD.start()
+		await hurtCD.timeout
+		effects.play("RESET")
+		#dmgCD.start(3)
 #func _on_damage_time_timeout():
 	#canDmg = true
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b5vymv8nu0kbf"]
+[gd_scene load_steps=28 format=3 uid="uid://b5vymv8nu0kbf"]
 
 [ext_resource type="Texture2D" uid="uid://cu50y7dk5txq0" path="res://resources/backgrounds/settings_menu.png" id="1_8yu82"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ah3u8"]
@@ -17,9 +17,12 @@
 [ext_resource type="Texture2D" uid="uid://cd18ffpg6mai" path="res://resources/ui/keyboard/d.png" id="10_42mhm"]
 [ext_resource type="Script" path="res://scripts/options/Camera Smooth.gd" id="10_joptr"]
 [ext_resource type="Texture2D" uid="uid://drcxx7lvouwt5" path="res://resources/ui/keyboard/f.png" id="11_jmkpy"]
+[ext_resource type="Script" path="res://scripts/Camera Smooth.gd" id="11_wd5ut"]
 [ext_resource type="Texture2D" uid="uid://b266fneak1wux" path="res://resources/ui/keyboard/w.png" id="12_jywgo"]
 [ext_resource type="FontFile" uid="uid://dvy48ngls58io" path="res://resources/fonts/PixelOperatorSC.ttf" id="18_ygdf2"]
 [ext_resource type="Script" path="res://scripts/FPSCounter.gd" id="19_seyt7"]
+[ext_resource type="AudioStream" uid="uid://bd5g1cux872bw" path="res://main_scenes/main.mp3" id="22_uo5vn"]
+[ext_resource type="Script" path="res://scripts/music/main.gd" id="23_oaj30"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6sjpc"]
 font = ExtResource("2_k7gyf")
@@ -274,7 +277,7 @@ horizontal_alignment = 2
 
 [node name="Camera Smooth" type="BoxContainer" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
-script = ExtResource("10_joptr")
+script = ExtResource("11_wd5ut")
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/Camera Smooth"]
 custom_minimum_size = Vector2(500, 90)
@@ -455,6 +458,10 @@ offset_bottom = 23.0
 text = "60 FPS"
 label_settings = SubResource("LabelSettings_80qa6")
 script = ExtResource("19_seyt7")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_uo5vn")
+script = ExtResource("23_oaj30")
 
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/V-Sync/TextureButton" to="ScrollContainer/VBoxContainer/V-Sync" method="_on_texture_button_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/Stretch/TextureButton" to="ScrollContainer/VBoxContainer/Stretch" method="_on_texture_button_pressed"]

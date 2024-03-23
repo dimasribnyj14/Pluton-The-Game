@@ -12,7 +12,8 @@ func _process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	get_tree().change_scene_to_file("res://main_scenes/" % levelTeleport % ".tscn")
+	if body.name == 'CharacterBody2D':
+		get_tree().change_scene_to_file("res://scenes_for_scenes/comics/comics_to_%s.tscn"%levelTeleport)
 	#get_tree().change_scene_to_file("res://main_scenes/third_lvl.tscn")
 	#get_tree().change_scene_to_file("res://main_scenes/fourth_level.tscn")
 	#get_tree().change_scene_to_file("res://main_scenes/cloudlvl.tscn")

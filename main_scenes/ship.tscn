@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bjr1pxco7cle4"]
+[gd_scene load_steps=44 format=3 uid="uid://bjr1pxco7cle4"]
 
 [ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_1r7k7"]
 [ext_resource type="Texture2D" uid="uid://boh55yautp1a1" path="res://resources/tilemaps/ship_blocks.png" id="1_maqti"]
@@ -25,12 +25,15 @@
 [ext_resource type="PackedScene" uid="uid://dn5jx6jfkyswd" path="res://resources/elevator/elevator.tscn" id="12_ihjpt"]
 [ext_resource type="Texture2D" uid="uid://d3q5ytrt84p56" path="res://resources/decorations/window.png" id="13_kmu75"]
 [ext_resource type="Texture2D" uid="uid://5g3my38rtpuh" path="res://resources/decorations/ship/pixil-frame-0 (11).png" id="20_14lnc"]
+[ext_resource type="Script" path="res://scripts/buttonCheck.gd" id="20_tfwot"]
 [ext_resource type="Texture2D" uid="uid://ds41jvin3jmce" path="res://resources/decorations/ship/pixil-frame-0 (66).png" id="21_hhwyf"]
 [ext_resource type="Texture2D" uid="uid://ba775hg40il6t" path="res://resources/decorations/lightlamp.png" id="22_fi867"]
 [ext_resource type="Texture2D" uid="uid://d31oaeiiwc1j1" path="res://resources/decorations/ship/pixil-ва0 (69).png" id="26_slf3c"]
 [ext_resource type="Texture2D" uid="uid://14801m8dllw8" path="res://resources/decorations/ship/pixil-frame-0 (12).png" id="28_ccb7k"]
 [ext_resource type="FontFile" uid="uid://dvy48ngls58io" path="res://resources/fonts/PixelOperatorSC.ttf" id="30_gm2ko"]
 [ext_resource type="Script" path="res://scripts/FPSCounter.gd" id="31_hhfjp"]
+[ext_resource type="AudioStream" uid="uid://cetpjii33jmy1" path="res://resources/sounds/soundtrack/Shop.wav" id="33_fhpea"]
+[ext_resource type="Script" path="res://scripts/music/main.gd" id="34_f876c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fnaug"]
 texture = ExtResource("2_jej7p")
@@ -504,12 +507,17 @@ script = ExtResource("8_ejqnw")
 position = Vector2(-108.241, -1.33633)
 shape = SubResource("RectangleShape2D_tshgr")
 
-[node name="Sprite2D" type="Sprite2D" parent="432/Area2D"]
+[node name="Sprite2D" type="TextureRect" parent="432/Area2D"]
 visible = false
 light_mask = 2
-position = Vector2(-108.909, -60.8021)
+offset_left = -128.751
+offset_top = -72.3036
+offset_right = -64.7509
+offset_bottom = -8.3036
 scale = Vector2(0.595075, 0.595075)
 texture = ExtResource("7_p0t5r")
+stretch_mode = 2
+script = ExtResource("20_tfwot")
 
 [node name="3" type="Sprite2D" parent="."]
 position = Vector2(135, -58)
@@ -599,6 +607,10 @@ offset_bottom = -278.802
 text = "60 FPS"
 label_settings = SubResource("LabelSettings_j674s")
 script = ExtResource("31_hhfjp")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+stream = ExtResource("33_fhpea")
+script = ExtResource("34_f876c")
 
 [connection signal="body_entered" from="432/Area2D" to="432/Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="432/Area2D" to="432/Area2D" method="_on_body_exited"]

@@ -5,7 +5,7 @@ var on = load('res://resources/buttons/galochka_pressed.png')
 var off = load('res://resources/buttons/galochka_ne_pressed.png')
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if config.get_value('saves', 'skin') == 'jungle':
+	if config.get_value('options', 'stretchscreen') == true:
 		$TextureButton.texture_normal = on
 		$TextureButton.texture_pressed = on
 		$TextureButton.texture_hover = on
@@ -23,17 +23,17 @@ func _process(delta):
 		
 		
 func _on_texture_button_pressed():
-	if config.get_value('saves', 'skin') != 'jungle':
+	if config.get_value('options', 'stretchscreen') != true:
 		$TextureButton.texture_normal = on
 		$TextureButton.texture_pressed = on
 		$TextureButton.texture_hover = on
-		
-		config.set_value('saves', 'skin','jungle')
+		get_window().content_scale_aspect = Window.CONTENT_SCALE_ASPECT_IGNORE
+		config.set_value('options', 'stretchscreen',true)
 	else:
 		$TextureButton.texture_normal = off
 		$TextureButton.texture_pressed = off
 		$TextureButton.texture_hover = off
-
+		get_window().content_scale_aspect = Window.CONTENT_SCALE_ASPECT_KEEP
 		
-		config.set_value('saves', 'skin','default')
+		config.set_value('options', 'stretchscreen',false)
 	config.save('user://config.cfg')

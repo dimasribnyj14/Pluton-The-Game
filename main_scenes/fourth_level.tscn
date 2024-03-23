@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://bklk82xk4qaii"]
+[gd_scene load_steps=86 format=3 uid="uid://bklk82xk4qaii"]
 
 [ext_resource type="PackedScene" uid="uid://bcypn17ixt517" path="res://scenes_for_scenes/player/character.tscn" id="1_ika7c"]
 [ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_l3ss5"]
@@ -52,12 +52,15 @@
 [ext_resource type="PackedScene" uid="uid://bu8tbi4v1h6ue" path="res://scenes_for_scenes/pause.tscn" id="41_8m3mj"]
 [ext_resource type="FontFile" uid="uid://dvy48ngls58io" path="res://resources/fonts/PixelOperatorSC.ttf" id="41_se5jf"]
 [ext_resource type="Script" path="res://scripts/FPSCounter.gd" id="42_0286m"]
+[ext_resource type="AudioStream" uid="uid://4cwbgynxl1ho" path="res://resources/sounds/soundtrack/jungle.mp3" id="46_3h6if"]
+[ext_resource type="Script" path="res://scripts/music/main.gd" id="47_wl5pa"]
 [ext_resource type="Script" path="res://scripts/MoveTo.gd" id="51_q3loe"]
 [ext_resource type="AudioStream" uid="uid://yn81g52ffp0v" path="res://resources/sounds/meme.mp3" id="53_ewbo5"]
 [ext_resource type="AudioStream" uid="uid://d2to8on0jm375" path="res://resources/sounds/ambience/jungle.mp3" id="55_qot3l"]
 [ext_resource type="PackedScene" uid="uid://dq1cj8kk60s1b" path="res://scenes_for_scenes/moving_platforms.tscn" id="56_5ld7j"]
-[ext_resource type="Script" path="res://scripts/LevelAmbience.gd" id="56_wnjk6"]
 [ext_resource type="PackedScene" uid="uid://gdsljeg3iubl" path="res://scenes_for_scenes/mine_boom.tscn" id="57_4qvuy"]
+[ext_resource type="PackedScene" uid="uid://cxr21u3q8d5bx" path="res://scenes_for_scenes/enemy/base.tscn" id="61_nnr0n"]
+[ext_resource type="PackedScene" uid="uid://311kv738y36v" path="res://scenes_for_scenes/enemy/flyCold.tscn" id="62_pvu1a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_inl2s"]
 texture = ExtResource("2_87ked")
@@ -1777,9 +1780,14 @@ offset = Vector2(-1.13, 0)
 position = Vector2(4436.53, -665.31)
 scale = Vector2(1.00011, 0.997466)
 stream = ExtResource("55_qot3l")
+volume_db = -5.0
 autoplay = true
 max_distance = 1e+11
-script = ExtResource("56_wnjk6")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+stream = ExtResource("46_3h6if")
+volume_db = 10.0
+script = ExtResource("47_wl5pa")
 
 [node name="Grass" type="Sprite2D" parent="."]
 position = Vector2(7078, 227)
@@ -2558,7 +2566,7 @@ position = Vector2(14889, 61)
 scale = Vector2(3.02102, 3.0629)
 texture = ExtResource("2_8e8ey")
 script = ExtResource("51_q3loe")
-levelTeleport = "cloudlvl"
+levelTeleport = "cloud"
 
 [node name="FourthLevel" type="PointLight2D" parent="MoveTo"]
 position = Vector2(1.28746e-05, 1.23978e-05)
@@ -2607,6 +2615,62 @@ imageName = "grass"
 position = Vector2(4170, 768)
 scale = Vector2(3, 3)
 imageName = "grass"
+
+[node name="RigidBody2D" parent="." instance=ExtResource("61_nnr0n")]
+position = Vector2(4254, 238)
+end_x = 3515
+
+[node name="RigidBody2D2" parent="." instance=ExtResource("61_nnr0n")]
+position = Vector2(837, -17)
+end_x = 125
+
+[node name="RigidBody2D3" parent="." instance=ExtResource("61_nnr0n")]
+position = Vector2(-845, 693)
+end_x = -3348
+
+[node name="RigidBody2D4" parent="." instance=ExtResource("61_nnr0n")]
+position = Vector2(1735, 461)
+end_x = 1302
+
+[node name="RigidBody2D5" parent="." instance=ExtResource("61_nnr0n")]
+position = Vector2(6159, -203)
+end_x = 5814
+
+[node name="RigidBody2D6" parent="." instance=ExtResource("61_nnr0n")]
+position = Vector2(15071, 16)
+end_x = 14016
+
+[node name="RigidBody2D7" parent="." instance=ExtResource("61_nnr0n")]
+position = Vector2(7418, -241)
+end_x = 7101
+
+[node name="RigidBody2D8" parent="." instance=ExtResource("62_pvu1a")]
+position = Vector2(8108, -450)
+end_x = 5047
+
+[node name="RigidBody2D9" parent="." instance=ExtResource("62_pvu1a")]
+position = Vector2(9931, 256)
+end_x = 8276
+
+[node name="RigidBody2D10" parent="." instance=ExtResource("62_pvu1a")]
+position = Vector2(11432, -390)
+end_x = 9521
+
+[node name="RigidBody2D11" parent="." instance=ExtResource("62_pvu1a")]
+position = Vector2(4035, 67)
+end_x = 2606
+
+[node name="RigidBody2D12" parent="." instance=ExtResource("62_pvu1a")]
+position = Vector2(14910, -474)
+end_x = 12355
+
+[node name="RigidBody2D13" parent="." instance=ExtResource("62_pvu1a")]
+position = Vector2(14921, -376)
+end_x = 12355
+
+[node name="RigidBody2D14" parent="." instance=ExtResource("62_pvu1a")]
+position = Vector2(14913, -614)
+end_x = 12355
 
 [connection signal="body_entered" from="Area2D5" to="Area2D5" method="_on_body_entered"]
 [connection signal="body_entered" from="MoveTo/Area2D" to="MoveTo" method="_on_area_2d_body_entered"]
