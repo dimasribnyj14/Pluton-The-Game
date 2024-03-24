@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://cbjmu8wg6myu"]
+[gd_scene load_steps=62 format=3 uid="uid://cbjmu8wg6myu"]
 
 [ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_4rvec"]
 [ext_resource type="Texture2D" uid="uid://dcnr54p4h8ff5" path="res://resources/backgrounds_cloud/3.png" id="1_hufxe"]
@@ -46,6 +46,7 @@
 [ext_resource type="PackedScene" uid="uid://pfeuicw2emut" path="res://scenes_for_scenes/enemy/fly.tscn" id="36_8dl28"]
 [ext_resource type="PackedScene" uid="uid://311kv738y36v" path="res://scenes_for_scenes/enemy/flyCold.tscn" id="37_fnf0u"]
 [ext_resource type="PackedScene" uid="uid://cxr21u3q8d5bx" path="res://scenes_for_scenes/enemy/base.tscn" id="38_ar25d"]
+[ext_resource type="PackedScene" uid="uid://drydfqdxx422l" path="res://scenes_for_scenes/enemy/shoot.tscn" id="47_hjhxu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p2aww"]
 
@@ -1394,7 +1395,7 @@ texture = ExtResource("23_wlmib")
 
 [node name="MoveTo" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_hur54")
-position = Vector2(9085, 568)
+position = Vector2(9125.04, 532.041)
 scale = Vector2(3.02102, 3.0629)
 texture = ExtResource("2_mrhmd")
 script = ExtResource("32_8rl3g")
@@ -1408,6 +1409,7 @@ texture = ExtResource("2_mrhmd")
 [node name="Area2D" type="Area2D" parent="MoveTo"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MoveTo/Area2D"]
+position = Vector2(-1.33602, -0.339879)
 shape = SubResource("CircleShape2D_23tf4")
 
 [node name="7" type="Sprite2D" parent="."]
@@ -1519,5 +1521,25 @@ end_x = 11111
 [node name="RigidBody2D8" parent="." instance=ExtResource("38_ar25d")]
 position = Vector2(8946, 837)
 end_x = 8604
+
+[node name="RigidBody2D14" parent="." instance=ExtResource("47_hjhxu")]
+position = Vector2(7365, 996)
+end_x = 7045
+
+[node name="RigidBody2D15" parent="." instance=ExtResource("47_hjhxu")]
+position = Vector2(6383, 220)
+end_x = 5993
+
+[node name="RigidBody2D16" parent="." instance=ExtResource("47_hjhxu")]
+position = Vector2(11531, 1094)
+end_x = 10922
+
+[node name="RigidBody2D17" parent="." instance=ExtResource("47_hjhxu")]
+position = Vector2(13531, 469)
+end_x = 13392
+
+[node name="RigidBody2D18" parent="." instance=ExtResource("47_hjhxu")]
+position = Vector2(9524, 843)
+end_x = 9333
 
 [connection signal="body_entered" from="MoveTo/Area2D" to="MoveTo" method="_on_area_2d_body_entered"]

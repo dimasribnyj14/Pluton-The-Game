@@ -31,7 +31,7 @@ func _on_dissapear_timeout():
 
 
 func _on_bullet_enemy_body_entered(body):
-	if body.name == 'bulletEnemy' or body.name == "Pluton":
+	if body.name == 'bulletEnemy' or body.name == "Pluton" or body.name.contains("RigidBody2D"):
 		pass
 	elif body.name == 'CharacterBody2D':
 		timer.start(0.1)

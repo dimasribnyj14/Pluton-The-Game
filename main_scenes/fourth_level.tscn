@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://bklk82xk4qaii"]
+[gd_scene load_steps=87 format=3 uid="uid://bklk82xk4qaii"]
 
 [ext_resource type="PackedScene" uid="uid://bcypn17ixt517" path="res://scenes_for_scenes/player/character.tscn" id="1_ika7c"]
 [ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_l3ss5"]
@@ -60,6 +60,7 @@
 [ext_resource type="PackedScene" uid="uid://dq1cj8kk60s1b" path="res://scenes_for_scenes/moving_platforms.tscn" id="56_5ld7j"]
 [ext_resource type="PackedScene" uid="uid://gdsljeg3iubl" path="res://scenes_for_scenes/mine_boom.tscn" id="57_4qvuy"]
 [ext_resource type="PackedScene" uid="uid://cxr21u3q8d5bx" path="res://scenes_for_scenes/enemy/base.tscn" id="61_nnr0n"]
+[ext_resource type="PackedScene" uid="uid://drydfqdxx422l" path="res://scenes_for_scenes/enemy/shoot.tscn" id="62_nj2ea"]
 [ext_resource type="PackedScene" uid="uid://311kv738y36v" path="res://scenes_for_scenes/enemy/flyCold.tscn" id="62_pvu1a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_inl2s"]
@@ -2676,6 +2677,18 @@ end_x = 12355
 [node name="RigidBody2D14" parent="." instance=ExtResource("62_pvu1a")]
 position = Vector2(14913, -614)
 end_x = 12355
+
+[node name="RigidBody2D15" parent="." instance=ExtResource("62_nj2ea")]
+position = Vector2(6609, 661)
+end_x = 5946
+
+[node name="RigidBody2D16" parent="." instance=ExtResource("62_nj2ea")]
+position = Vector2(11201, 233)
+end_x = 10935
+
+[node name="RigidBody2D17" parent="." instance=ExtResource("62_nj2ea")]
+position = Vector2(12401, -304)
+end_x = 12124
 
 [connection signal="body_entered" from="Area2D5" to="Area2D5" method="_on_body_entered"]
 [connection signal="body_entered" from="MoveTo/Area2D" to="MoveTo" method="_on_area_2d_body_entered"]

@@ -23,6 +23,10 @@ boot_splash/image="res://resources/backgrounds/main_menu.png"
 config/icon="res://resources/decorations/pluton.png"
 config/windows_native_icon="res://resources/pluton.ico"
 
+[autoload]
+
+DiscordSDKLoader="*res://addons/discord-sdk-gd/nodes/discord_autoload.gd"
+
 [display]
 
 window/size/viewport_width=1280
@@ -34,6 +38,10 @@ window/name_localized={
 "uk_UA": "Відплата Плутона галактичного ізгоя"
 }
 window/name="Retribution Of Pluto The galactic rogue"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/discord-sdk-gd/plugin.cfg")
 
 [input]
 

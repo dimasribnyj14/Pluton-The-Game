@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://cueonbiinnvbe"]
+[gd_scene load_steps=82 format=3 uid="uid://cueonbiinnvbe"]
 
 [ext_resource type="Texture2D" uid="uid://m1fh0cvq8dya" path="res://resources/backgrounds_flame/Fon1.png" id="1_cdohg"]
 [ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_x6hvk"]
@@ -60,6 +60,7 @@
 [ext_resource type="AudioStream" uid="uid://ei2tns460y57" path="res://resources/sounds/ambience/hell.mp3" id="56_2btyb"]
 [ext_resource type="PackedScene" uid="uid://pfeuicw2emut" path="res://scenes_for_scenes/enemy/fly.tscn" id="56_dmwt6"]
 [ext_resource type="Texture2D" uid="uid://nac6h65in2my" path="res://resources/decorations/flame_level/pixil-frame-0 (13).png" id="59_n82ec"]
+[ext_resource type="PackedScene" uid="uid://drydfqdxx422l" path="res://scenes_for_scenes/enemy/shoot.tscn" id="61_hja21"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_54qu8"]
 
@@ -2086,8 +2087,8 @@ position = Vector2(11313, 220)
 scale = Vector2(3, 3)
 
 [node name="RigidBody2D13" parent="." instance=ExtResource("56_dmwt6")]
-position = Vector2(3801, 231)
-end_x = 1786
+position = Vector2(8524, -20)
+end_x = 6963
 
 [node name="RigidBody2D15" parent="." instance=ExtResource("56_dmwt6")]
 position = Vector2(5704, 537)
@@ -2113,6 +2114,18 @@ scale = Vector2(3, 3)
 position = Vector2(21343, -226)
 scale = Vector2(4.26, 4.26)
 texture = ExtResource("59_n82ec")
+
+[node name="RigidBody2D" parent="." instance=ExtResource("61_hja21")]
+position = Vector2(16681, 530)
+end_x = 16483
+
+[node name="RigidBody2D2" parent="." instance=ExtResource("61_hja21")]
+position = Vector2(23489, -434)
+end_x = 22871
+
+[node name="RigidBody2D3" parent="." instance=ExtResource("61_hja21")]
+position = Vector2(21765, 103)
+end_x = 21558
 
 [connection signal="body_entered" from="Ishere" to="Ishere" method="_on_body_entered"]
 [connection signal="body_entered" from="MoveTo/Area2D" to="MoveTo" method="_on_area_2d_body_entered"]

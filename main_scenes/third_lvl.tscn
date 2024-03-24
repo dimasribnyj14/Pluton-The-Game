@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://c5b42d00n3l2w"]
+[gd_scene load_steps=75 format=3 uid="uid://c5b42d00n3l2w"]
 
 [ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_isw6d"]
 [ext_resource type="PackedScene" uid="uid://bcypn17ixt517" path="res://scenes_for_scenes/player/character.tscn" id="1_l3y2n"]
@@ -58,6 +58,7 @@
 [ext_resource type="Texture2D" uid="uid://wod5s56uuhk0" path="res://resources/decorations/acid_level/image_2024-03-20_17-54-27.png" id="55_nssmn"]
 [ext_resource type="Texture2D" uid="uid://8hpam6a385y4" path="res://resources/decorations/acid_level/image_2024-03-20_17-54-36.png" id="56_7u5vc"]
 [ext_resource type="PackedScene" uid="uid://cxr21u3q8d5bx" path="res://scenes_for_scenes/enemy/base.tscn" id="57_y3neo"]
+[ext_resource type="PackedScene" uid="uid://drydfqdxx422l" path="res://scenes_for_scenes/enemy/shoot.tscn" id="59_wldpo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wklei"]
 
@@ -2384,5 +2385,25 @@ end_x = 8680
 [node name="RigidBody2D8" parent="." instance=ExtResource("57_y3neo")]
 position = Vector2(11951, 661)
 end_x = 10919
+
+[node name="RigidBody2D9" parent="." instance=ExtResource("59_wldpo")]
+position = Vector2(7217, -572)
+end_x = 6698
+
+[node name="RigidBody2D10" parent="." instance=ExtResource("59_wldpo")]
+position = Vector2(5481, 244)
+end_x = 5080
+
+[node name="RigidBody2D11" parent="." instance=ExtResource("59_wldpo")]
+position = Vector2(2986, 965)
+end_x = 2729
+
+[node name="RigidBody2D12" parent="." instance=ExtResource("59_wldpo")]
+position = Vector2(393, -144)
+end_x = 72
+
+[node name="RigidBody2D13" parent="." instance=ExtResource("59_wldpo")]
+position = Vector2(-787, 1014)
+end_x = -1568
 
 [connection signal="body_entered" from="MoveTo/Area2D" to="MoveTo" method="_on_area_2d_body_entered"]

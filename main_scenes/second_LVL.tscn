@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://dk1xgqbvjcej7"]
+[gd_scene load_steps=73 format=3 uid="uid://dk1xgqbvjcej7"]
 
 [ext_resource type="Texture2D" uid="uid://b2ikycmdiuhai" path="res://resources/backgrounds_ice/photo2pixel_download (1).png" id="1_ae603"]
 [ext_resource type="Texture2D" uid="uid://dhg5vuymtjxo1" path="res://resources/tilemaps/pixil-Default_blocks-0.png" id="1_k3syu"]
@@ -54,6 +54,7 @@
 [ext_resource type="Script" path="res://scripts/music/main.gd" id="48_vgtdl"]
 [ext_resource type="PackedScene" uid="uid://311kv738y36v" path="res://scenes_for_scenes/enemy/flyCold.tscn" id="50_mkiet"]
 [ext_resource type="PackedScene" uid="uid://rf2tuqkywwbm" path="res://scenes_for_scenes/enemy/boss.tscn" id="51_nefef"]
+[ext_resource type="PackedScene" uid="uid://drydfqdxx422l" path="res://scenes_for_scenes/enemy/shoot.tscn" id="55_xpjce"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7peq7"]
 texture = ExtResource("1_k3syu")
@@ -1850,6 +1851,18 @@ position = Vector2(11180, -92)
 cant_search_player = true
 hp = 3
 end_x = 11676
+
+[node name="RigidBody2D9" parent="." instance=ExtResource("55_xpjce")]
+position = Vector2(10237, 508)
+end_x = 9830
+
+[node name="RigidBody2D15" parent="." instance=ExtResource("55_xpjce")]
+position = Vector2(7977, 653)
+end_x = 7844
+
+[node name="RigidBody2D16" parent="." instance=ExtResource("55_xpjce")]
+position = Vector2(19484, -272)
+end_x = 18799
 
 [connection signal="body_entered" from="Gate/bossEnter" to="Gate" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="MoveTo/Area2D" to="MoveTo" method="_on_area_2d_body_entered"]
