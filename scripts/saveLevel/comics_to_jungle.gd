@@ -1,17 +1,13 @@
-extends TextureButton
+extends Node2D
 var config = ConfigFile.new()
 var configFile = config.load('user://config.cfg')
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if config.get_value("levels","acid") == true:
-		disabled = false
+	config.set_value("levels","jungle",true)
+	config.save("user://config.cfg")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
-
-func _on_pressed():
-	get_tree().change_scene_to_file("res://scenes_for_scenes/comics/comics_to_acid.tscn")

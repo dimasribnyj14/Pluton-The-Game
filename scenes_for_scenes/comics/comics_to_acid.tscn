@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://nsss5conkxkx"]
+[gd_scene load_steps=14 format=3 uid="uid://nsss5conkxkx"]
 
+[ext_resource type="Script" path="res://scripts/saveLevel/comics_to_acid.gd" id="1_hsrdn"]
 [ext_resource type="Texture2D" uid="uid://cyr4h7hqo6kj1" path="res://resources/backgrounds/empty.png" id="1_qsru2"]
 [ext_resource type="Texture2D" uid="uid://etgqjcyr17bm" path="res://resources/comics/2_5.png" id="2_5wcgf"]
 [ext_resource type="Texture2D" uid="uid://mfxnt7v27vfl" path="res://resources/comics/4_5.png" id="4_aos3v"]
@@ -17,6 +18,7 @@ font = ExtResource("5_w4egf")
 font_size = 40
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_hsrdn")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -86.0

@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://cpvmspknldvjp"]
+[gd_scene load_steps=16 format=3 uid="uid://cpvmspknldvjp"]
 
+[ext_resource type="Script" path="res://scripts/saveLevel/comics_to_cloud.gd" id="1_3jx3f"]
 [ext_resource type="Texture2D" uid="uid://cyr4h7hqo6kj1" path="res://resources/backgrounds/empty.png" id="1_c4f82"]
 [ext_resource type="Texture2D" uid="uid://1g5y88hl76yi" path="res://resources/comicses/3/1_3.png" id="2_hqgjo"]
 [ext_resource type="Texture2D" uid="uid://d4njdvdinagqc" path="res://resources/comics/2_3.png" id="3_14dax"]
@@ -24,6 +25,7 @@ font = ExtResource("7_s3ie3")
 font_size = 25
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_3jx3f")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -86.0
@@ -66,6 +68,7 @@ autowrap_mode = 3
 
 [node name="Label2" type="Label" parent="Label2"]
 texture_filter = 2
+layout_mode = 0
 offset_left = -408.0
 offset_top = -434.0
 offset_right = -169.0

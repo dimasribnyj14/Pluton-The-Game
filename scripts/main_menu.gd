@@ -7,13 +7,21 @@ var fullscreen
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if configFile != OK:
+		print("Create Config")
+		
 		config.set_value("options", "vsync", true)
 		config.set_value("options", "fullscreen", true)
-		config.set_value("options", "smoothcamera", true)
+		config.set_value("options", "smoothcamera", false)
 		config.set_value("options", "30fps", false)
 		config.set_value("options", "strechscreen", false)
 		config.set_value("options", "music", true)
-		config.set_value("options", "light", true)
+		config.set_value("options", "light", false)
+		
+		config.set_value("levels", "ice", false)
+		config.set_value("levels", "acid", false)
+		config.set_value("levels", "jungle", false)
+		config.set_value("levels", "wind", false)
+		config.set_value("levels", "last", false)
 		
 		config.set_value("saves","skin","default")
 		

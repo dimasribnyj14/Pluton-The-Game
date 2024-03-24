@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://bgwiww06g5wtb"]
+[gd_scene load_steps=20 format=3 uid="uid://bgwiww06g5wtb"]
 
 [ext_resource type="Texture2D" uid="uid://cyr4h7hqo6kj1" path="res://resources/backgrounds/empty.png" id="1_4iflh"]
+[ext_resource type="Script" path="res://scripts/saveLevel/comics_to_jungle.gd" id="1_jojdh"]
 [ext_resource type="Texture2D" uid="uid://dt0bsf33rce8w" path="res://resources/comicses/2/3_2.png" id="2_bqhjs"]
 [ext_resource type="FontFile" uid="uid://l4vcbe4wxesa" path="res://resources/fonts/Pixel_Font-7.ttf" id="3_iqwfb"]
 [ext_resource type="Texture2D" uid="uid://dw0mfncp5ut5a" path="res://resources/comicses/2/1_2.png" id="4_wro27"]
@@ -30,6 +31,7 @@ font = ExtResource("3_iqwfb")
 font_size = 22
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_jojdh")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -86.0
@@ -148,6 +150,7 @@ texture = ExtResource("14_kbux7")
 [node name="Label2" type="Label" parent="TextureRect2"]
 texture_filter = 2
 texture_repeat = 1
+layout_mode = 0
 offset_left = 2.0
 offset_right = 231.0
 offset_bottom = 111.0
