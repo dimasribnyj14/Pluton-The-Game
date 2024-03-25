@@ -2,6 +2,7 @@ extends Area2D
 @export var speed: float
 @export var enemyBullet = false
 @onready var timer = $EnemyDed
+@onready var ore = preload("res://scenes_for_scenes/crystal.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -90,8 +91,33 @@ func _on_body_entered(body):
 			timer.start(1)
 	elif body.name == 'CharacterBody2D':
 		pass
+	#elif body.name.contains('Ore'):
+		#var ore_instance = ore.instantiate()
+		#get_tree().current_scene.add_child(ore_instance)
+		#ore_instance.position = position
+		#body.queue_free()
 	else:
 		queue_free()
 
 
 
+
+
+func _on_area_entered(area):
+	if area.name.contains('Ore'):
+		var ore_instance = ore.instantiate()
+		ore_instance.position = area.get_parent().position
+
+		ore_instance.position.x -= 25
+		ore_instance.position.y -= 40
+		
+		area.set_collision_layer_value(1, false)
+		area.set_collision_mask_value(1, false)
+		area.get_parent().modulate = Color('00ffff')
+		
+		get_tree().current_scene.add_child(ore_instance)
+		var tween = get_tree().create_tween()
+		tween.tween_property(area.get_parent(), "modulate", Color(0,1,1,0), 1)
+		#tween.tween_callback(area.get_parent().queue_free())
+		#
+		queue_free()

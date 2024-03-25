@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://cbjmu8wg6myu"]
+[gd_scene load_steps=64 format=3 uid="uid://cbjmu8wg6myu"]
 
 [ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_4rvec"]
 [ext_resource type="Texture2D" uid="uid://dcnr54p4h8ff5" path="res://resources/backgrounds_cloud/3.png" id="1_hufxe"]
@@ -47,6 +47,7 @@
 [ext_resource type="PackedScene" uid="uid://311kv738y36v" path="res://scenes_for_scenes/enemy/flyCold.tscn" id="37_fnf0u"]
 [ext_resource type="PackedScene" uid="uid://cxr21u3q8d5bx" path="res://scenes_for_scenes/enemy/base.tscn" id="38_ar25d"]
 [ext_resource type="PackedScene" uid="uid://drydfqdxx422l" path="res://scenes_for_scenes/enemy/shoot.tscn" id="47_hjhxu"]
+[ext_resource type="Texture2D" uid="uid://lxso5wpjl3o0" path="res://resources/interactive/ore.png" id="48_p6dx8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p2aww"]
 
@@ -876,7 +877,7 @@ sources/0 = SubResource("TileSetAtlasSource_jwnns")
 sources/1 = SubResource("TileSetAtlasSource_mrvbl")
 sources/2 = SubResource("TileSetAtlasSource_sjrhl")
 
-[sub_resource type="LabelSettings" id="LabelSettings_0qs1q"]
+[sub_resource type="LabelSettings" id="LabelSettings_rake3"]
 font = ExtResource("21_evhgd")
 font_size = 50
 
@@ -904,6 +905,9 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_23tf4"]
 radius = 10.9428
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgtr6"]
+size = Vector2(49.2365, 20)
 
 [node name="Cloudlvl" type="Node2D"]
 script = ExtResource("1_4rvec")
@@ -1116,12 +1120,12 @@ action = "escape"
 visibility_mode = 1
 
 [node name="FPSCounter" type="Label" parent="CharacterBody2D/Camera2D"]
-offset_left = -699.853
-offset_top = -326.255
-offset_right = -576.853
-offset_bottom = -275.255
+offset_left = -696.488
+offset_top = -261.241
+offset_right = -573.488
+offset_bottom = -210.241
 text = "60 FPS"
-label_settings = SubResource("LabelSettings_0qs1q")
+label_settings = SubResource("LabelSettings_rake3")
 script = ExtResource("22_j0vtp")
 
 [node name="LevelAmbience" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
@@ -1541,5 +1545,101 @@ end_x = 13392
 [node name="RigidBody2D18" parent="." instance=ExtResource("47_hjhxu")]
 position = Vector2(9524, 843)
 end_x = 9333
+
+[node name="Ore10" type="Sprite2D" parent="."]
+position = Vector2(11376.6, 1176.25)
+scale = Vector2(2.18501, 2.325)
+texture = ExtResource("48_p6dx8")
+
+[node name="Ore" type="Area2D" parent="Ore10"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ore10/Ore"]
+position = Vector2(-0.000183105, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_dgtr6")
+
+[node name="Ore11" type="Sprite2D" parent="."]
+position = Vector2(10065, 652)
+scale = Vector2(2.18501, 2.325)
+texture = ExtResource("48_p6dx8")
+
+[node name="Ore" type="Area2D" parent="Ore11"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ore11/Ore"]
+position = Vector2(-0.000183105, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_dgtr6")
+
+[node name="Ore12" type="Sprite2D" parent="."]
+position = Vector2(9387, 937)
+scale = Vector2(2.18501, 2.325)
+texture = ExtResource("48_p6dx8")
+
+[node name="Ore" type="Area2D" parent="Ore12"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ore12/Ore"]
+position = Vector2(-0.000183105, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_dgtr6")
+
+[node name="Ore13" type="Sprite2D" parent="."]
+position = Vector2(7114, 1080)
+scale = Vector2(2.18501, 2.325)
+texture = ExtResource("48_p6dx8")
+
+[node name="Ore" type="Area2D" parent="Ore13"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ore13/Ore"]
+position = Vector2(-0.000183105, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_dgtr6")
+
+[node name="Ore14" type="Sprite2D" parent="."]
+position = Vector2(6147, 315)
+scale = Vector2(2.18501, 2.325)
+texture = ExtResource("48_p6dx8")
+
+[node name="Ore" type="Area2D" parent="Ore14"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ore14/Ore"]
+position = Vector2(-0.000183105, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_dgtr6")
+
+[node name="Ore15" type="Sprite2D" parent="."]
+position = Vector2(3991, 657)
+scale = Vector2(2.18501, 2.325)
+texture = ExtResource("48_p6dx8")
+
+[node name="Ore" type="Area2D" parent="Ore15"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ore15/Ore"]
+position = Vector2(-0.000183105, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_dgtr6")
+
+[node name="Ore16" type="Sprite2D" parent="."]
+position = Vector2(3125, 848)
+scale = Vector2(2.18501, 2.325)
+texture = ExtResource("48_p6dx8")
+
+[node name="Ore" type="Area2D" parent="Ore16"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ore16/Ore"]
+position = Vector2(-0.000183105, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_dgtr6")
+
+[node name="Ore17" type="Sprite2D" parent="."]
+position = Vector2(14404, -256)
+scale = Vector2(2.18501, 2.325)
+texture = ExtResource("48_p6dx8")
+
+[node name="Ore" type="Area2D" parent="Ore17"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ore17/Ore"]
+position = Vector2(-0.000183105, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_dgtr6")
 
 [connection signal="body_entered" from="MoveTo/Area2D" to="MoveTo" method="_on_area_2d_body_entered"]

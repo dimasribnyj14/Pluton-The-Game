@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://dk1xgqbvjcej7"]
+[gd_scene load_steps=74 format=3 uid="uid://dk1xgqbvjcej7"]
 
 [ext_resource type="Texture2D" uid="uid://b2ikycmdiuhai" path="res://resources/backgrounds_ice/photo2pixel_download (1).png" id="1_ae603"]
 [ext_resource type="Texture2D" uid="uid://dhg5vuymtjxo1" path="res://resources/tilemaps/pixil-Default_blocks-0.png" id="1_k3syu"]
@@ -1280,13 +1280,16 @@ sources/0 = SubResource("TileSetAtlasSource_sajpv")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aces2"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kgyo5"]
+size = Vector2(49.2365, 20)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tqdjs"]
 size = Vector2(22.3914, 102.29)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4mit"]
 size = Vector2(42.239, 169.974)
 
-[sub_resource type="LabelSettings" id="LabelSettings_aqhy5"]
+[sub_resource type="LabelSettings" id="LabelSettings_5fldr"]
 font = ExtResource("44_irn3l")
 font_size = 50
 
@@ -1352,36 +1355,85 @@ position = Vector2(3018, -107)
 scale = Vector2(1.425, 1.425)
 texture = ExtResource("10_wy1nl")
 
+[node name="Ore" type="Area2D" parent="Ore"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ore/Ore"]
+position = Vector2(-0.000183105, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_kgyo5")
+
 [node name="Ore2" type="Sprite2D" parent="."]
 position = Vector2(5110, -167)
 scale = Vector2(2.5125, 2.5125)
 texture = ExtResource("10_wy1nl")
+
+[node name="Ore" type="Area2D" parent="Ore2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ore2/Ore"]
+position = Vector2(-0.000183105, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_kgyo5")
 
 [node name="Ore3" type="Sprite2D" parent="."]
 position = Vector2(5188, 842)
 scale = Vector2(2.5125, 2.5125)
 texture = ExtResource("10_wy1nl")
 
+[node name="Ore" type="Area2D" parent="Ore3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ore3/Ore"]
+position = Vector2(-0.000183105, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_kgyo5")
+
 [node name="Ore4" type="Sprite2D" parent="."]
 position = Vector2(9162, 607)
 scale = Vector2(1.95625, 1.95625)
 texture = ExtResource("10_wy1nl")
+
+[node name="Ore" type="Area2D" parent="Ore4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ore4/Ore"]
+position = Vector2(-0.000183105, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_kgyo5")
 
 [node name="Ore5" type="Sprite2D" parent="."]
 position = Vector2(13387, 1035)
 scale = Vector2(2.62811, 2.62811)
 texture = ExtResource("10_wy1nl")
 
+[node name="Ore" type="Area2D" parent="Ore5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ore5/Ore"]
+position = Vector2(-0.000183105, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_kgyo5")
+
 [node name="Ore6" type="Sprite2D" parent="."]
 position = Vector2(12141, 966)
 scale = Vector2(4.26405, 4.26405)
 texture = ExtResource("10_wy1nl")
+
+[node name="Ore" type="Area2D" parent="Ore6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ore6/Ore"]
+position = Vector2(-0.000183105, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_kgyo5")
 
 [node name="Ore7" type="Sprite2D" parent="."]
 position = Vector2(10887, 407)
 rotation = 0.0504319
 scale = Vector2(2.98977, 2.98977)
 texture = ExtResource("10_wy1nl")
+
+[node name="Ore" type="Area2D" parent="Ore7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ore7/Ore"]
+position = Vector2(-0.000183105, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_kgyo5")
 
 [node name="1" type="Sprite2D" parent="."]
 position = Vector2(7171, 716)
@@ -1723,12 +1775,12 @@ scale = Vector2(1.09523, 1.18208)
 stream = ExtResource("48_bo4d6")
 
 [node name="FPSCounter" type="Label" parent="CharacterBody2D/Camera2D"]
-offset_left = -699.853
-offset_top = -312.07
-offset_right = -576.853
-offset_bottom = -261.07
+offset_left = -696.488
+offset_top = -261.241
+offset_right = -573.488
+offset_bottom = -210.241
 text = "60 FPS"
-label_settings = SubResource("LabelSettings_aqhy5")
+label_settings = SubResource("LabelSettings_5fldr")
 script = ExtResource("45_35v5m")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="CharacterBody2D"]

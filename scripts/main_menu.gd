@@ -6,6 +6,18 @@ var fullscreen
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#DiscordSDK.app_id = 1221524982148894890 # Application ID
+	#DiscordSDK.details = "WORLD IT GameJam: Godot Engine"
+	#DiscordSDK.large_image = "pluton" # Image key from "Art Assets"
+	#DiscordSDK.large_image_text = "Retribution Of Pluto: The Galactic Rogue"
+	#DiscordSDK.small_image = 'pluton' # Image key from "Art Assets"
+	#DiscordSDK.small_image_text = "In The Menu"
+#
+	#DiscordSDK.start_timestamp = int(Time.get_unix_time_from_system()) # "02:46 elapsed"
+  ## DiscordSDK.end_timestamp = int(Time.get_unix_time_from_system()) + 3600 # +1 hour in unix time / "01:00:00 remaining"
+	#DiscordSDK.refresh() # Always refresh after changing the values!
+	
+	
 	if configFile != OK:
 		print("Create Config")
 		
@@ -23,6 +35,13 @@ func _ready():
 		config.set_value("levels", "wind", false)
 		config.set_value("levels", "last", false)
 		
+		config.set_value("skins", "cold", false)
+		config.set_value("skins", "acid", false)
+		config.set_value("skins", "jungle", false)
+		config.set_value("skins", "wind", false)
+		config.set_value("skins", "fire", false)
+		
+		config.set_value('saves','crystal', 0)
 		config.set_value("saves","skin","default")
 		
 		config.save("user://config.cfg")
@@ -56,7 +75,7 @@ func _ready():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-
+	#DiscordSDK.run_callbacks()
 	if Input.is_action_just_pressed("fullscreen"):
 		if fullscreen == false:
 			fullscreen = true

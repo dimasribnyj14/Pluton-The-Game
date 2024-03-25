@@ -1,13 +1,11 @@
-extends VBoxContainer
-
+extends Label
+var config = ConfigFile.new()
+var configFile = config.load('user://config.cfg')
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position.y -= 1
-	if position.y <= -2600:
-		position.y = 750
+	text = str($"../../../".crystalValue)

@@ -24,6 +24,9 @@ func _ready():
 	elif get_tree().current_scene.name == 'last_lvl':
 		assetDiscordArt = 'last'
 		assetDiscordText = 'Earth'
+	elif get_tree().current_scene.name == 'Ship':
+		assetDiscordArt = 'ship'
+		assetDiscordText = 'Ship'
 	DiscordSDK.app_id = 1221524982148894890 # Application ID
 	DiscordSDK.details = "WORLD IT GameJam: Godot Engine"
 	DiscordSDK.large_image = "pluton" # Image key from "Art Assets"
@@ -41,6 +44,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	DiscordSDK.run_callbacks()
 	if config.get_value("options", "strechscreen") == false:
 		get_window().content_scale_aspect = Window.CONTENT_SCALE_ASPECT_KEEP
 	else:

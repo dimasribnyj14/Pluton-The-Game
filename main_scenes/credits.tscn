@@ -103,7 +103,7 @@ anchor_bottom = 0.5
 offset_left = -358.549
 offset_top = 390.0
 offset_right = 3481.45
-offset_bottom = 12846.0
+offset_bottom = 13256.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.191819, 0.200276)
@@ -190,24 +190,6 @@ text = "Designers"
 label_settings = SubResource("LabelSettings_h61v1")
 horizontal_alignment = 1
 
-[node name="Label14" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Dmitry Sribnyj"
-label_settings = SubResource("LabelSettings_lwabx")
-horizontal_alignment = 1
-
-[node name="Label6" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Mykhnenko Danylo"
-label_settings = SubResource("LabelSettings_lwabx")
-horizontal_alignment = 1
-
-[node name="Label7" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Yaroslav Repan"
-label_settings = SubResource("LabelSettings_lwabx")
-horizontal_alignment = 1
-
 [node name="Label8" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Safonova Anya"
@@ -220,9 +202,27 @@ text = "Pasha Ustich"
 label_settings = SubResource("LabelSettings_lwabx")
 horizontal_alignment = 1
 
+[node name="Label7" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Yaroslav Repan"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Mykhnenko Danylo"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
 [node name="Label10" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Artem Matiashov"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label14" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Dmitry Sribnyj"
 label_settings = SubResource("LabelSettings_lwabx")
 horizontal_alignment = 1
 
@@ -238,6 +238,12 @@ text = "Pasha Ustich"
 label_settings = SubResource("LabelSettings_lwabx")
 horizontal_alignment = 1
 
+[node name="Label20" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Dmitry Sribnyj"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
 [node name="BigLabel7" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Music"
@@ -247,6 +253,12 @@ horizontal_alignment = 1
 [node name="Label18" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Mykhnenko Danylo"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label21" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Dmitry Sribnyj"
 label_settings = SubResource("LabelSettings_lwabx")
 horizontal_alignment = 1
 

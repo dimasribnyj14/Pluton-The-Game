@@ -344,7 +344,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_hv647")
 sources/1 = SubResource("TileSetAtlasSource_y1tp0")
 
-[sub_resource type="LabelSettings" id="LabelSettings_j674s"]
+[sub_resource type="LabelSettings" id="LabelSettings_4kwo7"]
 font = ExtResource("30_gm2ko")
 font_size = 50
 
@@ -600,12 +600,12 @@ grow_vertical = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="FPSCounter" type="Label" parent="CharacterBody2D/Camera2D"]
-offset_left = -700.948
-offset_top = -329.802
-offset_right = -577.948
-offset_bottom = -278.802
+offset_left = -696.488
+offset_top = -261.241
+offset_right = -573.488
+offset_bottom = -210.241
 text = "60 FPS"
-label_settings = SubResource("LabelSettings_j674s")
+label_settings = SubResource("LabelSettings_4kwo7")
 script = ExtResource("31_hhfjp")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="CharacterBody2D"]

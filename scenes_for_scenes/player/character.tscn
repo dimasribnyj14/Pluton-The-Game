@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://bcypn17ixt517"]
+[gd_scene load_steps=74 format=3 uid="uid://bcypn17ixt517"]
 
 [ext_resource type="Script" path="res://scripts/Player_Control.gd" id="1_34d2g"]
 [ext_resource type="Texture2D" uid="uid://cxi7a7uyvpj55" path="res://resources/player/idle/1.png" id="2_k6ljq"]
@@ -45,7 +45,10 @@
 [ext_resource type="Texture2D" uid="uid://cxcjw32dphgef" path="res://resources/player/Папка герой/Герой Джунли уровень/Run/2.png" id="37_qxseh"]
 [ext_resource type="Texture2D" uid="uid://bnfey1s7kbvne" path="res://resources/player/Папка герой/Герой Ветреного уровня/Run/1.png" id="38_5okx7"]
 [ext_resource type="Texture2D" uid="uid://dyn36wwaq30l2" path="res://resources/player/Папка герой/Герой Ветреного уровня/Run/2.png" id="39_qiydf"]
+[ext_resource type="Texture2D" uid="uid://bwp5ewqkv6j77" path="res://resources/interactive/crystal.png" id="46_4e11p"]
 [ext_resource type="PackedScene" uid="uid://clxjuw1syl3eu" path="res://scenes_for_scenes/health.tscn" id="46_4tdip"]
+[ext_resource type="FontFile" uid="uid://l4vcbe4wxesa" path="res://resources/fonts/Pixel_Font-7.ttf" id="47_fep0m"]
+[ext_resource type="Script" path="res://scripts/valueInGame.gd" id="48_fal3d"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iq71w"]
 animations = [{
@@ -860,6 +863,12 @@ _data = {
 "run": SubResource("Animation_gv7aj")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_5gnkv"]
+font = ExtResource("47_fep0m")
+font_size = 50
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 5
 collision_mask = 5
@@ -927,6 +936,29 @@ one_way_collision_margin = 0.0
 
 [node name="heartsContainer" parent="CanvasLayer" instance=ExtResource("46_4tdip")]
 scale = Vector2(5, 5)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = -1
+offset_left = 3.0
+offset_top = 78.0
+offset_right = 103.0
+offset_bottom = 143.0
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+custom_minimum_size = Vector2(45, 65)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("46_4e11p")
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "0"
+label_settings = SubResource("LabelSettings_5gnkv")
+vertical_alignment = 1
+script = ExtResource("48_fal3d")
 
 [node name="GameOverScreen" parent="CanvasLayer" instance=ExtResource("16_es7ls")]
 

@@ -4,7 +4,7 @@ var configFile = config.load('user://config.cfg')
 
 signal healthChanged
 signal killed
-
+@export var crystalValue = 0
 @export var checkpointCold = false
 @export var checkpointLast = false
 @onready var gos = $CanvasLayer/GameOverScreen
@@ -34,6 +34,7 @@ var lightOff = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
+	crystalValue = config.get_value("saves",'crystal')
 	effects.play("RESET")
 	#killed.connect(await _on_character_killed)
 	

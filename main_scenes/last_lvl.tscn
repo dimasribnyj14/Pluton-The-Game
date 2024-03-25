@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://u6e1iyo0xmkx"]
+[gd_scene load_steps=65 format=3 uid="uid://u6e1iyo0xmkx"]
 
 [ext_resource type="Texture2D" uid="uid://c430cymr5xtlp" path="res://resources/backgrounds_last/1.png" id="1_fj8w3"]
 [ext_resource type="PackedScene" uid="uid://bcypn17ixt517" path="res://scenes_for_scenes/player/character.tscn" id="1_io4s3"]
@@ -48,6 +48,7 @@
 [ext_resource type="Script" path="res://scripts/fightWithPluton.gd" id="46_0bslx"]
 [ext_resource type="Texture2D" uid="uid://c2wod38baubc6" path="res://resources/decorations/ice_level/GATE.png" id="46_2sblw"]
 [ext_resource type="Script" path="res://scripts/closeGatePluton.gd" id="46_nxicj"]
+[ext_resource type="Texture2D" uid="uid://lxso5wpjl3o0" path="res://resources/interactive/ore.png" id="49_7gvao"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q2hfr"]
 texture = ExtResource("14_s6who")
@@ -463,7 +464,7 @@ sources/0 = SubResource("TileSetAtlasSource_idnou")
 [sub_resource type="CircleShape2D" id="CircleShape2D_indor"]
 radius = 10.9428
 
-[sub_resource type="LabelSettings" id="LabelSettings_y0ugi"]
+[sub_resource type="LabelSettings" id="LabelSettings_gbo6b"]
 font = ExtResource("38_x8abk")
 font_size = 50
 
@@ -472,6 +473,9 @@ size = Vector2(36, 147)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1c3yr"]
 size = Vector2(72, 233.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jm3rh"]
+size = Vector2(49.2365, 20)
 
 [node name="last_lvl" type="Node2D"]
 script = ExtResource("1_y8imd")
@@ -734,12 +738,12 @@ grow_vertical = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="FPSCounter" type="Label" parent="CharacterBody2D/Camera2D"]
-offset_left = -696.567
-offset_top = -291.975
-offset_right = -573.567
-offset_bottom = -240.975
+offset_left = -696.488
+offset_top = -261.241
+offset_right = -573.488
+offset_bottom = -210.241
 text = "60 FPS"
-label_settings = SubResource("LabelSettings_y0ugi")
+label_settings = SubResource("LabelSettings_gbo6b")
 script = ExtResource("39_vn6ua")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
@@ -820,6 +824,102 @@ metadata/_edit_use_anchors_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(5069, 1080.5)
 shape = SubResource("RectangleShape2D_by6pm")
+
+[node name="Ore10" type="Sprite2D" parent="."]
+position = Vector2(6026, 159)
+scale = Vector2(3.29, 3.35)
+texture = ExtResource("49_7gvao")
+
+[node name="Ore" type="Area2D" parent="Ore10"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ore10/Ore"]
+position = Vector2(-0.000183105, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_jm3rh")
+
+[node name="Ore11" type="Sprite2D" parent="."]
+position = Vector2(6169, 169)
+scale = Vector2(2.265, 2.375)
+texture = ExtResource("49_7gvao")
+
+[node name="Ore" type="Area2D" parent="Ore11"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ore11/Ore"]
+position = Vector2(-0.000183105, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_jm3rh")
+
+[node name="Ore12" type="Sprite2D" parent="."]
+position = Vector2(6308.69, 147.875)
+scale = Vector2(2.89251, 4.1875)
+texture = ExtResource("49_7gvao")
+
+[node name="Ore" type="Area2D" parent="Ore12"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ore12/Ore"]
+position = Vector2(-0.000183105, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_jm3rh")
+
+[node name="Ore13" type="Sprite2D" parent="."]
+position = Vector2(3934, 896)
+scale = Vector2(1.90627, 1.94375)
+texture = ExtResource("49_7gvao")
+
+[node name="Ore" type="Area2D" parent="Ore13"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ore13/Ore"]
+position = Vector2(-0.000183105, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_jm3rh")
+
+[node name="Ore14" type="Sprite2D" parent="."]
+position = Vector2(2268, 1034)
+scale = Vector2(1.90627, 1.94375)
+texture = ExtResource("49_7gvao")
+
+[node name="Ore" type="Area2D" parent="Ore14"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ore14/Ore"]
+position = Vector2(-0.000183105, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_jm3rh")
+
+[node name="Ore15" type="Sprite2D" parent="."]
+position = Vector2(1486, 704)
+scale = Vector2(1.90627, 1.94375)
+texture = ExtResource("49_7gvao")
+
+[node name="Ore" type="Area2D" parent="Ore15"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ore15/Ore"]
+position = Vector2(-0.000183105, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_jm3rh")
+
+[node name="Ore16" type="Sprite2D" parent="."]
+position = Vector2(-944, 269)
+scale = Vector2(1.90627, 1.94375)
+texture = ExtResource("49_7gvao")
+
+[node name="Ore" type="Area2D" parent="Ore16"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ore16/Ore"]
+position = Vector2(-0.000183105, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_jm3rh")
+
+[node name="Ore17" type="Sprite2D" parent="."]
+position = Vector2(438, 556)
+scale = Vector2(1.90627, 1.94375)
+texture = ExtResource("49_7gvao")
+
+[node name="Ore" type="Area2D" parent="Ore17"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ore17/Ore"]
+position = Vector2(-0.000183105, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_jm3rh")
 
 [connection signal="body_entered" from="Yeppi2/Area2D" to="Yeppi2" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="StaticBody2D/Area2D" to="StaticBody2D" method="_on_area_2d_body_entered"]
