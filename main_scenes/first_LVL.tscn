@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://cueonbiinnvbe"]
+[gd_scene load_steps=85 format=3 uid="uid://cueonbiinnvbe"]
 
 [ext_resource type="Texture2D" uid="uid://m1fh0cvq8dya" path="res://resources/backgrounds_flame/Fon1.png" id="1_cdohg"]
 [ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_x6hvk"]
@@ -61,6 +61,8 @@
 [ext_resource type="PackedScene" uid="uid://pfeuicw2emut" path="res://scenes_for_scenes/enemy/fly.tscn" id="56_dmwt6"]
 [ext_resource type="Texture2D" uid="uid://nac6h65in2my" path="res://resources/decorations/flame_level/pixil-frame-0 (13).png" id="59_n82ec"]
 [ext_resource type="PackedScene" uid="uid://drydfqdxx422l" path="res://scenes_for_scenes/enemy/shoot.tscn" id="61_hja21"]
+[ext_resource type="Texture2D" uid="uid://ckdkhac156akk" path="res://resources/decorations/flame_level/pixil-frame-0 (14).png" id="62_66kc2"]
+[ext_resource type="Texture2D" uid="uid://clmf4nly1afeg" path="res://resources/decorations/flame_level/pixil-frame-0 (15).png" id="63_mvps2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_54qu8"]
 
@@ -1565,7 +1567,6 @@ texture = ExtResource("16_hrtsh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_yqmte")
 
 [node name="DefensePointDown" type="Sprite2D" parent="."]
@@ -1595,7 +1596,6 @@ texture = ExtResource("16_hrtsh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore2/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_yqmte")
 
 [node name="Ore9" type="Sprite2D" parent="."]
@@ -1607,7 +1607,6 @@ texture = ExtResource("16_hrtsh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore9/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_yqmte")
 
 [node name="Ore10" type="Sprite2D" parent="."]
@@ -1620,7 +1619,6 @@ texture = ExtResource("16_hrtsh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore10/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_yqmte")
 
 [node name="Ore4" type="Sprite2D" parent="."]
@@ -1632,7 +1630,6 @@ texture = ExtResource("16_hrtsh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore4/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_yqmte")
 
 [node name="Ore8" type="Sprite2D" parent="."]
@@ -1644,7 +1641,6 @@ texture = ExtResource("16_hrtsh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore8/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_yqmte")
 
 [node name="Ore5" type="Sprite2D" parent="."]
@@ -1656,7 +1652,6 @@ texture = ExtResource("16_hrtsh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore5/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_yqmte")
 
 [node name="Ore6" type="Sprite2D" parent="."]
@@ -1668,7 +1663,6 @@ texture = ExtResource("16_hrtsh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore6/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_yqmte")
 
 [node name="Ore7" type="Sprite2D" parent="."]
@@ -1680,7 +1674,6 @@ texture = ExtResource("16_hrtsh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore7/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_yqmte")
 
 [node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="."]
@@ -1912,7 +1905,6 @@ texture = ExtResource("16_hrtsh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore3/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_yqmte")
 
 [node name="10" type="Sprite2D" parent="."]
@@ -1960,6 +1952,17 @@ texture = ExtResource("33_bv4nj")
 [node name="Fire-box3" type="Sprite2D" parent="."]
 position = Vector2(19175, 446)
 texture = ExtResource("33_bv4nj")
+
+[node name="Pixil-frame-0(14)" type="Sprite2D" parent="."]
+position = Vector2(8891, 362)
+scale = Vector2(3.63, 3.63)
+texture = ExtResource("62_66kc2")
+
+[node name="Pixil-frame-0(15)" type="Sprite2D" parent="."]
+position = Vector2(9767, 83.9995)
+rotation = 0.523599
+scale = Vector2(4.15, 4.15)
+texture = ExtResource("63_mvps2")
 
 [node name="Yeppi1" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_m8vjk")

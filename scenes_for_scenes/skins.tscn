@@ -50,7 +50,7 @@ font_size = 50
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Control" type="Control"]
+[node name="Skins" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -166,8 +166,9 @@ texture_hover = ExtResource("13_igmhr")
 texture_disabled = ExtResource("5_yvtia")
 stretch_mode = 0
 script = ExtResource("14_edqwj")
+price = 30
 
-[node name="Label2" type="Label" parent="Container/VBoxContainer/Stretch4/buy"]
+[node name="price" type="Label" parent="Container/VBoxContainer/Stretch4/buy"]
 texture_filter = 3
 layout_mode = 1
 anchors_preset = 8
@@ -181,11 +182,12 @@ offset_right = 138.0
 offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "40"
+text = "30"
 label_settings = SubResource("LabelSettings_omca4")
 vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Container/VBoxContainer/Stretch4/buy"]
+layout_mode = 0
 offset_left = 145.0
 offset_top = 22.0
 offset_right = 190.0
@@ -238,9 +240,10 @@ texture_hover = ExtResource("13_igmhr")
 texture_disabled = ExtResource("5_yvtia")
 stretch_mode = 0
 script = ExtResource("14_edqwj")
+price = 20
 item_to_buy = "fire"
 
-[node name="Label2" type="Label" parent="Container/VBoxContainer/Stretch2/buy"]
+[node name="price" type="Label" parent="Container/VBoxContainer/Stretch2/buy"]
 texture_filter = 3
 layout_mode = 1
 anchors_preset = 8
@@ -259,6 +262,7 @@ label_settings = SubResource("LabelSettings_omca4")
 vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Container/VBoxContainer/Stretch2/buy"]
+layout_mode = 0
 offset_left = 145.0
 offset_top = 22.0
 offset_right = 190.0
@@ -311,9 +315,10 @@ texture_hover = ExtResource("13_igmhr")
 texture_disabled = ExtResource("5_yvtia")
 stretch_mode = 0
 script = ExtResource("14_edqwj")
+price = 25
 item_to_buy = "wind"
 
-[node name="Label2" type="Label" parent="Container/VBoxContainer/Stretch3/buy"]
+[node name="price" type="Label" parent="Container/VBoxContainer/Stretch3/buy"]
 texture_filter = 3
 layout_mode = 1
 anchors_preset = 8
@@ -327,11 +332,12 @@ offset_right = 138.0
 offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "10"
+text = "15"
 label_settings = SubResource("LabelSettings_omca4")
 vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Container/VBoxContainer/Stretch3/buy"]
+layout_mode = 0
 offset_left = 145.0
 offset_top = 22.0
 offset_right = 190.0
@@ -384,9 +390,10 @@ texture_hover = ExtResource("13_igmhr")
 texture_disabled = ExtResource("5_yvtia")
 stretch_mode = 0
 script = ExtResource("14_edqwj")
+price = 15
 item_to_buy = "cold"
 
-[node name="Label2" type="Label" parent="Container/VBoxContainer/Stretch5/buy"]
+[node name="price" type="Label" parent="Container/VBoxContainer/Stretch5/buy"]
 texture_filter = 3
 layout_mode = 1
 anchors_preset = 8
@@ -405,6 +412,7 @@ label_settings = SubResource("LabelSettings_omca4")
 vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Container/VBoxContainer/Stretch5/buy"]
+layout_mode = 0
 offset_left = 145.0
 offset_top = 22.0
 offset_right = 190.0
@@ -457,9 +465,10 @@ texture_hover = ExtResource("13_igmhr")
 texture_disabled = ExtResource("5_yvtia")
 stretch_mode = 0
 script = ExtResource("14_edqwj")
+price = 10
 item_to_buy = "acid"
 
-[node name="Label2" type="Label" parent="Container/VBoxContainer/Stretch6/buy"]
+[node name="price" type="Label" parent="Container/VBoxContainer/Stretch6/buy"]
 texture_filter = 3
 layout_mode = 1
 anchors_preset = 8
@@ -473,11 +482,12 @@ offset_right = 138.0
 offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "30"
+text = "10"
 label_settings = SubResource("LabelSettings_omca4")
 vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Container/VBoxContainer/Stretch6/buy"]
+layout_mode = 0
 offset_left = 145.0
 offset_top = 22.0
 offset_right = 190.0
@@ -554,21 +564,21 @@ script = ExtResource("20_wps2o")
 [connection signal="pressed" from="Container/VBoxContainer/Stretch4/jungle" to="Container/VBoxContainer/Stretch4" method="_on_texture_rect_pressed"]
 [connection signal="button_down" from="Container/VBoxContainer/Stretch4/buy" to="Container/VBoxContainer/Stretch4/buy" method="_on_button_down"]
 [connection signal="button_up" from="Container/VBoxContainer/Stretch4/buy" to="Container/VBoxContainer/Stretch4/buy" method="_on_button_up"]
-[connection signal="pressed" from="Container/VBoxContainer/Stretch4/buy" to="Container/VBoxContainer/Stretch4/buy" method="_on_pressed"]
+[connection signal="pressed" from="Container/VBoxContainer/Stretch4/buy" to="." method="_on_buy_pressed" binds= [NodePath("Container/VBoxContainer/Stretch4/buy")]]
 [connection signal="pressed" from="Container/VBoxContainer/Stretch2/fire" to="Container/VBoxContainer/Stretch2" method="_on_texture_rect_pressed"]
 [connection signal="button_down" from="Container/VBoxContainer/Stretch2/buy" to="Container/VBoxContainer/Stretch2/buy" method="_on_button_down"]
 [connection signal="button_up" from="Container/VBoxContainer/Stretch2/buy" to="Container/VBoxContainer/Stretch2/buy" method="_on_button_up"]
-[connection signal="pressed" from="Container/VBoxContainer/Stretch2/buy" to="Container/VBoxContainer/Stretch2/buy" method="_on_pressed"]
+[connection signal="pressed" from="Container/VBoxContainer/Stretch2/buy" to="." method="_on_buy_pressed" binds= [NodePath("Container/VBoxContainer/Stretch2/buy")]]
 [connection signal="pressed" from="Container/VBoxContainer/Stretch3/wind" to="Container/VBoxContainer/Stretch3" method="_on_texture_rect_pressed"]
 [connection signal="button_down" from="Container/VBoxContainer/Stretch3/buy" to="Container/VBoxContainer/Stretch3/buy" method="_on_button_down"]
 [connection signal="button_up" from="Container/VBoxContainer/Stretch3/buy" to="Container/VBoxContainer/Stretch3/buy" method="_on_button_up"]
-[connection signal="pressed" from="Container/VBoxContainer/Stretch3/buy" to="Container/VBoxContainer/Stretch3/buy" method="_on_pressed"]
+[connection signal="pressed" from="Container/VBoxContainer/Stretch3/buy" to="." method="_on_buy_pressed" binds= [NodePath("Container/VBoxContainer/Stretch3/buy")]]
 [connection signal="pressed" from="Container/VBoxContainer/Stretch5/cold" to="Container/VBoxContainer/Stretch5" method="_on_texture_rect_pressed"]
 [connection signal="button_down" from="Container/VBoxContainer/Stretch5/buy" to="Container/VBoxContainer/Stretch5/buy" method="_on_button_down"]
 [connection signal="button_up" from="Container/VBoxContainer/Stretch5/buy" to="Container/VBoxContainer/Stretch5/buy" method="_on_button_up"]
-[connection signal="pressed" from="Container/VBoxContainer/Stretch5/buy" to="Container/VBoxContainer/Stretch5/buy" method="_on_pressed"]
+[connection signal="pressed" from="Container/VBoxContainer/Stretch5/buy" to="." method="_on_buy_pressed" binds= [NodePath("Container/VBoxContainer/Stretch5/buy")]]
 [connection signal="pressed" from="Container/VBoxContainer/Stretch6/acid" to="Container/VBoxContainer/Stretch6" method="_on_texture_rect_pressed"]
 [connection signal="button_down" from="Container/VBoxContainer/Stretch6/buy" to="Container/VBoxContainer/Stretch6/buy" method="_on_button_down"]
 [connection signal="button_up" from="Container/VBoxContainer/Stretch6/buy" to="Container/VBoxContainer/Stretch6/buy" method="_on_button_up"]
-[connection signal="pressed" from="Container/VBoxContainer/Stretch6/buy" to="Container/VBoxContainer/Stretch6/buy" method="_on_pressed"]
+[connection signal="pressed" from="Container/VBoxContainer/Stretch6/buy" to="." method="_on_buy_pressed" binds= [NodePath("Container/VBoxContainer/Stretch6/buy")]]
 [connection signal="pressed" from="Main_menu" to="Main_menu" method="_on_pressed"]

@@ -834,7 +834,6 @@ texture = ExtResource("49_7gvao")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore10/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_jm3rh")
 
 [node name="Ore11" type="Sprite2D" parent="."]
@@ -846,7 +845,6 @@ texture = ExtResource("49_7gvao")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore11/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_jm3rh")
 
 [node name="Ore12" type="Sprite2D" parent="."]
@@ -858,7 +856,6 @@ texture = ExtResource("49_7gvao")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore12/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_jm3rh")
 
 [node name="Ore13" type="Sprite2D" parent="."]
@@ -870,7 +867,6 @@ texture = ExtResource("49_7gvao")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore13/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_jm3rh")
 
 [node name="Ore14" type="Sprite2D" parent="."]
@@ -882,7 +878,6 @@ texture = ExtResource("49_7gvao")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore14/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_jm3rh")
 
 [node name="Ore15" type="Sprite2D" parent="."]
@@ -894,7 +889,6 @@ texture = ExtResource("49_7gvao")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore15/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_jm3rh")
 
 [node name="Ore16" type="Sprite2D" parent="."]
@@ -906,7 +900,6 @@ texture = ExtResource("49_7gvao")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore16/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_jm3rh")
 
 [node name="Ore17" type="Sprite2D" parent="."]
@@ -918,7 +911,6 @@ texture = ExtResource("49_7gvao")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore17/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_jm3rh")
 
 [connection signal="body_entered" from="Yeppi2/Area2D" to="Yeppi2" method="_on_area_2d_body_entered"]

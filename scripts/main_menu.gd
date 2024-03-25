@@ -2,10 +2,15 @@ extends Control
 var config = ConfigFile.new()
 var configFile = config.load('user://config.cfg')
 
+var amountCrystals = config.get_value('saves','crystal')
+var listBoughtSkins: Array = []
 var fullscreen
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	for i in config.get_section_keys("skins"):
+		if config.get_value('skins',i):
+			listBoughtSkins.append(i)
 	#DiscordSDK.app_id = 1221524982148894890 # Application ID
 	#DiscordSDK.details = "WORLD IT GameJam: Godot Engine"
 	#DiscordSDK.large_image = "pluton" # Image key from "Art Assets"
@@ -87,3 +92,23 @@ func _process(delta):
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	if Input.is_action_just_pressed("escape"):
 		get_tree().change_scene_to_file("res://main_scenes/main_menu.tscn")
+
+func buy_skin(skin):
+	
+	print("Name", skin.item_to_buy)
+	print("Price", skin.price)
+	if amountCrystals >= skin.price:
+		amountCrystals -= skin.price
+		listBoughtSkins.append(skin.item_to_buy)
+		#print(amountCrystals)
+		#config.set_value("saves","crystal",amountCrystals)
+		$Value/Label.text = str(amountCrystals) #-int($price.text)
+		#config.set_value("skins",item_to_buy,true)
+		skin.visible = false
+		skin.get_parent().get_node(skin.item_to_buy).visible = true
+		#config.save('user://config.cfg')
+
+func _on_buy_pressed(path):
+	var skin = get_node(path)
+	#print(skin.item_to_buy)
+	buy_skin(skin)

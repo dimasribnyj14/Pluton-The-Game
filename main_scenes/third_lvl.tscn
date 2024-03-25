@@ -1949,7 +1949,6 @@ texture = ExtResource("20_4q1bj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8qnve")
 
 [node name="Ore2" type="Sprite2D" parent="."]
@@ -1961,7 +1960,6 @@ texture = ExtResource("20_4q1bj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore2/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8qnve")
 
 [node name="Ore3" type="Sprite2D" parent="."]
@@ -1973,7 +1971,6 @@ texture = ExtResource("20_4q1bj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore3/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8qnve")
 
 [node name="Ore4" type="Sprite2D" parent="."]
@@ -1985,7 +1982,6 @@ texture = ExtResource("20_4q1bj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore4/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8qnve")
 
 [node name="Ore5" type="Sprite2D" parent="."]
@@ -1997,7 +1993,6 @@ texture = ExtResource("20_4q1bj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore5/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8qnve")
 
 [node name="Ore6" type="Sprite2D" parent="."]
@@ -2009,7 +2004,6 @@ texture = ExtResource("20_4q1bj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore6/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8qnve")
 
 [node name="Ore7" type="Sprite2D" parent="."]
@@ -2021,7 +2015,6 @@ texture = ExtResource("20_4q1bj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore7/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8qnve")
 
 [node name="Ore11" type="Sprite2D" parent="."]
@@ -2033,7 +2026,6 @@ texture = ExtResource("20_4q1bj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore11/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8qnve")
 
 [node name="Ore12" type="Sprite2D" parent="."]
@@ -2045,7 +2037,6 @@ texture = ExtResource("20_4q1bj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore12/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8qnve")
 
 [node name="Ore13" type="Sprite2D" parent="."]
@@ -2057,7 +2048,6 @@ texture = ExtResource("20_4q1bj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore13/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8qnve")
 
 [node name="Ore14" type="Sprite2D" parent="."]
@@ -2069,7 +2059,6 @@ texture = ExtResource("20_4q1bj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore14/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8qnve")
 
 [node name="Ore8" type="Sprite2D" parent="."]
@@ -2081,7 +2070,6 @@ texture = ExtResource("20_4q1bj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore8/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8qnve")
 
 [node name="Ore9" type="Sprite2D" parent="."]
@@ -2093,7 +2081,6 @@ texture = ExtResource("20_4q1bj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore9/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8qnve")
 
 [node name="Ore10" type="Sprite2D" parent="."]
@@ -2105,7 +2092,6 @@ texture = ExtResource("20_4q1bj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ore10/Ore"]
 position = Vector2(-0.000183105, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8qnve")
 
 [node name="14" type="Sprite2D" parent="."]

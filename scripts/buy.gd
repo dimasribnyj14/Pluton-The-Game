@@ -1,10 +1,15 @@
 extends TextureButton
-var config = ConfigFile.new()
-var configFile = config.load('user://config.cfg')
+#var config = ConfigFile.new()
+#var configFile = config.load('user://config.cfg')
+@export var price = 0
+#@onready var amountCrystals = config.get_value("saves","crystal")
 @export var item_to_buy = 'jungle'
-@onready var valueCrystals = $"../../../../Value/Label"
+#@onready var valueCrystals = $"../../../../Value/Label"
 func _ready():
-	pass # Replace with function body.
+	$price.text = str(price)
+
+
+	#pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,10 +26,14 @@ func _process(delta):
 
 
 func _on_pressed():
-	if config.get_value("saves","crystal") >= int($Label2.text):
-		config.set_value("saves","crystal",config.get_value("saves","crystal")-int($Label2.text))
-		config.set_value("skins",item_to_buy,true)
-		valueCrystals.text = str(config.get_value("saves","crystal")-int($Label2.text))
-		visible = false
-		get_parent().get_node(item_to_buy).visible = true
-		config.save('user://config.cfg')
+	pass
+	#if amountCrystals >= price:
+		#amountCrystals -= price
+		#print(amountCrystals)
+		##config.set_value("saves","crystal",amountCrystals)
+		##valueCrystals.text = str(amountCrystals) #-int($price.text)
+		##config.set_value("skins",item_to_buy,true)
+		#visible = false
+		#get_parent().get_node(item_to_buy).visible = true
+		##config.save('user://config.cfg')
+		#
