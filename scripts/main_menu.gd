@@ -1,7 +1,7 @@
 extends Control
 var config = ConfigFile.new()
 var configFile = config.load('user://config.cfg')
-
+var skinName = 'default'
 var amountCrystals = config.get_value('saves','crystal')
 var listBoughtSkins: Array = []
 var fullscreen

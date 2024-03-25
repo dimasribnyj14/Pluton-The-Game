@@ -13,7 +13,8 @@ func _process(delta):
 
 
 func _on_texture_rect_pressed():
-	config.set_value('saves', 'skin', get_node(skin).get_node("Label2").text.to_lower())
+	#config.set_value('saves', 'skin', get_node(skin).get_node("Label2").text.to_lower())
+	get_parent().get_parent().get_parent().skinName = get_node(skin).get_node("Label2").text.to_lower()
 	$"../../Skin".texture = load("res://resources/player/hero/%s/Idle/1.png"%get_node(skin).get_node("Label2").text.to_lower())
-	config.save('user://config.cfg')
+	#config.save('user://config.cfg')
 	

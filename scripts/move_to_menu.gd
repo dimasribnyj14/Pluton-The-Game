@@ -14,6 +14,7 @@ func _process(delta):
 
 func _on_pressed():
 	if get_tree().current_scene.name == 'Skins':
+		config.set_value('saves', 'skin', get_parent().skinName) #get_node(skin).get_node("Label2").text.to_lower()
 		for i in get_parent().listBoughtSkins:
 		#
 		#valueCrystals.text = str(amountCrystals) #-int($price.text)

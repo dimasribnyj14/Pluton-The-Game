@@ -6,6 +6,11 @@ var configFile = config.load('user://config.cfg')
 var assetDiscordArt = 'fire'
 var assetDiscordText = 'Pyron'
 func _ready():
+	#if OS.get_name() != "Android":
+
+	heartsContainer.setMaxHearts($CharacterBody2D.maxHealth)
+	heartsContainer.updateHearts($CharacterBody2D.currentHealth)
+	$CharacterBody2D.healthChanged.connect(heartsContainer.updateHearts)
 	if get_tree().current_scene.name == 'FirstLevel':
 		assetDiscordArt = 'fire'
 		assetDiscordText = 'Pyron'
@@ -27,24 +32,21 @@ func _ready():
 	elif get_tree().current_scene.name == 'Ship':
 		assetDiscordArt = 'ship'
 		assetDiscordText = 'Ship'
-	DiscordSDK.app_id = 1221524982148894890 # Application ID
-	DiscordSDK.details = "WORLD IT GameJam: Godot Engine"
-	DiscordSDK.large_image = "pluton" # Image key from "Art Assets"
-	DiscordSDK.large_image_text = "Retribution Of Pluto: The Galactic Rogue"
-	DiscordSDK.small_image = assetDiscordArt # Image key from "Art Assets"
-	DiscordSDK.small_image_text = "Passes the level : %s"%assetDiscordText
-
-	DiscordSDK.start_timestamp = int(Time.get_unix_time_from_system()) # "02:46 elapsed"
-  # DiscordSDK.end_timestamp = int(Time.get_unix_time_from_system()) + 3600 # +1 hour in unix time / "01:00:00 remaining"
-	heartsContainer.setMaxHearts($CharacterBody2D.maxHealth)
-	heartsContainer.updateHearts($CharacterBody2D.currentHealth)
-	$CharacterBody2D.healthChanged.connect(heartsContainer.updateHearts)
-	DiscordSDK.refresh() # Always refresh after changing the values!
-
-
+	#DiscordSDK.app_id = 1221524982148894890 # Application ID
+	#DiscordSDK.details = "WORLD IT GameJam: Godot Engine"
+	#DiscordSDK.large_image = "pluton" # Image key from "Art Assets"
+	#DiscordSDK.large_image_text = "Retribution Of Pluto: The Galactic Rogue"
+	#DiscordSDK.small_image = assetDiscordArt # Image key from "Art Assets"
+	#DiscordSDK.small_image_text = "Passes the level : %s"%assetDiscordText
+#
+	#DiscordSDK.start_timestamp = int(Time.get_unix_time_from_system()) # "02:46 elapsed"
+  ## DiscordSDK.end_timestamp = int(Time.get_unix_time_from_system()) + 3600 # +1 hour in unix time / "01:00:00 remaining"
+#
+	#DiscordSDK.refresh() # Always refresh after changing the values!
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	DiscordSDK.run_callbacks()
+	#if OS.get_name() != 'Android':
+		
 	if config.get_value("options", "strechscreen") == false:
 		get_window().content_scale_aspect = Window.CONTENT_SCALE_ASPECT_KEEP
 	else:
@@ -82,3 +84,4 @@ func _process(delta):
 			$CharacterBody2D/Camera2D/TouchScreenButton5.hide()
 			$CharacterBody2D/Camera2D/TouchScreenButton.hide()
 		#get_tree().change_scene_to_file("res://main_scenes/main_menu.tscn")
+	#DiscordSDK.run_callbacks()
