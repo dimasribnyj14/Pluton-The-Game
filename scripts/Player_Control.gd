@@ -11,9 +11,10 @@ signal killed
 @onready var heroSkin = config.get_value('saves', 'skin')
 @onready var effects = $Effects
 @onready var hurtCD = $HurtCD
-
+var doubleJump = true
+@onready var doubleJumpCD = $doubleJump
 @onready var diescreen = $CanvasLayer/GameOverScreen
-
+var crouching = false
 @export var knockbackPower: int = 500
 
 @export var maxHealth = 5
@@ -69,7 +70,8 @@ func _physics_process(delta):
 			velocity.y += gravity * delta-8
 		else:
 			velocity.y += gravity * delta
-		
+	else:
+		doubleJump = true
 		
 	#FOURTH LVL
 	if get_node_or_null('PointLight2D'):
@@ -111,7 +113,8 @@ func _physics_process(delta):
 		#$Camera2D.offset.x = 100
 		
 	
-	if direction:
+	if direction and not crouching:
+		
 		if not is_on_floor():
 			sfxFootstep.stop()
 		velocity.x = direction * SPEED
@@ -126,14 +129,31 @@ func _physics_process(delta):
 		sfxFootstep.stop()
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if is_on_floor():
+			$CollisionShape2D.rotation_degrees = 0
+			$hurtBox/CollisionShape2D2.rotation_degrees = 0
+			crouching = false
 			if heroSkin == "default":
 				anim_plr.play("idle")
 			else:
 				anim_plr.play("idle-%s"%heroSkin)
-
+	
+	if Input.is_action_pressed("crouch"):
+		if is_on_floor():
+			#direction = 0
+			crouching = true
+			$CollisionShape2D.rotation_degrees = 90
+			$hurtBox/CollisionShape2D2.rotation_degrees = 90
+			if heroSkin == "default":
+				anim_plr.play("lay")
+			else:
+				anim_plr.play("lay-%s"%heroSkin)
+	
 	if Input.is_action_just_pressed("fire"):
 		if can_shoot == true:
 			sfxLaser.play()
+			
+			
+			
 			var bullet_instance = bullet.instantiate()
 			#if get_tree().current_scene.name == 'SecondLvl':
 				#get_node('/root/SecondLvl').add_child(bullet_instance)
@@ -145,6 +165,8 @@ func _physics_process(delta):
 			#$Camera2D.position = bullet.position
 			bullet_instance.position.y += 60
 			
+			#if $CollisionShape2D.rotation_degrees == 90:
+				#bullet_instance.position.y += 0
 			#print('plr', position)
 			#print('bullet', bullet.position)
 			if $AnimatedSprite2D.flip_h == false:
@@ -159,6 +181,15 @@ func _physics_process(delta):
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
 			sfxJump.play()
+			if heroSkin == "default":
+				anim_plr.play("jump")
+			else:
+				anim_plr.play("jump-%s"%heroSkin)
+		elif not is_on_floor() and doubleJump:
+			doubleJump = false
+			velocity.y = JUMP_VELOCITY
+			sfxJump.play()
+			anim_plr.stop()
 			if heroSkin == "default":
 				anim_plr.play("jump")
 			else:
@@ -422,6 +453,56 @@ func _on_hurt_box_area_entered(area):
 		#canDmg = false
 
 		currentHealth -= 1
+		if currentHealth < 1:
+			#await get_tree().create_timer(1.5).timeout
+			gos.visible = true
+			sfxDeath.play()
+			Engine.time_scale = 0
+			#sfxDeath.play()
+			if get_tree().current_scene.name == 'FirstLevel':
+				position.y = -155
+				position.x = 275
+			elif get_tree().current_scene.name == 'SecondLvl':
+				if checkpointCold == false:
+					position.y = 170
+					position.x = 276
+				else:
+					if get_parent().get_node_or_null("Boss"):
+						$"../Boss".hp = 5
+						$"../Boss".position.x = 11670
+						$"../Boss".position.y = -85
+					position.y = -475
+					position.x = 11459
+			elif get_tree().current_scene.name == 'ThirdLvl':
+				position.y = 1000
+				position.x = 276
+			elif get_tree().current_scene.name == 'FourthLevel':
+				position.y = 667
+				position.x = -4436.04
+			elif get_tree().current_scene.name == 'Cloudlvl':
+				position.y = 966
+				position.x = 290
+			elif get_tree().current_scene.name == 'last_lvl':
+				if checkpointLast == false:
+					position.x = -157.036
+					position.y = 153
+				else:
+					if get_parent().get_node_or_null("Pluton"):
+						$"../Pluton".hp = 10
+						$"../Pluton".position.x = 7209
+						$"../Pluton".position.y = 689
+					position.x = 6217
+					position.y = 420
+			currentHealth = maxHealth
+		healthChanged.emit(currentHealth)
+		knockback(area.get_parent().position)
+		effects.play("hurtbit")
+		hurtCD.start()
+		await hurtCD.timeout
+		effects.play("RESET")
+		#dmgCD.start(3)
+	if area.name == 'killerBoom' and area.monitoring == true:
+		currentHealth -= 3
 		if currentHealth < 1:
 			#await get_tree().create_timer(1.5).timeout
 			gos.visible = true

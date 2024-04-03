@@ -1,0 +1,77 @@
+[gd_scene load_steps=10 format=3 uid="uid://cy2k27qnc7a7"]
+
+[ext_resource type="Script" path="res://scripts/poop.gd" id="1_tfeov"]
+[ext_resource type="Texture2D" uid="uid://cvcxwx25g6nvv" path="res://resources/enemies/Кислотность/Кисл. Враг 3/герой_1.png" id="2_xqv4f"]
+[ext_resource type="Texture2D" uid="uid://7vk4eyoh8pqd" path="res://resources/enemies/Кислотность/Кисл. Враг 3/герой_2.png" id="3_mi07k"]
+[ext_resource type="Texture2D" uid="uid://dnpwxkb1ha78b" path="res://resources/enemies/Кислотность/Кисл. Враг 3/герой_3.png" id="4_6i1dl"]
+[ext_resource type="Texture2D" uid="uid://b8twasbjruvlf" path="res://resources/interactive/lightshoot.png" id="4_wwr7n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ncmnt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xqv4f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mi07k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6i1dl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_14h38"]
+radius = 17.0
+height = 60.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jl6kc"]
+size = Vector2(452.625, 287.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sywb"]
+size = Vector2(57, 32.75)
+
+[node name="RigidBody2D" type="RigidBody2D" groups=["enemy"]]
+gravity_scale = 0.005
+lock_rotation = true
+script = ExtResource("1_tfeov")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(29, 23)
+rotation = 0.174533
+scale = Vector2(1.44781, 1.44781)
+sprite_frames = SubResource("SpriteFrames_ncmnt")
+autoplay = "default"
+frame_progress = 0.641276
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(29, 17)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_14h38")
+
+[node name="TimerMove" type="Timer" parent="."]
+
+[node name="FindPlr" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FindPlr"]
+position = Vector2(30, 14)
+shape = SubResource("RectangleShape2D_jl6kc")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(26, 16)
+rotation = 1.5708
+scale = Vector2(0.465295, 1.37071)
+energy = 0.0
+texture = ExtResource("4_wwr7n")
+
+[node name="hitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
+position = Vector2(28.5, 16.625)
+shape = SubResource("RectangleShape2D_1sywb")
+
+[connection signal="timeout" from="TimerMove" to="." method="_on_timer_move_timeout"]
+[connection signal="body_entered" from="FindPlr" to="." method="_on_find_plr_body_entered"]
+[connection signal="body_exited" from="FindPlr" to="." method="_on_find_plr_body_exited"]

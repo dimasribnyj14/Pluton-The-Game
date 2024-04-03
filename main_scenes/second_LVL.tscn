@@ -1892,7 +1892,7 @@ position = Vector2(2366, -197)
 end_x = 1464
 
 [node name="Boss" parent="." instance=ExtResource("51_nefef")]
-position = Vector2(11180, -92)
+position = Vector2(11167, -84)
 cant_search_player = true
 hp = 3
 end_x = 11676

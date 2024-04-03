@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://c5b42d00n3l2w"]
+[gd_scene load_steps=80 format=3 uid="uid://c5b42d00n3l2w"]
 
 [ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_isw6d"]
 [ext_resource type="PackedScene" uid="uid://bcypn17ixt517" path="res://scenes_for_scenes/player/character.tscn" id="1_l3y2n"]
@@ -59,6 +59,10 @@
 [ext_resource type="Texture2D" uid="uid://8hpam6a385y4" path="res://resources/decorations/acid_level/image_2024-03-20_17-54-36.png" id="56_7u5vc"]
 [ext_resource type="PackedScene" uid="uid://cxr21u3q8d5bx" path="res://scenes_for_scenes/enemy/base.tscn" id="57_y3neo"]
 [ext_resource type="PackedScene" uid="uid://drydfqdxx422l" path="res://scenes_for_scenes/enemy/shoot.tscn" id="59_wldpo"]
+[ext_resource type="PackedScene" uid="uid://cy2k27qnc7a7" path="res://scenes_for_scenes/enemy/poop.tscn" id="60_8mmx2"]
+[ext_resource type="Texture2D" uid="uid://biibfeyke0n2f" path="res://resources/decorations/acid_level/pixil-frame-0 (96).png" id="61_7xau4"]
+[ext_resource type="Texture2D" uid="uid://d3ijubrjxcjjq" path="res://resources/decorations/acid_level/pixil-frame-0 (97).png" id="62_xu7f3"]
+[ext_resource type="Texture2D" uid="uid://bn8g1wvguorud" path="res://resources/decorations/acid_level/pixil-frame-0 (98).png" id="63_8g3ag"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wklei"]
 
@@ -1288,6 +1292,7 @@ position = Vector2(-613, 1203)
 [node name="AnimatedSprite2D2" parent="." instance=ExtResource("5_mjsyn")]
 texture_filter = 2
 position = Vector2(-513, 1203)
+scale = Vector2(1.01071, 0.976396)
 
 [node name="AnimatedSprite2D3" parent="." instance=ExtResource("5_mjsyn")]
 texture_filter = 2
@@ -2329,56 +2334,56 @@ speed_scale = 1.5
 scale_amount_max = 1.5
 
 [node name="Fog" parent="." instance=ExtResource("36_j0p2m")]
-position = Vector2(1936.36, -1359.99)
+position = Vector2(1961.36, -1545.99)
 rotation = 0.0172895
 scale = Vector2(8.53934, 7.47511)
 
 [node name="Fog2" parent="." instance=ExtResource("36_j0p2m")]
-position = Vector2(2481.36, -1289.99)
+position = Vector2(2506.36, -1475.99)
 rotation = 0.0172895
 scale = Vector2(6.749, 5.9079)
 
 [node name="Fog3" parent="." instance=ExtResource("36_j0p2m")]
-position = Vector2(3175.36, -1365.99)
+position = Vector2(3200.36, -1551.99)
 rotation = 0.0172895
 scale = Vector2(11.8542, 10.3768)
 
 [node name="Fog4" parent="." instance=ExtResource("36_j0p2m")]
-position = Vector2(3899.36, -1282.99)
+position = Vector2(3924.36, -1468.99)
 rotation = 0.0172895
 scale = Vector2(8.37495, 7.33121)
 
 [node name="Fog5" parent="." instance=ExtResource("36_j0p2m")]
-position = Vector2(4529.36, -1281.99)
+position = Vector2(4554.36, -1467.99)
 rotation = 0.0172895
 scale = Vector2(5.00952, 4.3852)
 
 [node name="Fog6" parent="." instance=ExtResource("36_j0p2m")]
-position = Vector2(5975.36, -1514.99)
+position = Vector2(5967.36, -1624.99)
 rotation = 0.0172895
 scale = Vector2(8.53934, 7.47511)
 flip_h = true
 
 [node name="Fog7" parent="." instance=ExtResource("36_j0p2m")]
-position = Vector2(6520.36, -1444.99)
+position = Vector2(6512.36, -1554.99)
 rotation = 0.0172895
 scale = Vector2(6.749, 5.9079)
 flip_h = true
 
 [node name="Fog8" parent="." instance=ExtResource("36_j0p2m")]
-position = Vector2(7214.36, -1520.99)
+position = Vector2(7206.36, -1630.99)
 rotation = 0.0172895
 scale = Vector2(11.8542, 10.3768)
 flip_h = true
 
 [node name="Fog9" parent="." instance=ExtResource("36_j0p2m")]
-position = Vector2(7938.36, -1437.99)
+position = Vector2(7930.36, -1547.99)
 rotation = 0.0172895
 scale = Vector2(8.37495, 7.33121)
 flip_h = true
 
 [node name="Fog10" parent="." instance=ExtResource("36_j0p2m")]
-position = Vector2(8568.38, -1436.99)
+position = Vector2(8560.38, -1546.99)
 rotation = 0.0172895
 scale = Vector2(5.00952, 4.3852)
 flip_h = true
@@ -2412,32 +2417,37 @@ scale = Vector2(3, 3)
 imageName = "acid"
 
 [node name="Image2024-03-2017-54-19" type="Sprite2D" parent="."]
-position = Vector2(1624, 1125)
+self_modulate = Color(0, 0.299145, 0.277946, 1)
+position = Vector2(1597, 1125)
 rotation = 2.34572
 scale = Vector2(0.478723, 0.478723)
 texture = ExtResource("54_ojxhp")
 
 [node name="Image2024-03-2017-54-20" type="Sprite2D" parent="."]
-position = Vector2(1648, 1126)
+self_modulate = Color(0, 0.299145, 0.277946, 1)
+position = Vector2(1630, 1126)
 rotation = 2.34572
 scale = Vector2(0.478723, 0.478723)
 skew = -0.870919
 texture = ExtResource("54_ojxhp")
 
 [node name="Image2024-03-2017-54-27" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0.299145, 0.277946, 1)
 position = Vector2(1668, 1125)
 scale = Vector2(0.576923, 0.576923)
 texture = ExtResource("55_nssmn")
 
 [node name="Image2024-03-2017-54-28" type="Sprite2D" parent="."]
-position = Vector2(1700, 1126)
+self_modulate = Color(0, 0.299145, 0.277946, 1)
+position = Vector2(1721, 1127)
 scale = Vector2(0.697762, 0.697762)
 skew = 0.5044
 texture = ExtResource("55_nssmn")
 flip_h = true
 
 [node name="Image2024-03-2017-54-36" type="Sprite2D" parent="."]
-position = Vector2(1727.34, 1125.75)
+self_modulate = Color(0, 0.299145, 0.277946, 1)
+position = Vector2(1781, 1126)
 scale = Vector2(0.911765, 0.911765)
 texture = ExtResource("56_7u5vc")
 
@@ -2474,8 +2484,8 @@ position = Vector2(11951, 661)
 end_x = 10919
 
 [node name="RigidBody2D9" parent="." instance=ExtResource("59_wldpo")]
-position = Vector2(7217, -572)
-end_x = 6698
+position = Vector2(8956, -571)
+end_x = 7975
 
 [node name="RigidBody2D10" parent="." instance=ExtResource("59_wldpo")]
 position = Vector2(5481, 244)
@@ -2492,5 +2502,25 @@ end_x = 72
 [node name="RigidBody2D13" parent="." instance=ExtResource("59_wldpo")]
 position = Vector2(-787, 1014)
 end_x = -1568
+
+[node name="RigidBody2D14" parent="." instance=ExtResource("60_8mmx2")]
+position = Vector2(2021, 1089)
+end_x = 1785
+
+[node name="Pixil-frame-0(96)" type="Sprite2D" parent="."]
+position = Vector2(8272, -510)
+scale = Vector2(2.35, 2.35)
+texture = ExtResource("61_7xau4")
+
+[node name="Pixil-frame-0(97)" type="Sprite2D" parent="."]
+position = Vector2(3366, -1186)
+scale = Vector2(3.08824, 3.08824)
+texture = ExtResource("62_xu7f3")
+
+[node name="Pixil-frame-0(98)" type="Sprite2D" parent="."]
+position = Vector2(3524, 247)
+rotation = -0.785398
+scale = Vector2(4.9, 4.9)
+texture = ExtResource("63_8g3ag")
 
 [connection signal="body_entered" from="MoveTo/Area2D" to="MoveTo" method="_on_area_2d_body_entered"]

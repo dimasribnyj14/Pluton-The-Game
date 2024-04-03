@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://b12s6noysasur"]
+
+[ext_resource type="Script" path="res://scripts/BALL-boom.gd" id="1_undef"]
+[ext_resource type="Texture2D" uid="uid://cte43vo6twfk5" path="res://resources/BALL-Timing.png" id="2_uup47"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_15m2d"]
+radius = 32.3883
+
+[node name="BALL-boom" type="RigidBody2D"]
+mass = 0.01
+gravity_scale = 0.094
+script = ExtResource("1_undef")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(32, 32)
+shape = SubResource("CircleShape2D_15m2d")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("2_uup47")
+
+[node name="killerBoom" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="killerBoom"]
+position = Vector2(32, 32)
+shape = SubResource("CircleShape2D_15m2d")
+
+[connection signal="body_entered" from="killerBoom" to="." method="_on_area_2d_body_entered"]

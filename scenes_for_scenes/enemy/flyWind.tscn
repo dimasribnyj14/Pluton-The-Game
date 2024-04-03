@@ -1,22 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://311kv738y36v"]
+[gd_scene load_steps=9 format=3 uid="uid://d0irvld5wxlav"]
 
-[ext_resource type="Script" path="res://scripts/flyEnemy.gd" id="1_20det"]
-[ext_resource type="Texture2D" uid="uid://3teh8cmt750c" path="res://resources/enemies/Холод/Холод Враг 3/Холод 1.png" id="2_l07ct"]
-[ext_resource type="Texture2D" uid="uid://bhuutt2ayrt6m" path="res://resources/enemies/Холод/Холод Враг 3/Холод 2.png" id="3_26b45"]
-[ext_resource type="Texture2D" uid="uid://hrbpm8118b6j" path="res://resources/enemies/Холод/Холод Враг 3/Холод 3.png" id="4_ym4un"]
-[ext_resource type="Texture2D" uid="uid://b8twasbjruvlf" path="res://resources/interactive/lightshoot.png" id="5_cheyr"]
+[ext_resource type="Script" path="res://scripts/flyWind.gd" id="1_egrbw"]
+[ext_resource type="Texture2D" uid="uid://pfwlq0ak5pn" path="res://resources/enemies/Ветер/Втер Враг 3/1.png" id="2_vkeaf"]
+[ext_resource type="Texture2D" uid="uid://jcra1pejf5uk" path="res://resources/enemies/Ветер/Втер Враг 3/2.png" id="3_7thmi"]
+[ext_resource type="Texture2D" uid="uid://b8twasbjruvlf" path="res://resources/interactive/lightshoot.png" id="5_368e7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ncmnt"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_l07ct")
+"texture": ExtResource("2_vkeaf")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_26b45")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_ym4un")
+"texture": ExtResource("3_7thmi")
 }],
 "loop": true,
 "name": &"default",
@@ -32,18 +28,18 @@ size = Vector2(1128.5, 1278.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1sywb"]
 size = Vector2(135, 70)
 
-[node name="RigidBody2D" type="RigidBody2D" groups=["enemy"]]
-gravity_scale = 0.0
+[node name="flyWind" type="RigidBody2D" groups=["enemy"]]
+gravity_scale = 0.182
 inertia = 3.0
 lock_rotation = true
-script = ExtResource("1_20det")
+script = ExtResource("1_egrbw")
+cant_search_player = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(33.5, 5.49994)
-scale = Vector2(1.39667, 1.39667)
+position = Vector2(49, 65)
+scale = Vector2(0.691429, 0.691429)
 sprite_frames = SubResource("SpriteFrames_ncmnt")
 autoplay = "default"
-frame = 2
 frame_progress = 0.765129
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -64,7 +60,7 @@ position = Vector2(89, 41)
 rotation = 1.5708
 scale = Vector2(0.852712, 2.512)
 energy = 0.0
-texture = ExtResource("5_cheyr")
+texture = ExtResource("5_368e7")
 
 [node name="hitBox" type="Area2D" parent="."]
 
@@ -72,6 +68,9 @@ texture = ExtResource("5_cheyr")
 position = Vector2(39.5, 37)
 shape = SubResource("RectangleShape2D_1sywb")
 
+[node name="Cooldown" type="Timer" parent="."]
+
 [connection signal="timeout" from="TimerMove" to="." method="_on_timer_move_timeout"]
 [connection signal="body_entered" from="FindPlr" to="." method="_on_find_plr_body_entered"]
 [connection signal="body_exited" from="FindPlr" to="." method="_on_find_plr_body_exited"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
