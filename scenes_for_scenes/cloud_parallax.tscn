@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://jmjhpph12jyv"]
+
+[ext_resource type="Shader" path="res://scripts/smoke.gdshader" id="1_k8y6n"]
+
+[sub_resource type="Gradient" id="Gradient_xq82a"]
+offsets = PackedFloat32Array(0, 0.798419)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_oqk11"]
+frequency = 0.0023
+offset = Vector3(449.43, 0, 0)
+fractal_octaves = 10
+fractal_lacunarity = 2.04
+fractal_gain = 0.505
+fractal_weighted_strength = 0.17
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_frequency = 0.0
+domain_warp_fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_p63hd"]
+width = 1152
+height = 648
+seamless = true
+seamless_blend_skirt = 0.687
+bump_strength = 53.5
+color_ramp = SubResource("Gradient_xq82a")
+noise = SubResource("FastNoiseLite_oqk11")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_setlp"]
+shader = ExtResource("1_k8y6n")
+shader_parameter/density = 1.0
+shader_parameter/speed = Vector2(-0.05, -0.01)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_p63hd")
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+layer = 2
+follow_viewport_scale = 1000.0
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1152, 648)
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxLayer"]
+material = SubResource("ShaderMaterial_setlp")
+offset_right = 1152.0
+offset_bottom = 648.0
+metadata/_edit_use_anchors_ = true

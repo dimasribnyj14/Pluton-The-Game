@@ -2,7 +2,7 @@ extends RigidBody2D #Наследуем RigidBody2D
 #Експортируем свойства
 var dead = false
 var can_move = true
-var start_x #Свойства start_x (начало пути)
+@export var start_x: int = 0 #Свойства start_x (начало пути)
 var player = null
 var go_to_plr = false
 var can_jump = true
@@ -84,3 +84,9 @@ func _on_find_plr_body_exited(body):
 		go_to_plr = false
 func _on_timer_move_timeout():
 	can_move = true
+
+
+#func _on_hit_box_body_entered(body):
+	#if body.name == "CharacterBody2D":
+		#if body.inEffect:
+			#queue_free()

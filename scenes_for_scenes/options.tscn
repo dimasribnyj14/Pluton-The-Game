@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b5vymv8nu0kbf"]
+[gd_scene load_steps=29 format=3 uid="uid://b5vymv8nu0kbf"]
 
 [ext_resource type="Texture2D" uid="uid://cu50y7dk5txq0" path="res://resources/backgrounds/settings_menu.png" id="1_8yu82"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ah3u8"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" path="res://scripts/options/Camera Smooth.gd" id="10_joptr"]
 [ext_resource type="Texture2D" uid="uid://drcxx7lvouwt5" path="res://resources/ui/keyboard/f.png" id="11_jmkpy"]
 [ext_resource type="Script" path="res://scripts/Camera Smooth.gd" id="11_wd5ut"]
+[ext_resource type="Script" path="res://scripts/Camera feSmooth.gd" id="12_b46v3"]
 [ext_resource type="Texture2D" uid="uid://b266fneak1wux" path="res://resources/ui/keyboard/w.png" id="12_jywgo"]
 [ext_resource type="FontFile" uid="uid://dvy48ngls58io" path="res://resources/fonts/PixelOperatorSC.ttf" id="18_ygdf2"]
 [ext_resource type="Script" path="res://scripts/FPSCounter.gd" id="19_seyt7"]
@@ -275,9 +276,44 @@ text = "Gameplay"
 label_settings = SubResource("LabelSettings_6sjpc")
 horizontal_alignment = 2
 
-[node name="Camera Smooth" type="BoxContainer" parent="ScrollContainer/VBoxContainer"]
+[node name="Double Jump" type="BoxContainer" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
 script = ExtResource("11_wd5ut")
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/Double Jump"]
+custom_minimum_size = Vector2(500, 90)
+layout_mode = 2
+texture = ExtResource("3_makoq")
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Double Jump/TextureRect"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.5
+offset_top = -11.5
+offset_right = 29.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Classic Mode"
+label_settings = SubResource("LabelSettings_8etd1")
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/Double Jump"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("5_l8omh")
+texture_pressed = ExtResource("5_l8omh")
+texture_hover = ExtResource("5_l8omh")
+stretch_mode = 0
+
+[node name="Camera Smooth" type="BoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("12_b46v3")
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/Camera Smooth"]
 custom_minimum_size = Vector2(500, 90)
@@ -468,6 +504,7 @@ script = ExtResource("23_oaj30")
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/Fullscreen/TextureButton" to="ScrollContainer/VBoxContainer/Fullscreen" method="_on_texture_button_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/30FPS/TextureButton" to="ScrollContainer/VBoxContainer/30FPS" method="_on_texture_button_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/HighGraphics/TextureButton" to="ScrollContainer/VBoxContainer/HighGraphics" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Double Jump/TextureButton" to="ScrollContainer/VBoxContainer/Double Jump" method="_on_texture_button_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/Camera Smooth/TextureButton" to="ScrollContainer/VBoxContainer/Camera Smooth" method="_on_texture_button_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/Music/TextureButton" to="ScrollContainer/VBoxContainer/Music" method="_on_texture_button_pressed"]
 [connection signal="pressed" from="Main_menu" to="Main_menu" method="_on_pressed"]

@@ -75,3 +75,4 @@ shape = SubResource("RectangleShape2D_1sywb")
 [connection signal="timeout" from="TimerMove" to="." method="_on_timer_move_timeout"]
 [connection signal="body_entered" from="FindPlr" to="." method="_on_find_plr_body_entered"]
 [connection signal="body_exited" from="FindPlr" to="." method="_on_find_plr_body_exited"]
+[connection signal="body_entered" from="hitBox" to="." method="_on_hit_box_body_entered"]

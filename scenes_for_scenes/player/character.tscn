@@ -1,7 +1,9 @@
-[gd_scene load_steps=76 format=3 uid="uid://bcypn17ixt517"]
+[gd_scene load_steps=127 format=3 uid="uid://bcypn17ixt517"]
 
 [ext_resource type="Script" path="res://scripts/Player_Control.gd" id="1_34d2g"]
 [ext_resource type="Texture2D" uid="uid://cxi7a7uyvpj55" path="res://resources/player/idle/1.png" id="2_k6ljq"]
+[ext_resource type="Texture2D" uid="uid://cmfhafus6y7j1" path="res://resources/player/effect/1.png" id="2_t6bpk"]
+[ext_resource type="Texture2D" uid="uid://12kgr4n7c7j7" path="res://resources/player/effect/2.png" id="3_do0vg"]
 [ext_resource type="Texture2D" uid="uid://diu2ifwlfds3l" path="res://resources/player/idle/2.png" id="3_l8d5j"]
 [ext_resource type="Texture2D" uid="uid://drt8w0jdgmni1" path="res://resources/player/jump/1.png" id="4_3din3"]
 [ext_resource type="Texture2D" uid="uid://dxn7islv0ayxe" path="res://resources/player/Папка герой/Герой Кислотного уровня/Idle/1.png" id="4_se0wo"]
@@ -13,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://cindxdasybond" path="res://resources/player/Папка герой/Герой Холодного уровня/Idle/2.png" id="7_kxvno"]
 [ext_resource type="Texture2D" uid="uid://yrvq7jyooh5x" path="res://resources/player/move/2.png" id="8_c3lqu"]
 [ext_resource type="Texture2D" uid="uid://cf3blmcwahkhi" path="res://resources/player/Папка герой/Герой Жаркого уровня/Idle/1.png" id="8_lslc7"]
+[ext_resource type="Texture2D" uid="uid://oqqjksfl64km" path="res://resources/player/Герой лежит/Герой Серый Цвета/Idle/1.png" id="8_u51h2"]
+[ext_resource type="Texture2D" uid="uid://cr8g0niohwnwt" path="res://resources/player/Герой лежит/Герой Серый Цвета/Idle/2.png" id="9_j4tdc"]
 [ext_resource type="Texture2D" uid="uid://b8xb8jtboo1bu" path="res://resources/player/move/3.png" id="9_qhemc"]
 [ext_resource type="Texture2D" uid="uid://7yxtwxf6u51d" path="res://resources/player/Папка герой/Герой Жаркого уровня/Idle/2.png" id="9_v65b8"]
 [ext_resource type="Texture2D" uid="uid://du0ksnebqiwg8" path="res://resources/player/move/4.png" id="10_j00ih"]
@@ -31,28 +35,73 @@
 [ext_resource type="Texture2D" uid="uid://djwj8lcek8del" path="res://resources/player/Папка герой/Герой Холодного уровня/Jump/2.png" id="20_te8yc"]
 [ext_resource type="Texture2D" uid="uid://bkpjshvvm8s15" path="res://resources/player/Папка герой/Герой Жаркого уровня/Jump/1.png" id="21_20w5s"]
 [ext_resource type="Texture2D" uid="uid://dxx1v1db3qcnt" path="res://resources/player/Папка герой/Герой Жаркого уровня/Jump/2.png" id="22_58dma"]
+[ext_resource type="Texture2D" uid="uid://cwndqjhf4gwtr" path="res://resources/player/Герой лежит/Герой Серый Цвета/Jump/1.png" id="23_c4ewd"]
 [ext_resource type="Texture2D" uid="uid://prqo7v7tkyth" path="res://resources/player/Папка герой/Герой Джунли уровень/Jump/1.png" id="23_cbjv7"]
+[ext_resource type="Texture2D" uid="uid://bf1nsvmxtevmb" path="res://resources/player/Герой лежит/Герой Серый Цвета/Jump/2.png" id="24_871v8"]
 [ext_resource type="Texture2D" uid="uid://mbj86bx6yd77" path="res://resources/player/Папка герой/Герой Джунли уровень/Jump/2.png" id="24_xh7oa"]
 [ext_resource type="Texture2D" uid="uid://dxm48f5rchokc" path="res://resources/player/Папка герой/Герой Ветреного уровня/Jump/1.png" id="25_v2gr4"]
 [ext_resource type="Texture2D" uid="uid://b8ss1r8pdpunc" path="res://resources/player/Папка герой/Герой Ветреного уровня/Jump/2.png" id="26_m43yk"]
 [ext_resource type="Texture2D" uid="uid://c87nahn1v514h" path="res://resources/player/lay/1.png" id="27_pw6eh"]
 [ext_resource type="Texture2D" uid="uid://do4yk2gexhu4r" path="res://resources/player/Папка герой/Герой Кислотного уровня/Run/1.png" id="31_32uxm"]
 [ext_resource type="Texture2D" uid="uid://3hpnebqh8uk" path="res://resources/player/Папка герой/Герой Кислотного уровня/Run/2.png" id="32_fib6h"]
+[ext_resource type="Texture2D" uid="uid://bigoljssmid70" path="res://resources/player/Герой лежит/Кислотность костум/1.png" id="32_xko8u"]
+[ext_resource type="Texture2D" uid="uid://deybfe8ymr2qs" path="res://resources/player/Герой лежит/Холод костум/1.png" id="33_b0qm3"]
 [ext_resource type="Texture2D" uid="uid://8piv2oox6c3g" path="res://resources/player/Папка герой/Герой Холодного уровня/Run/1.png" id="33_si6a5"]
+[ext_resource type="Texture2D" uid="uid://dxclkegya4ati" path="res://resources/player/Герой лежит/Серый костум/1.png" id="34_12kwb"]
 [ext_resource type="Texture2D" uid="uid://d4ffxgvuw7t3i" path="res://resources/player/Папка герой/Герой Холодного уровня/Run/2.png" id="34_a13ep"]
 [ext_resource type="Texture2D" uid="uid://dheuh4ddan6iv" path="res://resources/player/Папка герой/Герой Жаркого уровня/Run/1.png" id="34_uih6e"]
+[ext_resource type="Texture2D" uid="uid://b56kxwwe1tlu8" path="res://resources/player/Герой лежит/Жаркий костум/1.png" id="35_ns6rt"]
 [ext_resource type="Texture2D" uid="uid://tqmdnrgiy4ep" path="res://resources/player/Папка герой/Герой Жаркого уровня/Run/2.png" id="35_yxady"]
+[ext_resource type="Texture2D" uid="uid://bna8fjoq2t3m7" path="res://resources/player/Герой лежит/Джунгли костум/1.png" id="36_c6hbw"]
 [ext_resource type="Texture2D" uid="uid://bjwdy0g0b5f44" path="res://resources/player/Папка герой/Герой Джунли уровень/Run/1.png" id="36_d4abh"]
 [ext_resource type="Texture2D" uid="uid://cxcjw32dphgef" path="res://resources/player/Папка герой/Герой Джунли уровень/Run/2.png" id="37_qxseh"]
+[ext_resource type="Texture2D" uid="uid://cod3j060tu22e" path="res://resources/player/Герой лежит/Ветреной костум/1.png" id="37_yewxv"]
 [ext_resource type="Texture2D" uid="uid://bnfey1s7kbvne" path="res://resources/player/Папка герой/Герой Ветреного уровня/Run/1.png" id="38_5okx7"]
 [ext_resource type="Texture2D" uid="uid://dyn36wwaq30l2" path="res://resources/player/Папка герой/Герой Ветреного уровня/Run/2.png" id="39_qiydf"]
 [ext_resource type="Texture2D" uid="uid://bwp5ewqkv6j77" path="res://resources/interactive/crystal.png" id="46_4e11p"]
 [ext_resource type="PackedScene" uid="uid://clxjuw1syl3eu" path="res://scenes_for_scenes/health.tscn" id="46_4tdip"]
+[ext_resource type="Texture2D" uid="uid://cvuliye0r5nru" path="res://resources/player/Герой лежит/Герой Серый Цвета/Run/1.png" id="46_mau6s"]
 [ext_resource type="FontFile" uid="uid://l4vcbe4wxesa" path="res://resources/fonts/Pixel_Font-7.ttf" id="47_fep0m"]
+[ext_resource type="Texture2D" uid="uid://veodsypvwbxx" path="res://resources/player/Герой лежит/Герой Серый Цвета/Run/2.png" id="47_ppmns"]
 [ext_resource type="Script" path="res://scripts/valueInGame.gd" id="48_fal3d"]
+[ext_resource type="Texture2D" uid="uid://g657xu4an3r" path="res://resources/papers/1.png" id="62_gcdov"]
+[ext_resource type="Texture2D" uid="uid://dg08brdw0ts72" path="res://resources/papers/2.png" id="63_5vaad"]
+[ext_resource type="PackedScene" uid="uid://co8bhy650jtcd" path="res://scenes_for_scenes/h_box_container.tscn" id="63_r6j6f"]
+[ext_resource type="Texture2D" uid="uid://d4bmquoavjnge" path="res://resources/papers/3.png" id="64_amy3i"]
+[ext_resource type="Texture2D" uid="uid://dedj7t53717ly" path="res://resources/papers/4.png" id="65_4c6o2"]
+[ext_resource type="PackedScene" uid="uid://bs5gp4rmy6ehw" path="res://scenes_for_scenes/calc.tscn" id="66_dgio3"]
+[ext_resource type="Texture2D" uid="uid://bxk3uvb4rii0n" path="res://resources/papers/5.png" id="66_ru28e"]
+[ext_resource type="Texture2D" uid="uid://dumksbhccl4hx" path="res://resources/papers/6.png" id="67_m7xtm"]
+[ext_resource type="Texture2D" uid="uid://cgfamc20v8dl8" path="res://resources/mobile_buttons/arrow.png" id="67_rgcmx"]
+[ext_resource type="FontFile" uid="uid://cp1vooogm2tjc" path="res://resources/fonts/upheavtt.ttf" id="68_06y41"]
+[ext_resource type="Texture2D" uid="uid://cpg71yxb5vsy5" path="res://resources/mobile_buttons/arrow_pressed.png" id="68_didgm"]
+[ext_resource type="Texture2D" uid="uid://vsmhwejk2svk" path="res://resources/mobile_buttons/shoot.png" id="69_qoxnx"]
+[ext_resource type="Script" path="res://scripts/codeVisible.gd" id="69_s0fkb"]
+[ext_resource type="Texture2D" uid="uid://ccyoue0lc0ihc" path="res://resources/mobile_buttons/shoot_pressed.png" id="70_f2byi"]
+[ext_resource type="Texture2D" uid="uid://cui25odv124in" path="res://resources/mobile_buttons/pausebutton.png" id="71_3e40w"]
+[ext_resource type="Texture2D" uid="uid://dxpstegnp24h4" path="res://resources/mobile_buttons/pausepressed.png" id="72_bnwk0"]
+[ext_resource type="FontFile" uid="uid://dvy48ngls58io" path="res://resources/fonts/PixelOperatorSC.ttf" id="73_1uldb"]
+[ext_resource type="Script" path="res://scripts/FPSCounter.gd" id="74_d2wxu"]
+[ext_resource type="Script" path="res://scripts/TouchScreenButton6.gd" id="75_aa3bl"]
+[ext_resource type="Script" path="res://scripts/canCrouch.gd" id="75_gm0a7"]
+[ext_resource type="Script" path="res://scripts/TouchScreenButton8.gd" id="76_l6wem"]
+[ext_resource type="Texture2D" uid="uid://c0qnulwklhe74" path="res://resources/mobile_buttons/usebutton.png" id="77_cbda4"]
+[ext_resource type="PackedScene" uid="uid://bu8tbi4v1h6ue" path="res://scenes_for_scenes/pause.tscn" id="77_tc8ac"]
+[ext_resource type="Texture2D" uid="uid://bu2mmss7prhuq" path="res://resources/mobile_buttons/usebuttonpressed.png" id="78_ps6x4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iq71w"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_t6bpk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_do0vg")
+}],
+"loop": true,
+"name": &"effect",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_k6ljq")
@@ -84,6 +133,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle-cold",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_u51h2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_j4tdc")
+}],
+"loop": true,
+"name": &"idle-dlc",
 "speed": 5.0
 }, {
 "frames": [{
@@ -157,6 +217,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("24_871v8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_c4ewd")
+}],
+"loop": true,
+"name": &"jump-dlc",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("21_20w5s")
 }, {
 "duration": 1.0,
@@ -198,6 +269,54 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("32_xko8u")
+}],
+"loop": true,
+"name": &"lay-acid",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("33_b0qm3")
+}],
+"loop": true,
+"name": &"lay-cold",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34_12kwb")
+}],
+"loop": true,
+"name": &"lay-dlc",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("35_ns6rt")
+}],
+"loop": true,
+"name": &"lay-fire",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("36_c6hbw")
+}],
+"loop": true,
+"name": &"lay-jungle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("37_yewxv")
+}],
+"loop": true,
+"name": &"lay-wind",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("7_g0cfn")
 }, {
 "duration": 1.0,
@@ -233,6 +352,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"move-cold",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("46_mau6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_ppmns")
+}],
+"loop": true,
+"name": &"move-dlc",
 "speed": 5.0
 }, {
 "frames": [{
@@ -310,6 +440,33 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"idle"]
+}
+
+[sub_resource type="Animation" id="Animation_ytxvx"]
+resource_name = "effect"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"effect"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
 }
 
 [sub_resource type="Animation" id="Animation_usve3"]
@@ -400,6 +557,34 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"idle-cold"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_hin1p"]
+resource_name = "idle-dlc"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle-dlc"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -582,6 +767,33 @@ tracks/1/keys = {
 "values": [0, 1]
 }
 
+[sub_resource type="Animation" id="Animation_e6jmp"]
+resource_name = "jump-dlc"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"jump-dlc"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
 [sub_resource type="Animation" id="Animation_w1kro"]
 resource_name = "jump-fire"
 tracks/0/type = "value"
@@ -663,6 +875,195 @@ tracks/1/keys = {
 "values": [1, 0]
 }
 
+[sub_resource type="Animation" id="Animation_ohonh"]
+resource_name = "lay"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"lay"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_37log"]
+resource_name = "lay-acid"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"lay-acid"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_0vuns"]
+resource_name = "lay-cold"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"lay-cold"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_hwgt6"]
+resource_name = "lay-dlc"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"lay-dlc", &"lay-dlc"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_o2jcs"]
+resource_name = "lay-fire"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"lay-fire"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_0khba"]
+resource_name = "lay-jungle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"lay-jungle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_6wj6r"]
+resource_name = "lay-wind"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"lay-wind"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_yh6em"]
 resource_name = "move-acid"
 length = 0.4
@@ -707,6 +1108,34 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"move-cold"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_tyopj"]
+resource_name = "move-dlc"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"move-dlc"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -848,63 +1277,60 @@ tracks/2/keys = {
 "values": [1, 0]
 }
 
-[sub_resource type="Animation" id="Animation_ohonh"]
-resource_name = "lay"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"lay"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2wr7a"]
 _data = {
 "RESET": SubResource("Animation_7p36k"),
+"effect": SubResource("Animation_ytxvx"),
 "hurtbit": SubResource("Animation_usve3"),
 "idle": SubResource("Animation_mx75f"),
 "idle-acid": SubResource("Animation_fruuf"),
 "idle-cold": SubResource("Animation_xj5m5"),
+"idle-dlc": SubResource("Animation_hin1p"),
 "idle-fire": SubResource("Animation_b1q20"),
 "idle-jungle": SubResource("Animation_dyqtk"),
 "idle-wind": SubResource("Animation_fxmwr"),
 "jump": SubResource("Animation_1dhp5"),
 "jump-acid": SubResource("Animation_vemc7"),
 "jump-cold": SubResource("Animation_l1a6p"),
+"jump-dlc": SubResource("Animation_e6jmp"),
 "jump-fire": SubResource("Animation_w1kro"),
 "jump-jungle": SubResource("Animation_5mmge"),
 "jump-wind": SubResource("Animation_rt7kj"),
 "lay": SubResource("Animation_ohonh"),
+"lay-acid": SubResource("Animation_37log"),
+"lay-cold": SubResource("Animation_0vuns"),
+"lay-dlc": SubResource("Animation_hwgt6"),
+"lay-fire": SubResource("Animation_o2jcs"),
+"lay-jungle": SubResource("Animation_0khba"),
+"lay-wind": SubResource("Animation_6wj6r"),
 "move-acid": SubResource("Animation_yh6em"),
 "move-cold": SubResource("Animation_jh7ll"),
+"move-dlc": SubResource("Animation_tyopj"),
 "move-fire": SubResource("Animation_suq04"),
 "move-jungle": SubResource("Animation_c4h1t"),
 "move-wind": SubResource("Animation_javpt"),
 "run": SubResource("Animation_gv7aj")
 }
 
+[sub_resource type="FontVariation" id="FontVariation_5w2u1"]
+base_font = ExtResource("68_06y41")
+spacing_glyph = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_0vh5w"]
+line_spacing = 0.0
+font = SubResource("FontVariation_5w2u1")
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_5gnkv"]
 font = ExtResource("47_fep0m")
 font_size = 50
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dbkxa"]
+font = ExtResource("73_1uldb")
+font_size = 50
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 5
@@ -971,8 +1397,102 @@ one_way_collision_margin = 0.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="TextureRect" parent="CanvasLayer" instance=ExtResource("66_dgio3")]
+visible = false
+anchors_preset = -1
+anchor_left = 0.375391
+anchor_top = 0.236111
+anchor_right = 0.624609
+anchor_bottom = 0.763889
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
 [node name="heartsContainer" parent="CanvasLayer" instance=ExtResource("46_4tdip")]
 scale = Vector2(5, 5)
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchor_left = 0.529688
+anchor_top = 0.00138889
+anchor_right = 0.841406
+anchor_bottom = 0.113889
+metadata/_edit_use_anchors_ = true
+
+[node name="1" type="TextureRect" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 0
+offset_left = 13.0
+offset_top = 15.0
+offset_right = 213.0
+offset_bottom = 115.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("62_gcdov")
+
+[node name="2" type="TextureRect" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 0
+offset_left = 70.0
+offset_top = 15.0
+offset_right = 270.0
+offset_bottom = 115.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("63_5vaad")
+
+[node name="3" type="TextureRect" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 0
+offset_left = 122.0
+offset_top = 15.0
+offset_right = 322.0
+offset_bottom = 115.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("64_amy3i")
+
+[node name="4" type="TextureRect" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 0
+offset_left = 187.0
+offset_top = 15.0
+offset_right = 387.0
+offset_bottom = 115.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("65_4c6o2")
+
+[node name="5" type="TextureRect" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 0
+offset_left = 245.0
+offset_top = 15.0
+offset_right = 445.0
+offset_bottom = 115.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("66_ru28e")
+
+[node name="6" type="TextureRect" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 0
+offset_left = 294.0
+offset_top = 15.0
+offset_right = 494.0
+offset_bottom = 115.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("67_m7xtm")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 0
+offset_left = 14.0
+offset_top = 17.0
+offset_right = 393.0
+offset_bottom = 63.0
+text = "000000"
+label_settings = SubResource("LabelSettings_0vh5w")
+horizontal_alignment = 1
+script = ExtResource("69_s0fkb")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 offset_left = 3.0
@@ -997,6 +1517,103 @@ vertical_alignment = 1
 script = ExtResource("48_fal3d")
 
 [node name="GameOverScreen" parent="CanvasLayer" instance=ExtResource("16_es7ls")]
+
+[node name="HBoxContainer2" parent="CanvasLayer" instance=ExtResource("63_r6j6f")]
+offset_top = -207.0
+offset_bottom = -111.0
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="CanvasLayer"]
+light_mask = 2
+position = Vector2(54.0003, 686.931)
+rotation = -1.5708
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("67_rgcmx")
+texture_pressed = ExtResource("68_didgm")
+action = "move_a"
+visibility_mode = 1
+
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="CanvasLayer"]
+light_mask = 2
+position = Vector2(874, 464)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("69_qoxnx")
+texture_pressed = ExtResource("70_f2byi")
+action = "fire"
+visibility_mode = 1
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="CanvasLayer"]
+light_mask = 2
+position = Vector2(288.379, 590)
+rotation = 1.5708
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("67_rgcmx")
+texture_pressed = ExtResource("68_didgm")
+action = "move_d"
+visibility_mode = 1
+
+[node name="TouchScreenButton5" type="TouchScreenButton" parent="CanvasLayer"]
+light_mask = 2
+position = Vector2(1210, 2)
+texture_normal = ExtResource("71_3e40w")
+texture_pressed = ExtResource("72_bnwk0")
+action = "escape"
+visibility_mode = 1
+
+[node name="FPSCounter" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.804688
+anchor_top = 0.00555556
+anchor_right = 0.94375
+anchor_bottom = 0.0763889
+grow_horizontal = 2
+grow_vertical = 2
+text = "60 FPS"
+label_settings = SubResource("LabelSettings_dbkxa")
+horizontal_alignment = 2
+script = ExtResource("74_d2wxu")
+metadata/_edit_use_anchors_ = true
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasLayer"]
+light_mask = 2
+position = Vector2(1084, 466)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("67_rgcmx")
+texture_pressed = ExtResource("68_didgm")
+action = "jump"
+visibility_mode = 1
+script = ExtResource("75_gm0a7")
+
+[node name="TouchScreenButton6" type="TouchScreenButton" parent="CanvasLayer"]
+light_mask = 2
+position = Vector2(1180.38, 688.232)
+rotation = 3.14159
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("67_rgcmx")
+texture_pressed = ExtResource("68_didgm")
+action = "crouch"
+visibility_mode = 1
+script = ExtResource("76_l6wem")
+
+[node name="TouchScreenButton7" type="TouchScreenButton" parent="CanvasLayer"]
+light_mask = 2
+position = Vector2(968, 686)
+rotation = 3.14159
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("77_cbda4")
+texture_pressed = ExtResource("78_ps6x4")
+action = "effect"
+visibility_mode = 1
+script = ExtResource("75_aa3bl")
+
+[node name="Pause" parent="CanvasLayer" instance=ExtResource("77_tc8ac")]
+visible = false
+z_index = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+metadata/_edit_use_anchors_ = true
 
 [node name="HurtCD" type="Timer" parent="."]
 one_shot = true

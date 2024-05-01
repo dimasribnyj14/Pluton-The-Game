@@ -1,0 +1,109 @@
+[gd_scene load_steps=16 format=3 uid="uid://c41jed2cq5prg"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_5vwna"]
+[ext_resource type="Shader" path="res://scripts/blur.gdshader" id="2_0hrc1"]
+[ext_resource type="Texture2D" uid="uid://dsuwc20243fqf" path="res://resources/backgrounds/main_menu.png" id="3_q7sg3"]
+[ext_resource type="Texture2D" uid="uid://c5q51cue0rbp6" path="res://resources/mobile_buttons/left.png" id="6_1x1cm"]
+[ext_resource type="Texture2D" uid="uid://bo7hoolt4eko5" path="res://resources/mobile_buttons/left_pressed.png" id="7_wxvak"]
+[ext_resource type="Script" path="res://scripts/move_to_menu.gd" id="8_dv3s4"]
+[ext_resource type="FontFile" uid="uid://cp1vooogm2tjc" path="res://resources/fonts/upheavtt.ttf" id="11_rtlq4"]
+[ext_resource type="Script" path="res://scripts/dlc_gray_button.gd" id="12_oxwda"]
+[ext_resource type="Script" path="res://scripts/Button2.gd" id="13_6d7hw"]
+[ext_resource type="FontFile" uid="uid://dvy48ngls58io" path="res://resources/fonts/PixelOperatorSC.ttf" id="26_ypd48"]
+[ext_resource type="Script" path="res://scripts/FPSCounter.gd" id="27_g27fu"]
+[ext_resource type="AudioStream" uid="uid://bd5g1cux872bw" path="res://main_scenes/main.mp3" id="28_uhj82"]
+[ext_resource type="Script" path="res://scripts/music/main.gd" id="29_alklc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d1xy6"]
+shader = ExtResource("2_0hrc1")
+
+[sub_resource type="LabelSettings" id="LabelSettings_0g4lo"]
+font = ExtResource("26_ypd48")
+font_size = 50
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5vwna")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 2
+material = SubResource("ShaderMaterial_d1xy6")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_q7sg3")
+expand_mode = 1
+
+[node name="Main_menu" type="TextureButton" parent="."]
+layout_mode = 0
+offset_top = 628.0
+offset_right = 19.0
+offset_bottom = 647.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("6_1x1cm")
+texture_pressed = ExtResource("7_wxvak")
+texture_hover = ExtResource("7_wxvak")
+script = ExtResource("8_dv3s4")
+
+[node name="FPSCounter" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 131.0
+offset_bottom = 53.0
+text = "60 FPS"
+label_settings = SubResource("LabelSettings_0g4lo")
+script = ExtResource("27_g27fu")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("28_uhj82")
+script = ExtResource("29_alklc")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 266.0
+offset_top = 423.0
+offset_right = 1044.0
+offset_bottom = 572.0
+focus_mode = 0
+theme_override_colors/font_color = Color(0.552941, 0.552941, 0.552941, 1)
+theme_override_colors/font_pressed_color = Color(0.65098, 0.65098, 0.65098, 1)
+theme_override_colors/font_hover_color = Color(0.0588235, 0.0588235, 0.0588235, 1)
+theme_override_colors/font_outline_color = Color(0.219608, 0.219608, 0.219608, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("11_rtlq4")
+theme_override_font_sizes/font_size = 116
+text = "Predecessor"
+flat = true
+script = ExtResource("12_oxwda")
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 178.0
+offset_right = 1040.0
+offset_bottom = 327.0
+focus_mode = 0
+theme_override_colors/font_color = Color(0.392157, 0.560784, 0.788235, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.596078, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0.0627451, 0.309804, 1)
+theme_override_constants/outline_size = 21
+theme_override_fonts/font = ExtResource("26_ypd48")
+theme_override_font_sizes/font_size = 116
+text = "Hero Training"
+flat = true
+script = ExtResource("13_6d7hw")
+
+[connection signal="pressed" from="Main_menu" to="Main_menu" method="_on_pressed"]
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]

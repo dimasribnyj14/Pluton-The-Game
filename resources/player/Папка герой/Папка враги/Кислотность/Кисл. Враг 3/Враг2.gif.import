@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://dpqcemk521qsy"
+path="res://.godot/imported/Враг2.gif-2ab79c1aad1902e2bb48c449f3be741d.tres"
+
+[deps]
+
+source_file="res://resources/player/Папка герой/Папка враги/Кислотность/Кисл. Враг 3/Враг2.gif"
+dest_files=["res://.godot/imported/Враг2.gif-2ab79c1aad1902e2bb48c449f3be741d.tres"]
+
+[params]
+
+frames_per_second=30

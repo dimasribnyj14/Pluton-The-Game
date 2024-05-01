@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://bojj5qaxpvxhw"
+path="res://.godot/imported/Враг2.gif-546a05475236d1f865e78702b78dfbed.tres"
+
+[deps]
+
+source_file="res://resources/enemies/Кислотность/Кисл. Враг 3/Враг2.gif"
+dest_files=["res://.godot/imported/Враг2.gif-546a05475236d1f865e78702b78dfbed.tres"]
+
+[params]
+
+frames_per_second=30

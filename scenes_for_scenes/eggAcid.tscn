@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://cc03wvw0ial"]
+
+[ext_resource type="Script" path="res://scripts/eggAcid.gd" id="1_qvcd8"]
+[ext_resource type="Texture2D" uid="uid://bpm3eh7kboy4b" path="res://resources/egg/1.png" id="1_y1p3o"]
+[ext_resource type="Texture2D" uid="uid://b2hqt5ajose8c" path="res://resources/egg/2.png" id="2_yr6xm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipftw"]
+size = Vector2(237, 219)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fii2f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_y1p3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_yr6xm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_qvcd8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(119, 109)
+shape = SubResource("RectangleShape2D_ipftw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(117, 107)
+sprite_frames = SubResource("SpriteFrames_fii2f")
+autoplay = "default"
+frame_progress = 0.800403
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

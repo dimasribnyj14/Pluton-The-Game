@@ -6,8 +6,10 @@ var start_x #Свойства start_x (начало пути)
 var player = null
 var go_to_plr = false
 var can_jump = true
+var rng = RandomNumberGenerator.new()
 @export var cant_search_player = false
 @export var timePerJump: int = 3
+@export var health: int
 var start_y: int = 0 #Свойства start_y (НЕИСПОЛЬЗОВАТЬ)
 @export var end_x: int = 0 #Свойства end_x (конец пути)
 var SPEED: float = 3 #Свойства SPEED (скорость бота
@@ -19,6 +21,7 @@ var direction: int = 0
 @onready var timerM = $TimerMove
 # Функция, которая запускается при запуске сцены
 func _ready():
+	health = int(rng.randf_range(1, 5))
 	start_x = position.x #Ставим начальный путь
 	if start_y != 0: #Если start_y не равняется нулю, то
 		position.y = start_y #

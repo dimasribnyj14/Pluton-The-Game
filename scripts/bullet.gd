@@ -4,6 +4,7 @@ extends Area2D
 @onready var timer = $EnemyDed
 @onready var ore = preload("res://scenes_for_scenes/crystal.tscn")
 # Called when the node enters the scene tree for the first time.
+var rng = RandomNumberGenerator.new()
 func _ready():
 	pass # Replace with function body.
 
@@ -18,23 +19,72 @@ func _on_body_entered(body):
 	if body.name.contains('RigidBody2D') or body.name == "flyWind":
 		if body.get_node_or_null("hitBox"):
 			if body.get_node("hitBox").get_node_or_null("CollisionShape2D"):
-				queue_free()
-				body.remove_from_group("enemy")
-				body.get_node('CollisionShape2D').disabled = true
-				body.get_node('hitBox').get_node("CollisionShape2D").disabled = true
-				body.get_node('hitBox').monitoring = false
-				body.get_node('hitBox').monitorable = false
-				body.get_node('hitBox').set_collision_layer_value(1, false)
-				body.get_node('hitBox').set_collision_mask_value(1, false)
-				body.dead = true
-				body.modulate = Color('00ffff')
-				body.get_node('PointLight2D').energy = 1
-				var tween = get_tree().create_tween()
-				tween.tween_property(body, "modulate", Color(0,1,1,0), 1)
-				tween.tween_property(body.get_node('PointLight2D'), "energy", 0, 0.5)
-				tween.tween_callback(body.queue_free)
+				if body.get("health"):
+					queue_free()
+					body.health -= 1
+					body.modulate = Color('00ffff')
+					var tweene = get_tree().create_tween()
+					tweene.tween_property(body, "modulate", Color(1,1,1,1), 1)
+					if body.health <= 0:
+						queue_free()
+				# Give Crystal
+				
+						if int(rng.randf_range(0, 10)) > 8:
+							var ore_instance = ore.instantiate()
+							ore_instance.position = body.position
+
+							ore_instance.position.x += 25
+							ore_instance.position.y += 40
+		
+							get_tree().current_scene.add_child(ore_instance)
+				
+				# Remove Body
+						body.remove_from_group("enemy")
+						body.get_node('CollisionShape2D').disabled = true
+						body.get_node('hitBox').get_node("CollisionShape2D").disabled = true
+						body.get_node('hitBox').monitoring = false
+						body.get_node('hitBox').monitorable = false
+						body.get_node('hitBox').set_collision_layer_value(1, false)
+						body.get_node('hitBox').set_collision_mask_value(1, false)
+						body.dead = true
+						body.modulate = Color('00ffff')
+						body.get_node('PointLight2D').energy = 1
+						var tween = get_tree().create_tween()
+						tween.tween_property(body, "modulate", Color(0,1,1,0), 1)
+						tween.tween_property(body.get_node('PointLight2D'), "energy", 0, 0.5)
+						tween.tween_callback(body.queue_free)
 				#timer.connect('timeout',_on_enemy_ded_timeout(body))
-				timer.start(3)
+						timer.start(3)
+				else:
+					queue_free()
+						# Give Crystal
+				
+					if int(rng.randf_range(0, 10)) > 8:
+						var ore_instance = ore.instantiate()
+						ore_instance.position = body.position
+
+						ore_instance.position.x += 25
+						ore_instance.position.y += 40
+		
+						get_tree().current_scene.add_child(ore_instance)
+				
+				# Remove Body
+					body.remove_from_group("enemy")
+					body.get_node('CollisionShape2D').disabled = true
+					body.get_node('hitBox').get_node("CollisionShape2D").disabled = true
+					body.get_node('hitBox').monitoring = false
+					body.get_node('hitBox').monitorable = false
+					body.get_node('hitBox').set_collision_layer_value(1, false)
+					body.get_node('hitBox').set_collision_mask_value(1, false)
+					body.dead = true
+					body.modulate = Color('00ffff')
+					body.get_node('PointLight2D').energy = 1
+					var tween = get_tree().create_tween()
+					tween.tween_property(body, "modulate", Color(0,1,1,0), 1)
+					tween.tween_property(body.get_node('PointLight2D'), "energy", 0, 0.5)
+					tween.tween_callback(body.queue_free)
+				#timer.connect('timeout',_on_enemy_ded_timeout(body))
+					timer.start(3)
 			#if body.modulate.a == 0:
 				#body.queue_free()
 	elif body.name == 'Boss' and body.cant_search_player == false:
@@ -97,7 +147,8 @@ func _on_body_entered(body):
 		#ore_instance.position = position
 		#body.queue_free()
 	else:
-		queue_free()
+		if body.name != 'InvisibleWall':
+			queue_free()
 
 
 
@@ -120,4 +171,8 @@ func _on_area_entered(area):
 		tween.tween_property(area.get_parent(), "modulate", Color(0,1,1,0), 1)
 		#tween.tween_callback(area.get_parent().queue_free())
 		#
+		queue_free()
+	elif area.name == 'Mine':
+		queue_free()
+	elif area.name == 'bulletproof':
 		queue_free()

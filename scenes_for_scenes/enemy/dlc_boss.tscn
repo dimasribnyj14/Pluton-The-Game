@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=3 uid="uid://khvhhnksuyvp"]
+
+[ext_resource type="Script" path="res://scripts/dlc_boss.gd" id="1_cpceu"]
+[ext_resource type="Texture2D" uid="uid://brxqtabo8gm8r" path="res://resources/enemies/bossGray/1.png" id="2_5k0hy"]
+[ext_resource type="Texture2D" uid="uid://c0wd0ha0gfxm7" path="res://resources/enemies/bossGray/2.png" id="3_a268q"]
+[ext_resource type="Texture2D" uid="uid://dhq8a5fq644w0" path="res://resources/enemies/bossGray/3.png" id="4_6wqxc"]
+[ext_resource type="Texture2D" uid="uid://b8twasbjruvlf" path="res://resources/interactive/lightshoot.png" id="6_ymt0l"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pnc4s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5k0hy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_a268q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6wqxc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_14h38"]
+radius = 104.0
+height = 342.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jl6kc"]
+size = Vector2(981.313, 622.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sywb"]
+size = Vector2(333.5, 203)
+
+[node name="Boss" type="RigidBody2D" groups=["enemy"]]
+gravity_scale = 0.005
+lock_rotation = true
+script = ExtResource("1_cpceu")
+hp = 10
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(163, 114)
+scale = Vector2(0.505083, 0.505083)
+sprite_frames = SubResource("SpriteFrames_pnc4s")
+autoplay = "default"
+frame = 2
+frame_progress = 0.343974
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(168, 125)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_14h38")
+
+[node name="TimerMove" type="Timer" parent="."]
+
+[node name="FindPlr" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FindPlr"]
+position = Vector2(168, 120)
+shape = SubResource("RectangleShape2D_jl6kc")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(175, 118)
+rotation = 1.5708
+scale = Vector2(0.852712, 2.512)
+energy = 0.0
+texture = ExtResource("6_ymt0l")
+
+[node name="bossHit" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bossHit"]
+position = Vector2(165.25, 119.5)
+shape = SubResource("RectangleShape2D_1sywb")
+
+[connection signal="timeout" from="TimerMove" to="." method="_on_timer_move_timeout"]
+[connection signal="body_entered" from="FindPlr" to="." method="_on_find_plr_body_entered"]
+[connection signal="body_exited" from="FindPlr" to="." method="_on_find_plr_body_exited"]

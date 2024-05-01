@@ -33,6 +33,7 @@ func _ready():
 		config.set_value("options", "strechscreen", false)
 		config.set_value("options", "music", true)
 		config.set_value("options", "light", false)
+		config.set_value("options", "doublejump", false)
 		
 		config.set_value("levels", "ice", false)
 		config.set_value("levels", "acid", false)

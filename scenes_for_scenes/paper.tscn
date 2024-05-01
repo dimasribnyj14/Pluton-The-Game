@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdlamq1q3slya"]
+
+[ext_resource type="Script" path="res://scripts/takePaper.gd" id="1_wb3yw"]
+[ext_resource type="Texture2D" uid="uid://g657xu4an3r" path="res://resources/papers/1.png" id="2_44pxs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2f72e"]
+size = Vector2(134.667, 92.6667)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_wb3yw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 200.0
+offset_bottom = 100.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_44pxs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(29, 15)
+scale = Vector2(0.3, 0.3)
+shape = SubResource("RectangleShape2D_2f72e")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

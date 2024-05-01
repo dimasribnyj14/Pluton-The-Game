@@ -1,0 +1,153 @@
+[gd_scene load_steps=16 format=3 uid="uid://cka3mnymtoew5"]
+
+[ext_resource type="Script" path="res://scripts/checkpoint.gd" id="1_tfhih"]
+[ext_resource type="Texture2D" uid="uid://cibf5kuw1iinc" path="res://resources/interactive/checkpoint/1.png" id="2_o322h"]
+[ext_resource type="Texture2D" uid="uid://0lksthlsqpnw" path="res://resources/interactive/checkpoint/2.png" id="3_i0ke2"]
+[ext_resource type="Texture2D" uid="uid://dr8geyd10u8la" path="res://resources/interactive/checkpoint/3.png" id="4_fcgjd"]
+[ext_resource type="Texture2D" uid="uid://bijquth8ckfma" path="res://resources/interactive/checkpoint/4.png" id="5_ep2fw"]
+[ext_resource type="Texture2D" uid="uid://b3jc43tui5i3b" path="res://resources/interactive/checkpoint/5.png" id="6_2b0wo"]
+[ext_resource type="Texture2D" uid="uid://ducqcwoum2wl1" path="res://resources/interactive/checkpoint/6.png" id="7_st6e7"]
+[ext_resource type="Texture2D" uid="uid://cd8vjtd26t7wi" path="res://resources/interactive/checkpoint/coal.png" id="8_3rwj8"]
+[ext_resource type="Texture2D" uid="uid://bfbsgui8ni4tw" path="res://resources/interactive/checkpoint/lightCheckpoint.png" id="9_hjsws"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_15462"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_o322h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_i0ke2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fcgjd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ep2fw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2b0wo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_st6e7")
+}],
+"loop": true,
+"name": &"checkpoint",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_3rwj8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_q3ybe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_nlw3o"]
+resource_name = "checkpoint"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"checkpoint"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_0cu2v"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t30kx"]
+_data = {
+"RESET": SubResource("Animation_q3ybe"),
+"checkpoint": SubResource("Animation_nlw3o"),
+"default": SubResource("Animation_0cu2v")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ofiq"]
+size = Vector2(34, 48)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_tfhih")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(32, 50)
+sprite_frames = SubResource("SpriteFrames_15462")
+animation = &"checkpoint"
+autoplay = "checkpoint"
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_t30kx")
+}
+autoplay = "checkpoint"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(32, 37)
+shape = SubResource("RectangleShape2D_8ofiq")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(32, 29)
+scale = Vector2(2.80469, 2.88101)
+texture = ExtResource("9_hjsws")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,0 +1,172 @@
+[gd_scene load_steps=9 format=3 uid="uid://bs5gp4rmy6ehw"]
+
+[ext_resource type="Texture2D" uid="uid://clysuur2entrt" path="res://resources/interactive/calcDoor/calc.png" id="1_do5c7"]
+[ext_resource type="Script" path="res://scripts/buttonCalc.gd" id="2_vfgk1"]
+[ext_resource type="FontFile" uid="uid://dvy48ngls58io" path="res://resources/fonts/PixelOperatorSC.ttf" id="3_lf0xc"]
+[ext_resource type="Script" path="res://scripts/calcPress.gd" id="4_7mi53"]
+[ext_resource type="AudioStream" uid="uid://boh1r10urbopw" path="res://resources/sounds/click.ogg" id="5_ya3qh"]
+[ext_resource type="AudioStream" uid="uid://pcsw12yky7qo" path="res://resources/sounds/error.ogg" id="6_cyne5"]
+[ext_resource type="AudioStream" uid="uid://b0v821wkd2tpf" path="res://resources/sounds/confirm.ogg" id="7_7uykt"]
+
+[sub_resource type="FontVariation" id="FontVariation_1mob7"]
+base_font = ExtResource("3_lf0xc")
+variation_embolden = 0.22
+spacing_glyph = 2
+
+[node name="TextureRect" type="TextureRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.5
+offset_top = -190.0
+offset_right = 159.5
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_do5c7")
+expand_mode = 1
+script = ExtResource("2_vfgk1")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 15.0
+offset_right = 267.0
+offset_bottom = 95.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_1mob7")
+theme_override_font_sizes/font_size = 80
+vertical_alignment = 1
+
+[node name="0" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 57.0
+offset_top = 98.0
+offset_right = 116.0
+offset_bottom = 151.0
+script = ExtResource("4_7mi53")
+
+[node name="1" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 127.5
+offset_top = 97.0
+offset_right = 186.5
+offset_bottom = 150.0
+script = ExtResource("4_7mi53")
+
+[node name="2" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 197.5
+offset_top = 98.0
+offset_right = 256.5
+offset_bottom = 151.0
+script = ExtResource("4_7mi53")
+
+[node name="3" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 55.5
+offset_top = 158.0
+offset_right = 114.5
+offset_bottom = 211.0
+script = ExtResource("4_7mi53")
+
+[node name="4" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 128.5
+offset_top = 159.0
+offset_right = 187.5
+offset_bottom = 212.0
+script = ExtResource("4_7mi53")
+
+[node name="5" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 196.5
+offset_top = 159.0
+offset_right = 255.5
+offset_bottom = 212.0
+script = ExtResource("4_7mi53")
+
+[node name="6" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 57.5
+offset_top = 223.0
+offset_right = 116.5
+offset_bottom = 276.0
+script = ExtResource("4_7mi53")
+
+[node name="7" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 129.5
+offset_top = 223.0
+offset_right = 188.5
+offset_bottom = 276.0
+script = ExtResource("4_7mi53")
+
+[node name="8" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 196.5
+offset_top = 223.0
+offset_right = 255.5
+offset_bottom = 276.0
+script = ExtResource("4_7mi53")
+
+[node name="9" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 56.5
+offset_top = 281.0
+offset_right = 115.5
+offset_bottom = 334.0
+script = ExtResource("4_7mi53")
+
+[node name="ok" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 124.0
+offset_top = 280.0
+offset_right = 252.0
+offset_bottom = 335.0
+script = ExtResource("4_7mi53")
+
+[node name="click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ya3qh")
+
+[node name="error" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_cyne5")
+
+[node name="confirm" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_7uykt")
+
+[connection signal="pressed" from="0" to="." method="_on__pressed"]
+[connection signal="pressed" from="0" to="0" method="_on_pressed"]
+[connection signal="pressed" from="1" to="." method="_on__pressed"]
+[connection signal="pressed" from="1" to="1" method="_on_pressed"]
+[connection signal="pressed" from="2" to="." method="_on__pressed"]
+[connection signal="pressed" from="2" to="2" method="_on_pressed"]
+[connection signal="pressed" from="3" to="." method="_on__pressed"]
+[connection signal="pressed" from="3" to="3" method="_on_pressed"]
+[connection signal="pressed" from="4" to="." method="_on__pressed"]
+[connection signal="pressed" from="4" to="4" method="_on_pressed"]
+[connection signal="pressed" from="5" to="." method="_on__pressed"]
+[connection signal="pressed" from="5" to="5" method="_on_pressed"]
+[connection signal="pressed" from="6" to="." method="_on__pressed"]
+[connection signal="pressed" from="6" to="6" method="_on_pressed"]
+[connection signal="pressed" from="7" to="." method="_on__pressed"]
+[connection signal="pressed" from="7" to="7" method="_on_pressed"]
+[connection signal="pressed" from="8" to="." method="_on__pressed"]
+[connection signal="pressed" from="8" to="8" method="_on_pressed"]
+[connection signal="pressed" from="9" to="." method="_on__pressed"]
+[connection signal="pressed" from="9" to="9" method="_on_pressed"]
+[connection signal="pressed" from="ok" to="." method="_on__pressed"]
+[connection signal="pressed" from="ok" to="ok" method="_on_pressed"]

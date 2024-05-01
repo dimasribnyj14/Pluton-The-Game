@@ -18,6 +18,10 @@ func _process(delta):
 func _on_area_2d_body_entered(body):
 	if body.name == 'CharacterBody2D':
 		queue_free()
+		#if config.get_value("options",'doublejump') == false:
+			#player.crystalValue += 2
+			#config.set_value('saves','crystal',config.get_value('saves','crystal')+2)
+		#else:
 		player.crystalValue += 1
 		config.set_value('saves','crystal',config.get_value('saves','crystal')+1)
 		config.save('user://config.cfg')

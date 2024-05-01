@@ -1,0 +1,82 @@
+[gd_scene load_steps=13 format=3 uid="uid://ccph1cmqvn64s"]
+
+[ext_resource type="Script" path="res://scripts/saveLevel/comics_to_cloud.gd" id="1_4e64f"]
+[ext_resource type="Texture2D" uid="uid://cyr4h7hqo6kj1" path="res://resources/backgrounds/empty.png" id="2_hl8ui"]
+[ext_resource type="FontFile" uid="uid://l4vcbe4wxesa" path="res://resources/fonts/Pixel_Font-7.ttf" id="3_sn555"]
+[ext_resource type="Texture2D" uid="uid://1j1x31p1eohv" path="res://resources/comics/dlc_gray/1.png" id="4_4tiit"]
+[ext_resource type="Texture2D" uid="uid://dgg1httqc84k8" path="res://resources/comics/dlc_gray/2.png" id="5_fmsoo"]
+[ext_resource type="Texture2D" uid="uid://cytynmvg077mw" path="res://resources/comics/dlc_gray/3.png" id="6_1l0pt"]
+[ext_resource type="Texture2D" uid="uid://dscwbe8myg6t0" path="res://resources/mobile_buttons/right.png" id="7_f1lx1"]
+[ext_resource type="Texture2D" uid="uid://bmlvc2t6tk8o3" path="res://resources/mobile_buttons/somewhere_need_this_button.png" id="8_6xyxe"]
+[ext_resource type="Texture2D" uid="uid://caiebfti7efol" path="res://resources/mobile_buttons/right_pressed.png" id="9_74mtp"]
+[ext_resource type="Script" path="res://scripts/move_from_comics_to_lvl.gd" id="10_spvvq"]
+[ext_resource type="Script" path="res://scripts/move_to_menu.gd" id="11_4qcou"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_l7pb2"]
+font = ExtResource("3_sn555")
+font_size = 30
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_4e64f")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -86.0
+offset_top = -2.0
+offset_right = 1482.0
+offset_bottom = 792.0
+scale = Vector2(0.91, 0.91)
+texture = ExtResource("2_hl8ui")
+
+[node name="Label2" type="Label" parent="TextureRect"]
+texture_filter = 2
+layout_mode = 0
+offset_left = 756.0
+offset_top = 401.0
+offset_right = 1133.0
+offset_bottom = 790.0
+text = "В історії була ще одна людина, яка намагалася помститися Плутону, за 9 років до перемоги над плутоном. Він був ветераном космічної армії і тепер він впевнений, що зможе перемогти Плутона, ну що ж, побачимо, чи вдасться йому."
+label_settings = SubResource("LabelSettings_l7pb2")
+horizontal_alignment = 2
+autowrap_mode = 3
+
+[node name="45" type="Sprite2D" parent="."]
+position = Vector2(412.929, 178.929)
+scale = Vector2(0.716282, 0.716282)
+texture = ExtResource("4_4tiit")
+
+[node name="46" type="Sprite2D" parent="."]
+position = Vector2(772.953, 181.953)
+scale = Vector2(0.708188, 0.708188)
+texture = ExtResource("5_fmsoo")
+
+[node name="48" type="Sprite2D" parent="."]
+position = Vector2(414.988, 543.988)
+scale = Vector2(1.78012, 1.78012)
+texture = ExtResource("6_1l0pt")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 1185.0
+offset_top = 627.0
+offset_right = 1204.0
+offset_bottom = 646.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("7_f1lx1")
+texture_pressed = ExtResource("8_6xyxe")
+texture_hover = ExtResource("9_74mtp")
+script = ExtResource("10_spvvq")
+levelTeleport = "graylvl"
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+offset_left = 1.00012
+offset_top = 626.0
+offset_right = 20.0001
+offset_bottom = 645.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("7_f1lx1")
+texture_pressed = ExtResource("8_6xyxe")
+texture_hover = ExtResource("9_74mtp")
+flip_h = true
+script = ExtResource("11_4qcou")
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
+[connection signal="pressed" from="TextureButton2" to="TextureButton2" method="_on_pressed"]

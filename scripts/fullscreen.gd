@@ -5,6 +5,7 @@ var configFile = config.load('user://config.cfg')
 @onready var heartsContainer = $CharacterBody2D/CanvasLayer/heartsContainer
 var assetDiscordArt = 'fire'
 var assetDiscordText = 'Pyron'
+var time = Time.get_datetime_dict_from_system()
 func _ready():
 	#if OS.get_name() != "Android":
 
@@ -32,6 +33,7 @@ func _ready():
 	elif get_tree().current_scene.name == 'Ship':
 		assetDiscordArt = 'ship'
 		assetDiscordText = 'Ship'
+		$CharacterBody2D.date = "%02d.%02d.%02d" % [time.day, time.month, time.year]
 	#DiscordSDK.app_id = 1221524982148894890 # Application ID
 	#DiscordSDK.details = "WORLD IT GameJam: Godot Engine"
 	#DiscordSDK.large_image = "pluton" # Image key from "Art Assets"
@@ -53,9 +55,9 @@ func _process(delta):
 		get_window().content_scale_aspect = Window.CONTENT_SCALE_ASPECT_IGNORE
 	
 	if config.get_value('options', 'light') == false:
-		$CharacterBody2D/Camera2D/FPSCounter.visible = false
+		$CharacterBody2D/CanvasLayer/FPSCounter.visible = false
 	else:
-		$CharacterBody2D/Camera2D/FPSCounter.visible = true
+		$CharacterBody2D/CanvasLayer/FPSCounter.visible = true
 	
 	if Input.is_action_just_pressed("fullscreen"):
 		if fullscreen == false:
@@ -67,21 +69,24 @@ func _process(delta):
 	if Input.is_action_just_pressed("escape"):
 		if Engine.time_scale == 0:
 			Engine.time_scale = 1
-			#$CharacterBody2D/Music.playing = true
-			$CharacterBody2D/Camera2D/Pause.hide()
-			$CharacterBody2D/Camera2D/TouchScreenButton2.show()
-			$CharacterBody2D/Camera2D/TouchScreenButton3.show()
-			$CharacterBody2D/Camera2D/TouchScreenButton4.show()
-			$CharacterBody2D/Camera2D/TouchScreenButton5.show()
-			$CharacterBody2D/Camera2D/TouchScreenButton.show()
+			$CharacterBody2D/CanvasLayer/TouchScreenButton7.hide()
+			$CharacterBody2D/CanvasLayer/Pause.hide()
+			$CharacterBody2D/CanvasLayer/TouchScreenButton2.show()
+			$CharacterBody2D/CanvasLayer/TouchScreenButton3.show()
+			$CharacterBody2D/CanvasLayer/TouchScreenButton4.show()
+			$CharacterBody2D/CanvasLayer/TouchScreenButton5.show()
+			$CharacterBody2D/CanvasLayer/TouchScreenButton6.show()
+			$CharacterBody2D/CanvasLayer/TouchScreenButton.show()
 		else:
 			Engine.time_scale = 0
 			#$CharacterBody2D/Music.playing = false
-			$CharacterBody2D/Camera2D/Pause.show()
-			$CharacterBody2D/Camera2D/TouchScreenButton2.hide()
-			$CharacterBody2D/Camera2D/TouchScreenButton3.hide()
-			$CharacterBody2D/Camera2D/TouchScreenButton4.hide()
-			$CharacterBody2D/Camera2D/TouchScreenButton5.hide()
-			$CharacterBody2D/Camera2D/TouchScreenButton.hide()
+			$CharacterBody2D/CanvasLayer/Pause.show()
+			$CharacterBody2D/CanvasLayer/TouchScreenButton2.hide()
+			$CharacterBody2D/CanvasLayer/TouchScreenButton3.hide()
+			$CharacterBody2D/CanvasLayer/TouchScreenButton4.hide()
+			$CharacterBody2D/CanvasLayer/TouchScreenButton5.hide()
+			$CharacterBody2D/CanvasLayer/TouchScreenButton6.hide()
+			$CharacterBody2D/CanvasLayer/TouchScreenButton7.hide()
+			$CharacterBody2D/CanvasLayer/TouchScreenButton.hide()
 		#get_tree().change_scene_to_file("res://main_scenes/main_menu.tscn")
 	#DiscordSDK.run_callbacks()

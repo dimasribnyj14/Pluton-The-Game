@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bjr1pxco7cle4"]
+[gd_scene load_steps=48 format=3 uid="uid://bjr1pxco7cle4"]
 
 [ext_resource type="Script" path="res://scripts/fullscreen.gd" id="1_1r7k7"]
 [ext_resource type="Texture2D" uid="uid://boh55yautp1a1" path="res://resources/tilemaps/ship_blocks.png" id="1_maqti"]
@@ -32,8 +32,12 @@
 [ext_resource type="Texture2D" uid="uid://14801m8dllw8" path="res://resources/decorations/ship/pixil-frame-0 (12).png" id="28_ccb7k"]
 [ext_resource type="FontFile" uid="uid://dvy48ngls58io" path="res://resources/fonts/PixelOperatorSC.ttf" id="30_gm2ko"]
 [ext_resource type="Script" path="res://scripts/FPSCounter.gd" id="31_hhfjp"]
+[ext_resource type="Script" path="res://scripts/TouchScreenButton6.gd" id="33_dwy7v"]
 [ext_resource type="AudioStream" uid="uid://cetpjii33jmy1" path="res://resources/sounds/soundtrack/Shop.wav" id="33_fhpea"]
+[ext_resource type="AudioStream" uid="uid://bqahue5lbcool" path="res://resources/sounds/ambience/futuristic_ship_02 (mp3cut.net).mp3" id="34_axx52"]
 [ext_resource type="Script" path="res://scripts/music/main.gd" id="34_f876c"]
+[ext_resource type="Texture2D" uid="uid://bxvs7u08atcss" path="res://resources/decorations/ship/black.png" id="35_2ooy1"]
+[ext_resource type="AudioStream" uid="uid://44gwum85hcec" path="res://resources/sounds/ambience/ship.mp3" id="35_p2das"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fnaug"]
 texture = ExtResource("2_jej7p")
@@ -533,8 +537,14 @@ layer_0/tile_data = PackedInt32Array(393216, 65537, 0, 393217, 65537, 0, 393218,
 position = Vector2(-264, 187)
 scale = Vector2(2.5, 2.5)
 
+[node name="Black" type="Sprite2D" parent="."]
+position = Vector2(599, 128)
+scale = Vector2(0.56, 0.56)
+texture = ExtResource("35_2ooy1")
+
 [node name="CharacterBody2D" parent="." instance=ExtResource("3_34eg6")]
 position = Vector2(6, 170)
+place = "Space Ship"
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(34, 9)
@@ -544,16 +554,8 @@ position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("4_2d3l6")
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
-light_mask = 2
-position = Vector2(531.187, 296.703)
-scale = Vector2(1.5, 1.5)
-texture_normal = ExtResource("5_gf7fq")
-texture_pressed = ExtResource("6_gvm5g")
-action = "jump"
-visibility_mode = 1
-
 [node name="TouchScreenButton2" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+visible = false
 light_mask = 2
 position = Vector2(-654.948, 382.995)
 rotation = -1.5708
@@ -564,6 +566,7 @@ action = "move_a"
 visibility_mode = 1
 
 [node name="TouchScreenButton4" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+visible = false
 light_mask = 2
 position = Vector2(281.474, 185.587)
 scale = Vector2(1.5, 1.5)
@@ -573,6 +576,7 @@ action = "fire"
 visibility_mode = 1
 
 [node name="TouchScreenButton3" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+visible = false
 light_mask = 2
 position = Vector2(-420.569, 286.064)
 rotation = 1.5708
@@ -583,6 +587,7 @@ action = "move_d"
 visibility_mode = 1
 
 [node name="TouchScreenButton5" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+visible = false
 light_mask = 2
 position = Vector2(637.425, -424.368)
 texture_normal = ExtResource("9_5b27w")
@@ -600,6 +605,7 @@ grow_vertical = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="FPSCounter" type="Label" parent="CharacterBody2D/Camera2D"]
+visible = false
 offset_left = -696.488
 offset_top = -261.241
 offset_right = -573.488
@@ -607,6 +613,41 @@ offset_bottom = -210.241
 text = "60 FPS"
 label_settings = SubResource("LabelSettings_4kwo7")
 script = ExtResource("31_hhfjp")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+visible = false
+light_mask = 2
+position = Vector2(543.235, 185.587)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("5_gf7fq")
+texture_pressed = ExtResource("6_gvm5g")
+action = "jump"
+visibility_mode = 1
+
+[node name="TouchScreenButton6" type="TouchScreenButton" parent="CharacterBody2D/Camera2D"]
+visible = false
+light_mask = 2
+position = Vector2(639.615, 407.819)
+rotation = 3.14159
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("5_gf7fq")
+texture_pressed = ExtResource("6_gvm5g")
+action = "crouch"
+visibility_mode = 1
+script = ExtResource("33_dwy7v")
+
+[node name="LevelAmbience" type="AudioStreamPlayer2D" parent="CharacterBody2D/Camera2D"]
+position = Vector2(-409.093, -260.76)
+scale = Vector2(1.19953, 1.39732)
+stream = ExtResource("34_axx52")
+volume_db = -5.0
+autoplay = true
+
+[node name="LevelAmbience2" type="AudioStreamPlayer2D" parent="CharacterBody2D/Camera2D"]
+position = Vector2(-409.093, -260.76)
+scale = Vector2(1.19953, 1.39732)
+stream = ExtResource("35_p2das")
+autoplay = true
 
 [node name="Music" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
 stream = ExtResource("33_fhpea")

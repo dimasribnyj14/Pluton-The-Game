@@ -81,3 +81,7 @@ shape = SubResource("RectangleShape2D_yup10")
 position = Vector2(-19.668, -1.25)
 rotation = 0.785398
 shape = SubResource("RectangleShape2D_yup10")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

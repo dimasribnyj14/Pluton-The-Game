@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://d154ml08gk7rb" path="res://resources/enemies/Плутон/1.png" id="12_new2l"]
 [ext_resource type="Script" path="res://scripts/move_to_menu.gd" id="12_whxc5"]
 [ext_resource type="Texture2D" uid="uid://bwu2fpxn2d55" path="res://resources/enemies/lightenemyshoot.png" id="13_bht66"]
-[ext_resource type="Texture2D" uid="uid://brpvfxpe7xtma" path="res://resources/decorations/black.png" id="14_kbux7"]
+[ext_resource type="Texture2D" uid="uid://brpvfxpe7xtma" path="res://resources/black.png" id="14_kbux7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_eivbk"]
 font = ExtResource("3_iqwfb")

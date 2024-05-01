@@ -15,7 +15,7 @@ config/name_localized={
 "ru_RU": "Возмездие Плутона галактического изгоя",
 "uk_UA": "Відплата Плутона галактичного ізгоя"
 }
-config/version="1.23"
+config/version="2.0"
 run/main_scene="res://main_scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 boot_splash/bg_color=Color(0, 0, 0, 1)
@@ -26,6 +26,10 @@ config/windows_native_icon="res://resources/pluton.ico"
 [autoload]
 
 DiscordSDKLoader="*res://addons/discord-sdk-gd/nodes/discord_autoload.gd"
+
+[debug]
+
+shapes/emulate_touch_from_mouse=false
 
 [display]
 
@@ -97,6 +101,12 @@ crouch={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":8,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
+effect={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"key_label":0,"unicode":113,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":3,"pressure":0.0,"pressed":false,"script":null)
+]
+}
 
 [internationalization]
 
@@ -112,6 +122,12 @@ renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
 textures/default_filters/anisotropic_filtering_level=0
 textures/light_projectors/filter=0
+environment/subsurface_scattering/subsurface_scattering_quality=0
 lightmapping/probe_capture/update_speed=15.0
 limits/opengl/max_renderable_lights=2
 limits/opengl/max_lights_per_object=2
+lights_and_shadows/positional_shadow/atlas_16_bits=false
+lights_and_shadows/positional_shadow/atlas_quadrant_0_subdiv=0
+lights_and_shadows/positional_shadow/atlas_quadrant_1_subdiv=0
+lights_and_shadows/positional_shadow/atlas_quadrant_2_subdiv=0
+lights_and_shadows/positional_shadow/atlas_quadrant_3_subdiv=0

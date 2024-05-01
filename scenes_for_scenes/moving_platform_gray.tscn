@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://x1uveuekj8um"]
+
+[ext_resource type="Script" path="res://scripts/moving_platform_gray.gd" id="1_1ecwy"]
+[ext_resource type="Texture2D" uid="uid://cghfqfg0bfaxa" path="res://resources/interactive/fixedMoveplatform/fire.png" id="2_bxtsa"]
+
+[sub_resource type="Animation" id="Animation_xsp33"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sr1p5"]
+resource_name = "move_loop"
+length = 2.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(177, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p3g3r"]
+_data = {
+"RESET": SubResource("Animation_xsp33"),
+"move_loop": SubResource("Animation_sr1p5")
+}
+
+[node name="MovingPlatform" type="Node2D"]
+script = ExtResource("1_1ecwy")
+
+[node name="Platform" type="AnimatableBody2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform"]
+position = Vector2(-2.44843, -0.5)
+scale = Vector2(1, 1.03125)
+texture = ExtResource("2_bxtsa")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Platform"]
+position = Vector2(-2.94843, -1)
+polygon = PackedVector2Array(-18.0516, -15, 17.9484, -15, 31.9484, 0, 17.9484, 16, -16.0516, 16, -31.0516, 0)
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform"]
+libraries = {
+"": SubResource("AnimationLibrary_p3g3r")
+}
+speed_scale = 0.5
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

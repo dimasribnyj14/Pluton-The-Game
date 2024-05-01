@@ -103,7 +103,7 @@ anchor_bottom = 0.5
 offset_left = -358.549
 offset_top = 390.0
 offset_right = 3481.45
-offset_bottom = 13256.0
+offset_bottom = 23034.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.191819, 0.200276)
@@ -185,6 +185,24 @@ label_settings = SubResource("LabelSettings_lwabx")
 horizontal_alignment = 1
 
 [node name="BigLabel3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Level design"
+label_settings = SubResource("LabelSettings_h61v1")
+horizontal_alignment = 1
+
+[node name="Label22" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Dmitry Sribnyj"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label23" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Pasha Ustich"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="BigLabel9" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Designers"
 label_settings = SubResource("LabelSettings_h61v1")
@@ -325,6 +343,208 @@ theme_override_font_sizes/font_size = 200
 text = "GODOT ENGINE
 Game JAm 2024"
 label_settings = SubResource("LabelSettings_hxu2d")
+
+[node name="DLC" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.392157, 0.560784, 0.788235, 1)
+theme_override_colors/font_outline_color = Color(0, 0.0627451, 0.309804, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("8_ao7op")
+theme_override_font_sizes/font_size = 600
+text = "Hero Training"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BigLabel13" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Designers"
+label_settings = SubResource("LabelSettings_h61v1")
+horizontal_alignment = 1
+
+[node name="Label42" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Safonova Anya"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label41" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Mykhnenko Danylo"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label39" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Artem Matiashov"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label28" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Pasha Ustich"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label29" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Yaroslav Repan"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="BigLabel12" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Coders"
+label_settings = SubResource("LabelSettings_h61v1")
+horizontal_alignment = 1
+
+[node name="Label26" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Dmitry Sribnyj"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="BigLabel11" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Level design"
+label_settings = SubResource("LabelSettings_h61v1")
+horizontal_alignment = 1
+
+[node name="Label40" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Pasha Ustich"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label24" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Dmitry Sribnyj"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="BigLabel10" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Scripters"
+label_settings = SubResource("LabelSettings_h61v1")
+horizontal_alignment = 1
+
+[node name="Label25" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Pasha Ustich"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="BigLabel14" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Music"
+label_settings = SubResource("LabelSettings_h61v1")
+horizontal_alignment = 1
+
+[node name="Label27" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Mykhnenko Danylo"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="DLC2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.552941, 0.552941, 0.552941, 1)
+theme_override_colors/font_outline_color = Color(0.219608, 0.219608, 0.219608, 1)
+theme_override_constants/outline_size = 255
+theme_override_fonts/font = ExtResource("7_nsrrt")
+theme_override_font_sizes/font_size = 500
+text = "Predecessor"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BigLabel15" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Designers"
+label_settings = SubResource("LabelSettings_h61v1")
+horizontal_alignment = 1
+
+[node name="Label43" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Artem Matiashov"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label36" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Safonova Anya"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label30" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Pasha Ustich"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label31" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Yaroslav Repan"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="BigLabel16" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Coders"
+label_settings = SubResource("LabelSettings_h61v1")
+horizontal_alignment = 1
+
+[node name="Label32" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Dmitry Sribnyj"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label44" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Yaroslav Repan"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="BigLabel17" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Level design"
+label_settings = SubResource("LabelSettings_h61v1")
+horizontal_alignment = 1
+
+[node name="Label37" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Safonova Anya"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="Label38" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Yaroslav Repan"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="BigLabel18" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Scripters"
+label_settings = SubResource("LabelSettings_h61v1")
+horizontal_alignment = 1
+
+[node name="Label34" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Dmitry Sribnyj"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
+
+[node name="BigLabel19" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Music"
+label_settings = SubResource("LabelSettings_h61v1")
+horizontal_alignment = 1
+
+[node name="Label35" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Mykhnenko Danylo"
+label_settings = SubResource("LabelSettings_lwabx")
+horizontal_alignment = 1
 
 [node name="BigLabel8" type="Label" parent="VBoxContainer"]
 layout_mode = 2

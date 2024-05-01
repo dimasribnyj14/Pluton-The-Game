@@ -16,6 +16,7 @@ func _on_pressed():
 	$"../../../".hide()
 	$"../../../../TouchScreenButton2".show()
 	$"../../../../TouchScreenButton5".show()
+	$"../../../../TouchScreenButton6".show()
 	$"../../../../TouchScreenButton4".show()
 	$"../../../../TouchScreenButton3".show()
 	$"../../../../TouchScreenButton".show()

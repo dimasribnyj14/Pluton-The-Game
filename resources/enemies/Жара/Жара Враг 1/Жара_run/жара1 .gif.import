@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://d3wdo2b4cucdc"
+path="res://.godot/imported/жара1 .gif-e1a3ac407cfb8a26197251605983d783.tres"
+
+[deps]
+
+source_file="res://resources/enemies/Жара/Жара Враг 1/Жара_run/жара1 .gif"
+dest_files=["res://.godot/imported/жара1 .gif-e1a3ac407cfb8a26197251605983d783.tres"]
+
+[params]
+
+frames_per_second=30

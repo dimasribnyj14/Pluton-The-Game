@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://ie5ljbga6fbi"]
+
+[ext_resource type="Script" path="res://scripts/icicle.gd" id="1_6n4km"]
+[ext_resource type="Texture2D" uid="uid://0h2nbu72v2pd" path="res://resources/decorations/ice_level/sosulka.png" id="1_k8e4a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kh0hf"]
+size = Vector2(132.75, 309)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xp74g"]
+size = Vector2(11, 33.5)
+
+[node name="Icicle" type="Area2D"]
+script = ExtResource("1_6n4km")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -113.0
+offset_top = -104.0
+offset_right = 148.0
+offset_bottom = 157.0
+texture = ExtResource("1_k8e4a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(21, 110)
+shape = SubResource("RectangleShape2D_kh0hf")
+
+[node name="icicle" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="icicle"]
+position = Vector2(18.5, 21.25)
+shape = SubResource("RectangleShape2D_xp74g")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="icicle" to="." method="_on_hit_box_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
